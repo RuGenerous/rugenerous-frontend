@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import { ReactComponent as Info } from "../../assets/icons/info.svg";
-import { SvgIcon, Paper, Typography, Box, Popper } from "@material-ui/core";
+import { SvgIcon, Paper, Typography, Box, Popper, SvgIconTypeMap } from "@material-ui/core";
 import "./infotooltip.scss";
 
-function InfoTooltip({ message }) {
+type Props = {
+  message: any
+}
+
+function InfoTooltip({ message }: Props) {
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const handleHover = event => {
-    setAnchorEl(anchorEl ? null : event.currentTarget);
+  const handleHover = (e: React.MouseEvent<SVGSVGElement>) => {
+    setAnchorEl(anchorEl);
   };
 
   const open = Boolean(anchorEl);

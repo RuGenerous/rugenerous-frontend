@@ -6,6 +6,16 @@ import { LinearProgress, Snackbar, makeStyles } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import AlertTitle from "@material-ui/lab/AlertTitle";
 import "./ConsoleInterceptor.js";
+import {useAppDispatch, useAppSelector} from '../../hooks/useRedux'
+
+type Message = {
+  message: any
+}
+type Index = {
+  index: any
+}
+
+type MessageIndex = Index & Message
 
 const useStyles = makeStyles({
   root: {
@@ -14,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-function Linear({ message }) {
+function Linear({ message }: Message) {
   const [progress, setProgress] = useState(100);
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -43,13 +53,13 @@ function Linear({ message }) {
     </div>
   );
 }
-
+ 
 // A component that displays error messages
 function Messages() {
-  const messages = useSelector(state => state.messages);
-  const dispatch = useDispatch();
+  const messages = useAppSelector(state => state.messages);
+  const dispatch = useAppDispatch();
   // Returns a function that can closes a message
-  const handleClose = function (message) {
+  const handleClose = function ({message}: Message) {
     return function () {
       dispatch(close(message));
     };
@@ -57,7 +67,7 @@ function Messages() {
   return (
     <div>
       <div>
-        {messages.items.map((message, index) => {
+        {messages.items.map(({message, index}: Message) => {
           return (
             <Snackbar open={message.open} key={index} anchorOrigin={{ vertical: "top", horizontal: "center" }}>
               <Alert
@@ -78,7 +88,6 @@ function Messages() {
       </div>
     </div>
   );
-  return res;
 }
 // Invoke repetedly obsolete messages deletion (should be in slice file but I cannot find a way to access the store from there)
 window.setInterval(() => {

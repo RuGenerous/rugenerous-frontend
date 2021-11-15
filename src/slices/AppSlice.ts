@@ -7,7 +7,7 @@ import apollo from "../lib/apolloClient.js";
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "src/store";
 import { IBaseAsyncThunk } from "./interfaces";
-import { RuGenerousStakingv2, SRugv2 } from "../typechain";
+import { RuGenerousStakingv2, SRugv2 } from "../../src/typechain";
 
 const initialState = {
   loading: false,
@@ -26,10 +26,10 @@ export const loadAppDetails = createAsyncThunk(
     }
     protocolMetrics(first: 1, orderBy: timestamp, orderDirection: desc) {
       timestamp
-      ohmCirculatingSupply
+      rugCirculatingSupply
       sRugCirculatingSupply
       totalSupply
-      ohmPrice
+      rugPrice
       marketCap
       totalValueLocked
       treasuryMarketValue
@@ -48,7 +48,7 @@ export const loadAppDetails = createAsyncThunk(
 
     const stakingTVL = parseFloat(graphData.data.protocolMetrics[0].totalValueLocked);
     // NOTE (appleseed): marketPrice from Graph was delayed, so get CoinGecko price
-    // const marketPrice = parseFloat(graphData.data.protocolMetrics[0].ohmPrice);
+    // const marketPrice = parseFloat(graphData.data.protocolMetrics[0].rugPrice);
     let marketPrice;
     try {
       const originalPromiseResult = await dispatch(
@@ -62,7 +62,7 @@ export const loadAppDetails = createAsyncThunk(
     }
 
     const marketCap = parseFloat(graphData.data.protocolMetrics[0].marketCap);
-    const circSupply = parseFloat(graphData.data.protocolMetrics[0].ohmCirculatingSupply);
+    const circSupply = parseFloat(graphData.data.protocolMetrics[0].rugCirculatingSupply);
     const totalSupply = parseFloat(graphData.data.protocolMetrics[0].totalSupply);
     const treasuryMarketValue = parseFloat(graphData.data.protocolMetrics[0].treasuryMarketValue);
     // const currentBlock = parseFloat(graphData.data._meta.block.number);
@@ -86,7 +86,7 @@ export const loadAppDetails = createAsyncThunk(
       provider,
     ) as RuGenerousStakingv2;
 
-    const sohmMainContract = new ethers.Contract(
+    const srugMainContract = new ethers.Contract(
       addresses[networkID].SRUG_ADDRESS as string,
       sRUGv2,
       provider,
@@ -95,7 +95,7 @@ export const loadAppDetails = createAsyncThunk(
     // Calculating staking
     const epoch = await stakingContract.epoch();
     const stakingReward = epoch.distribute;
-    const circ = await sohmMainContract.circulatingSupply();
+    const circ = await srugMainContract.circulatingSupply();
     const stakingRebase = Number(stakingReward.toString()) / Number(circ.toString());
     const fiveDayRate = Math.pow(1 + stakingRebase, 5 * 3) - 1;
     const stakingAPY = Math.pow(1 + stakingRebase, 365 * 3) - 1;
@@ -160,7 +160,7 @@ export const findOrLoadMarketPrice = createAsyncThunk(
 
 /**
  * - fetches the RUG price from CoinGecko (via getTokenPrice)
- * - falls back to fetch marketPrice from ohm-dai contract
+ * - falls back to fetch marketPrice from rug-dai contract
  * - updates the App.slice when it runs
  */
 const loadMarketPrice = createAsyncThunk("app/loadMarketPrice", async ({ networkID, provider }: IBaseAsyncThunk) => {

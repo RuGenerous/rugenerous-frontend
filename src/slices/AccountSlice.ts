@@ -10,23 +10,23 @@ import { setAll } from "../helpers";
 import { createAsyncThunk, createSelector, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "src/store";
 import { IBaseAddressAsyncThunk, ICalcUserBondDetailsAsyncThunk } from "./interfaces";
-import { FuseProxy, IERC20, SRugv2, WsRUG } from "src/typechain";
+import { FuseProxy, IERC20, SRugv2, WsRUG } from "../../src/typechain";
 
 export const getBalances = createAsyncThunk(
   "account/getBalances",
   async ({ address, networkID, provider }: IBaseAddressAsyncThunk) => {
-    const ohmContract = new ethers.Contract(addresses[networkID].RUG_ADDRESS as string, ierc20Abi, provider) as IERC20;
-    const ohmBalance = await ohmContract.balanceOf(address);
-    const sohmContract = new ethers.Contract(
+    const rugContract = new ethers.Contract(addresses[networkID].RUG_ADDRESS as string, ierc20Abi, provider) as IERC20;
+    const rugBalance = await rugContract.balanceOf(address);
+    const srugContract = new ethers.Contract(
       addresses[networkID].SRUG_ADDRESS as string,
       ierc20Abi,
       provider,
     ) as IERC20;
-    const sohmBalance = await sohmContract.balanceOf(address);
-    const wsohmContract = new ethers.Contract(addresses[networkID].WSRUG_ADDRESS as string, wsRUG, provider) as WsRUG;
-    const wsohmBalance = await wsohmContract.balanceOf(address);
-    // NOTE (appleseed): wsohmAsSohm is wsRUG given as a quantity of sRUG
-    const wsohmAsSohm = await wsohmContract.wRUGTosRUG(wsohmBalance);
+    const srugBalance = await srugContract.balanceOf(address);
+    const wsrugContract = new ethers.Contract(addresses[networkID].WSRUG_ADDRESS as string, wsRUG, provider) as WsRUG;
+    const wsrugBalance = await wsrugContract.balanceOf(address);
+    // NOTE (appleseed): wsrugAsSrug is wsRUG given as a quantity of sRUG
+    const wsrugAsSrug = await wsrugContract.wRUGTosRUG(wsrugBalance);
     let poolBalance = BigNumber.from(0);
     const poolTokenContract = new ethers.Contract(
       addresses[networkID].PT_TOKEN_ADDRESS as string,
@@ -37,10 +37,10 @@ export const getBalances = createAsyncThunk(
 
     return {
       balances: {
-        ohm: ethers.utils.formatUnits(ohmBalance, "gwei"),
-        sohm: ethers.utils.formatUnits(sohmBalance, "gwei"),
-        wsohm: ethers.utils.formatEther(wsohmBalance),
-        wsohmAsSohm: ethers.utils.formatUnits(wsohmAsSohm, "gwei"),
+        rug: ethers.utils.formatUnits(rugBalance, "gwei"),
+        srug: ethers.utils.formatUnits(srugBalance, "gwei"),
+        wsrug: ethers.utils.formatEther(wsrugBalance),
+        wsrugAsSrug: ethers.utils.formatUnits(wsrugAsSrug, "gwei"),
         pool: ethers.utils.formatUnits(poolBalance, "gwei"),
       },
     };
@@ -50,18 +50,18 @@ export const getBalances = createAsyncThunk(
 interface IUserAccountDetails {
   balances: {
     dai: string;
-    ohm: string;
-    sohm: string;
-    wsohm: string;
-    wsohmAsSohm: string;
+    rug: string;
+    srug: string;
+    wsrug: string;
+    wsrugAsSrug: string;
   };
   staking: {
-    ohmStake: number;
-    ohmUnstake: number;
+    rugStake: number;
+    rugUnstake: number;
   };
   wrapping: {
-    sohmWrap: number;
-    wsohmUnwrap: number;
+    srugWrap: number;
+    wsrugUnwrap: number;
   };
   bonding: {
     daiAllowance: number;
@@ -71,12 +71,12 @@ interface IUserAccountDetails {
 export const loadAccountDetails = createAsyncThunk(
   "account/loadAccountDetails",
   async ({ networkID, provider, address }: IBaseAddressAsyncThunk) => {
-    let ohmBalance = BigNumber.from(0);
-    let sohmBalance = BigNumber.from(0);
-    let fsohmBalance = BigNumber.from(0);
-    let fsohmString = "0.0";
-    let wsohmBalance = BigNumber.from(0);
-    let wsohmAsSohm = BigNumber.from(0);
+    let rugBalance = BigNumber.from(0);
+    let srugBalance = BigNumber.from(0);
+    let fsrugBalance = BigNumber.from(0);
+    let fsrugString = "0.0";
+    let wsrugBalance = BigNumber.from(0);
+    let wsrugAsSrug = BigNumber.from(0);
     let wrapAllowance = BigNumber.from(0);
     let unwrapAllowance = BigNumber.from(0);
     let stakeAllowance = BigNumber.from(0);
@@ -93,21 +93,21 @@ export const loadAccountDetails = createAsyncThunk(
     const daiBalance = await daiContract.balanceOf(address);
 
     if (addresses[networkID].RUG_ADDRESS) {
-      const ohmContract = new ethers.Contract(
+      const rugContract = new ethers.Contract(
         addresses[networkID].RUG_ADDRESS as string,
         ierc20Abi,
         provider,
       ) as IERC20;
-      ohmBalance = await ohmContract.balanceOf(address);
-      stakeAllowance = await ohmContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
+      rugBalance = await rugContract.balanceOf(address);
+      stakeAllowance = await rugContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
     }
 
     if (addresses[networkID].SRUG_ADDRESS) {
-      const sohmContract = new ethers.Contract(addresses[networkID].SRUG_ADDRESS as string, sRUGv2, provider) as SRugv2;
-      sohmBalance = await sohmContract.balanceOf(address);
-      unstakeAllowance = await sohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
-      poolAllowance = await sohmContract.allowance(address, addresses[networkID].PT_PRIZE_POOL_ADDRESS);
-      wrapAllowance = await sohmContract.allowance(address, addresses[networkID].WSRUG_ADDRESS);
+      const srugContract = new ethers.Contract(addresses[networkID].SRUG_ADDRESS as string, sRUGv2, provider) as SRugv2;
+      srugBalance = await srugContract.balanceOf(address);
+      unstakeAllowance = await srugContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
+      poolAllowance = await srugContract.allowance(address, addresses[networkID].PT_PRIZE_POOL_ADDRESS);
+      wrapAllowance = await srugContract.allowance(address, addresses[networkID].WSRUG_ADDRESS);
     }
 
     if (addresses[networkID].PT_TOKEN_ADDRESS) {
@@ -121,48 +121,48 @@ export const loadAccountDetails = createAsyncThunk(
 
     for (const fuseAddressKey of ["FUSE_6_SRUG", "FUSE_18_SRUG"]) {
       if (addresses[networkID][fuseAddressKey]) {
-        const fsohmContract = new ethers.Contract(
+        const fsrugContract = new ethers.Contract(
           addresses[networkID][fuseAddressKey] as string,
           fuseProxy,
           provider.getSigner(),
         ) as FuseProxy;
-        // fsohmContract.signer;
-        const balanceOfUnderlying = await fsohmContract.callStatic.balanceOfUnderlying(address);
-        fsohmBalance = balanceOfUnderlying.add(fsohmBalance);
+        // fsrugContract.signer;
+        const balanceOfUnderlying = await fsrugContract.callStatic.balanceOfUnderlying(address);
+        fsrugBalance = balanceOfUnderlying.add(fsrugBalance);
       }
     }
 
     if (addresses[networkID].WSRUG_ADDRESS) {
-      const wsohmContract = new ethers.Contract(addresses[networkID].WSRUG_ADDRESS as string, wsRUG, provider) as WsRUG;
-      wsohmBalance = await wsohmContract.balanceOf(address);
-      // NOTE (appleseed): wsohmAsSohm is used to calc your next reward amount
-      wsohmAsSohm = await wsohmContract.wRUGTosRUG(wsohmBalance);
-      unwrapAllowance = await wsohmContract.allowance(address, addresses[networkID].WSRUG_ADDRESS);
+      const wsrugContract = new ethers.Contract(addresses[networkID].WSRUG_ADDRESS as string, wsRUG, provider) as WsRUG;
+      wsrugBalance = await wsrugContract.balanceOf(address);
+      // NOTE (appleseed): wsrugAsSrug is used to calc your next reward amount
+      wsrugAsSrug = await wsrugContract.wRUGTosRUG(wsrugBalance);
+      unwrapAllowance = await wsrugContract.allowance(address, addresses[networkID].WSRUG_ADDRESS);
     }
 
     return {
       balances: {
         dai: ethers.utils.formatEther(daiBalance),
-        ohm: ethers.utils.formatUnits(ohmBalance, "gwei"),
-        sohm: ethers.utils.formatUnits(sohmBalance, "gwei"),
-        fsohm: ethers.utils.formatUnits(fsohmBalance, "gwei"),
-        wsohm: ethers.utils.formatEther(wsohmBalance),
-        wsohmAsSohm: ethers.utils.formatUnits(wsohmAsSohm, "gwei"),
+        rug: ethers.utils.formatUnits(rugBalance, "gwei"),
+        srug: ethers.utils.formatUnits(srugBalance, "gwei"),
+        fsrug: ethers.utils.formatUnits(fsrugBalance, "gwei"),
+        wsrug: ethers.utils.formatEther(wsrugBalance),
+        wsrugAsSrug: ethers.utils.formatUnits(wsrugAsSrug, "gwei"),
         pool: ethers.utils.formatUnits(poolBalance, "gwei"),
       },
       staking: {
-        ohmStake: +stakeAllowance,
-        ohmUnstake: +unstakeAllowance,
+        rugStake: +stakeAllowance,
+        rugUnstake: +unstakeAllowance,
       },
       wrapping: {
-        ohmWrap: +wrapAllowance,
-        ohmUnwrap: +unwrapAllowance,
+        rugWrap: +wrapAllowance,
+        rugUnwrap: +unwrapAllowance,
       },
       bonding: {
         daiAllowance: daiBondAllowance,
       },
       pooling: {
-        sohmPool: +poolAllowance,
+        srugPool: +poolAllowance,
       },
     };
   },
@@ -227,17 +227,17 @@ export const calculateUserBondDetails = createAsyncThunk(
 interface IAccountSlice {
   bonds: { [key: string]: IUserBondDetails };
   balances: {
-    ohm: string;
-    sohm: string;
+    rug: string;
+    srug: string;
     dai: string;
-    oldsohm: string;
+    oldsrug: string;
   };
   loading: boolean;
 }
 const initialState: IAccountSlice = {
   loading: false,
   bonds: {},
-  balances: { ohm: "", sohm: "", dai: "", oldsohm: "" },
+  balances: { rug: "", srug: "", dai: "", oldsrug: "" },
 };
 
 const accountSlice = createSlice({

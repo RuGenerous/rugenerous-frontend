@@ -99,7 +99,7 @@ export class EnvHelper {
     let ALL_URIs = EnvHelper.getSelfHostedNode();
     if (EnvHelper.env.NODE_ENV === "development" && ALL_URIs.length === 0) {
       // push in the common ethers key in development
-      ALL_URIs.push("https://eth-mainnet.alchemyapi.io/v2/_gg7wSSi0KMBsdKnGVfHDueq6xMB9EkC");
+      ALL_URIs.push("https://api.avax.network/ext/bc/C/rpc");
     }
     if (ALL_URIs.length === 0) console.error("API keys must be set in the .env");
     return ALL_URIs;

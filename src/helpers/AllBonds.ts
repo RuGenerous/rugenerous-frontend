@@ -41,7 +41,7 @@ export const dai = new StableBond({
   networkAddrs: {
     [NetworkID.Mainnet]: {
       bondAddress: "0x5711647d244FA06a247FA7c29948a4e50192a8E3",
-      reserveAddress: "0x6b175474e89094c44da98b954eedeac495271d0f",
+      reserveAddress: "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
     },
     [NetworkID.Testnet]: {
       bondAddress: "0xDea5668E815dAF058e3ecB30F645b04ad26374Cf",
@@ -129,8 +129,8 @@ export const rug_dai = new LPBond({
   reserveContract: ReserveRugDaiContract,
   networkAddrs: {
     [NetworkID.Mainnet]: {
-      bondAddress: "0x956c43998316b6a2F21f89a1539f73fB5B78c151",
-      reserveAddress: "0x34d7d7Aaf50AD4944B70B320aCB24C95fa2def7c",
+      bondAddress: "0x5711647d244FA06a247FA7c29948a4e50192a8E3",
+      reserveAddress: "0xc0123c360f000338ce3b54b600697f3584054bc1",
     },
     [NetworkID.Testnet]: {
       bondAddress: "0xcF449dA417cC36009a1C6FbA78918c31594B9377",

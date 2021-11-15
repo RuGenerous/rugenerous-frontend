@@ -95,7 +95,7 @@ function OhmMenu() {
               <Paper className="ohm-menu" elevation={1}>
                 <Box component="div" className="buy-tokens">
                   <Link
-                    href={`https://app.sushi.com/swap?inputCurrency=${daiAddress}&outputCurrency=${RUG_ADDRESS}`}
+                    href={`https://traderjoexyz.com/swap?inputCurrency=${daiAddress}&outputCurrency=${RUG_ADDRESS}`}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -113,7 +113,7 @@ function OhmMenu() {
                   </Link>
                 </Box>
 
-                <Box component="div" className="data-links">
+                {/* <Box component="div" className="data-links">
                   <Divider color="secondary" className="less-margin" />
                   <Link href={`https://dune.xyz/shadow/RuGenerous-(RUG)`} target="_blank" rel="noreferrer">
                     <Button size="large" variant="contained" color="secondary" fullWidth>
@@ -122,7 +122,7 @@ function OhmMenu() {
                       </Typography>
                     </Button>
                   </Link>
-                </Box>
+                </Box> */}
 
                 {isEthereumAPIAvailable ? (
                   <Box className="add-tokens">
@@ -182,7 +182,7 @@ function OhmMenu() {
                 ) : null}
 
                 <Divider color="secondary" />
-                <Link
+                {/* <Link
                   href="https://docs.olympusdao.finance/using-the-website/unstaking_lp"
                   target="_blank"
                   rel="noreferrer"
@@ -190,7 +190,7 @@ function OhmMenu() {
                   <Button size="large" variant="contained" color="secondary" fullWidth>
                     <Typography align="left">Unstake Legacy LP Token</Typography>
                   </Button>
-                </Link>
+                </Link> */}
               </Paper>
             </Fade>
           );

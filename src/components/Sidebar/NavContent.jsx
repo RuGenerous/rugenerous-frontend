@@ -7,6 +7,7 @@ import { ReactComponent as BondIcon } from "../../assets/icons/bond.svg";
 import { ReactComponent as DashboardIcon } from "../../assets/icons/dashboard.svg";
 import { ReactComponent as RugIcon } from "../../assets/icons/rug-text-logo.svg";
 import { ReactComponent as PoolTogetherIcon } from "../../assets/icons/33-together.svg";
+import RugLogo from "../../assets/images/RUG-LOGO.png";
 import { trim, shorten } from "../../helpers";
 import { useAddress, useWeb3Context } from "src/hooks/web3Context";
 import useBonds from "../../hooks/Bonds";
@@ -40,12 +41,13 @@ function NavContent() {
         <div className="dapp-menu-top">
           <Box className="branding-header">
             <Link href="https://rug.farm" target="_blank">
-              <SvgIcon
+              {/* <SvgIcon
                 color="primary"
                 component={RugIcon}
                 viewBox="0 0 151 100"
                 style={{ minWdth: "151px", minHeight: "98px", width: "151px" }}
-              />
+              /> */}
+              <img src={RugLogo} alt="RuGenerous Logo" className="header-logo" />
             </Link>
 
             {address && (

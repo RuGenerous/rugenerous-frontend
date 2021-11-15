@@ -168,7 +168,7 @@ function Stake() {
                 <Typography variant="h5">Single Stake (🚩, 🚩)</Typography>
                 <RebaseTimer />
 
-                {address && oldSrugBalance > 0.01 && (
+                {/* {address && oldSrugBalance > 0.01 && (
                   <Link
                     className="migrate-srug-button"
                     style={{ textDecoration: "none" }}
@@ -179,7 +179,7 @@ function Stake() {
                     <NewReleases viewBox="0 0 24 24" />
                     <Typography>Migrate sRUG!</Typography>
                   </Link>
-                )}
+                )} */}
               </div>
             </Grid>
 

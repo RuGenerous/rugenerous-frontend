@@ -21,7 +21,7 @@ function BondHeader({ bond, slippage, recipientAddress, onRecipientAddressChange
   let history = useHistory();
 
   useEscape(() => {
-    if (open) handleClose;
+    if (open) handleClose();
     else history.push("/bonds");
   });
 

@@ -10,7 +10,7 @@ import { ReactComponent as ohmTokenImg } from "../../assets/tokens/token_RUG.svg
 import { ReactComponent as t33TokenImg } from "../../assets/tokens/token_33T.svg";
 
 import "./ohmmenu.scss";
-import { dai, frax } from "src/helpers/AllBonds";
+import { dai } from "src/helpers/AllBonds";
 import { useWeb3Context } from "../../hooks/web3Context";
 
 import OhmImg from "src/assets/tokens/token_RUG.svg";
@@ -76,7 +76,6 @@ function OhmMenu() {
   const open = Boolean(anchorEl);
   const id = "ohm-popper";
   const daiAddress = dai.getAddressForReserve(networkID);
-  const fraxAddress = frax.getAddressForReserve(networkID);
   return (
     <Box
       component="div"
@@ -102,19 +101,7 @@ function OhmMenu() {
                   >
                     <Button size="large" variant="contained" color="secondary" fullWidth>
                       <Typography align="left">
-                        Buy on Sushiswap <SvgIcon component={ArrowUpIcon} htmlColor="#A3A3A3" />
-                      </Typography>
-                    </Button>
-                  </Link>
-
-                  <Link
-                    href={`https://app.uniswap.org/#/swap?inputCurrency=${fraxAddress}&outputCurrency=${RUG_ADDRESS}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Button size="large" variant="contained" color="secondary" fullWidth>
-                      <Typography align="left">
-                        Buy on Uniswap <SvgIcon component={ArrowUpIcon} htmlColor="#A3A3A3" />
+                        Buy on Trader Joe <SvgIcon component={ArrowUpIcon} htmlColor="#A3A3A3" />
                       </Typography>
                     </Button>
                   </Link>
@@ -162,7 +149,7 @@ function OhmMenu() {
                           <Typography variant="body1">sRUG</Typography>
                         </Button>
                       )}
-                      {WSRUG_ADDRESS && (
+                      {/* {WSRUG_ADDRESS && (
                         <Button
                           variant="contained"
                           color="secondary"
@@ -175,8 +162,8 @@ function OhmMenu() {
                           />
                           <Typography variant="body1">wsRUG</Typography>
                         </Button>
-                      )}
-                      {PT_TOKEN_ADDRESS && (
+                      )} */}
+                      {/* {PT_TOKEN_ADDRESS && (
                         <Button
                           variant="contained"
                           color="secondary"
@@ -189,7 +176,7 @@ function OhmMenu() {
                           />
                           <Typography variant="body1">33T</Typography>
                         </Button>
-                      )}
+                      )} */}
                     </Box>
                   </Box>
                 ) : null}

@@ -39,7 +39,7 @@ function NavContent() {
       <Box className="dapp-sidebar-inner" display="flex" justifyContent="space-between" flexDirection="column">
         <div className="dapp-menu-top">
           <Box className="branding-header">
-            <Link href="https://olympusdao.finance" target="_blank">
+            <Link href="https://rug.farm" target="_blank">
               <SvgIcon
                 color="primary"
                 component={OlympusIcon}
@@ -50,7 +50,7 @@ function NavContent() {
 
             {address && (
               <div className="wallet-link">
-                <Link href={`https://etherscan.io/address/${address}`} target="_blank">
+                <Link href={`https://snowtrace.io/address/${address}`} target="_blank">
                   {shorten(address)}
                 </Link>
               </div>
@@ -89,7 +89,7 @@ function NavContent() {
                 </Typography>
               </Link>
 
-              <Link
+              {/* <Link
                 component={NavLink}
                 id="33-together-nav"
                 to="/33-together"
@@ -100,9 +100,9 @@ function NavContent() {
               >
                 <Typography variant="h6">
                   <SvgIcon color="primary" component={PoolTogetherIcon} />
-                  3,3 Together
+                  🚩 Put Your Flags Up 🚩
                 </Typography>
-              </Link>
+              </Link> */}
 
               <Link
                 component={NavLink}

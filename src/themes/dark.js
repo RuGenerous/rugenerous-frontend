@@ -10,9 +10,9 @@ const darkTheme = {
   gold: "#F8CC82",
   gray: "#A3A3A3",
   textHighlightColor: "#F4D092",
-  backgroundColor: "rgba(8, 15, 53, 1)",
+  backgroundColor: "#3E3A71",
   background: `
-    linear-gradient(180deg, rgba(8, 15, 53, 0), rgba(0, 0, 10, 0.9)),
+    linear-gradient(180deg, #3E3A71, rgba(0, 0, 10, 0.9)),
     linear-gradient(333deg, rgba(153, 207, 255, 0.2), rgba(180, 255, 217, 0.08)),
     radial-gradient(circle at 77% 89%, rgba(125, 163, 169, 0.8), rgba(125, 163, 169, 0) 50%),
     radial-gradient(circle at 15% 95%, rgba(125, 163, 169, 0.8), rgba(125, 163, 169, 0) 43%),
@@ -29,11 +29,11 @@ const darkTheme = {
   activeLinkColor: "#F5DDB4",
   activeLinkSvgColor:
     "brightness(0) saturate(100%) invert(84%) sepia(49%) saturate(307%) hue-rotate(326deg) brightness(106%) contrast(92%)",
-  primaryButtonColor: "#333333",
+  primaryButtonColor: "#3E3A71",
   primaryButtonBG: "#F4D092",
   primaryButtonHoverBG: "#EDD8B4",
   secondaryButtonHoverBG: "rgba(54, 56, 64, 1)",
-  outlinedPrimaryButtonHoverBG: "#F8CC82",
+  outlinedPrimaryButtonHoverBG: "#3E3A71",
   outlinedPrimaryButtonHoverColor: "#333333",
   outlinedSecondaryButtonHoverBG: "transparent",
   outlinedSecondaryButtonHoverColor: "#F8CC82", //gold

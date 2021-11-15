@@ -57,9 +57,6 @@ function Stake() {
   const rugBalance = useSelector(state => {
     return state.account.balances && state.account.balances.rug;
   });
-  const oldSrugBalance = useSelector(state => {
-    return state.account.balances && state.account.balances.oldsrug;
-  });
   const srugBalance = useSelector(state => {
     return state.account.balances && state.account.balances.srug;
   });
@@ -269,13 +266,13 @@ function Stake() {
                                 <>
                                   First time staking <b>RUG</b>?
                                   <br />
-                                  Please approve Rug Dao to use your <b>RUG</b> for staking.
+                                  Please approve RuGenerous to use your <b>RUG</b> for staking.
                                 </>
                               ) : (
                                 <>
                                   First time unstaking <b>sRUG</b>?
                                   <br />
-                                  Please approve Rug Dao to use your <b>sRUG</b> for unstaking.
+                                  Please approve RuGenerous to use your <b>sRUG</b> for unstaking.
                                 </>
                               )}
                             </Typography>

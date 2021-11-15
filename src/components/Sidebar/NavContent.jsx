@@ -23,9 +23,9 @@ function NavContent() {
 
   const checkPage = useCallback((match, location, page) => {
     const currentPath = location.pathname.replace("/", "");
-    if (currentPath.indexOf("dashboard") >= 0 && page === "dashboard") {
-      return true;
-    }
+    // if (currentPath.indexOf("dashboard") >= 0 && page === "dashboard") {
+    //   return true;
+    // }
     if (currentPath.indexOf("stake") >= 0 && page === "stake") {
       return true;
     }
@@ -61,7 +61,7 @@ function NavContent() {
 
           <div className="dapp-menu-links">
             <div className="dapp-nav" id="navbarNav">
-              <Link
+              {/* <Link
                 component={NavLink}
                 id="dash-nav"
                 to="/dashboard"
@@ -74,7 +74,7 @@ function NavContent() {
                   <SvgIcon color="primary" component={DashboardIcon} />
                   Dashboard
                 </Typography>
-              </Link>
+              </Link> */}
 
               <Link
                 component={NavLink}

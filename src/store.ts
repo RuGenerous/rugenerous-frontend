@@ -3,7 +3,7 @@ import accountReducer from "./slices/AccountSlice";
 import bondingReducer from "./slices/BondSlice";
 import appReducer from "./slices/AppSlice";
 import pendingTransactionsReducer from "./slices/PendingTxnsSlice";
-import poolDataReducer from "./slices/PoolThunk";
+//import poolDataReducer from "./slices/PoolThunk";
 
 import messagesReducer from "./slices/MessagesSlice";
 // reducers are named automatically based on the name field in the slice
@@ -17,7 +17,7 @@ const store = configureStore({
     bonding: bondingReducer,
     app: appReducer,
     pendingTransactions: pendingTransactionsReducer,
-    poolData: poolDataReducer,
+    //poolData: poolDataReducer,
     messages: messagesReducer,
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware({ serializableCheck: false }),

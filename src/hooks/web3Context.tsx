@@ -4,7 +4,7 @@ import { StaticJsonRpcProvider, JsonRpcProvider, Web3Provider } from "@etherspro
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { IFrameEthereumProvider } from "@ledgerhq/iframe-provider";
 import { EnvHelper } from "../helpers/Environment";
-import { NodeHelper } from "src/helpers/NodeHelper";
+import { NodeHelper } from "../../src/helpers/NodeHelper";
 
 /**
  * kept as function to mimic `getMainnetURI()`
@@ -167,7 +167,7 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
     const connectedAddress = await connectedProvider.getSigner().getAddress();
     const validNetwork = _checkNetwork(chainId);
     if (!validNetwork) {
-      console.error("Wrong network, please switch to mainnet");
+      console.error("Wrong network, please switch to avalanche");
       return;
     }
     // Save everything after we've validated the right network.

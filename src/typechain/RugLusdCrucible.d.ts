@@ -65,18 +65,9 @@ interface RugLusdCrucibleInterface extends ethers.utils.Interface {
     "unstakeAndClaim(address,uint256,bytes)": FunctionFragment;
   };
 
-  encodeFunctionData(
-    functionFragment: "BASE_SHARES_PER_WEI",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "MAX_REWARD_TOKENS",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "MAX_STAKES_PER_VAULT",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "BASE_SHARES_PER_WEI", values?: undefined): string;
+  encodeFunctionData(functionFragment: "MAX_REWARD_TOKENS", values?: undefined): string;
+  encodeFunctionData(functionFragment: "MAX_STAKES_PER_VAULT", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "calculateReward",
     values: [
@@ -84,8 +75,8 @@ interface RugLusdCrucibleInterface extends ethers.utils.Interface {
       BigNumberish,
       BigNumberish,
       BigNumberish,
-      { floor: BigNumberish; ceiling: BigNumberish; time: BigNumberish }
-    ]
+      { floor: BigNumberish; ceiling: BigNumberish; time: BigNumberish },
+    ],
   ): string;
   encodeFunctionData(
     functionFragment: "calculateRewardFromStakes",
@@ -95,16 +86,16 @@ interface RugLusdCrucibleInterface extends ethers.utils.Interface {
       BigNumberish,
       BigNumberish,
       BigNumberish,
-      { floor: BigNumberish; ceiling: BigNumberish; time: BigNumberish }
-    ]
+      { floor: BigNumberish; ceiling: BigNumberish; time: BigNumberish },
+    ],
   ): string;
   encodeFunctionData(
     functionFragment: "calculateStakeUnits",
-    values: [BigNumberish, BigNumberish, BigNumberish]
+    values: [BigNumberish, BigNumberish, BigNumberish],
   ): string;
   encodeFunctionData(
     functionFragment: "calculateTotalStakeUnits",
-    values: [{ amount: BigNumberish; timestamp: BigNumberish }[], BigNumberish]
+    values: [{ amount: BigNumberish; timestamp: BigNumberish }[], BigNumberish],
   ): string;
   encodeFunctionData(
     functionFragment: "calculateUnlockedRewards",
@@ -112,281 +103,86 @@ interface RugLusdCrucibleInterface extends ethers.utils.Interface {
       { duration: BigNumberish; start: BigNumberish; shares: BigNumberish }[],
       BigNumberish,
       BigNumberish,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
-  encodeFunctionData(
-    functionFragment: "fund",
-    values: [BigNumberish, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getAludelData",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getBonusTokenAtIndex",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getBonusTokenSetLength",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getCurrentStakeReward",
-    values: [string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getCurrentTotalStakeUnits",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getCurrentUnlockedRewards",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getCurrentVaultReward",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getCurrentVaultStakeUnits",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getFutureStakeReward",
-    values: [string, BigNumberish, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getFutureTotalStakeUnits",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getFutureUnlockedRewards",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getFutureVaultReward",
-    values: [string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getFutureVaultStakeUnits",
-    values: [string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getPowerController",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getPowerSwitch",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getVaultData",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getVaultFactoryAtIndex",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getVaultFactorySetLength",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "fund", values: [BigNumberish, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "getAludelData", values?: undefined): string;
+  encodeFunctionData(functionFragment: "getBonusTokenAtIndex", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "getBonusTokenSetLength", values?: undefined): string;
+  encodeFunctionData(functionFragment: "getCurrentStakeReward", values: [string, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "getCurrentTotalStakeUnits", values?: undefined): string;
+  encodeFunctionData(functionFragment: "getCurrentUnlockedRewards", values?: undefined): string;
+  encodeFunctionData(functionFragment: "getCurrentVaultReward", values: [string]): string;
+  encodeFunctionData(functionFragment: "getCurrentVaultStakeUnits", values: [string]): string;
+  encodeFunctionData(functionFragment: "getFutureStakeReward", values: [string, BigNumberish, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "getFutureTotalStakeUnits", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "getFutureUnlockedRewards", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "getFutureVaultReward", values: [string, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "getFutureVaultStakeUnits", values: [string, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "getPowerController", values?: undefined): string;
+  encodeFunctionData(functionFragment: "getPowerSwitch", values?: undefined): string;
+  encodeFunctionData(functionFragment: "getVaultData", values: [string]): string;
+  encodeFunctionData(functionFragment: "getVaultFactoryAtIndex", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "getVaultFactorySetLength", values?: undefined): string;
   encodeFunctionData(functionFragment: "isOffline", values?: undefined): string;
   encodeFunctionData(functionFragment: "isOnline", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "isShutdown",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "isValidAddress",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "isValidVault",
-    values: [string]
-  ): string;
+  encodeFunctionData(functionFragment: "isShutdown", values?: undefined): string;
+  encodeFunctionData(functionFragment: "isValidAddress", values: [string]): string;
+  encodeFunctionData(functionFragment: "isValidVault", values: [string]): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(functionFragment: "rageQuit", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "registerBonusToken",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "registerVaultFactory",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "removeVaultFactory",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "renounceOwnership",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "rescueTokensFromRewardPool",
-    values: [string, string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "stake",
-    values: [string, BigNumberish, BytesLike]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "transferOwnership",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "unstakeAndClaim",
-    values: [string, BigNumberish, BytesLike]
-  ): string;
+  encodeFunctionData(functionFragment: "registerBonusToken", values: [string]): string;
+  encodeFunctionData(functionFragment: "registerVaultFactory", values: [string]): string;
+  encodeFunctionData(functionFragment: "removeVaultFactory", values: [string]): string;
+  encodeFunctionData(functionFragment: "renounceOwnership", values?: undefined): string;
+  encodeFunctionData(functionFragment: "rescueTokensFromRewardPool", values: [string, string, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "stake", values: [string, BigNumberish, BytesLike]): string;
+  encodeFunctionData(functionFragment: "transferOwnership", values: [string]): string;
+  encodeFunctionData(functionFragment: "unstakeAndClaim", values: [string, BigNumberish, BytesLike]): string;
 
-  decodeFunctionResult(
-    functionFragment: "BASE_SHARES_PER_WEI",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "MAX_REWARD_TOKENS",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "MAX_STAKES_PER_VAULT",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "calculateReward",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "calculateRewardFromStakes",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "calculateStakeUnits",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "calculateTotalStakeUnits",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "calculateUnlockedRewards",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "BASE_SHARES_PER_WEI", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "MAX_REWARD_TOKENS", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "MAX_STAKES_PER_VAULT", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "calculateReward", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "calculateRewardFromStakes", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "calculateStakeUnits", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "calculateTotalStakeUnits", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "calculateUnlockedRewards", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "fund", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "getAludelData",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getBonusTokenAtIndex",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getBonusTokenSetLength",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getCurrentStakeReward",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getCurrentTotalStakeUnits",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getCurrentUnlockedRewards",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getCurrentVaultReward",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getCurrentVaultStakeUnits",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getFutureStakeReward",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getFutureTotalStakeUnits",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getFutureUnlockedRewards",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getFutureVaultReward",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getFutureVaultStakeUnits",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getPowerController",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getPowerSwitch",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getVaultData",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getVaultFactoryAtIndex",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getVaultFactorySetLength",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "getAludelData", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getBonusTokenAtIndex", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getBonusTokenSetLength", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getCurrentStakeReward", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getCurrentTotalStakeUnits", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getCurrentUnlockedRewards", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getCurrentVaultReward", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getCurrentVaultStakeUnits", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getFutureStakeReward", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getFutureTotalStakeUnits", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getFutureUnlockedRewards", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getFutureVaultReward", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getFutureVaultStakeUnits", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getPowerController", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getPowerSwitch", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getVaultData", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getVaultFactoryAtIndex", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getVaultFactorySetLength", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "isOffline", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "isOnline", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "isShutdown", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "isValidAddress",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "isValidVault",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "isValidAddress", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "isValidVault", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "rageQuit", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "registerBonusToken",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "registerVaultFactory",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "removeVaultFactory",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceOwnership",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "rescueTokensFromRewardPool",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "registerBonusToken", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "registerVaultFactory", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "removeVaultFactory", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "renounceOwnership", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "rescueTokensFromRewardPool", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "stake", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "transferOwnership",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "unstakeAndClaim",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "transferOwnership", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "unstakeAndClaim", data: BytesLike): Result;
 
   events: {
     "AludelCreated(address,address)": EventFragment;
@@ -411,21 +207,13 @@ interface RugLusdCrucibleInterface extends ethers.utils.Interface {
   getEvent(nameOrSignatureOrTopic: "VaultFactoryRemoved"): EventFragment;
 }
 
-export type AludelCreatedEvent = TypedEvent<
-  [string, string] & { rewardPool: string; powerSwitch: string }
->;
+export type AludelCreatedEvent = TypedEvent<[string, string] & { rewardPool: string; powerSwitch: string }>;
 
-export type AludelFundedEvent = TypedEvent<
-  [BigNumber, BigNumber] & { amount: BigNumber; duration: BigNumber }
->;
+export type AludelFundedEvent = TypedEvent<[BigNumber, BigNumber] & { amount: BigNumber; duration: BigNumber }>;
 
-export type BonusTokenRegisteredEvent = TypedEvent<
-  [string] & { token: string }
->;
+export type BonusTokenRegisteredEvent = TypedEvent<[string] & { token: string }>;
 
-export type OwnershipTransferredEvent = TypedEvent<
-  [string, string] & { previousOwner: string; newOwner: string }
->;
+export type OwnershipTransferredEvent = TypedEvent<[string, string] & { previousOwner: string; newOwner: string }>;
 
 export type RewardClaimedEvent = TypedEvent<
   [string, string, BigNumber] & {
@@ -435,21 +223,13 @@ export type RewardClaimedEvent = TypedEvent<
   }
 >;
 
-export type StakedEvent = TypedEvent<
-  [string, BigNumber] & { vault: string; amount: BigNumber }
->;
+export type StakedEvent = TypedEvent<[string, BigNumber] & { vault: string; amount: BigNumber }>;
 
-export type UnstakedEvent = TypedEvent<
-  [string, BigNumber] & { vault: string; amount: BigNumber }
->;
+export type UnstakedEvent = TypedEvent<[string, BigNumber] & { vault: string; amount: BigNumber }>;
 
-export type VaultFactoryRegisteredEvent = TypedEvent<
-  [string] & { factory: string }
->;
+export type VaultFactoryRegisteredEvent = TypedEvent<[string] & { factory: string }>;
 
-export type VaultFactoryRemovedEvent = TypedEvent<
-  [string] & { factory: string }
->;
+export type VaultFactoryRemovedEvent = TypedEvent<[string] & { factory: string }>;
 
 export class RugLusdCrucible extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -457,26 +237,26 @@ export class RugLusdCrucible extends BaseContract {
   deployed(): Promise<this>;
 
   listeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): Array<TypedListener<EventArgsArray, EventArgsObject>>;
   off<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   on<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   once<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeListener<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeAllListeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): this;
 
   listeners(eventName?: string): Array<Listener>;
@@ -489,7 +269,7 @@ export class RugLusdCrucible extends BaseContract {
   queryFilter<EventArgsArray extends Array<any>, EventArgsObject>(
     event: TypedEventFilter<EventArgsArray, EventArgsObject>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
   interface: RugLusdCrucibleInterface;
@@ -511,7 +291,7 @@ export class RugLusdCrucible extends BaseContract {
         ceiling: BigNumberish;
         time: BigNumberish;
       },
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { reward: BigNumber }>;
 
     calculateRewardFromStakes(
@@ -525,7 +305,7 @@ export class RugLusdCrucible extends BaseContract {
         ceiling: BigNumberish;
         time: BigNumberish;
       },
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [
         [BigNumber, BigNumber, BigNumber, BigNumber] & {
@@ -533,7 +313,7 @@ export class RugLusdCrucible extends BaseContract {
           newStakesCount: BigNumber;
           reward: BigNumber;
           newTotalStakeUnits: BigNumber;
-        }
+        },
       ] & {
         out: [BigNumber, BigNumber, BigNumber, BigNumber] & {
           lastStakeAmount: BigNumber;
@@ -548,13 +328,13 @@ export class RugLusdCrucible extends BaseContract {
       amount: BigNumberish,
       start: BigNumberish,
       end: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { stakeUnits: BigNumber }>;
 
     calculateTotalStakeUnits(
       stakes: { amount: BigNumberish; timestamp: BigNumberish }[],
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { totalStakeUnits: BigNumber }>;
 
     calculateUnlockedRewards(
@@ -566,18 +346,16 @@ export class RugLusdCrucible extends BaseContract {
       rewardBalance: BigNumberish,
       sharesOutstanding: BigNumberish,
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { unlockedRewards: BigNumber }>;
 
     fund(
       amount: BigNumberish,
       duration: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    getAludelData(
-      overrides?: CallOverrides
-    ): Promise<
+    getAludelData(overrides?: CallOverrides): Promise<
       [
         [
           string,
@@ -596,7 +374,7 @@ export class RugLusdCrucible extends BaseContract {
             duration: BigNumber;
             start: BigNumber;
             shares: BigNumber;
-          })[]
+          })[],
         ] & {
           stakingToken: string;
           rewardToken: string;
@@ -615,7 +393,7 @@ export class RugLusdCrucible extends BaseContract {
             start: BigNumber;
             shares: BigNumber;
           })[];
-        }
+        },
       ] & {
         aludel: [
           string,
@@ -634,7 +412,7 @@ export class RugLusdCrucible extends BaseContract {
             duration: BigNumber;
             start: BigNumber;
             shares: BigNumber;
-          })[]
+          })[],
         ] & {
           stakingToken: string;
           rewardToken: string;
@@ -657,79 +435,63 @@ export class RugLusdCrucible extends BaseContract {
       }
     >;
 
-    getBonusTokenAtIndex(
-      index: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<[string] & { bonusToken: string }>;
+    getBonusTokenAtIndex(index: BigNumberish, overrides?: CallOverrides): Promise<[string] & { bonusToken: string }>;
 
-    getBonusTokenSetLength(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { length: BigNumber }>;
+    getBonusTokenSetLength(overrides?: CallOverrides): Promise<[BigNumber] & { length: BigNumber }>;
 
     getCurrentStakeReward(
       vault: string,
       stakeAmount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { reward: BigNumber }>;
 
-    getCurrentTotalStakeUnits(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { totalStakeUnits: BigNumber }>;
+    getCurrentTotalStakeUnits(overrides?: CallOverrides): Promise<[BigNumber] & { totalStakeUnits: BigNumber }>;
 
-    getCurrentUnlockedRewards(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { unlockedRewards: BigNumber }>;
+    getCurrentUnlockedRewards(overrides?: CallOverrides): Promise<[BigNumber] & { unlockedRewards: BigNumber }>;
 
-    getCurrentVaultReward(
-      vault: string,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { reward: BigNumber }>;
+    getCurrentVaultReward(vault: string, overrides?: CallOverrides): Promise<[BigNumber] & { reward: BigNumber }>;
 
     getCurrentVaultStakeUnits(
       vault: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { stakeUnits: BigNumber }>;
 
     getFutureStakeReward(
       vault: string,
       stakeAmount: BigNumberish,
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { reward: BigNumber }>;
 
     getFutureTotalStakeUnits(
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { totalStakeUnits: BigNumber }>;
 
     getFutureUnlockedRewards(
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { unlockedRewards: BigNumber }>;
 
     getFutureVaultReward(
       vault: string,
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { reward: BigNumber }>;
 
     getFutureVaultStakeUnits(
       vault: string,
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { stakeUnits: BigNumber }>;
 
-    getPowerController(
-      overrides?: CallOverrides
-    ): Promise<[string] & { controller: string }>;
+    getPowerController(overrides?: CallOverrides): Promise<[string] & { controller: string }>;
 
-    getPowerSwitch(
-      overrides?: CallOverrides
-    ): Promise<[string] & { powerSwitch: string }>;
+    getPowerSwitch(overrides?: CallOverrides): Promise<[string] & { powerSwitch: string }>;
 
     getVaultData(
       vault: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [
         [
@@ -737,21 +499,21 @@ export class RugLusdCrucible extends BaseContract {
           ([BigNumber, BigNumber] & {
             amount: BigNumber;
             timestamp: BigNumber;
-          })[]
+          })[],
         ] & {
           totalStake: BigNumber;
           stakes: ([BigNumber, BigNumber] & {
             amount: BigNumber;
             timestamp: BigNumber;
           })[];
-        }
+        },
       ] & {
         vaultData: [
           BigNumber,
           ([BigNumber, BigNumber] & {
             amount: BigNumber;
             timestamp: BigNumber;
-          })[]
+          })[],
         ] & {
           totalStake: BigNumber;
           stakes: ([BigNumber, BigNumber] & {
@@ -762,86 +524,65 @@ export class RugLusdCrucible extends BaseContract {
       }
     >;
 
-    getVaultFactoryAtIndex(
-      index: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<[string] & { factory: string }>;
+    getVaultFactoryAtIndex(index: BigNumberish, overrides?: CallOverrides): Promise<[string] & { factory: string }>;
 
-    getVaultFactorySetLength(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { length: BigNumber }>;
+    getVaultFactorySetLength(overrides?: CallOverrides): Promise<[BigNumber] & { length: BigNumber }>;
 
-    isOffline(
-      overrides?: CallOverrides
-    ): Promise<[boolean] & { status: boolean }>;
+    isOffline(overrides?: CallOverrides): Promise<[boolean] & { status: boolean }>;
 
-    isOnline(
-      overrides?: CallOverrides
-    ): Promise<[boolean] & { status: boolean }>;
+    isOnline(overrides?: CallOverrides): Promise<[boolean] & { status: boolean }>;
 
-    isShutdown(
-      overrides?: CallOverrides
-    ): Promise<[boolean] & { status: boolean }>;
+    isShutdown(overrides?: CallOverrides): Promise<[boolean] & { status: boolean }>;
 
-    isValidAddress(
-      target: string,
-      overrides?: CallOverrides
-    ): Promise<[boolean] & { validity: boolean }>;
+    isValidAddress(target: string, overrides?: CallOverrides): Promise<[boolean] & { validity: boolean }>;
 
-    isValidVault(
-      target: string,
-      overrides?: CallOverrides
-    ): Promise<[boolean] & { validity: boolean }>;
+    isValidVault(target: string, overrides?: CallOverrides): Promise<[boolean] & { validity: boolean }>;
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
-    rageQuit(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    rageQuit(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     registerBonusToken(
       bonusToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     registerVaultFactory(
       factory: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     removeVaultFactory(
       factory: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     rescueTokensFromRewardPool(
       token: string,
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     stake(
       vault: string,
       amount: BigNumberish,
       permission: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     unstakeAndClaim(
       vault: string,
       amount: BigNumberish,
       permission: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
   };
 
@@ -861,7 +602,7 @@ export class RugLusdCrucible extends BaseContract {
       ceiling: BigNumberish;
       time: BigNumberish;
     },
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   calculateRewardFromStakes(
@@ -875,7 +616,7 @@ export class RugLusdCrucible extends BaseContract {
       ceiling: BigNumberish;
       time: BigNumberish;
     },
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [BigNumber, BigNumber, BigNumber, BigNumber] & {
       lastStakeAmount: BigNumber;
@@ -889,13 +630,13 @@ export class RugLusdCrucible extends BaseContract {
     amount: BigNumberish,
     start: BigNumberish,
     end: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   calculateTotalStakeUnits(
     stakes: { amount: BigNumberish; timestamp: BigNumberish }[],
     timestamp: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   calculateUnlockedRewards(
@@ -907,18 +648,16 @@ export class RugLusdCrucible extends BaseContract {
     rewardBalance: BigNumberish,
     sharesOutstanding: BigNumberish,
     timestamp: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   fund(
     amount: BigNumberish,
     duration: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
-  getAludelData(
-    overrides?: CallOverrides
-  ): Promise<
+  getAludelData(overrides?: CallOverrides): Promise<
     [
       string,
       string,
@@ -936,7 +675,7 @@ export class RugLusdCrucible extends BaseContract {
         duration: BigNumber;
         start: BigNumber;
         shares: BigNumber;
-      })[]
+      })[],
     ] & {
       stakingToken: string;
       rewardToken: string;
@@ -958,61 +697,34 @@ export class RugLusdCrucible extends BaseContract {
     }
   >;
 
-  getBonusTokenAtIndex(
-    index: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<string>;
+  getBonusTokenAtIndex(index: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
   getBonusTokenSetLength(overrides?: CallOverrides): Promise<BigNumber>;
 
-  getCurrentStakeReward(
-    vault: string,
-    stakeAmount: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  getCurrentStakeReward(vault: string, stakeAmount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
   getCurrentTotalStakeUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
   getCurrentUnlockedRewards(overrides?: CallOverrides): Promise<BigNumber>;
 
-  getCurrentVaultReward(
-    vault: string,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  getCurrentVaultReward(vault: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-  getCurrentVaultStakeUnits(
-    vault: string,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  getCurrentVaultStakeUnits(vault: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   getFutureStakeReward(
     vault: string,
     stakeAmount: BigNumberish,
     timestamp: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
-  getFutureTotalStakeUnits(
-    timestamp: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  getFutureTotalStakeUnits(timestamp: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-  getFutureUnlockedRewards(
-    timestamp: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  getFutureUnlockedRewards(timestamp: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-  getFutureVaultReward(
-    vault: string,
-    timestamp: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  getFutureVaultReward(vault: string, timestamp: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-  getFutureVaultStakeUnits(
-    vault: string,
-    timestamp: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  getFutureVaultStakeUnits(vault: string, timestamp: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
   getPowerController(overrides?: CallOverrides): Promise<string>;
 
@@ -1020,12 +732,9 @@ export class RugLusdCrucible extends BaseContract {
 
   getVaultData(
     vault: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
-    [
-      BigNumber,
-      ([BigNumber, BigNumber] & { amount: BigNumber; timestamp: BigNumber })[]
-    ] & {
+    [BigNumber, ([BigNumber, BigNumber] & { amount: BigNumber; timestamp: BigNumber })[]] & {
       totalStake: BigNumber;
       stakes: ([BigNumber, BigNumber] & {
         amount: BigNumber;
@@ -1034,10 +743,7 @@ export class RugLusdCrucible extends BaseContract {
     }
   >;
 
-  getVaultFactoryAtIndex(
-    index: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<string>;
+  getVaultFactoryAtIndex(index: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
   getVaultFactorySetLength(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1053,53 +759,49 @@ export class RugLusdCrucible extends BaseContract {
 
   owner(overrides?: CallOverrides): Promise<string>;
 
-  rageQuit(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  rageQuit(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   registerBonusToken(
     bonusToken: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   registerVaultFactory(
     factory: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   removeVaultFactory(
     factory: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
-  renounceOwnership(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   rescueTokensFromRewardPool(
     token: string,
     recipient: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   stake(
     vault: string,
     amount: BigNumberish,
     permission: BytesLike,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   transferOwnership(
     newOwner: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   unstakeAndClaim(
     vault: string,
     amount: BigNumberish,
     permission: BytesLike,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -1119,7 +821,7 @@ export class RugLusdCrucible extends BaseContract {
         ceiling: BigNumberish;
         time: BigNumberish;
       },
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     calculateRewardFromStakes(
@@ -1133,7 +835,7 @@ export class RugLusdCrucible extends BaseContract {
         ceiling: BigNumberish;
         time: BigNumberish;
       },
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber] & {
         lastStakeAmount: BigNumber;
@@ -1147,13 +849,13 @@ export class RugLusdCrucible extends BaseContract {
       amount: BigNumberish,
       start: BigNumberish,
       end: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     calculateTotalStakeUnits(
       stakes: { amount: BigNumberish; timestamp: BigNumberish }[],
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     calculateUnlockedRewards(
@@ -1165,18 +867,12 @@ export class RugLusdCrucible extends BaseContract {
       rewardBalance: BigNumberish,
       sharesOutstanding: BigNumberish,
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
-    fund(
-      amount: BigNumberish,
-      duration: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    fund(amount: BigNumberish, duration: BigNumberish, overrides?: CallOverrides): Promise<void>;
 
-    getAludelData(
-      overrides?: CallOverrides
-    ): Promise<
+    getAludelData(overrides?: CallOverrides): Promise<
       [
         string,
         string,
@@ -1194,7 +890,7 @@ export class RugLusdCrucible extends BaseContract {
           duration: BigNumber;
           start: BigNumber;
           shares: BigNumber;
-        })[]
+        })[],
       ] & {
         stakingToken: string;
         rewardToken: string;
@@ -1216,61 +912,34 @@ export class RugLusdCrucible extends BaseContract {
       }
     >;
 
-    getBonusTokenAtIndex(
-      index: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<string>;
+    getBonusTokenAtIndex(index: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
     getBonusTokenSetLength(overrides?: CallOverrides): Promise<BigNumber>;
 
-    getCurrentStakeReward(
-      vault: string,
-      stakeAmount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getCurrentStakeReward(vault: string, stakeAmount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     getCurrentTotalStakeUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
     getCurrentUnlockedRewards(overrides?: CallOverrides): Promise<BigNumber>;
 
-    getCurrentVaultReward(
-      vault: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getCurrentVaultReward(vault: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getCurrentVaultStakeUnits(
-      vault: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getCurrentVaultStakeUnits(vault: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     getFutureStakeReward(
       vault: string,
       stakeAmount: BigNumberish,
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
-    getFutureTotalStakeUnits(
-      timestamp: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getFutureTotalStakeUnits(timestamp: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getFutureUnlockedRewards(
-      timestamp: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getFutureUnlockedRewards(timestamp: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getFutureVaultReward(
-      vault: string,
-      timestamp: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getFutureVaultReward(vault: string, timestamp: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getFutureVaultStakeUnits(
-      vault: string,
-      timestamp: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getFutureVaultStakeUnits(vault: string, timestamp: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     getPowerController(overrides?: CallOverrides): Promise<string>;
 
@@ -1278,12 +947,9 @@ export class RugLusdCrucible extends BaseContract {
 
     getVaultData(
       vault: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
-      [
-        BigNumber,
-        ([BigNumber, BigNumber] & { amount: BigNumber; timestamp: BigNumber })[]
-      ] & {
+      [BigNumber, ([BigNumber, BigNumber] & { amount: BigNumber; timestamp: BigNumber })[]] & {
         totalStake: BigNumber;
         stakes: ([BigNumber, BigNumber] & {
           amount: BigNumber;
@@ -1292,10 +958,7 @@ export class RugLusdCrucible extends BaseContract {
       }
     >;
 
-    getVaultFactoryAtIndex(
-      index: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<string>;
+    getVaultFactoryAtIndex(index: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
     getVaultFactorySetLength(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1313,20 +976,11 @@ export class RugLusdCrucible extends BaseContract {
 
     rageQuit(overrides?: CallOverrides): Promise<void>;
 
-    registerBonusToken(
-      bonusToken: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    registerBonusToken(bonusToken: string, overrides?: CallOverrides): Promise<void>;
 
-    registerVaultFactory(
-      factory: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    registerVaultFactory(factory: string, overrides?: CallOverrides): Promise<void>;
 
-    removeVaultFactory(
-      factory: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    removeVaultFactory(factory: string, overrides?: CallOverrides): Promise<void>;
 
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
@@ -1334,151 +988,89 @@ export class RugLusdCrucible extends BaseContract {
       token: string,
       recipient: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
-    stake(
-      vault: string,
-      amount: BigNumberish,
-      permission: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    stake(vault: string, amount: BigNumberish, permission: BytesLike, overrides?: CallOverrides): Promise<void>;
 
-    transferOwnership(
-      newOwner: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    transferOwnership(newOwner: string, overrides?: CallOverrides): Promise<void>;
 
     unstakeAndClaim(
       vault: string,
       amount: BigNumberish,
       permission: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
   };
 
   filters: {
     "AludelCreated(address,address)"(
       rewardPool?: null,
-      powerSwitch?: null
-    ): TypedEventFilter<
-      [string, string],
-      { rewardPool: string; powerSwitch: string }
-    >;
+      powerSwitch?: null,
+    ): TypedEventFilter<[string, string], { rewardPool: string; powerSwitch: string }>;
 
     AludelCreated(
       rewardPool?: null,
-      powerSwitch?: null
-    ): TypedEventFilter<
-      [string, string],
-      { rewardPool: string; powerSwitch: string }
-    >;
+      powerSwitch?: null,
+    ): TypedEventFilter<[string, string], { rewardPool: string; powerSwitch: string }>;
 
     "AludelFunded(uint256,uint256)"(
       amount?: null,
-      duration?: null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber],
-      { amount: BigNumber; duration: BigNumber }
-    >;
+      duration?: null,
+    ): TypedEventFilter<[BigNumber, BigNumber], { amount: BigNumber; duration: BigNumber }>;
 
     AludelFunded(
       amount?: null,
-      duration?: null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber],
-      { amount: BigNumber; duration: BigNumber }
-    >;
+      duration?: null,
+    ): TypedEventFilter<[BigNumber, BigNumber], { amount: BigNumber; duration: BigNumber }>;
 
-    "BonusTokenRegistered(address)"(
-      token?: null
-    ): TypedEventFilter<[string], { token: string }>;
+    "BonusTokenRegistered(address)"(token?: null): TypedEventFilter<[string], { token: string }>;
 
-    BonusTokenRegistered(
-      token?: null
-    ): TypedEventFilter<[string], { token: string }>;
+    BonusTokenRegistered(token?: null): TypedEventFilter<[string], { token: string }>;
 
     "OwnershipTransferred(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     OwnershipTransferred(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     "RewardClaimed(address,address,uint256)"(
       vault?: null,
       token?: null,
-      amount?: null
-    ): TypedEventFilter<
-      [string, string, BigNumber],
-      { vault: string; token: string; amount: BigNumber }
-    >;
+      amount?: null,
+    ): TypedEventFilter<[string, string, BigNumber], { vault: string; token: string; amount: BigNumber }>;
 
     RewardClaimed(
       vault?: null,
       token?: null,
-      amount?: null
-    ): TypedEventFilter<
-      [string, string, BigNumber],
-      { vault: string; token: string; amount: BigNumber }
-    >;
+      amount?: null,
+    ): TypedEventFilter<[string, string, BigNumber], { vault: string; token: string; amount: BigNumber }>;
 
     "Staked(address,uint256)"(
       vault?: null,
-      amount?: null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { vault: string; amount: BigNumber }
-    >;
+      amount?: null,
+    ): TypedEventFilter<[string, BigNumber], { vault: string; amount: BigNumber }>;
 
-    Staked(
-      vault?: null,
-      amount?: null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { vault: string; amount: BigNumber }
-    >;
+    Staked(vault?: null, amount?: null): TypedEventFilter<[string, BigNumber], { vault: string; amount: BigNumber }>;
 
     "Unstaked(address,uint256)"(
       vault?: null,
-      amount?: null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { vault: string; amount: BigNumber }
-    >;
+      amount?: null,
+    ): TypedEventFilter<[string, BigNumber], { vault: string; amount: BigNumber }>;
 
-    Unstaked(
-      vault?: null,
-      amount?: null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { vault: string; amount: BigNumber }
-    >;
+    Unstaked(vault?: null, amount?: null): TypedEventFilter<[string, BigNumber], { vault: string; amount: BigNumber }>;
 
-    "VaultFactoryRegistered(address)"(
-      factory?: null
-    ): TypedEventFilter<[string], { factory: string }>;
+    "VaultFactoryRegistered(address)"(factory?: null): TypedEventFilter<[string], { factory: string }>;
 
-    VaultFactoryRegistered(
-      factory?: null
-    ): TypedEventFilter<[string], { factory: string }>;
+    VaultFactoryRegistered(factory?: null): TypedEventFilter<[string], { factory: string }>;
 
-    "VaultFactoryRemoved(address)"(
-      factory?: null
-    ): TypedEventFilter<[string], { factory: string }>;
+    "VaultFactoryRemoved(address)"(factory?: null): TypedEventFilter<[string], { factory: string }>;
 
-    VaultFactoryRemoved(
-      factory?: null
-    ): TypedEventFilter<[string], { factory: string }>;
+    VaultFactoryRemoved(factory?: null): TypedEventFilter<[string], { factory: string }>;
   };
 
   estimateGas: {
@@ -1498,7 +1090,7 @@ export class RugLusdCrucible extends BaseContract {
         ceiling: BigNumberish;
         time: BigNumberish;
       },
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     calculateRewardFromStakes(
@@ -1512,20 +1104,20 @@ export class RugLusdCrucible extends BaseContract {
         ceiling: BigNumberish;
         time: BigNumberish;
       },
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     calculateStakeUnits(
       amount: BigNumberish,
       start: BigNumberish,
       end: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     calculateTotalStakeUnits(
       stakes: { amount: BigNumberish; timestamp: BigNumberish }[],
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     calculateUnlockedRewards(
@@ -1537,72 +1129,45 @@ export class RugLusdCrucible extends BaseContract {
       rewardBalance: BigNumberish,
       sharesOutstanding: BigNumberish,
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     fund(
       amount: BigNumberish,
       duration: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     getAludelData(overrides?: CallOverrides): Promise<BigNumber>;
 
-    getBonusTokenAtIndex(
-      index: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getBonusTokenAtIndex(index: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     getBonusTokenSetLength(overrides?: CallOverrides): Promise<BigNumber>;
 
-    getCurrentStakeReward(
-      vault: string,
-      stakeAmount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getCurrentStakeReward(vault: string, stakeAmount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     getCurrentTotalStakeUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
     getCurrentUnlockedRewards(overrides?: CallOverrides): Promise<BigNumber>;
 
-    getCurrentVaultReward(
-      vault: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getCurrentVaultReward(vault: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getCurrentVaultStakeUnits(
-      vault: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getCurrentVaultStakeUnits(vault: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     getFutureStakeReward(
       vault: string,
       stakeAmount: BigNumberish,
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
-    getFutureTotalStakeUnits(
-      timestamp: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getFutureTotalStakeUnits(timestamp: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getFutureUnlockedRewards(
-      timestamp: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getFutureUnlockedRewards(timestamp: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getFutureVaultReward(
-      vault: string,
-      timestamp: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getFutureVaultReward(vault: string, timestamp: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getFutureVaultStakeUnits(
-      vault: string,
-      timestamp: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getFutureVaultStakeUnits(vault: string, timestamp: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     getPowerController(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1610,10 +1175,7 @@ export class RugLusdCrucible extends BaseContract {
 
     getVaultData(vault: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getVaultFactoryAtIndex(
-      index: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getVaultFactoryAtIndex(index: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     getVaultFactorySetLength(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1623,75 +1185,64 @@ export class RugLusdCrucible extends BaseContract {
 
     isShutdown(overrides?: CallOverrides): Promise<BigNumber>;
 
-    isValidAddress(
-      target: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    isValidAddress(target: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     isValidVault(target: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
-    rageQuit(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    rageQuit(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     registerBonusToken(
       bonusToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     registerVaultFactory(
       factory: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     removeVaultFactory(
       factory: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     rescueTokensFromRewardPool(
       token: string,
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     stake(
       vault: string,
       amount: BigNumberish,
       permission: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     unstakeAndClaim(
       vault: string,
       amount: BigNumberish,
       permission: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
-    BASE_SHARES_PER_WEI(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    BASE_SHARES_PER_WEI(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     MAX_REWARD_TOKENS(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    MAX_STAKES_PER_VAULT(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    MAX_STAKES_PER_VAULT(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     calculateReward(
       unlockedRewards: BigNumberish,
@@ -1703,7 +1254,7 @@ export class RugLusdCrucible extends BaseContract {
         ceiling: BigNumberish;
         time: BigNumberish;
       },
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     calculateRewardFromStakes(
@@ -1717,20 +1268,20 @@ export class RugLusdCrucible extends BaseContract {
         ceiling: BigNumberish;
         time: BigNumberish;
       },
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     calculateStakeUnits(
       amount: BigNumberish,
       start: BigNumberish,
       end: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     calculateTotalStakeUnits(
       stakes: { amount: BigNumberish; timestamp: BigNumberish }[],
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     calculateUnlockedRewards(
@@ -1742,98 +1293,67 @@ export class RugLusdCrucible extends BaseContract {
       rewardBalance: BigNumberish,
       sharesOutstanding: BigNumberish,
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     fund(
       amount: BigNumberish,
       duration: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     getAludelData(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getBonusTokenAtIndex(
-      index: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getBonusTokenAtIndex(index: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getBonusTokenSetLength(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getBonusTokenSetLength(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getCurrentStakeReward(
       vault: string,
       stakeAmount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
-    getCurrentTotalStakeUnits(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getCurrentTotalStakeUnits(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getCurrentUnlockedRewards(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getCurrentUnlockedRewards(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getCurrentVaultReward(
-      vault: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getCurrentVaultReward(vault: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getCurrentVaultStakeUnits(
-      vault: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getCurrentVaultStakeUnits(vault: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getFutureStakeReward(
       vault: string,
       stakeAmount: BigNumberish,
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
-    getFutureTotalStakeUnits(
-      timestamp: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getFutureTotalStakeUnits(timestamp: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getFutureUnlockedRewards(
-      timestamp: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getFutureUnlockedRewards(timestamp: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getFutureVaultReward(
       vault: string,
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getFutureVaultStakeUnits(
       vault: string,
       timestamp: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
-    getPowerController(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getPowerController(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getPowerSwitch(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getVaultData(
-      vault: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getVaultData(vault: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getVaultFactoryAtIndex(
-      index: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getVaultFactoryAtIndex(index: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getVaultFactorySetLength(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getVaultFactorySetLength(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     isOffline(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -1841,65 +1361,55 @@ export class RugLusdCrucible extends BaseContract {
 
     isShutdown(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    isValidAddress(
-      target: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    isValidAddress(target: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    isValidVault(
-      target: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    isValidVault(target: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    rageQuit(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    rageQuit(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     registerBonusToken(
       bonusToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     registerVaultFactory(
       factory: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     removeVaultFactory(
       factory: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     rescueTokensFromRewardPool(
       token: string,
       recipient: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     stake(
       vault: string,
       amount: BigNumberish,
       permission: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     unstakeAndClaim(
       vault: string,
       amount: BigNumberish,
       permission: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
   };
 }

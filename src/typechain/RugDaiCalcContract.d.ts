@@ -29,22 +29,13 @@ interface RugDaiCalcContractInterface extends ethers.utils.Interface {
 
   encodeFunctionData(functionFragment: "RUG", values?: undefined): string;
   encodeFunctionData(functionFragment: "getKValue", values: [string]): string;
-  encodeFunctionData(
-    functionFragment: "getTotalValue",
-    values: [string]
-  ): string;
+  encodeFunctionData(functionFragment: "getTotalValue", values: [string]): string;
   encodeFunctionData(functionFragment: "markdown", values: [string]): string;
-  encodeFunctionData(
-    functionFragment: "valuation",
-    values: [string, BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "valuation", values: [string, BigNumberish]): string;
 
   decodeFunctionResult(functionFragment: "RUG", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "getKValue", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "getTotalValue",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "getTotalValue", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "markdown", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "valuation", data: BytesLike): Result;
 
@@ -57,26 +48,26 @@ export class RugDaiCalcContract extends BaseContract {
   deployed(): Promise<this>;
 
   listeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): Array<TypedListener<EventArgsArray, EventArgsObject>>;
   off<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   on<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   once<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeListener<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeAllListeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): this;
 
   listeners(eventName?: string): Array<Listener>;
@@ -89,7 +80,7 @@ export class RugDaiCalcContract extends BaseContract {
   queryFilter<EventArgsArray extends Array<any>, EventArgsObject>(
     event: TypedEventFilter<EventArgsArray, EventArgsObject>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
   interface: RugDaiCalcContractInterface;
@@ -97,22 +88,16 @@ export class RugDaiCalcContract extends BaseContract {
   functions: {
     RUG(overrides?: CallOverrides): Promise<[string]>;
 
-    getKValue(
-      _pair: string,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { k_: BigNumber }>;
+    getKValue(_pair: string, overrides?: CallOverrides): Promise<[BigNumber] & { k_: BigNumber }>;
 
-    getTotalValue(
-      _pair: string,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { _value: BigNumber }>;
+    getTotalValue(_pair: string, overrides?: CallOverrides): Promise<[BigNumber] & { _value: BigNumber }>;
 
     markdown(_pair: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     valuation(
       _pair: string,
       amount_: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { _value: BigNumber }>;
   };
 
@@ -124,11 +109,7 @@ export class RugDaiCalcContract extends BaseContract {
 
   markdown(_pair: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-  valuation(
-    _pair: string,
-    amount_: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  valuation(_pair: string, amount_: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
   callStatic: {
     RUG(overrides?: CallOverrides): Promise<string>;
@@ -139,11 +120,7 @@ export class RugDaiCalcContract extends BaseContract {
 
     markdown(_pair: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    valuation(
-      _pair: string,
-      amount_: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    valuation(_pair: string, amount_: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   filters: {};
@@ -157,35 +134,18 @@ export class RugDaiCalcContract extends BaseContract {
 
     markdown(_pair: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    valuation(
-      _pair: string,
-      amount_: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    valuation(_pair: string, amount_: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
     RUG(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getKValue(
-      _pair: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getKValue(_pair: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getTotalValue(
-      _pair: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getTotalValue(_pair: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    markdown(
-      _pair: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    markdown(_pair: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    valuation(
-      _pair: string,
-      amount_: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    valuation(_pair: string, amount_: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
   };
 }

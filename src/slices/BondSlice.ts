@@ -18,8 +18,6 @@ import {
 import { segmentUA } from "../helpers/userAnalyticHelpers";
 import { AVALANCHE } from "src/constants";
 
-
-
 export const changeApproval = createAsyncThunk(
   "bonding/changeApproval",
   async ({ address, bond, provider, networkID }: IApproveBondAsyncThunk, { dispatch }) => {

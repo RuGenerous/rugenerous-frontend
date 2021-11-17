@@ -19,7 +19,7 @@ import {
 import TabPanel from "../../components/TabPanel";
 import InfoTooltip from "../../components/InfoTooltip/InfoTooltip.jsx";
 import { ReactComponent as InfoIcon } from "../../assets/icons/info-fill.svg";
-import { getRugTokenImage, getTokenImage, trim} from "../../helpers";
+import { getRugTokenImage, getTokenImage, trim } from "../../helpers";
 import { formatCurrency } from "src/helpers/format-currency";
 import { changeApproval, changeWrap } from "../../slices/WrapThunk";
 import "../Stake/stake.scss";

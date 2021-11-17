@@ -36,84 +36,39 @@ interface RuGenerousStakingInterface extends ethers.utils.Interface {
     "unstakeRUGWithPermit(uint256,uint256,uint8,bytes32,bytes32)": FunctionFragment;
   };
 
-  encodeFunctionData(
-    functionFragment: "epochLengthInBlocks",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "initialize",
-    values: [string, string, BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "epochLengthInBlocks", values?: undefined): string;
+  encodeFunctionData(functionFragment: "initialize", values: [string, string, BigNumberish]): string;
   encodeFunctionData(functionFragment: "ohm", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "ohmToDistributeNextEpoch",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "ohmToDistributeNextEpoch", values?: undefined): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "renounceOwnership",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "renounceOwnership", values?: undefined): string;
   encodeFunctionData(functionFragment: "sRUG", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "setEpochLengthintBlock",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "stakeRUG",
-    values: [BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "setEpochLengthintBlock", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "stakeRUG", values: [BigNumberish]): string;
   encodeFunctionData(
     functionFragment: "stakeRUGWithPermit",
-    values: [BigNumberish, BigNumberish, BigNumberish, BytesLike, BytesLike]
+    values: [BigNumberish, BigNumberish, BigNumberish, BytesLike, BytesLike],
   ): string;
-  encodeFunctionData(
-    functionFragment: "transferOwnership",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "unstakeRUG",
-    values: [BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "transferOwnership", values: [string]): string;
+  encodeFunctionData(functionFragment: "unstakeRUG", values: [BigNumberish]): string;
   encodeFunctionData(
     functionFragment: "unstakeRUGWithPermit",
-    values: [BigNumberish, BigNumberish, BigNumberish, BytesLike, BytesLike]
+    values: [BigNumberish, BigNumberish, BigNumberish, BytesLike, BytesLike],
   ): string;
 
-  decodeFunctionResult(
-    functionFragment: "epochLengthInBlocks",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "epochLengthInBlocks", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "ohm", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "ohmToDistributeNextEpoch",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "ohmToDistributeNextEpoch", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceOwnership",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "renounceOwnership", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "sRUG", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "setEpochLengthintBlock",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "setEpochLengthintBlock", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "stakeRUG", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "stakeRUGWithPermit",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "transferOwnership",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "stakeRUGWithPermit", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "transferOwnership", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "unstakeRUG", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "unstakeRUGWithPermit",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "unstakeRUGWithPermit", data: BytesLike): Result;
 
   events: {
     "OwnershipTransferred(address,address)": EventFragment;
@@ -122,9 +77,7 @@ interface RuGenerousStakingInterface extends ethers.utils.Interface {
   getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
 }
 
-export type OwnershipTransferredEvent = TypedEvent<
-  [string, string] & { previousOwner: string; newOwner: string }
->;
+export type OwnershipTransferredEvent = TypedEvent<[string, string] & { previousOwner: string; newOwner: string }>;
 
 export class RuGenerousStaking extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -132,26 +85,26 @@ export class RuGenerousStaking extends BaseContract {
   deployed(): Promise<this>;
 
   listeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): Array<TypedListener<EventArgsArray, EventArgsObject>>;
   off<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   on<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   once<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeListener<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeAllListeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): this;
 
   listeners(eventName?: string): Array<Listener>;
@@ -164,7 +117,7 @@ export class RuGenerousStaking extends BaseContract {
   queryFilter<EventArgsArray extends Array<any>, EventArgsObject>(
     event: TypedEventFilter<EventArgsArray, EventArgsObject>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
   interface: RuGenerousStakingInterface;
@@ -176,7 +129,7 @@ export class RuGenerousStaking extends BaseContract {
       ohmTokenAddress_: string,
       sRUG_: string,
       epochLengthInBlocks_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     ohm(overrides?: CallOverrides): Promise<[string]>;
@@ -185,20 +138,18 @@ export class RuGenerousStaking extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     sRUG(overrides?: CallOverrides): Promise<[string]>;
 
     setEpochLengthintBlock(
       newEpochLengthInBlocks_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     stakeRUG(
       amountToStake_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     stakeRUGWithPermit(
@@ -207,17 +158,17 @@ export class RuGenerousStaking extends BaseContract {
       v_: BigNumberish,
       r_: BytesLike,
       s_: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     transferOwnership(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     unstakeRUG(
       amountToWithdraw_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     unstakeRUGWithPermit(
@@ -226,7 +177,7 @@ export class RuGenerousStaking extends BaseContract {
       v_: BigNumberish,
       r_: BytesLike,
       s_: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
   };
 
@@ -236,7 +187,7 @@ export class RuGenerousStaking extends BaseContract {
     ohmTokenAddress_: string,
     sRUG_: string,
     epochLengthInBlocks_: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   ohm(overrides?: CallOverrides): Promise<string>;
@@ -245,20 +196,18 @@ export class RuGenerousStaking extends BaseContract {
 
   owner(overrides?: CallOverrides): Promise<string>;
 
-  renounceOwnership(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   sRUG(overrides?: CallOverrides): Promise<string>;
 
   setEpochLengthintBlock(
     newEpochLengthInBlocks_: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   stakeRUG(
     amountToStake_: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   stakeRUGWithPermit(
@@ -267,17 +216,17 @@ export class RuGenerousStaking extends BaseContract {
     v_: BigNumberish,
     r_: BytesLike,
     s_: BytesLike,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   transferOwnership(
     newOwner_: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   unstakeRUG(
     amountToWithdraw_: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   unstakeRUGWithPermit(
@@ -286,7 +235,7 @@ export class RuGenerousStaking extends BaseContract {
     v_: BigNumberish,
     r_: BytesLike,
     s_: BytesLike,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -296,7 +245,7 @@ export class RuGenerousStaking extends BaseContract {
       ohmTokenAddress_: string,
       sRUG_: string,
       epochLengthInBlocks_: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     ohm(overrides?: CallOverrides): Promise<string>;
@@ -309,15 +258,9 @@ export class RuGenerousStaking extends BaseContract {
 
     sRUG(overrides?: CallOverrides): Promise<string>;
 
-    setEpochLengthintBlock(
-      newEpochLengthInBlocks_: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setEpochLengthintBlock(newEpochLengthInBlocks_: BigNumberish, overrides?: CallOverrides): Promise<void>;
 
-    stakeRUG(
-      amountToStake_: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    stakeRUG(amountToStake_: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
     stakeRUGWithPermit(
       amountToStake_: BigNumberish,
@@ -325,18 +268,12 @@ export class RuGenerousStaking extends BaseContract {
       v_: BigNumberish,
       r_: BytesLike,
       s_: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
-    transferOwnership(
-      newOwner_: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    transferOwnership(newOwner_: string, overrides?: CallOverrides): Promise<void>;
 
-    unstakeRUG(
-      amountToWithdraw_: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    unstakeRUG(amountToWithdraw_: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
     unstakeRUGWithPermit(
       amountToWithdraw_: BigNumberish,
@@ -344,26 +281,20 @@ export class RuGenerousStaking extends BaseContract {
       v_: BigNumberish,
       r_: BytesLike,
       s_: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
   };
 
   filters: {
     "OwnershipTransferred(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     OwnershipTransferred(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
   };
 
   estimateGas: {
@@ -373,7 +304,7 @@ export class RuGenerousStaking extends BaseContract {
       ohmTokenAddress_: string,
       sRUG_: string,
       epochLengthInBlocks_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     ohm(overrides?: CallOverrides): Promise<BigNumber>;
@@ -382,20 +313,18 @@ export class RuGenerousStaking extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     sRUG(overrides?: CallOverrides): Promise<BigNumber>;
 
     setEpochLengthintBlock(
       newEpochLengthInBlocks_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     stakeRUG(
       amountToStake_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     stakeRUGWithPermit(
@@ -404,17 +333,17 @@ export class RuGenerousStaking extends BaseContract {
       v_: BigNumberish,
       r_: BytesLike,
       s_: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     transferOwnership(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     unstakeRUG(
       amountToWithdraw_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     unstakeRUGWithPermit(
@@ -423,44 +352,38 @@ export class RuGenerousStaking extends BaseContract {
       v_: BigNumberish,
       r_: BytesLike,
       s_: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
-    epochLengthInBlocks(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    epochLengthInBlocks(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     initialize(
       ohmTokenAddress_: string,
       sRUG_: string,
       epochLengthInBlocks_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     ohm(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    ohmToDistributeNextEpoch(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    ohmToDistributeNextEpoch(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     sRUG(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     setEpochLengthintBlock(
       newEpochLengthInBlocks_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     stakeRUG(
       amountToStake_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     stakeRUGWithPermit(
@@ -469,17 +392,17 @@ export class RuGenerousStaking extends BaseContract {
       v_: BigNumberish,
       r_: BytesLike,
       s_: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     transferOwnership(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     unstakeRUG(
       amountToWithdraw_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     unstakeRUGWithPermit(
@@ -488,7 +411,7 @@ export class RuGenerousStaking extends BaseContract {
       v_: BigNumberish,
       r_: BytesLike,
       s_: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
   };
 }

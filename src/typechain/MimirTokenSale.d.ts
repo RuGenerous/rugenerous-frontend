@@ -39,87 +39,36 @@ interface MimirTokenSaleInterface extends ethers.utils.Interface {
   };
 
   encodeFunctionData(functionFragment: "END", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "MIMIRTOKEN",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "MINIMAL_PROVIDE_AMOUNT",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "MIMIRTOKEN", values?: undefined): string;
+  encodeFunctionData(functionFragment: "MINIMAL_PROVIDE_AMOUNT", values?: undefined): string;
   encodeFunctionData(functionFragment: "START", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "TOTAL_DISTRIBUTE_AMOUNT",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "TOTAL_DISTRIBUTE_AMOUNT", values?: undefined): string;
   encodeFunctionData(functionFragment: "claim", values?: undefined): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(functionFragment: "provided", values: [string]): string;
-  encodeFunctionData(
-    functionFragment: "renounceOwnership",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setTokenForSale",
-    values: [string]
-  ): string;
+  encodeFunctionData(functionFragment: "renounceOwnership", values?: undefined): string;
+  encodeFunctionData(functionFragment: "setTokenForSale", values: [string]): string;
   encodeFunctionData(functionFragment: "startSale", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "totalProvided",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "transferOwnership",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "withdrawProvidedETH",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "withdrawUnclaimedMimir",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "totalProvided", values?: undefined): string;
+  encodeFunctionData(functionFragment: "transferOwnership", values: [string]): string;
+  encodeFunctionData(functionFragment: "withdrawProvidedETH", values?: undefined): string;
+  encodeFunctionData(functionFragment: "withdrawUnclaimedMimir", values?: undefined): string;
 
   decodeFunctionResult(functionFragment: "END", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "MIMIRTOKEN", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "MINIMAL_PROVIDE_AMOUNT",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "MINIMAL_PROVIDE_AMOUNT", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "START", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "TOTAL_DISTRIBUTE_AMOUNT",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "TOTAL_DISTRIBUTE_AMOUNT", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "claim", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "provided", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceOwnership",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setTokenForSale",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "renounceOwnership", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setTokenForSale", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "startSale", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "totalProvided",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "transferOwnership",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "withdrawProvidedETH",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "withdrawUnclaimedMimir",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "totalProvided", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "transferOwnership", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "withdrawProvidedETH", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "withdrawUnclaimedMimir", data: BytesLike): Result;
 
   events: {
     "Claimed(address,uint256,uint256)": EventFragment;
@@ -142,17 +91,11 @@ export type ClaimedEvent = TypedEvent<
   }
 >;
 
-export type OwnershipTransferredEvent = TypedEvent<
-  [string, string] & { previousOwner: string; newOwner: string }
->;
+export type OwnershipTransferredEvent = TypedEvent<[string, string] & { previousOwner: string; newOwner: string }>;
 
-export type ReceivedEvent = TypedEvent<
-  [string, BigNumber] & { account: string; amount: BigNumber }
->;
+export type ReceivedEvent = TypedEvent<[string, BigNumber] & { account: string; amount: BigNumber }>;
 
-export type SaleStartedEvent = TypedEvent<
-  [BigNumber, BigNumber] & { saleStatTime: BigNumber; saleEndTime: BigNumber }
->;
+export type SaleStartedEvent = TypedEvent<[BigNumber, BigNumber] & { saleStatTime: BigNumber; saleEndTime: BigNumber }>;
 
 export class MimirTokenSale extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -160,26 +103,26 @@ export class MimirTokenSale extends BaseContract {
   deployed(): Promise<this>;
 
   listeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): Array<TypedListener<EventArgsArray, EventArgsObject>>;
   off<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   on<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   once<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeListener<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeAllListeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): this;
 
   listeners(eventName?: string): Array<Listener>;
@@ -192,7 +135,7 @@ export class MimirTokenSale extends BaseContract {
   queryFilter<EventArgsArray extends Array<any>, EventArgsObject>(
     event: TypedEventFilter<EventArgsArray, EventArgsObject>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
   interface: MimirTokenSaleInterface;
@@ -208,41 +151,31 @@ export class MimirTokenSale extends BaseContract {
 
     TOTAL_DISTRIBUTE_AMOUNT(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    claim(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    claim(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
     provided(arg0: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     setTokenForSale(
       mimirToken_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    startSale(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    startSale(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     totalProvided(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    withdrawProvidedETH(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    withdrawProvidedETH(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
-    withdrawUnclaimedMimir(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    withdrawUnclaimedMimir(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
   };
 
   END(overrides?: CallOverrides): Promise<BigNumber>;
@@ -255,41 +188,31 @@ export class MimirTokenSale extends BaseContract {
 
   TOTAL_DISTRIBUTE_AMOUNT(overrides?: CallOverrides): Promise<BigNumber>;
 
-  claim(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  claim(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   owner(overrides?: CallOverrides): Promise<string>;
 
   provided(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-  renounceOwnership(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   setTokenForSale(
     mimirToken_: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
-  startSale(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  startSale(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   totalProvided(overrides?: CallOverrides): Promise<BigNumber>;
 
   transferOwnership(
     newOwner: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
-  withdrawProvidedETH(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  withdrawProvidedETH(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
-  withdrawUnclaimedMimir(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  withdrawUnclaimedMimir(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   callStatic: {
     END(overrides?: CallOverrides): Promise<BigNumber>;
@@ -310,19 +233,13 @@ export class MimirTokenSale extends BaseContract {
 
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
-    setTokenForSale(
-      mimirToken_: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setTokenForSale(mimirToken_: string, overrides?: CallOverrides): Promise<void>;
 
     startSale(overrides?: CallOverrides): Promise<void>;
 
     totalProvided(overrides?: CallOverrides): Promise<BigNumber>;
 
-    transferOwnership(
-      newOwner: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    transferOwnership(newOwner: string, overrides?: CallOverrides): Promise<void>;
 
     withdrawProvidedETH(overrides?: CallOverrides): Promise<void>;
 
@@ -333,7 +250,7 @@ export class MimirTokenSale extends BaseContract {
     "Claimed(address,uint256,uint256)"(
       account?: string | null,
       userShare?: null,
-      mimirAmount?: null
+      mimirAmount?: null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { account: string; userShare: BigNumber; mimirAmount: BigNumber }
@@ -342,7 +259,7 @@ export class MimirTokenSale extends BaseContract {
     Claimed(
       account?: string | null,
       userShare?: null,
-      mimirAmount?: null
+      mimirAmount?: null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { account: string; userShare: BigNumber; mimirAmount: BigNumber }
@@ -350,51 +267,33 @@ export class MimirTokenSale extends BaseContract {
 
     "OwnershipTransferred(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     OwnershipTransferred(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     "Received(address,uint256)"(
       account?: string | null,
-      amount?: null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { account: string; amount: BigNumber }
-    >;
+      amount?: null,
+    ): TypedEventFilter<[string, BigNumber], { account: string; amount: BigNumber }>;
 
     Received(
       account?: string | null,
-      amount?: null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { account: string; amount: BigNumber }
-    >;
+      amount?: null,
+    ): TypedEventFilter<[string, BigNumber], { account: string; amount: BigNumber }>;
 
     "SaleStarted(uint256,uint256)"(
       saleStatTime?: null,
-      saleEndTime?: null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber],
-      { saleStatTime: BigNumber; saleEndTime: BigNumber }
-    >;
+      saleEndTime?: null,
+    ): TypedEventFilter<[BigNumber, BigNumber], { saleStatTime: BigNumber; saleEndTime: BigNumber }>;
 
     SaleStarted(
       saleStatTime?: null,
-      saleEndTime?: null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber],
-      { saleStatTime: BigNumber; saleEndTime: BigNumber }
-    >;
+      saleEndTime?: null,
+    ): TypedEventFilter<[BigNumber, BigNumber], { saleStatTime: BigNumber; saleEndTime: BigNumber }>;
   };
 
   estimateGas: {
@@ -408,41 +307,31 @@ export class MimirTokenSale extends BaseContract {
 
     TOTAL_DISTRIBUTE_AMOUNT(overrides?: CallOverrides): Promise<BigNumber>;
 
-    claim(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    claim(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
     provided(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     setTokenForSale(
       mimirToken_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    startSale(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    startSale(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     totalProvided(overrides?: CallOverrides): Promise<BigNumber>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    withdrawProvidedETH(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    withdrawProvidedETH(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
-    withdrawUnclaimedMimir(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    withdrawUnclaimedMimir(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
   };
 
   populateTransaction: {
@@ -450,53 +339,36 @@ export class MimirTokenSale extends BaseContract {
 
     MIMIRTOKEN(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    MINIMAL_PROVIDE_AMOUNT(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    MINIMAL_PROVIDE_AMOUNT(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     START(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    TOTAL_DISTRIBUTE_AMOUNT(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    TOTAL_DISTRIBUTE_AMOUNT(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    claim(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    claim(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    provided(
-      arg0: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    provided(arg0: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     setTokenForSale(
       mimirToken_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    startSale(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    startSale(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     totalProvided(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    withdrawProvidedETH(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    withdrawProvidedETH(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
-    withdrawUnclaimedMimir(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    withdrawUnclaimedMimir(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
   };
 }

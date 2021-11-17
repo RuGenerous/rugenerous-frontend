@@ -31,56 +31,23 @@ interface RedeemHelperInterface extends ethers.utils.Interface {
     "renounceManagement()": FunctionFragment;
   };
 
-  encodeFunctionData(
-    functionFragment: "addBondContract",
-    values: [string]
-  ): string;
+  encodeFunctionData(functionFragment: "addBondContract", values: [string]): string;
   encodeFunctionData(functionFragment: "bonds", values: [BigNumberish]): string;
   encodeFunctionData(functionFragment: "policy", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "pullManagement",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "pushManagement",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "redeemAll",
-    values: [string, boolean]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "removeBondContract",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "renounceManagement",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "pullManagement", values?: undefined): string;
+  encodeFunctionData(functionFragment: "pushManagement", values: [string]): string;
+  encodeFunctionData(functionFragment: "redeemAll", values: [string, boolean]): string;
+  encodeFunctionData(functionFragment: "removeBondContract", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "renounceManagement", values?: undefined): string;
 
-  decodeFunctionResult(
-    functionFragment: "addBondContract",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "addBondContract", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "bonds", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "policy", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "pullManagement",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "pushManagement",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "pullManagement", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "pushManagement", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "redeemAll", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "removeBondContract",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceManagement",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "removeBondContract", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "renounceManagement", data: BytesLike): Result;
 
   events: {
     "OwnershipPulled(address,address)": EventFragment;
@@ -91,13 +58,9 @@ interface RedeemHelperInterface extends ethers.utils.Interface {
   getEvent(nameOrSignatureOrTopic: "OwnershipPushed"): EventFragment;
 }
 
-export type OwnershipPulledEvent = TypedEvent<
-  [string, string] & { previousOwner: string; newOwner: string }
->;
+export type OwnershipPulledEvent = TypedEvent<[string, string] & { previousOwner: string; newOwner: string }>;
 
-export type OwnershipPushedEvent = TypedEvent<
-  [string, string] & { previousOwner: string; newOwner: string }
->;
+export type OwnershipPushedEvent = TypedEvent<[string, string] & { previousOwner: string; newOwner: string }>;
 
 export class RedeemHelper extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -105,26 +68,26 @@ export class RedeemHelper extends BaseContract {
   deployed(): Promise<this>;
 
   listeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): Array<TypedListener<EventArgsArray, EventArgsObject>>;
   off<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   on<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   once<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeListener<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeAllListeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): this;
 
   listeners(eventName?: string): Array<Listener>;
@@ -137,7 +100,7 @@ export class RedeemHelper extends BaseContract {
   queryFilter<EventArgsArray extends Array<any>, EventArgsObject>(
     event: TypedEventFilter<EventArgsArray, EventArgsObject>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
   interface: RedeemHelperInterface;
@@ -145,70 +108,62 @@ export class RedeemHelper extends BaseContract {
   functions: {
     addBondContract(
       _bond: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     bonds(arg0: BigNumberish, overrides?: CallOverrides): Promise<[string]>;
 
     policy(overrides?: CallOverrides): Promise<[string]>;
 
-    pullManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     pushManagement(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     redeemAll(
       _recipient: string,
       _stake: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     removeBondContract(
       _index: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    renounceManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
   };
 
   addBondContract(
     _bond: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   bonds(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
   policy(overrides?: CallOverrides): Promise<string>;
 
-  pullManagement(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   pushManagement(
     newOwner_: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   redeemAll(
     _recipient: string,
     _stake: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   removeBondContract(
     _index: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
-  renounceManagement(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   callStatic: {
     addBondContract(_bond: string, overrides?: CallOverrides): Promise<void>;
@@ -221,16 +176,9 @@ export class RedeemHelper extends BaseContract {
 
     pushManagement(newOwner_: string, overrides?: CallOverrides): Promise<void>;
 
-    redeemAll(
-      _recipient: string,
-      _stake: boolean,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    redeemAll(_recipient: string, _stake: boolean, overrides?: CallOverrides): Promise<void>;
 
-    removeBondContract(
-      _index: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    removeBondContract(_index: BigNumberish, overrides?: CallOverrides): Promise<void>;
 
     renounceManagement(overrides?: CallOverrides): Promise<void>;
   };
@@ -238,107 +186,78 @@ export class RedeemHelper extends BaseContract {
   filters: {
     "OwnershipPulled(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     OwnershipPulled(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     "OwnershipPushed(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     OwnershipPushed(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
   };
 
   estimateGas: {
-    addBondContract(
-      _bond: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    addBondContract(_bond: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     bonds(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     policy(overrides?: CallOverrides): Promise<BigNumber>;
 
-    pullManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
-    pushManagement(
-      newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    pushManagement(newOwner_: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     redeemAll(
       _recipient: string,
       _stake: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     removeBondContract(
       _index: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    renounceManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
   };
 
   populateTransaction: {
     addBondContract(
       _bond: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    bonds(
-      arg0: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    bonds(arg0: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     policy(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    pullManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     pushManagement(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     redeemAll(
       _recipient: string,
       _stake: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     removeBondContract(
       _index: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    renounceManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
   };
 }

@@ -86,441 +86,135 @@ interface FuseProxyInterface extends ethers.utils.Interface {
     "underlying()": FunctionFragment;
   };
 
-  encodeFunctionData(
-    functionFragment: "_acceptAdmin",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "_addReserves",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "_becomeImplementation",
-    values: [BytesLike]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "_reduceReserves",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "_renounceAdminRights",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "_renounceFuseAdminRights",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "_resignImplementation",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "_setAdminFee",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "_setComptroller",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "_setFuseFee",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "_setInterestRateModel",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "_setPendingAdmin",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "_setReserveFactor",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "_withdrawAdminFees",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "_withdrawFuseFees",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "accrualBlockNumber",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "accrueInterest",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "_acceptAdmin", values?: undefined): string;
+  encodeFunctionData(functionFragment: "_addReserves", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "_becomeImplementation", values: [BytesLike]): string;
+  encodeFunctionData(functionFragment: "_reduceReserves", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "_renounceAdminRights", values?: undefined): string;
+  encodeFunctionData(functionFragment: "_renounceFuseAdminRights", values?: undefined): string;
+  encodeFunctionData(functionFragment: "_resignImplementation", values?: undefined): string;
+  encodeFunctionData(functionFragment: "_setAdminFee", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "_setComptroller", values: [string]): string;
+  encodeFunctionData(functionFragment: "_setFuseFee", values?: undefined): string;
+  encodeFunctionData(functionFragment: "_setInterestRateModel", values: [string]): string;
+  encodeFunctionData(functionFragment: "_setPendingAdmin", values: [string]): string;
+  encodeFunctionData(functionFragment: "_setReserveFactor", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "_withdrawAdminFees", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "_withdrawFuseFees", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "accrualBlockNumber", values?: undefined): string;
+  encodeFunctionData(functionFragment: "accrueInterest", values?: undefined): string;
   encodeFunctionData(functionFragment: "admin", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "adminFeeMantissa",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "adminHasRights",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "allowance",
-    values: [string, string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "approve",
-    values: [string, BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "adminFeeMantissa", values?: undefined): string;
+  encodeFunctionData(functionFragment: "adminHasRights", values?: undefined): string;
+  encodeFunctionData(functionFragment: "allowance", values: [string, string]): string;
+  encodeFunctionData(functionFragment: "approve", values: [string, BigNumberish]): string;
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
-  encodeFunctionData(
-    functionFragment: "balanceOfUnderlying",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "borrow",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "borrowBalanceCurrent",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "borrowBalanceStored",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "borrowIndex",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "borrowRatePerBlock",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "comptroller",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "balanceOfUnderlying", values: [string]): string;
+  encodeFunctionData(functionFragment: "borrow", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "borrowBalanceCurrent", values: [string]): string;
+  encodeFunctionData(functionFragment: "borrowBalanceStored", values: [string]): string;
+  encodeFunctionData(functionFragment: "borrowIndex", values?: undefined): string;
+  encodeFunctionData(functionFragment: "borrowRatePerBlock", values?: undefined): string;
+  encodeFunctionData(functionFragment: "comptroller", values?: undefined): string;
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "exchangeRateCurrent",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "exchangeRateStored",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "fuseAdminHasRights",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "fuseFeeMantissa",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getAccountSnapshot",
-    values: [string]
-  ): string;
+  encodeFunctionData(functionFragment: "exchangeRateCurrent", values?: undefined): string;
+  encodeFunctionData(functionFragment: "exchangeRateStored", values?: undefined): string;
+  encodeFunctionData(functionFragment: "fuseAdminHasRights", values?: undefined): string;
+  encodeFunctionData(functionFragment: "fuseFeeMantissa", values?: undefined): string;
+  encodeFunctionData(functionFragment: "getAccountSnapshot", values: [string]): string;
   encodeFunctionData(functionFragment: "getCash", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "implementation",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "implementation", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "initialize",
-    values: [
-      string,
-      string,
-      BigNumberish,
-      string,
-      string,
-      BigNumberish,
-      BigNumberish,
-      BigNumberish
-    ]
+    values: [string, string, BigNumberish, string, string, BigNumberish, BigNumberish, BigNumberish],
   ): string;
-  encodeFunctionData(
-    functionFragment: "interestRateModel",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "interestRateModel", values?: undefined): string;
   encodeFunctionData(functionFragment: "isCEther", values?: undefined): string;
   encodeFunctionData(functionFragment: "isCToken", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "liquidateBorrow",
-    values: [string, BigNumberish, string]
-  ): string;
+  encodeFunctionData(functionFragment: "liquidateBorrow", values: [string, BigNumberish, string]): string;
   encodeFunctionData(functionFragment: "mint", values: [BigNumberish]): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "pendingAdmin",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "redeem",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "redeemUnderlying",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "repayBorrow",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "repayBorrowBehalf",
-    values: [string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "reserveFactorMantissa",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "seize",
-    values: [string, string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "supplyRatePerBlock",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "pendingAdmin", values?: undefined): string;
+  encodeFunctionData(functionFragment: "redeem", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "redeemUnderlying", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "repayBorrow", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "repayBorrowBehalf", values: [string, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "reserveFactorMantissa", values?: undefined): string;
+  encodeFunctionData(functionFragment: "seize", values: [string, string, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "supplyRatePerBlock", values?: undefined): string;
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "totalAdminFees",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "totalBorrows",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "totalBorrowsCurrent",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "totalFuseFees",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "totalReserves",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "totalSupply",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "transfer",
-    values: [string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "transferFrom",
-    values: [string, string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "underlying",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "totalAdminFees", values?: undefined): string;
+  encodeFunctionData(functionFragment: "totalBorrows", values?: undefined): string;
+  encodeFunctionData(functionFragment: "totalBorrowsCurrent", values?: undefined): string;
+  encodeFunctionData(functionFragment: "totalFuseFees", values?: undefined): string;
+  encodeFunctionData(functionFragment: "totalReserves", values?: undefined): string;
+  encodeFunctionData(functionFragment: "totalSupply", values?: undefined): string;
+  encodeFunctionData(functionFragment: "transfer", values: [string, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "transferFrom", values: [string, string, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "underlying", values?: undefined): string;
 
-  decodeFunctionResult(
-    functionFragment: "_acceptAdmin",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "_addReserves",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "_becomeImplementation",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "_reduceReserves",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "_renounceAdminRights",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "_renounceFuseAdminRights",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "_resignImplementation",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "_setAdminFee",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "_setComptroller",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "_setFuseFee",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "_setInterestRateModel",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "_setPendingAdmin",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "_setReserveFactor",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "_withdrawAdminFees",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "_withdrawFuseFees",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "accrualBlockNumber",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "accrueInterest",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "_acceptAdmin", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "_addReserves", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "_becomeImplementation", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "_reduceReserves", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "_renounceAdminRights", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "_renounceFuseAdminRights", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "_resignImplementation", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "_setAdminFee", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "_setComptroller", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "_setFuseFee", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "_setInterestRateModel", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "_setPendingAdmin", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "_setReserveFactor", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "_withdrawAdminFees", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "_withdrawFuseFees", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "accrualBlockNumber", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "accrueInterest", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "admin", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "adminFeeMantissa",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "adminHasRights",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "adminFeeMantissa", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "adminHasRights", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "balanceOfUnderlying",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "balanceOfUnderlying", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "borrow", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "borrowBalanceCurrent",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "borrowBalanceStored",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "borrowIndex",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "borrowRatePerBlock",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "comptroller",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "borrowBalanceCurrent", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "borrowBalanceStored", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "borrowIndex", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "borrowRatePerBlock", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "comptroller", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "exchangeRateCurrent",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "exchangeRateStored",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "fuseAdminHasRights",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "fuseFeeMantissa",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getAccountSnapshot",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "exchangeRateCurrent", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "exchangeRateStored", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "fuseAdminHasRights", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "fuseFeeMantissa", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getAccountSnapshot", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "getCash", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "implementation",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "implementation", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "interestRateModel",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "interestRateModel", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "isCEther", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "isCToken", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "liquidateBorrow",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "liquidateBorrow", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "pendingAdmin",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "pendingAdmin", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "redeem", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "redeemUnderlying",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "repayBorrow",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "repayBorrowBehalf",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "reserveFactorMantissa",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "redeemUnderlying", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "repayBorrow", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "repayBorrowBehalf", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "reserveFactorMantissa", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "seize", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "supplyRatePerBlock",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "supplyRatePerBlock", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "totalAdminFees",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "totalBorrows",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "totalBorrowsCurrent",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "totalFuseFees",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "totalReserves",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "totalSupply",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "totalAdminFees", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "totalBorrows", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "totalBorrowsCurrent", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "totalFuseFees", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "totalReserves", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "totalSupply", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "transfer", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "transferFrom",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "transferFrom", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "underlying", data: BytesLike): Result;
 
   events: {
@@ -624,9 +318,7 @@ export type MintEvent = TypedEvent<
   }
 >;
 
-export type NewAdminEvent = TypedEvent<
-  [string, string] & { oldAdmin: string; newAdmin: string }
->;
+export type NewAdminEvent = TypedEvent<[string, string] & { oldAdmin: string; newAdmin: string }>;
 
 export type NewAdminFeeEvent = TypedEvent<
   [BigNumber, BigNumber] & {
@@ -635,9 +327,7 @@ export type NewAdminFeeEvent = TypedEvent<
   }
 >;
 
-export type NewComptrollerEvent = TypedEvent<
-  [string, string] & { oldComptroller: string; newComptroller: string }
->;
+export type NewComptrollerEvent = TypedEvent<[string, string] & { oldComptroller: string; newComptroller: string }>;
 
 export type NewFuseFeeEvent = TypedEvent<
   [BigNumber, BigNumber] & {
@@ -653,9 +343,7 @@ export type NewMarketInterestRateModelEvent = TypedEvent<
   }
 >;
 
-export type NewPendingAdminEvent = TypedEvent<
-  [string, string] & { oldPendingAdmin: string; newPendingAdmin: string }
->;
+export type NewPendingAdminEvent = TypedEvent<[string, string] & { oldPendingAdmin: string; newPendingAdmin: string }>;
 
 export type NewReserveFactorEvent = TypedEvent<
   [BigNumber, BigNumber] & {
@@ -698,9 +386,7 @@ export type ReservesReducedEvent = TypedEvent<
   }
 >;
 
-export type TransferEvent = TypedEvent<
-  [string, string, BigNumber] & { from: string; to: string; amount: BigNumber }
->;
+export type TransferEvent = TypedEvent<[string, string, BigNumber] & { from: string; to: string; amount: BigNumber }>;
 
 export class FuseProxy extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -708,26 +394,26 @@ export class FuseProxy extends BaseContract {
   deployed(): Promise<this>;
 
   listeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): Array<TypedListener<EventArgsArray, EventArgsObject>>;
   off<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   on<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   once<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeListener<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeAllListeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): this;
 
   listeners(eventName?: string): Array<Listener>;
@@ -740,87 +426,75 @@ export class FuseProxy extends BaseContract {
   queryFilter<EventArgsArray extends Array<any>, EventArgsObject>(
     event: TypedEventFilter<EventArgsArray, EventArgsObject>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
   interface: FuseProxyInterface;
 
   functions: {
-    _acceptAdmin(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    _acceptAdmin(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     _addReserves(
       addAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     _becomeImplementation(
       data: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     _reduceReserves(
       reduceAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    _renounceAdminRights(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    _renounceAdminRights(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
-    _renounceFuseAdminRights(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    _renounceFuseAdminRights(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
-    _resignImplementation(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    _resignImplementation(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     _setAdminFee(
       newAdminFeeMantissa: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     _setComptroller(
       newComptroller: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    _setFuseFee(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    _setFuseFee(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     _setInterestRateModel(
       newInterestRateModel: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     _setPendingAdmin(
       newPendingAdmin: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     _setReserveFactor(
       newReserveFactorMantissa: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     _withdrawAdminFees(
       withdrawAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     _withdrawFuseFees(
       withdrawAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     accrualBlockNumber(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    accrueInterest(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    accrueInterest(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     admin(overrides?: CallOverrides): Promise<[string]>;
 
@@ -828,39 +502,32 @@ export class FuseProxy extends BaseContract {
 
     adminHasRights(overrides?: CallOverrides): Promise<[boolean]>;
 
-    allowance(
-      owner: string,
-      spender: string,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     balanceOf(owner: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     balanceOfUnderlying(
       owner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     borrow(
       borrowAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     borrowBalanceCurrent(
       account: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    borrowBalanceStored(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    borrowBalanceStored(account: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     borrowIndex(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -870,9 +537,7 @@ export class FuseProxy extends BaseContract {
 
     decimals(overrides?: CallOverrides): Promise<[number]>;
 
-    exchangeRateCurrent(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    exchangeRateCurrent(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     exchangeRateStored(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -882,7 +547,7 @@ export class FuseProxy extends BaseContract {
 
     getAccountSnapshot(
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber, BigNumber, BigNumber, BigNumber]>;
 
     getCash(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -898,7 +563,7 @@ export class FuseProxy extends BaseContract {
       decimals_: BigNumberish,
       reserveFactorMantissa_: BigNumberish,
       adminFeeMantissa_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     "initialize(address,address,address,uint256,string,string,uint8,uint256,uint256)"(
@@ -911,7 +576,7 @@ export class FuseProxy extends BaseContract {
       decimals_: BigNumberish,
       reserveFactorMantissa_: BigNumberish,
       adminFeeMantissa_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     interestRateModel(overrides?: CallOverrides): Promise<[string]>;
@@ -924,12 +589,12 @@ export class FuseProxy extends BaseContract {
       borrower: string,
       repayAmount: BigNumberish,
       cTokenCollateral: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     mint(
       mintAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     name(overrides?: CallOverrides): Promise<[string]>;
@@ -938,23 +603,23 @@ export class FuseProxy extends BaseContract {
 
     redeem(
       redeemTokens: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     redeemUnderlying(
       redeemAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     repayBorrow(
       repayAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     repayBorrowBehalf(
       borrower: string,
       repayAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     reserveFactorMantissa(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -963,7 +628,7 @@ export class FuseProxy extends BaseContract {
       liquidator: string,
       borrower: string,
       seizeTokens: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     supplyRatePerBlock(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -974,9 +639,7 @@ export class FuseProxy extends BaseContract {
 
     totalBorrows(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    totalBorrowsCurrent(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    totalBorrowsCurrent(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     totalFuseFees(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -987,94 +650,82 @@ export class FuseProxy extends BaseContract {
     transfer(
       dst: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     transferFrom(
       src: string,
       dst: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     underlying(overrides?: CallOverrides): Promise<[string]>;
   };
 
-  _acceptAdmin(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  _acceptAdmin(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   _addReserves(
     addAmount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   _becomeImplementation(
     data: BytesLike,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   _reduceReserves(
     reduceAmount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
-  _renounceAdminRights(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  _renounceAdminRights(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
-  _renounceFuseAdminRights(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  _renounceFuseAdminRights(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
-  _resignImplementation(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  _resignImplementation(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   _setAdminFee(
     newAdminFeeMantissa: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   _setComptroller(
     newComptroller: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
-  _setFuseFee(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  _setFuseFee(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   _setInterestRateModel(
     newInterestRateModel: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   _setPendingAdmin(
     newPendingAdmin: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   _setReserveFactor(
     newReserveFactorMantissa: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   _withdrawAdminFees(
     withdrawAmount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   _withdrawFuseFees(
     withdrawAmount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   accrualBlockNumber(overrides?: CallOverrides): Promise<BigNumber>;
 
-  accrueInterest(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  accrueInterest(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   admin(overrides?: CallOverrides): Promise<string>;
 
@@ -1082,39 +733,32 @@ export class FuseProxy extends BaseContract {
 
   adminHasRights(overrides?: CallOverrides): Promise<boolean>;
 
-  allowance(
-    owner: string,
-    spender: string,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   approve(
     spender: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   balanceOfUnderlying(
     owner: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   borrow(
     borrowAmount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   borrowBalanceCurrent(
     account: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
-  borrowBalanceStored(
-    account: string,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  borrowBalanceStored(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   borrowIndex(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1124,9 +768,7 @@ export class FuseProxy extends BaseContract {
 
   decimals(overrides?: CallOverrides): Promise<number>;
 
-  exchangeRateCurrent(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  exchangeRateCurrent(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   exchangeRateStored(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1134,10 +776,7 @@ export class FuseProxy extends BaseContract {
 
   fuseFeeMantissa(overrides?: CallOverrides): Promise<BigNumber>;
 
-  getAccountSnapshot(
-    account: string,
-    overrides?: CallOverrides
-  ): Promise<[BigNumber, BigNumber, BigNumber, BigNumber]>;
+  getAccountSnapshot(account: string, overrides?: CallOverrides): Promise<[BigNumber, BigNumber, BigNumber, BigNumber]>;
 
   getCash(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1152,7 +791,7 @@ export class FuseProxy extends BaseContract {
     decimals_: BigNumberish,
     reserveFactorMantissa_: BigNumberish,
     adminFeeMantissa_: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   "initialize(address,address,address,uint256,string,string,uint8,uint256,uint256)"(
@@ -1165,7 +804,7 @@ export class FuseProxy extends BaseContract {
     decimals_: BigNumberish,
     reserveFactorMantissa_: BigNumberish,
     adminFeeMantissa_: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   interestRateModel(overrides?: CallOverrides): Promise<string>;
@@ -1178,12 +817,12 @@ export class FuseProxy extends BaseContract {
     borrower: string,
     repayAmount: BigNumberish,
     cTokenCollateral: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   mint(
     mintAmount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   name(overrides?: CallOverrides): Promise<string>;
@@ -1192,23 +831,23 @@ export class FuseProxy extends BaseContract {
 
   redeem(
     redeemTokens: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   redeemUnderlying(
     redeemAmount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   repayBorrow(
     repayAmount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   repayBorrowBehalf(
     borrower: string,
     repayAmount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   reserveFactorMantissa(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1217,7 +856,7 @@ export class FuseProxy extends BaseContract {
     liquidator: string,
     borrower: string,
     seizeTokens: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   supplyRatePerBlock(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1228,9 +867,7 @@ export class FuseProxy extends BaseContract {
 
   totalBorrows(overrides?: CallOverrides): Promise<BigNumber>;
 
-  totalBorrowsCurrent(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  totalBorrowsCurrent(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   totalFuseFees(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1241,14 +878,14 @@ export class FuseProxy extends BaseContract {
   transfer(
     dst: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   transferFrom(
     src: string,
     dst: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   underlying(overrides?: CallOverrides): Promise<string>;
@@ -1256,20 +893,11 @@ export class FuseProxy extends BaseContract {
   callStatic: {
     _acceptAdmin(overrides?: CallOverrides): Promise<BigNumber>;
 
-    _addReserves(
-      addAmount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    _addReserves(addAmount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    _becomeImplementation(
-      data: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    _becomeImplementation(data: BytesLike, overrides?: CallOverrides): Promise<void>;
 
-    _reduceReserves(
-      reduceAmount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    _reduceReserves(reduceAmount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     _renounceAdminRights(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1277,42 +905,21 @@ export class FuseProxy extends BaseContract {
 
     _resignImplementation(overrides?: CallOverrides): Promise<void>;
 
-    _setAdminFee(
-      newAdminFeeMantissa: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    _setAdminFee(newAdminFeeMantissa: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    _setComptroller(
-      newComptroller: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    _setComptroller(newComptroller: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     _setFuseFee(overrides?: CallOverrides): Promise<BigNumber>;
 
-    _setInterestRateModel(
-      newInterestRateModel: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    _setInterestRateModel(newInterestRateModel: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    _setPendingAdmin(
-      newPendingAdmin: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    _setPendingAdmin(newPendingAdmin: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    _setReserveFactor(
-      newReserveFactorMantissa: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    _setReserveFactor(newReserveFactorMantissa: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    _withdrawAdminFees(
-      withdrawAmount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    _withdrawAdminFees(withdrawAmount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    _withdrawFuseFees(
-      withdrawAmount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    _withdrawFuseFees(withdrawAmount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     accrualBlockNumber(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1324,39 +931,19 @@ export class FuseProxy extends BaseContract {
 
     adminHasRights(overrides?: CallOverrides): Promise<boolean>;
 
-    allowance(
-      owner: string,
-      spender: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    approve(
-      spender: string,
-      amount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    approve(spender: string, amount: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
     balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    balanceOfUnderlying(
-      owner: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    balanceOfUnderlying(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    borrow(
-      borrowAmount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    borrow(borrowAmount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    borrowBalanceCurrent(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    borrowBalanceCurrent(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    borrowBalanceStored(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    borrowBalanceStored(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     borrowIndex(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1376,7 +963,7 @@ export class FuseProxy extends BaseContract {
 
     getAccountSnapshot(
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber, BigNumber, BigNumber, BigNumber]>;
 
     getCash(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1392,7 +979,7 @@ export class FuseProxy extends BaseContract {
       decimals_: BigNumberish,
       reserveFactorMantissa_: BigNumberish,
       adminFeeMantissa_: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     "initialize(address,address,address,uint256,string,string,uint8,uint256,uint256)"(
@@ -1405,7 +992,7 @@ export class FuseProxy extends BaseContract {
       decimals_: BigNumberish,
       reserveFactorMantissa_: BigNumberish,
       adminFeeMantissa_: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     interestRateModel(overrides?: CallOverrides): Promise<string>;
@@ -1418,38 +1005,22 @@ export class FuseProxy extends BaseContract {
       borrower: string,
       repayAmount: BigNumberish,
       cTokenCollateral: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
-    mint(
-      mintAmount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    mint(mintAmount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<string>;
 
     pendingAdmin(overrides?: CallOverrides): Promise<string>;
 
-    redeem(
-      redeemTokens: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    redeem(redeemTokens: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    redeemUnderlying(
-      redeemAmount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    redeemUnderlying(redeemAmount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    repayBorrow(
-      repayAmount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    repayBorrow(repayAmount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    repayBorrowBehalf(
-      borrower: string,
-      repayAmount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    repayBorrowBehalf(borrower: string, repayAmount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     reserveFactorMantissa(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1457,7 +1028,7 @@ export class FuseProxy extends BaseContract {
       liquidator: string,
       borrower: string,
       seizeTokens: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     supplyRatePerBlock(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1476,18 +1047,9 @@ export class FuseProxy extends BaseContract {
 
     totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
 
-    transfer(
-      dst: string,
-      amount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    transfer(dst: string, amount: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
-    transferFrom(
-      src: string,
-      dst: string,
-      amount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    transferFrom(src: string, dst: string, amount: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
     underlying(overrides?: CallOverrides): Promise<string>;
   };
@@ -1497,7 +1059,7 @@ export class FuseProxy extends BaseContract {
       cashPrior?: null,
       interestAccumulated?: null,
       borrowIndex?: null,
-      totalBorrows?: null
+      totalBorrows?: null,
     ): TypedEventFilter<
       [BigNumber, BigNumber, BigNumber, BigNumber],
       {
@@ -1512,7 +1074,7 @@ export class FuseProxy extends BaseContract {
       cashPrior?: null,
       interestAccumulated?: null,
       borrowIndex?: null,
-      totalBorrows?: null
+      totalBorrows?: null,
     ): TypedEventFilter<
       [BigNumber, BigNumber, BigNumber, BigNumber],
       {
@@ -1530,26 +1092,20 @@ export class FuseProxy extends BaseContract {
     "Approval(address,address,uint256)"(
       owner?: string | null,
       spender?: string | null,
-      amount?: null
-    ): TypedEventFilter<
-      [string, string, BigNumber],
-      { owner: string; spender: string; amount: BigNumber }
-    >;
+      amount?: null,
+    ): TypedEventFilter<[string, string, BigNumber], { owner: string; spender: string; amount: BigNumber }>;
 
     Approval(
       owner?: string | null,
       spender?: string | null,
-      amount?: null
-    ): TypedEventFilter<
-      [string, string, BigNumber],
-      { owner: string; spender: string; amount: BigNumber }
-    >;
+      amount?: null,
+    ): TypedEventFilter<[string, string, BigNumber], { owner: string; spender: string; amount: BigNumber }>;
 
     "Borrow(address,uint256,uint256,uint256)"(
       borrower?: null,
       borrowAmount?: null,
       accountBorrows?: null,
-      totalBorrows?: null
+      totalBorrows?: null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber, BigNumber],
       {
@@ -1564,7 +1120,7 @@ export class FuseProxy extends BaseContract {
       borrower?: null,
       borrowAmount?: null,
       accountBorrows?: null,
-      totalBorrows?: null
+      totalBorrows?: null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber, BigNumber],
       {
@@ -1578,20 +1134,14 @@ export class FuseProxy extends BaseContract {
     "Failure(uint256,uint256,uint256)"(
       error?: null,
       info?: null,
-      detail?: null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber, BigNumber],
-      { error: BigNumber; info: BigNumber; detail: BigNumber }
-    >;
+      detail?: null,
+    ): TypedEventFilter<[BigNumber, BigNumber, BigNumber], { error: BigNumber; info: BigNumber; detail: BigNumber }>;
 
     Failure(
       error?: null,
       info?: null,
-      detail?: null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber, BigNumber],
-      { error: BigNumber; info: BigNumber; detail: BigNumber }
-    >;
+      detail?: null,
+    ): TypedEventFilter<[BigNumber, BigNumber, BigNumber], { error: BigNumber; info: BigNumber; detail: BigNumber }>;
 
     "FuseAdminRightsRenounced()"(): TypedEventFilter<[], {}>;
 
@@ -1602,7 +1152,7 @@ export class FuseProxy extends BaseContract {
       borrower?: null,
       repayAmount?: null,
       cTokenCollateral?: null,
-      seizeTokens?: null
+      seizeTokens?: null,
     ): TypedEventFilter<
       [string, string, BigNumber, string, BigNumber],
       {
@@ -1619,7 +1169,7 @@ export class FuseProxy extends BaseContract {
       borrower?: null,
       repayAmount?: null,
       cTokenCollateral?: null,
-      seizeTokens?: null
+      seizeTokens?: null,
     ): TypedEventFilter<
       [string, string, BigNumber, string, BigNumber],
       {
@@ -1634,7 +1184,7 @@ export class FuseProxy extends BaseContract {
     "Mint(address,uint256,uint256)"(
       minter?: null,
       mintAmount?: null,
-      mintTokens?: null
+      mintTokens?: null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { minter: string; mintAmount: BigNumber; mintTokens: BigNumber }
@@ -1643,7 +1193,7 @@ export class FuseProxy extends BaseContract {
     Mint(
       minter?: null,
       mintAmount?: null,
-      mintTokens?: null
+      mintTokens?: null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { minter: string; mintAmount: BigNumber; mintTokens: BigNumber }
@@ -1651,103 +1201,67 @@ export class FuseProxy extends BaseContract {
 
     "NewAdmin(address,address)"(
       oldAdmin?: null,
-      newAdmin?: null
-    ): TypedEventFilter<
-      [string, string],
-      { oldAdmin: string; newAdmin: string }
-    >;
+      newAdmin?: null,
+    ): TypedEventFilter<[string, string], { oldAdmin: string; newAdmin: string }>;
 
     NewAdmin(
       oldAdmin?: null,
-      newAdmin?: null
-    ): TypedEventFilter<
-      [string, string],
-      { oldAdmin: string; newAdmin: string }
-    >;
+      newAdmin?: null,
+    ): TypedEventFilter<[string, string], { oldAdmin: string; newAdmin: string }>;
 
     "NewAdminFee(uint256,uint256)"(
       oldAdminFeeMantissa?: null,
-      newAdminFeeMantissa?: null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber],
-      { oldAdminFeeMantissa: BigNumber; newAdminFeeMantissa: BigNumber }
-    >;
+      newAdminFeeMantissa?: null,
+    ): TypedEventFilter<[BigNumber, BigNumber], { oldAdminFeeMantissa: BigNumber; newAdminFeeMantissa: BigNumber }>;
 
     NewAdminFee(
       oldAdminFeeMantissa?: null,
-      newAdminFeeMantissa?: null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber],
-      { oldAdminFeeMantissa: BigNumber; newAdminFeeMantissa: BigNumber }
-    >;
+      newAdminFeeMantissa?: null,
+    ): TypedEventFilter<[BigNumber, BigNumber], { oldAdminFeeMantissa: BigNumber; newAdminFeeMantissa: BigNumber }>;
 
     "NewComptroller(address,address)"(
       oldComptroller?: null,
-      newComptroller?: null
-    ): TypedEventFilter<
-      [string, string],
-      { oldComptroller: string; newComptroller: string }
-    >;
+      newComptroller?: null,
+    ): TypedEventFilter<[string, string], { oldComptroller: string; newComptroller: string }>;
 
     NewComptroller(
       oldComptroller?: null,
-      newComptroller?: null
-    ): TypedEventFilter<
-      [string, string],
-      { oldComptroller: string; newComptroller: string }
-    >;
+      newComptroller?: null,
+    ): TypedEventFilter<[string, string], { oldComptroller: string; newComptroller: string }>;
 
     "NewFuseFee(uint256,uint256)"(
       oldFuseFeeMantissa?: null,
-      newFuseFeeMantissa?: null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber],
-      { oldFuseFeeMantissa: BigNumber; newFuseFeeMantissa: BigNumber }
-    >;
+      newFuseFeeMantissa?: null,
+    ): TypedEventFilter<[BigNumber, BigNumber], { oldFuseFeeMantissa: BigNumber; newFuseFeeMantissa: BigNumber }>;
 
     NewFuseFee(
       oldFuseFeeMantissa?: null,
-      newFuseFeeMantissa?: null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber],
-      { oldFuseFeeMantissa: BigNumber; newFuseFeeMantissa: BigNumber }
-    >;
+      newFuseFeeMantissa?: null,
+    ): TypedEventFilter<[BigNumber, BigNumber], { oldFuseFeeMantissa: BigNumber; newFuseFeeMantissa: BigNumber }>;
 
     "NewMarketInterestRateModel(address,address)"(
       oldInterestRateModel?: null,
-      newInterestRateModel?: null
-    ): TypedEventFilter<
-      [string, string],
-      { oldInterestRateModel: string; newInterestRateModel: string }
-    >;
+      newInterestRateModel?: null,
+    ): TypedEventFilter<[string, string], { oldInterestRateModel: string; newInterestRateModel: string }>;
 
     NewMarketInterestRateModel(
       oldInterestRateModel?: null,
-      newInterestRateModel?: null
-    ): TypedEventFilter<
-      [string, string],
-      { oldInterestRateModel: string; newInterestRateModel: string }
-    >;
+      newInterestRateModel?: null,
+    ): TypedEventFilter<[string, string], { oldInterestRateModel: string; newInterestRateModel: string }>;
 
     "NewPendingAdmin(address,address)"(
       oldPendingAdmin?: null,
-      newPendingAdmin?: null
-    ): TypedEventFilter<
-      [string, string],
-      { oldPendingAdmin: string; newPendingAdmin: string }
-    >;
+      newPendingAdmin?: null,
+    ): TypedEventFilter<[string, string], { oldPendingAdmin: string; newPendingAdmin: string }>;
 
     NewPendingAdmin(
       oldPendingAdmin?: null,
-      newPendingAdmin?: null
-    ): TypedEventFilter<
-      [string, string],
-      { oldPendingAdmin: string; newPendingAdmin: string }
-    >;
+      newPendingAdmin?: null,
+    ): TypedEventFilter<[string, string], { oldPendingAdmin: string; newPendingAdmin: string }>;
 
     "NewReserveFactor(uint256,uint256)"(
       oldReserveFactorMantissa?: null,
-      newReserveFactorMantissa?: null
+      newReserveFactorMantissa?: null,
     ): TypedEventFilter<
       [BigNumber, BigNumber],
       {
@@ -1758,7 +1272,7 @@ export class FuseProxy extends BaseContract {
 
     NewReserveFactor(
       oldReserveFactorMantissa?: null,
-      newReserveFactorMantissa?: null
+      newReserveFactorMantissa?: null,
     ): TypedEventFilter<
       [BigNumber, BigNumber],
       {
@@ -1770,7 +1284,7 @@ export class FuseProxy extends BaseContract {
     "Redeem(address,uint256,uint256)"(
       redeemer?: null,
       redeemAmount?: null,
-      redeemTokens?: null
+      redeemTokens?: null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { redeemer: string; redeemAmount: BigNumber; redeemTokens: BigNumber }
@@ -1779,7 +1293,7 @@ export class FuseProxy extends BaseContract {
     Redeem(
       redeemer?: null,
       redeemAmount?: null,
-      redeemTokens?: null
+      redeemTokens?: null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { redeemer: string; redeemAmount: BigNumber; redeemTokens: BigNumber }
@@ -1790,7 +1304,7 @@ export class FuseProxy extends BaseContract {
       borrower?: null,
       repayAmount?: null,
       accountBorrows?: null,
-      totalBorrows?: null
+      totalBorrows?: null,
     ): TypedEventFilter<
       [string, string, BigNumber, BigNumber, BigNumber],
       {
@@ -1807,7 +1321,7 @@ export class FuseProxy extends BaseContract {
       borrower?: null,
       repayAmount?: null,
       accountBorrows?: null,
-      totalBorrows?: null
+      totalBorrows?: null,
     ): TypedEventFilter<
       [string, string, BigNumber, BigNumber, BigNumber],
       {
@@ -1822,7 +1336,7 @@ export class FuseProxy extends BaseContract {
     "ReservesAdded(address,uint256,uint256)"(
       benefactor?: null,
       addAmount?: null,
-      newTotalReserves?: null
+      newTotalReserves?: null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { benefactor: string; addAmount: BigNumber; newTotalReserves: BigNumber }
@@ -1831,7 +1345,7 @@ export class FuseProxy extends BaseContract {
     ReservesAdded(
       benefactor?: null,
       addAmount?: null,
-      newTotalReserves?: null
+      newTotalReserves?: null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { benefactor: string; addAmount: BigNumber; newTotalReserves: BigNumber }
@@ -1840,7 +1354,7 @@ export class FuseProxy extends BaseContract {
     "ReservesReduced(address,uint256,uint256)"(
       admin?: null,
       reduceAmount?: null,
-      newTotalReserves?: null
+      newTotalReserves?: null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { admin: string; reduceAmount: BigNumber; newTotalReserves: BigNumber }
@@ -1849,7 +1363,7 @@ export class FuseProxy extends BaseContract {
     ReservesReduced(
       admin?: null,
       reduceAmount?: null,
-      newTotalReserves?: null
+      newTotalReserves?: null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { admin: string; reduceAmount: BigNumber; newTotalReserves: BigNumber }
@@ -1858,98 +1372,80 @@ export class FuseProxy extends BaseContract {
     "Transfer(address,address,uint256)"(
       from?: string | null,
       to?: string | null,
-      amount?: null
-    ): TypedEventFilter<
-      [string, string, BigNumber],
-      { from: string; to: string; amount: BigNumber }
-    >;
+      amount?: null,
+    ): TypedEventFilter<[string, string, BigNumber], { from: string; to: string; amount: BigNumber }>;
 
     Transfer(
       from?: string | null,
       to?: string | null,
-      amount?: null
-    ): TypedEventFilter<
-      [string, string, BigNumber],
-      { from: string; to: string; amount: BigNumber }
-    >;
+      amount?: null,
+    ): TypedEventFilter<[string, string, BigNumber], { from: string; to: string; amount: BigNumber }>;
   };
 
   estimateGas: {
-    _acceptAdmin(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    _acceptAdmin(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     _addReserves(
       addAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     _becomeImplementation(
       data: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     _reduceReserves(
       reduceAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    _renounceAdminRights(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    _renounceAdminRights(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
-    _renounceFuseAdminRights(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    _renounceFuseAdminRights(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
-    _resignImplementation(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    _resignImplementation(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     _setAdminFee(
       newAdminFeeMantissa: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     _setComptroller(
       newComptroller: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    _setFuseFee(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    _setFuseFee(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     _setInterestRateModel(
       newInterestRateModel: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     _setPendingAdmin(
       newPendingAdmin: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     _setReserveFactor(
       newReserveFactorMantissa: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     _withdrawAdminFees(
       withdrawAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     _withdrawFuseFees(
       withdrawAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     accrualBlockNumber(overrides?: CallOverrides): Promise<BigNumber>;
 
-    accrueInterest(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    accrueInterest(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     admin(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1957,39 +1453,26 @@ export class FuseProxy extends BaseContract {
 
     adminHasRights(overrides?: CallOverrides): Promise<BigNumber>;
 
-    allowance(
-      owner: string,
-      spender: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    balanceOfUnderlying(
-      owner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    balanceOfUnderlying(owner: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
-    borrow(
-      borrowAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    borrow(borrowAmount: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     borrowBalanceCurrent(
       account: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    borrowBalanceStored(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    borrowBalanceStored(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     borrowIndex(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1999,9 +1482,7 @@ export class FuseProxy extends BaseContract {
 
     decimals(overrides?: CallOverrides): Promise<BigNumber>;
 
-    exchangeRateCurrent(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    exchangeRateCurrent(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     exchangeRateStored(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -2009,10 +1490,7 @@ export class FuseProxy extends BaseContract {
 
     fuseFeeMantissa(overrides?: CallOverrides): Promise<BigNumber>;
 
-    getAccountSnapshot(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getAccountSnapshot(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     getCash(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -2027,7 +1505,7 @@ export class FuseProxy extends BaseContract {
       decimals_: BigNumberish,
       reserveFactorMantissa_: BigNumberish,
       adminFeeMantissa_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     "initialize(address,address,address,uint256,string,string,uint8,uint256,uint256)"(
@@ -2040,7 +1518,7 @@ export class FuseProxy extends BaseContract {
       decimals_: BigNumberish,
       reserveFactorMantissa_: BigNumberish,
       adminFeeMantissa_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     interestRateModel(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2053,37 +1531,31 @@ export class FuseProxy extends BaseContract {
       borrower: string,
       repayAmount: BigNumberish,
       cTokenCollateral: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    mint(
-      mintAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    mint(mintAmount: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
 
     pendingAdmin(overrides?: CallOverrides): Promise<BigNumber>;
 
-    redeem(
-      redeemTokens: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    redeem(redeemTokens: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     redeemUnderlying(
       redeemAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     repayBorrow(
       repayAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     repayBorrowBehalf(
       borrower: string,
       repayAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     reserveFactorMantissa(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2092,7 +1564,7 @@ export class FuseProxy extends BaseContract {
       liquidator: string,
       borrower: string,
       seizeTokens: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     supplyRatePerBlock(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2103,9 +1575,7 @@ export class FuseProxy extends BaseContract {
 
     totalBorrows(overrides?: CallOverrides): Promise<BigNumber>;
 
-    totalBorrowsCurrent(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    totalBorrowsCurrent(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     totalFuseFees(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -2116,97 +1586,85 @@ export class FuseProxy extends BaseContract {
     transfer(
       dst: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     transferFrom(
       src: string,
       dst: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     underlying(overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
-    _acceptAdmin(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    _acceptAdmin(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     _addReserves(
       addAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     _becomeImplementation(
       data: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     _reduceReserves(
       reduceAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    _renounceAdminRights(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    _renounceAdminRights(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     _renounceFuseAdminRights(
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    _resignImplementation(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    _resignImplementation(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     _setAdminFee(
       newAdminFeeMantissa: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     _setComptroller(
       newComptroller: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    _setFuseFee(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    _setFuseFee(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     _setInterestRateModel(
       newInterestRateModel: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     _setPendingAdmin(
       newPendingAdmin: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     _setReserveFactor(
       newReserveFactorMantissa: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     _withdrawAdminFees(
       withdrawAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     _withdrawFuseFees(
       withdrawAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    accrualBlockNumber(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    accrualBlockNumber(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    accrueInterest(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    accrueInterest(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     admin(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -2214,71 +1672,50 @@ export class FuseProxy extends BaseContract {
 
     adminHasRights(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    allowance(
-      owner: string,
-      spender: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    allowance(owner: string, spender: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    balanceOf(
-      owner: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    balanceOf(owner: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     balanceOfUnderlying(
       owner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     borrow(
       borrowAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     borrowBalanceCurrent(
       account: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    borrowBalanceStored(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    borrowBalanceStored(account: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     borrowIndex(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    borrowRatePerBlock(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    borrowRatePerBlock(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     comptroller(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     decimals(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    exchangeRateCurrent(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    exchangeRateCurrent(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
-    exchangeRateStored(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    exchangeRateStored(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    fuseAdminHasRights(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    fuseAdminHasRights(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     fuseFeeMantissa(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getAccountSnapshot(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getAccountSnapshot(account: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getCash(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -2293,7 +1730,7 @@ export class FuseProxy extends BaseContract {
       decimals_: BigNumberish,
       reserveFactorMantissa_: BigNumberish,
       adminFeeMantissa_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     "initialize(address,address,address,uint256,string,string,uint8,uint256,uint256)"(
@@ -2306,7 +1743,7 @@ export class FuseProxy extends BaseContract {
       decimals_: BigNumberish,
       reserveFactorMantissa_: BigNumberish,
       adminFeeMantissa_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     interestRateModel(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2319,12 +1756,12 @@ export class FuseProxy extends BaseContract {
       borrower: string,
       repayAmount: BigNumberish,
       cTokenCollateral: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     mint(
       mintAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2333,39 +1770,35 @@ export class FuseProxy extends BaseContract {
 
     redeem(
       redeemTokens: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     redeemUnderlying(
       redeemAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     repayBorrow(
       repayAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     repayBorrowBehalf(
       borrower: string,
       repayAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    reserveFactorMantissa(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    reserveFactorMantissa(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     seize(
       liquidator: string,
       borrower: string,
       seizeTokens: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    supplyRatePerBlock(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    supplyRatePerBlock(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     symbol(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -2373,9 +1806,7 @@ export class FuseProxy extends BaseContract {
 
     totalBorrows(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    totalBorrowsCurrent(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    totalBorrowsCurrent(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     totalFuseFees(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -2386,14 +1817,14 @@ export class FuseProxy extends BaseContract {
     transfer(
       dst: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     transferFrom(
       src: string,
       dst: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     underlying(overrides?: CallOverrides): Promise<PopulatedTransaction>;

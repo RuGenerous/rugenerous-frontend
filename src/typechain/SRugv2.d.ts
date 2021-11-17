@@ -53,180 +53,70 @@ interface SRugv2Interface extends ethers.utils.Interface {
     "transferFrom(address,address,uint256)": FunctionFragment;
   };
 
-  encodeFunctionData(
-    functionFragment: "DOMAIN_SEPARATOR",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "DOMAIN_SEPARATOR", values?: undefined): string;
   encodeFunctionData(functionFragment: "INDEX", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "PERMIT_TYPEHASH",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "allowance",
-    values: [string, string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "approve",
-    values: [string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "balanceForGons",
-    values: [BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "PERMIT_TYPEHASH", values?: undefined): string;
+  encodeFunctionData(functionFragment: "allowance", values: [string, string]): string;
+  encodeFunctionData(functionFragment: "approve", values: [string, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "balanceForGons", values: [BigNumberish]): string;
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
-  encodeFunctionData(
-    functionFragment: "circulatingSupply",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "circulatingSupply", values?: undefined): string;
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "decreaseAllowance",
-    values: [string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "gonsForBalance",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "increaseAllowance",
-    values: [string, BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "decreaseAllowance", values: [string, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "gonsForBalance", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "increaseAllowance", values: [string, BigNumberish]): string;
   encodeFunctionData(functionFragment: "index", values?: undefined): string;
   encodeFunctionData(functionFragment: "initialize", values: [string]): string;
-  encodeFunctionData(
-    functionFragment: "initializer",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "initializer", values?: undefined): string;
   encodeFunctionData(functionFragment: "manager", values?: undefined): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(functionFragment: "nonces", values: [string]): string;
   encodeFunctionData(
     functionFragment: "permit",
-    values: [
-      string,
-      string,
-      BigNumberish,
-      BigNumberish,
-      BigNumberish,
-      BytesLike,
-      BytesLike
-    ]
+    values: [string, string, BigNumberish, BigNumberish, BigNumberish, BytesLike, BytesLike],
   ): string;
-  encodeFunctionData(
-    functionFragment: "pullManagement",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "pushManagement",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "rebase",
-    values: [BigNumberish, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "rebases",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "renounceManagement",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setIndex",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "stakingContract",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "pullManagement", values?: undefined): string;
+  encodeFunctionData(functionFragment: "pushManagement", values: [string]): string;
+  encodeFunctionData(functionFragment: "rebase", values: [BigNumberish, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "rebases", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "renounceManagement", values?: undefined): string;
+  encodeFunctionData(functionFragment: "setIndex", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "stakingContract", values?: undefined): string;
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "totalSupply",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "transfer",
-    values: [string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "transferFrom",
-    values: [string, string, BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "totalSupply", values?: undefined): string;
+  encodeFunctionData(functionFragment: "transfer", values: [string, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "transferFrom", values: [string, string, BigNumberish]): string;
 
-  decodeFunctionResult(
-    functionFragment: "DOMAIN_SEPARATOR",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "DOMAIN_SEPARATOR", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "INDEX", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "PERMIT_TYPEHASH",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "PERMIT_TYPEHASH", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "balanceForGons",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "balanceForGons", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "circulatingSupply",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "circulatingSupply", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "decreaseAllowance",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "gonsForBalance",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "increaseAllowance",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "decreaseAllowance", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "gonsForBalance", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "increaseAllowance", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "index", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "initializer",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "initializer", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "manager", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "nonces", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "permit", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "pullManagement",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "pushManagement",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "pullManagement", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "pushManagement", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "rebase", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "rebases", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceManagement",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "renounceManagement", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "setIndex", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "stakingContract",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "stakingContract", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "totalSupply",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "totalSupply", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "transfer", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "transferFrom",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "transferFrom", data: BytesLike): Result;
 
   events: {
     "Approval(address,address,uint256)": EventFragment;
@@ -263,9 +153,7 @@ export type LogRebaseEvent = TypedEvent<
   }
 >;
 
-export type LogStakingContractUpdatedEvent = TypedEvent<
-  [string] & { stakingContract: string }
->;
+export type LogStakingContractUpdatedEvent = TypedEvent<[string] & { stakingContract: string }>;
 
 export type LogSupplyEvent = TypedEvent<
   [BigNumber, BigNumber, BigNumber] & {
@@ -275,17 +163,11 @@ export type LogSupplyEvent = TypedEvent<
   }
 >;
 
-export type OwnershipPulledEvent = TypedEvent<
-  [string, string] & { previousOwner: string; newOwner: string }
->;
+export type OwnershipPulledEvent = TypedEvent<[string, string] & { previousOwner: string; newOwner: string }>;
 
-export type OwnershipPushedEvent = TypedEvent<
-  [string, string] & { previousOwner: string; newOwner: string }
->;
+export type OwnershipPushedEvent = TypedEvent<[string, string] & { previousOwner: string; newOwner: string }>;
 
-export type TransferEvent = TypedEvent<
-  [string, string, BigNumber] & { from: string; to: string; value: BigNumber }
->;
+export type TransferEvent = TypedEvent<[string, string, BigNumber] & { from: string; to: string; value: BigNumber }>;
 
 export class SRugv2 extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -293,26 +175,26 @@ export class SRugv2 extends BaseContract {
   deployed(): Promise<this>;
 
   listeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): Array<TypedListener<EventArgsArray, EventArgsObject>>;
   off<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   on<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   once<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeListener<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeAllListeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): this;
 
   listeners(eventName?: string): Array<Listener>;
@@ -325,7 +207,7 @@ export class SRugv2 extends BaseContract {
   queryFilter<EventArgsArray extends Array<any>, EventArgsObject>(
     event: TypedEventFilter<EventArgsArray, EventArgsObject>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
   interface: SRugv2Interface;
@@ -337,22 +219,15 @@ export class SRugv2 extends BaseContract {
 
     PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<[string]>;
 
-    allowance(
-      owner_: string,
-      spender: string,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    allowance(owner_: string, spender: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     approve(
       spender: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    balanceForGons(
-      gons: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    balanceForGons(gons: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     balanceOf(who: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -363,25 +238,22 @@ export class SRugv2 extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    gonsForBalance(
-      amount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    gonsForBalance(amount: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     index(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     initialize(
       stakingContract_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     initializer(overrides?: CallOverrides): Promise<[string]>;
@@ -400,37 +272,27 @@ export class SRugv2 extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    pullManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     pushManagement(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     rebase(
       profit_: BigNumberish,
       epoch_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     rebases(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
-      [
-        BigNumber,
-        BigNumber,
-        BigNumber,
-        BigNumber,
-        BigNumber,
-        BigNumber,
-        BigNumber
-      ] & {
+      [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
         epoch: BigNumber;
         rebase: BigNumber;
         totalStakedBefore: BigNumber;
@@ -441,13 +303,11 @@ export class SRugv2 extends BaseContract {
       }
     >;
 
-    renounceManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     setIndex(
       _INDEX: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     stakingContract(overrides?: CallOverrides): Promise<[string]>;
@@ -459,14 +319,14 @@ export class SRugv2 extends BaseContract {
     transfer(
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     transferFrom(
       from: string,
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
   };
 
@@ -476,22 +336,15 @@ export class SRugv2 extends BaseContract {
 
   PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<string>;
 
-  allowance(
-    owner_: string,
-    spender: string,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  allowance(owner_: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   approve(
     spender: string,
     value: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
-  balanceForGons(
-    gons: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  balanceForGons(gons: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
   balanceOf(who: string, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -502,25 +355,22 @@ export class SRugv2 extends BaseContract {
   decreaseAllowance(
     spender: string,
     subtractedValue: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
-  gonsForBalance(
-    amount: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  gonsForBalance(amount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
   increaseAllowance(
     spender: string,
     addedValue: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   index(overrides?: CallOverrides): Promise<BigNumber>;
 
   initialize(
     stakingContract_: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   initializer(overrides?: CallOverrides): Promise<string>;
@@ -539,37 +389,27 @@ export class SRugv2 extends BaseContract {
     v: BigNumberish,
     r: BytesLike,
     s: BytesLike,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
-  pullManagement(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   pushManagement(
     newOwner_: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   rebase(
     profit_: BigNumberish,
     epoch_: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   rebases(
     arg0: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
-    [
-      BigNumber,
-      BigNumber,
-      BigNumber,
-      BigNumber,
-      BigNumber,
-      BigNumber,
-      BigNumber
-    ] & {
+    [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
       epoch: BigNumber;
       rebase: BigNumber;
       totalStakedBefore: BigNumber;
@@ -580,13 +420,11 @@ export class SRugv2 extends BaseContract {
     }
   >;
 
-  renounceManagement(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   setIndex(
     _INDEX: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   stakingContract(overrides?: CallOverrides): Promise<string>;
@@ -598,14 +436,14 @@ export class SRugv2 extends BaseContract {
   transfer(
     to: string,
     value: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   transferFrom(
     from: string,
     to: string,
     value: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -615,22 +453,11 @@ export class SRugv2 extends BaseContract {
 
     PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<string>;
 
-    allowance(
-      owner_: string,
-      spender: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    allowance(owner_: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    approve(
-      spender: string,
-      value: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    approve(spender: string, value: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
-    balanceForGons(
-      gons: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    balanceForGons(gons: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     balanceOf(who: string, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -638,29 +465,15 @@ export class SRugv2 extends BaseContract {
 
     decimals(overrides?: CallOverrides): Promise<number>;
 
-    decreaseAllowance(
-      spender: string,
-      subtractedValue: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    decreaseAllowance(spender: string, subtractedValue: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
-    gonsForBalance(
-      amount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    gonsForBalance(amount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    increaseAllowance(
-      spender: string,
-      addedValue: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    increaseAllowance(spender: string, addedValue: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
     index(overrides?: CallOverrides): Promise<BigNumber>;
 
-    initialize(
-      stakingContract_: string,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    initialize(stakingContract_: string, overrides?: CallOverrides): Promise<boolean>;
 
     initializer(overrides?: CallOverrides): Promise<string>;
 
@@ -678,32 +491,20 @@ export class SRugv2 extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     pullManagement(overrides?: CallOverrides): Promise<void>;
 
     pushManagement(newOwner_: string, overrides?: CallOverrides): Promise<void>;
 
-    rebase(
-      profit_: BigNumberish,
-      epoch_: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    rebase(profit_: BigNumberish, epoch_: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     rebases(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
-      [
-        BigNumber,
-        BigNumber,
-        BigNumber,
-        BigNumber,
-        BigNumber,
-        BigNumber,
-        BigNumber
-      ] & {
+      [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
         epoch: BigNumber;
         rebase: BigNumber;
         totalStakedBefore: BigNumber;
@@ -724,69 +525,46 @@ export class SRugv2 extends BaseContract {
 
     totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
 
-    transfer(
-      to: string,
-      value: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    transfer(to: string, value: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
-    transferFrom(
-      from: string,
-      to: string,
-      value: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    transferFrom(from: string, to: string, value: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
   };
 
   filters: {
     "Approval(address,address,uint256)"(
       owner?: string | null,
       spender?: string | null,
-      value?: null
-    ): TypedEventFilter<
-      [string, string, BigNumber],
-      { owner: string; spender: string; value: BigNumber }
-    >;
+      value?: null,
+    ): TypedEventFilter<[string, string, BigNumber], { owner: string; spender: string; value: BigNumber }>;
 
     Approval(
       owner?: string | null,
       spender?: string | null,
-      value?: null
-    ): TypedEventFilter<
-      [string, string, BigNumber],
-      { owner: string; spender: string; value: BigNumber }
-    >;
+      value?: null,
+    ): TypedEventFilter<[string, string, BigNumber], { owner: string; spender: string; value: BigNumber }>;
 
     "LogRebase(uint256,uint256,uint256)"(
       epoch?: BigNumberish | null,
       rebase?: null,
-      index?: null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber, BigNumber],
-      { epoch: BigNumber; rebase: BigNumber; index: BigNumber }
-    >;
+      index?: null,
+    ): TypedEventFilter<[BigNumber, BigNumber, BigNumber], { epoch: BigNumber; rebase: BigNumber; index: BigNumber }>;
 
     LogRebase(
       epoch?: BigNumberish | null,
       rebase?: null,
-      index?: null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber, BigNumber],
-      { epoch: BigNumber; rebase: BigNumber; index: BigNumber }
-    >;
+      index?: null,
+    ): TypedEventFilter<[BigNumber, BigNumber, BigNumber], { epoch: BigNumber; rebase: BigNumber; index: BigNumber }>;
 
     "LogStakingContractUpdated(address)"(
-      stakingContract?: null
+      stakingContract?: null,
     ): TypedEventFilter<[string], { stakingContract: string }>;
 
-    LogStakingContractUpdated(
-      stakingContract?: null
-    ): TypedEventFilter<[string], { stakingContract: string }>;
+    LogStakingContractUpdated(stakingContract?: null): TypedEventFilter<[string], { stakingContract: string }>;
 
     "LogSupply(uint256,uint256,uint256)"(
       epoch?: BigNumberish | null,
       timestamp?: null,
-      totalSupply?: null
+      totalSupply?: null,
     ): TypedEventFilter<
       [BigNumber, BigNumber, BigNumber],
       { epoch: BigNumber; timestamp: BigNumber; totalSupply: BigNumber }
@@ -795,7 +573,7 @@ export class SRugv2 extends BaseContract {
     LogSupply(
       epoch?: BigNumberish | null,
       timestamp?: null,
-      totalSupply?: null
+      totalSupply?: null,
     ): TypedEventFilter<
       [BigNumber, BigNumber, BigNumber],
       { epoch: BigNumber; timestamp: BigNumber; totalSupply: BigNumber }
@@ -803,53 +581,35 @@ export class SRugv2 extends BaseContract {
 
     "OwnershipPulled(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     OwnershipPulled(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     "OwnershipPushed(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     OwnershipPushed(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     "Transfer(address,address,uint256)"(
       from?: string | null,
       to?: string | null,
-      value?: null
-    ): TypedEventFilter<
-      [string, string, BigNumber],
-      { from: string; to: string; value: BigNumber }
-    >;
+      value?: null,
+    ): TypedEventFilter<[string, string, BigNumber], { from: string; to: string; value: BigNumber }>;
 
     Transfer(
       from?: string | null,
       to?: string | null,
-      value?: null
-    ): TypedEventFilter<
-      [string, string, BigNumber],
-      { from: string; to: string; value: BigNumber }
-    >;
+      value?: null,
+    ): TypedEventFilter<[string, string, BigNumber], { from: string; to: string; value: BigNumber }>;
   };
 
   estimateGas: {
@@ -859,22 +619,15 @@ export class SRugv2 extends BaseContract {
 
     PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<BigNumber>;
 
-    allowance(
-      owner_: string,
-      spender: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    allowance(owner_: string, spender: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     approve(
       spender: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    balanceForGons(
-      gons: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    balanceForGons(gons: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     balanceOf(who: string, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -885,25 +638,22 @@ export class SRugv2 extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    gonsForBalance(
-      amount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    gonsForBalance(amount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     index(overrides?: CallOverrides): Promise<BigNumber>;
 
     initialize(
       stakingContract_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     initializer(overrides?: CallOverrides): Promise<BigNumber>;
@@ -922,34 +672,24 @@ export class SRugv2 extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    pullManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
-    pushManagement(
-      newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    pushManagement(newOwner_: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     rebase(
       profit_: BigNumberish,
       epoch_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     rebases(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    renounceManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
-    setIndex(
-      _INDEX: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    setIndex(_INDEX: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     stakingContract(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -960,14 +700,14 @@ export class SRugv2 extends BaseContract {
     transfer(
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     transferFrom(
       from: string,
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
   };
 
@@ -978,27 +718,17 @@ export class SRugv2 extends BaseContract {
 
     PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    allowance(
-      owner_: string,
-      spender: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    allowance(owner_: string, spender: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     approve(
       spender: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    balanceForGons(
-      gons: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    balanceForGons(gons: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    balanceOf(
-      who: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    balanceOf(who: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     circulatingSupply(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -1007,25 +737,22 @@ export class SRugv2 extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    gonsForBalance(
-      amount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    gonsForBalance(amount: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     index(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     initialize(
       stakingContract_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     initializer(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1034,10 +761,7 @@ export class SRugv2 extends BaseContract {
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    nonces(
-      owner: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    nonces(owner: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     permit(
       owner: string,
@@ -1047,36 +771,29 @@ export class SRugv2 extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    pullManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     pushManagement(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     rebase(
       profit_: BigNumberish,
       epoch_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    rebases(
-      arg0: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    rebases(arg0: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    renounceManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     setIndex(
       _INDEX: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     stakingContract(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1088,14 +805,14 @@ export class SRugv2 extends BaseContract {
     transfer(
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     transferFrom(
       from: string,
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
   };
 }

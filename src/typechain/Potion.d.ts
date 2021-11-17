@@ -71,26 +71,11 @@ interface PotionInterface extends ethers.utils.Interface {
     "withdrawalLiveness()": FunctionFragment;
   };
 
-  encodeFunctionData(
-    functionFragment: "cancelTransferPosition",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "cancelWithdrawal",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "collateralCurrency",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "collateralRequirement",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "contractState",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "cancelTransferPosition", values?: undefined): string;
+  encodeFunctionData(functionFragment: "cancelWithdrawal", values?: undefined): string;
+  encodeFunctionData(functionFragment: "collateralCurrency", values?: undefined): string;
+  encodeFunctionData(functionFragment: "collateralRequirement", values?: undefined): string;
+  encodeFunctionData(functionFragment: "contractState", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "create",
     values: [
@@ -99,8 +84,8 @@ interface PotionInterface extends ethers.utils.Interface {
       string,
       { rawValue: BigNumberish },
       { rawValue: BigNumberish },
-      { rawValue: BigNumberish }
-    ]
+      { rawValue: BigNumberish },
+    ],
   ): string;
   encodeFunctionData(
     functionFragment: "createLiquidation",
@@ -111,318 +96,99 @@ interface PotionInterface extends ethers.utils.Interface {
       { rawValue: BigNumberish },
       { rawValue: BigNumberish },
       { rawValue: BigNumberish },
-      { rawValue: BigNumberish }
-    ]
+      { rawValue: BigNumberish },
+    ],
   ): string;
-  encodeFunctionData(
-    functionFragment: "cumulativeFeeMultiplier",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "deploymentTimestamp",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "deposit",
-    values: [{ rawValue: BigNumberish }]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "depositTo",
-    values: [string, { rawValue: BigNumberish }]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "dispute",
-    values: [BigNumberish, string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "disputeBondPct",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "disputerDisputeRewardPct",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "emergencyShutdown",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "expirationTimestamp",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "cumulativeFeeMultiplier", values?: undefined): string;
+  encodeFunctionData(functionFragment: "deploymentTimestamp", values?: undefined): string;
+  encodeFunctionData(functionFragment: "deposit", values: [{ rawValue: BigNumberish }]): string;
+  encodeFunctionData(functionFragment: "depositTo", values: [string, { rawValue: BigNumberish }]): string;
+  encodeFunctionData(functionFragment: "dispute", values: [BigNumberish, string]): string;
+  encodeFunctionData(functionFragment: "disputeBondPct", values?: undefined): string;
+  encodeFunctionData(functionFragment: "disputerDisputeRewardPct", values?: undefined): string;
+  encodeFunctionData(functionFragment: "emergencyShutdown", values?: undefined): string;
+  encodeFunctionData(functionFragment: "expirationTimestamp", values?: undefined): string;
   encodeFunctionData(functionFragment: "expire", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "expiryPrice",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "expiryPrice", values?: undefined): string;
   encodeFunctionData(functionFragment: "finder", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "getCollateral",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getCurrentTime",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getDeploymentTimestamp",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getLiquidations",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "liquidationLiveness",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "liquidations",
-    values: [string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "payRegularFees",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "getCollateral", values: [string]): string;
+  encodeFunctionData(functionFragment: "getCurrentTime", values?: undefined): string;
+  encodeFunctionData(functionFragment: "getDeploymentTimestamp", values?: undefined): string;
+  encodeFunctionData(functionFragment: "getLiquidations", values: [string]): string;
+  encodeFunctionData(functionFragment: "liquidationLiveness", values?: undefined): string;
+  encodeFunctionData(functionFragment: "liquidations", values: [string, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "payRegularFees", values?: undefined): string;
   encodeFunctionData(functionFragment: "pfc", values?: undefined): string;
   encodeFunctionData(functionFragment: "positions", values: [string]): string;
-  encodeFunctionData(
-    functionFragment: "priceIdentifier",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "rawLiquidationCollateral",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "rawTotalPositionCollateral",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "redeem",
-    values: [{ rawValue: BigNumberish }]
-  ): string;
+  encodeFunctionData(functionFragment: "priceIdentifier", values?: undefined): string;
+  encodeFunctionData(functionFragment: "rawLiquidationCollateral", values?: undefined): string;
+  encodeFunctionData(functionFragment: "rawTotalPositionCollateral", values?: undefined): string;
+  encodeFunctionData(functionFragment: "redeem", values: [{ rawValue: BigNumberish }]): string;
   encodeFunctionData(functionFragment: "remargin", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "requestTransferPosition",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "requestWithdrawal",
-    values: [{ rawValue: BigNumberish }]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setCurrentTime",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "settleExpired",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "sponsorDisputeRewardPct",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "strikePrice",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "timerAddress",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "tokenCurrency",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "totalPositionCollateral",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "totalTokensOutstanding",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "transferPositionPassedRequest",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "withdraw",
-    values: [{ rawValue: BigNumberish }]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "withdrawLiquidation",
-    values: [BigNumberish, string, string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "withdrawPassedRequest",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "withdrawalLiveness",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "requestTransferPosition", values?: undefined): string;
+  encodeFunctionData(functionFragment: "requestWithdrawal", values: [{ rawValue: BigNumberish }]): string;
+  encodeFunctionData(functionFragment: "setCurrentTime", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "settleExpired", values?: undefined): string;
+  encodeFunctionData(functionFragment: "sponsorDisputeRewardPct", values?: undefined): string;
+  encodeFunctionData(functionFragment: "strikePrice", values?: undefined): string;
+  encodeFunctionData(functionFragment: "timerAddress", values?: undefined): string;
+  encodeFunctionData(functionFragment: "tokenCurrency", values?: undefined): string;
+  encodeFunctionData(functionFragment: "totalPositionCollateral", values?: undefined): string;
+  encodeFunctionData(functionFragment: "totalTokensOutstanding", values?: undefined): string;
+  encodeFunctionData(functionFragment: "transferPositionPassedRequest", values: [string]): string;
+  encodeFunctionData(functionFragment: "withdraw", values: [{ rawValue: BigNumberish }]): string;
+  encodeFunctionData(functionFragment: "withdrawLiquidation", values: [BigNumberish, string, string]): string;
+  encodeFunctionData(functionFragment: "withdrawPassedRequest", values?: undefined): string;
+  encodeFunctionData(functionFragment: "withdrawalLiveness", values?: undefined): string;
 
-  decodeFunctionResult(
-    functionFragment: "cancelTransferPosition",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "cancelWithdrawal",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "collateralCurrency",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "collateralRequirement",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "contractState",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "cancelTransferPosition", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "cancelWithdrawal", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "collateralCurrency", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "collateralRequirement", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "contractState", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "create", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "createLiquidation",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "cumulativeFeeMultiplier",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "deploymentTimestamp",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "createLiquidation", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "cumulativeFeeMultiplier", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "deploymentTimestamp", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "depositTo", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "dispute", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "disputeBondPct",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "disputerDisputeRewardPct",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "emergencyShutdown",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "expirationTimestamp",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "disputeBondPct", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "disputerDisputeRewardPct", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "emergencyShutdown", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "expirationTimestamp", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "expire", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "expiryPrice",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "expiryPrice", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "finder", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "getCollateral",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getCurrentTime",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getDeploymentTimestamp",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getLiquidations",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "liquidationLiveness",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "liquidations",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "payRegularFees",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "getCollateral", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getCurrentTime", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getDeploymentTimestamp", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getLiquidations", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "liquidationLiveness", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "liquidations", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "payRegularFees", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "pfc", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "positions", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "priceIdentifier",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "rawLiquidationCollateral",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "rawTotalPositionCollateral",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "priceIdentifier", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "rawLiquidationCollateral", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "rawTotalPositionCollateral", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "redeem", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "remargin", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "requestTransferPosition",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "requestWithdrawal",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setCurrentTime",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "settleExpired",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "sponsorDisputeRewardPct",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "strikePrice",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "timerAddress",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "tokenCurrency",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "totalPositionCollateral",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "totalTokensOutstanding",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "transferPositionPassedRequest",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "requestTransferPosition", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "requestWithdrawal", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setCurrentTime", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "settleExpired", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "sponsorDisputeRewardPct", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "strikePrice", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "timerAddress", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "tokenCurrency", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "totalPositionCollateral", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "totalTokensOutstanding", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "transferPositionPassedRequest", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "withdrawLiquidation",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "withdrawPassedRequest",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "withdrawalLiveness",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "withdrawLiquidation", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "withdrawPassedRequest", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "withdrawalLiveness", data: BytesLike): Result;
 
   events: {
     "ContractExpired(address)": EventFragment;
@@ -462,12 +228,8 @@ interface PotionInterface extends ethers.utils.Interface {
   getEvent(nameOrSignatureOrTopic: "Redeem"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RegularFeesPaid"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RequestTransferPosition"): EventFragment;
-  getEvent(
-    nameOrSignatureOrTopic: "RequestTransferPositionCanceled"
-  ): EventFragment;
-  getEvent(
-    nameOrSignatureOrTopic: "RequestTransferPositionExecuted"
-  ): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "RequestTransferPositionCanceled"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "RequestTransferPositionExecuted"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RequestWithdrawal"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RequestWithdrawalCanceled"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RequestWithdrawalExecuted"): EventFragment;
@@ -477,9 +239,7 @@ interface PotionInterface extends ethers.utils.Interface {
 
 export type ContractExpiredEvent = TypedEvent<[string] & { caller: string }>;
 
-export type DepositEvent = TypedEvent<
-  [string, BigNumber] & { sponsor: string; collateralAmount: BigNumber }
->;
+export type DepositEvent = TypedEvent<[string, BigNumber] & { sponsor: string; collateralAmount: BigNumber }>;
 
 export type DisputeSettledEvent = TypedEvent<
   [string, string, string, string, BigNumber, boolean] & {
@@ -500,13 +260,9 @@ export type EmergencyShutdownEvent = TypedEvent<
   }
 >;
 
-export type EndedSponsorPositionEvent = TypedEvent<
-  [string] & { sponsor: string }
->;
+export type EndedSponsorPositionEvent = TypedEvent<[string] & { sponsor: string }>;
 
-export type FinalFeesPaidEvent = TypedEvent<
-  [BigNumber] & { amount: BigNumber }
->;
+export type FinalFeesPaidEvent = TypedEvent<[BigNumber] & { amount: BigNumber }>;
 
 export type LiquidationCreatedEvent = TypedEvent<
   [string, string, BigNumber, BigNumber, BigNumber] & {
@@ -554,25 +310,17 @@ export type RedeemEvent = TypedEvent<
   }
 >;
 
-export type RegularFeesPaidEvent = TypedEvent<
-  [BigNumber, BigNumber] & { regularFee: BigNumber; lateFee: BigNumber }
->;
+export type RegularFeesPaidEvent = TypedEvent<[BigNumber, BigNumber] & { regularFee: BigNumber; lateFee: BigNumber }>;
 
-export type RequestTransferPositionEvent = TypedEvent<
-  [string] & { oldSponsor: string }
->;
+export type RequestTransferPositionEvent = TypedEvent<[string] & { oldSponsor: string }>;
 
-export type RequestTransferPositionCanceledEvent = TypedEvent<
-  [string] & { oldSponsor: string }
->;
+export type RequestTransferPositionCanceledEvent = TypedEvent<[string] & { oldSponsor: string }>;
 
 export type RequestTransferPositionExecutedEvent = TypedEvent<
   [string, string] & { oldSponsor: string; newSponsor: string }
 >;
 
-export type RequestWithdrawalEvent = TypedEvent<
-  [string, BigNumber] & { sponsor: string; collateralAmount: BigNumber }
->;
+export type RequestWithdrawalEvent = TypedEvent<[string, BigNumber] & { sponsor: string; collateralAmount: BigNumber }>;
 
 export type RequestWithdrawalCanceledEvent = TypedEvent<
   [string, BigNumber] & { sponsor: string; collateralAmount: BigNumber }
@@ -590,9 +338,7 @@ export type SettleExpiredPositionEvent = TypedEvent<
   }
 >;
 
-export type WithdrawalEvent = TypedEvent<
-  [string, BigNumber] & { sponsor: string; collateralAmount: BigNumber }
->;
+export type WithdrawalEvent = TypedEvent<[string, BigNumber] & { sponsor: string; collateralAmount: BigNumber }>;
 
 export class Potion extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -600,26 +346,26 @@ export class Potion extends BaseContract {
   deployed(): Promise<this>;
 
   listeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): Array<TypedListener<EventArgsArray, EventArgsObject>>;
   off<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   on<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   once<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeListener<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeAllListeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): this;
 
   listeners(eventName?: string): Array<Listener>;
@@ -632,7 +378,7 @@ export class Potion extends BaseContract {
   queryFilter<EventArgsArray extends Array<any>, EventArgsObject>(
     event: TypedEventFilter<EventArgsArray, EventArgsObject>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
   interface: PotionInterface;
@@ -641,22 +387,16 @@ export class Potion extends BaseContract {
     /**
      * Cancels a pending transfer position request.
      */
-    cancelTransferPosition(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    cancelTransferPosition(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     /**
      * Cancels a pending withdrawal request.
      */
-    cancelWithdrawal(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    cancelWithdrawal(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     collateralCurrency(overrides?: CallOverrides): Promise<[string]>;
 
-    collateralRequirement(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    collateralRequirement(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     contractState(overrides?: CallOverrides): Promise<[number]>;
 
@@ -667,7 +407,7 @@ export class Potion extends BaseContract {
       numTokens: { rawValue: BigNumberish },
       premiumDeposit: { rawValue: BigNumberish },
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     createLiquidation(
@@ -678,24 +418,22 @@ export class Potion extends BaseContract {
       assetPrice: { rawValue: BigNumberish },
       finalFeeBond: { rawValue: BigNumberish },
       excessDeposit: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    cumulativeFeeMultiplier(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    cumulativeFeeMultiplier(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     deploymentTimestamp(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     deposit(
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     depositTo(
       sponsor: string,
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     /**
@@ -707,24 +445,18 @@ export class Potion extends BaseContract {
     dispute(
       liquidationId: BigNumberish,
       sponsor: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    disputeBondPct(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    disputeBondPct(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
-    disputerDisputeRewardPct(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    disputerDisputeRewardPct(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     /**
      * Only the governor can call this function as they are permissioned within the `FinancialContractAdmin`. Upon emergency shutdown, the contract settlement time is set to the shutdown time. This enables withdrawal to occur via the standard `settleExpired` function. Contract state is set to `ExpiredPriceRequested` which prevents re-entry into this function or the `expire` function. No fees are paid when calling `emergencyShutdown` as the governor who would call the function would also receive the fees.
      * Premature contract settlement under emergency circumstances.
      */
-    emergencyShutdown(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    emergencyShutdown(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     expirationTimestamp(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -732,13 +464,9 @@ export class Potion extends BaseContract {
      * this function can only be called once the contract is expired and can't be re-called.
      * Locks contract state in expired and requests oracle price.
      */
-    expire(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    expire(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
-    expiryPrice(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    expiryPrice(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     finder(overrides?: CallOverrides): Promise<[string]>;
 
@@ -749,7 +477,7 @@ export class Potion extends BaseContract {
      */
     getCollateral(
       sponsor: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [[BigNumber] & { rawValue: BigNumber }] & {
         collateralAmount: [BigNumber] & { rawValue: BigNumber };
@@ -761,9 +489,7 @@ export class Potion extends BaseContract {
      */
     getCurrentTime(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    getDeploymentTimestamp(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { deployTime: BigNumber }>;
+    getDeploymentTimestamp(overrides?: CallOverrides): Promise<[BigNumber] & { deployTime: BigNumber }>;
 
     /**
      * Gets all liquidation information for a given sponsor address.
@@ -771,7 +497,7 @@ export class Potion extends BaseContract {
      */
     getLiquidations(
       sponsor: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [
         ([
@@ -784,7 +510,7 @@ export class Potion extends BaseContract {
           [BigNumber] & { rawValue: BigNumber },
           string,
           [BigNumber] & { rawValue: BigNumber },
-          [BigNumber] & { rawValue: BigNumber }
+          [BigNumber] & { rawValue: BigNumber },
         ] & {
           sponsor: string;
           liquidator: string;
@@ -796,7 +522,7 @@ export class Potion extends BaseContract {
           disputer: string;
           settlementPrice: [BigNumber] & { rawValue: BigNumber };
           finalFee: [BigNumber] & { rawValue: BigNumber };
-        })[]
+        })[],
       ] & {
         liquidationData: ([
           string,
@@ -808,7 +534,7 @@ export class Potion extends BaseContract {
           [BigNumber] & { rawValue: BigNumber },
           string,
           [BigNumber] & { rawValue: BigNumber },
-          [BigNumber] & { rawValue: BigNumber }
+          [BigNumber] & { rawValue: BigNumber },
         ] & {
           sponsor: string;
           liquidator: string;
@@ -829,7 +555,7 @@ export class Potion extends BaseContract {
     liquidations(
       arg0: string,
       arg1: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [
         string,
@@ -841,7 +567,7 @@ export class Potion extends BaseContract {
         [BigNumber] & { rawValue: BigNumber },
         string,
         [BigNumber] & { rawValue: BigNumber },
-        [BigNumber] & { rawValue: BigNumber }
+        [BigNumber] & { rawValue: BigNumber },
       ] & {
         sponsor: string;
         liquidator: string;
@@ -860,28 +586,24 @@ export class Potion extends BaseContract {
      * These must be paid periodically for the life of the contract. If the contract has not paid its regular fee in a week or more then a late penalty is applied which is sent to the caller. If the amount of fees owed are greater than the pfc, then this will pay as much as possible from the available collateral. An event is only fired if the fees charged are greater than 0.
      * Pays UMA DVM regular fees (as a % of the collateral pool) to the Store contract.
      */
-    payRegularFees(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    payRegularFees(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     /**
      * This is equivalent to the collateral pool available from which to pay fees. Therefore, derived contracts are expected to implement this so that pay-fee methods can correctly compute the owed fees as a % of PfC.
      * Gets the current profit from corruption for this contract in terms of the collateral currency.
      */
-    pfc(
-      overrides?: CallOverrides
-    ): Promise<[[BigNumber] & { rawValue: BigNumber }]>;
+    pfc(overrides?: CallOverrides): Promise<[[BigNumber] & { rawValue: BigNumber }]>;
 
     positions(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [
         [BigNumber] & { rawValue: BigNumber },
         BigNumber,
         [BigNumber] & { rawValue: BigNumber },
         [BigNumber] & { rawValue: BigNumber },
-        BigNumber
+        BigNumber,
       ] & {
         tokensOutstanding: [BigNumber] & { rawValue: BigNumber };
         withdrawalRequestPassTimestamp: BigNumber;
@@ -893,38 +615,30 @@ export class Potion extends BaseContract {
 
     priceIdentifier(overrides?: CallOverrides): Promise<[string]>;
 
-    rawLiquidationCollateral(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    rawLiquidationCollateral(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
-    rawTotalPositionCollateral(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    rawTotalPositionCollateral(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     redeem(
       numTokens: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     /**
      * This is supposed to be implemented by any contract that inherits `AdministrateeInterface` and callable only by the Governor contract. This method is therefore minimally implemented in this contract and does nothing.
      * Theoretically supposed to pay fees and move money between margin accounts to make sure they reflect the NAV of the contract. However, this functionality doesn't apply to this contract.
      */
-    remargin(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    remargin(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     /**
      * The liveness length is the same as the withdrawal liveness.
      * Requests to transfer ownership of the caller's current position to a new sponsor address. Once the request liveness is passed, the sponsor can execute the transfer and specify the new sponsor.
      */
-    requestTransferPosition(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    requestTransferPosition(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     requestWithdrawal(
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     /**
@@ -934,24 +648,18 @@ export class Potion extends BaseContract {
      */
     setCurrentTime(
       time: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     /**
      * This burns all tokens from the caller of `tokenCurrency` and sends back the proportional amount of `collateralCurrency`. Might not redeem the full proportional amount of collateral in order to account for precision loss. This contract must be approved to spend `tokenCurrency` at least up to the caller's full balance.
      * After a contract has passed expiry all token holders can redeem their tokens for underlying at the prevailing price defined by the DVM from the `expire` function.
      */
-    settleExpired(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    settleExpired(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
-    sponsorDisputeRewardPct(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    sponsorDisputeRewardPct(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
-    strikePrice(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    strikePrice(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     timerAddress(overrides?: CallOverrides): Promise<[string]>;
 
@@ -960,17 +668,13 @@ export class Potion extends BaseContract {
     /**
      * Accessor method for the total collateral stored within the PricelessPositionManager.
      */
-    totalPositionCollateral(
-      overrides?: CallOverrides
-    ): Promise<
+    totalPositionCollateral(overrides?: CallOverrides): Promise<
       [[BigNumber] & { rawValue: BigNumber }] & {
         totalCollateral: [BigNumber] & { rawValue: BigNumber };
       }
     >;
 
-    totalTokensOutstanding(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    totalTokensOutstanding(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     /**
      * Transferring positions can only occur if the recipient does not already have a position.
@@ -979,28 +683,26 @@ export class Potion extends BaseContract {
      */
     transferPositionPassedRequest(
       newSponsorAddress: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     withdraw(
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     withdrawLiquidation(
       liquidationId: BigNumberish,
       sponsor: string,
       caller: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     /**
      * Might not withdraw the full requested amount in order to account for precision loss or if the full requested amount exceeds the collateral in the position (due to paying fees).
      * After a passed withdrawal request (i.e., by a call to `requestWithdrawal` and waiting `withdrawalLiveness`), withdraws `positionData.withdrawalRequestAmount` of collateral currency.
      */
-    withdrawPassedRequest(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    withdrawPassedRequest(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     withdrawalLiveness(overrides?: CallOverrides): Promise<[BigNumber]>;
   };
@@ -1008,16 +710,12 @@ export class Potion extends BaseContract {
   /**
    * Cancels a pending transfer position request.
    */
-  cancelTransferPosition(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  cancelTransferPosition(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   /**
    * Cancels a pending withdrawal request.
    */
-  cancelWithdrawal(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  cancelWithdrawal(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   collateralCurrency(overrides?: CallOverrides): Promise<string>;
 
@@ -1032,7 +730,7 @@ export class Potion extends BaseContract {
     numTokens: { rawValue: BigNumberish },
     premiumDeposit: { rawValue: BigNumberish },
     collateralAmount: { rawValue: BigNumberish },
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   createLiquidation(
@@ -1043,7 +741,7 @@ export class Potion extends BaseContract {
     assetPrice: { rawValue: BigNumberish },
     finalFeeBond: { rawValue: BigNumberish },
     excessDeposit: { rawValue: BigNumberish },
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   cumulativeFeeMultiplier(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1052,13 +750,13 @@ export class Potion extends BaseContract {
 
   deposit(
     collateralAmount: { rawValue: BigNumberish },
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   depositTo(
     sponsor: string,
     collateralAmount: { rawValue: BigNumberish },
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   /**
@@ -1070,7 +768,7 @@ export class Potion extends BaseContract {
   dispute(
     liquidationId: BigNumberish,
     sponsor: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   disputeBondPct(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1081,9 +779,7 @@ export class Potion extends BaseContract {
    * Only the governor can call this function as they are permissioned within the `FinancialContractAdmin`. Upon emergency shutdown, the contract settlement time is set to the shutdown time. This enables withdrawal to occur via the standard `settleExpired` function. Contract state is set to `ExpiredPriceRequested` which prevents re-entry into this function or the `expire` function. No fees are paid when calling `emergencyShutdown` as the governor who would call the function would also receive the fees.
    * Premature contract settlement under emergency circumstances.
    */
-  emergencyShutdown(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  emergencyShutdown(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   expirationTimestamp(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1091,9 +787,7 @@ export class Potion extends BaseContract {
    * this function can only be called once the contract is expired and can't be re-called.
    * Locks contract state in expired and requests oracle price.
    */
-  expire(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  expire(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   expiryPrice(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1104,10 +798,7 @@ export class Potion extends BaseContract {
    * Accessor method for a sponsor's collateral.
    * @param sponsor address whose collateral amount is retrieved.
    */
-  getCollateral(
-    sponsor: string,
-    overrides?: CallOverrides
-  ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+  getCollateral(sponsor: string, overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
   /**
    * Gets the current time. Will return the last time set in `setCurrentTime` if running in test mode. Otherwise, it will return the block timestamp.
@@ -1122,7 +813,7 @@ export class Potion extends BaseContract {
    */
   getLiquidations(
     sponsor: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     ([
       string,
@@ -1134,7 +825,7 @@ export class Potion extends BaseContract {
       [BigNumber] & { rawValue: BigNumber },
       string,
       [BigNumber] & { rawValue: BigNumber },
-      [BigNumber] & { rawValue: BigNumber }
+      [BigNumber] & { rawValue: BigNumber },
     ] & {
       sponsor: string;
       liquidator: string;
@@ -1154,7 +845,7 @@ export class Potion extends BaseContract {
   liquidations(
     arg0: string,
     arg1: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [
       string,
@@ -1166,7 +857,7 @@ export class Potion extends BaseContract {
       [BigNumber] & { rawValue: BigNumber },
       string,
       [BigNumber] & { rawValue: BigNumber },
-      [BigNumber] & { rawValue: BigNumber }
+      [BigNumber] & { rawValue: BigNumber },
     ] & {
       sponsor: string;
       liquidator: string;
@@ -1185,28 +876,24 @@ export class Potion extends BaseContract {
    * These must be paid periodically for the life of the contract. If the contract has not paid its regular fee in a week or more then a late penalty is applied which is sent to the caller. If the amount of fees owed are greater than the pfc, then this will pay as much as possible from the available collateral. An event is only fired if the fees charged are greater than 0.
    * Pays UMA DVM regular fees (as a % of the collateral pool) to the Store contract.
    */
-  payRegularFees(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  payRegularFees(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   /**
    * This is equivalent to the collateral pool available from which to pay fees. Therefore, derived contracts are expected to implement this so that pay-fee methods can correctly compute the owed fees as a % of PfC.
    * Gets the current profit from corruption for this contract in terms of the collateral currency.
    */
-  pfc(
-    overrides?: CallOverrides
-  ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+  pfc(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
   positions(
     arg0: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [
       [BigNumber] & { rawValue: BigNumber },
       BigNumber,
       [BigNumber] & { rawValue: BigNumber },
       [BigNumber] & { rawValue: BigNumber },
-      BigNumber
+      BigNumber,
     ] & {
       tokensOutstanding: [BigNumber] & { rawValue: BigNumber };
       withdrawalRequestPassTimestamp: BigNumber;
@@ -1224,28 +911,24 @@ export class Potion extends BaseContract {
 
   redeem(
     numTokens: { rawValue: BigNumberish },
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   /**
    * This is supposed to be implemented by any contract that inherits `AdministrateeInterface` and callable only by the Governor contract. This method is therefore minimally implemented in this contract and does nothing.
    * Theoretically supposed to pay fees and move money between margin accounts to make sure they reflect the NAV of the contract. However, this functionality doesn't apply to this contract.
    */
-  remargin(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  remargin(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   /**
    * The liveness length is the same as the withdrawal liveness.
    * Requests to transfer ownership of the caller's current position to a new sponsor address. Once the request liveness is passed, the sponsor can execute the transfer and specify the new sponsor.
    */
-  requestTransferPosition(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  requestTransferPosition(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   requestWithdrawal(
     collateralAmount: { rawValue: BigNumberish },
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   /**
@@ -1255,16 +938,14 @@ export class Potion extends BaseContract {
    */
   setCurrentTime(
     time: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   /**
    * This burns all tokens from the caller of `tokenCurrency` and sends back the proportional amount of `collateralCurrency`. Might not redeem the full proportional amount of collateral in order to account for precision loss. This contract must be approved to spend `tokenCurrency` at least up to the caller's full balance.
    * After a contract has passed expiry all token holders can redeem their tokens for underlying at the prevailing price defined by the DVM from the `expire` function.
    */
-  settleExpired(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  settleExpired(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   sponsorDisputeRewardPct(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1277,9 +958,7 @@ export class Potion extends BaseContract {
   /**
    * Accessor method for the total collateral stored within the PricelessPositionManager.
    */
-  totalPositionCollateral(
-    overrides?: CallOverrides
-  ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+  totalPositionCollateral(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
   totalTokensOutstanding(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1290,28 +969,26 @@ export class Potion extends BaseContract {
    */
   transferPositionPassedRequest(
     newSponsorAddress: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   withdraw(
     collateralAmount: { rawValue: BigNumberish },
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   withdrawLiquidation(
     liquidationId: BigNumberish,
     sponsor: string,
     caller: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   /**
    * Might not withdraw the full requested amount in order to account for precision loss or if the full requested amount exceeds the collateral in the position (due to paying fees).
    * After a passed withdrawal request (i.e., by a call to `requestWithdrawal` and waiting `withdrawalLiveness`), withdraws `positionData.withdrawalRequestAmount` of collateral currency.
    */
-  withdrawPassedRequest(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  withdrawPassedRequest(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   withdrawalLiveness(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1339,7 +1016,7 @@ export class Potion extends BaseContract {
       numTokens: { rawValue: BigNumberish },
       premiumDeposit: { rawValue: BigNumberish },
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     createLiquidation(
@@ -1350,23 +1027,16 @@ export class Potion extends BaseContract {
       assetPrice: { rawValue: BigNumberish },
       finalFeeBond: { rawValue: BigNumberish },
       excessDeposit: { rawValue: BigNumberish },
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     cumulativeFeeMultiplier(overrides?: CallOverrides): Promise<BigNumber>;
 
     deploymentTimestamp(overrides?: CallOverrides): Promise<BigNumber>;
 
-    deposit(
-      collateralAmount: { rawValue: BigNumberish },
-      overrides?: CallOverrides
-    ): Promise<void>;
+    deposit(collateralAmount: { rawValue: BigNumberish }, overrides?: CallOverrides): Promise<void>;
 
-    depositTo(
-      sponsor: string,
-      collateralAmount: { rawValue: BigNumberish },
-      overrides?: CallOverrides
-    ): Promise<void>;
+    depositTo(sponsor: string, collateralAmount: { rawValue: BigNumberish }, overrides?: CallOverrides): Promise<void>;
 
     /**
      * Can only dispute a liquidation before the liquidation expires and if there are no other pending disputes. This contract must be approved to spend at least the dispute bond amount of `collateralCurrency`. This dispute bond amount is calculated from `disputeBondPct` times the collateral in the liquidation.
@@ -1377,7 +1047,7 @@ export class Potion extends BaseContract {
     dispute(
       liquidationId: BigNumberish,
       sponsor: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     disputeBondPct(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1407,10 +1077,7 @@ export class Potion extends BaseContract {
      * Accessor method for a sponsor's collateral.
      * @param sponsor address whose collateral amount is retrieved.
      */
-    getCollateral(
-      sponsor: string,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    getCollateral(sponsor: string, overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     /**
      * Gets the current time. Will return the last time set in `setCurrentTime` if running in test mode. Otherwise, it will return the block timestamp.
@@ -1425,7 +1092,7 @@ export class Potion extends BaseContract {
      */
     getLiquidations(
       sponsor: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       ([
         string,
@@ -1437,7 +1104,7 @@ export class Potion extends BaseContract {
         [BigNumber] & { rawValue: BigNumber },
         string,
         [BigNumber] & { rawValue: BigNumber },
-        [BigNumber] & { rawValue: BigNumber }
+        [BigNumber] & { rawValue: BigNumber },
       ] & {
         sponsor: string;
         liquidator: string;
@@ -1457,7 +1124,7 @@ export class Potion extends BaseContract {
     liquidations(
       arg0: string,
       arg1: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [
         string,
@@ -1469,7 +1136,7 @@ export class Potion extends BaseContract {
         [BigNumber] & { rawValue: BigNumber },
         string,
         [BigNumber] & { rawValue: BigNumber },
-        [BigNumber] & { rawValue: BigNumber }
+        [BigNumber] & { rawValue: BigNumber },
       ] & {
         sponsor: string;
         liquidator: string;
@@ -1488,28 +1155,24 @@ export class Potion extends BaseContract {
      * These must be paid periodically for the life of the contract. If the contract has not paid its regular fee in a week or more then a late penalty is applied which is sent to the caller. If the amount of fees owed are greater than the pfc, then this will pay as much as possible from the available collateral. An event is only fired if the fees charged are greater than 0.
      * Pays UMA DVM regular fees (as a % of the collateral pool) to the Store contract.
      */
-    payRegularFees(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    payRegularFees(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     /**
      * This is equivalent to the collateral pool available from which to pay fees. Therefore, derived contracts are expected to implement this so that pay-fee methods can correctly compute the owed fees as a % of PfC.
      * Gets the current profit from corruption for this contract in terms of the collateral currency.
      */
-    pfc(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    pfc(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     positions(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [
         [BigNumber] & { rawValue: BigNumber },
         BigNumber,
         [BigNumber] & { rawValue: BigNumber },
         [BigNumber] & { rawValue: BigNumber },
-        BigNumber
+        BigNumber,
       ] & {
         tokensOutstanding: [BigNumber] & { rawValue: BigNumber };
         withdrawalRequestPassTimestamp: BigNumber;
@@ -1527,7 +1190,7 @@ export class Potion extends BaseContract {
 
     redeem(
       numTokens: { rawValue: BigNumberish },
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     /**
@@ -1542,28 +1205,20 @@ export class Potion extends BaseContract {
      */
     requestTransferPosition(overrides?: CallOverrides): Promise<void>;
 
-    requestWithdrawal(
-      collateralAmount: { rawValue: BigNumberish },
-      overrides?: CallOverrides
-    ): Promise<void>;
+    requestWithdrawal(collateralAmount: { rawValue: BigNumberish }, overrides?: CallOverrides): Promise<void>;
 
     /**
      * Will revert if not running in test mode.
      * Sets the current time.
      * @param time timestamp to set current Testable time to.
      */
-    setCurrentTime(
-      time: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setCurrentTime(time: BigNumberish, overrides?: CallOverrides): Promise<void>;
 
     /**
      * This burns all tokens from the caller of `tokenCurrency` and sends back the proportional amount of `collateralCurrency`. Might not redeem the full proportional amount of collateral in order to account for precision loss. This contract must be approved to spend `tokenCurrency` at least up to the caller's full balance.
      * After a contract has passed expiry all token holders can redeem their tokens for underlying at the prevailing price defined by the DVM from the `expire` function.
      */
-    settleExpired(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    settleExpired(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     sponsorDisputeRewardPct(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1576,9 +1231,7 @@ export class Potion extends BaseContract {
     /**
      * Accessor method for the total collateral stored within the PricelessPositionManager.
      */
-    totalPositionCollateral(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    totalPositionCollateral(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     totalTokensOutstanding(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1587,58 +1240,43 @@ export class Potion extends BaseContract {
      * After a passed transfer position request (i.e., by a call to `requestTransferPosition` and waiting `withdrawalLiveness`), transfers ownership of the caller's current position to `newSponsorAddress`.
      * @param newSponsorAddress is the address to which the position will be transferred.
      */
-    transferPositionPassedRequest(
-      newSponsorAddress: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    transferPositionPassedRequest(newSponsorAddress: string, overrides?: CallOverrides): Promise<void>;
 
     withdraw(
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     withdrawLiquidation(
       liquidationId: BigNumberish,
       sponsor: string,
       caller: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     /**
      * Might not withdraw the full requested amount in order to account for precision loss or if the full requested amount exceeds the collateral in the position (due to paying fees).
      * After a passed withdrawal request (i.e., by a call to `requestWithdrawal` and waiting `withdrawalLiveness`), withdraws `positionData.withdrawalRequestAmount` of collateral currency.
      */
-    withdrawPassedRequest(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { rawValue: BigNumber }>;
+    withdrawPassedRequest(overrides?: CallOverrides): Promise<[BigNumber] & { rawValue: BigNumber }>;
 
     withdrawalLiveness(overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   filters: {
-    "ContractExpired(address)"(
-      caller?: string | null
-    ): TypedEventFilter<[string], { caller: string }>;
+    "ContractExpired(address)"(caller?: string | null): TypedEventFilter<[string], { caller: string }>;
 
-    ContractExpired(
-      caller?: string | null
-    ): TypedEventFilter<[string], { caller: string }>;
+    ContractExpired(caller?: string | null): TypedEventFilter<[string], { caller: string }>;
 
     "Deposit(address,uint256)"(
       sponsor?: string | null,
-      collateralAmount?: BigNumberish | null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { sponsor: string; collateralAmount: BigNumber }
-    >;
+      collateralAmount?: BigNumberish | null,
+    ): TypedEventFilter<[string, BigNumber], { sponsor: string; collateralAmount: BigNumber }>;
 
     Deposit(
       sponsor?: string | null,
-      collateralAmount?: BigNumberish | null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { sponsor: string; collateralAmount: BigNumber }
-    >;
+      collateralAmount?: BigNumberish | null,
+    ): TypedEventFilter<[string, BigNumber], { sponsor: string; collateralAmount: BigNumber }>;
 
     "DisputeSettled(address,address,address,address,uint256,bool)"(
       caller?: string | null,
@@ -1646,7 +1284,7 @@ export class Potion extends BaseContract {
       liquidator?: string | null,
       disputer?: null,
       liquidationId?: null,
-      disputeSucceeded?: null
+      disputeSucceeded?: null,
     ): TypedEventFilter<
       [string, string, string, string, BigNumber, boolean],
       {
@@ -1665,7 +1303,7 @@ export class Potion extends BaseContract {
       liquidator?: string | null,
       disputer?: null,
       liquidationId?: null,
-      disputeSucceeded?: null
+      disputeSucceeded?: null,
     ): TypedEventFilter<
       [string, string, string, string, BigNumber, boolean],
       {
@@ -1681,7 +1319,7 @@ export class Potion extends BaseContract {
     "EmergencyShutdown(address,uint256,uint256)"(
       caller?: string | null,
       originalExpirationTimestamp?: null,
-      shutdownTimestamp?: null
+      shutdownTimestamp?: null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       {
@@ -1694,7 +1332,7 @@ export class Potion extends BaseContract {
     EmergencyShutdown(
       caller?: string | null,
       originalExpirationTimestamp?: null,
-      shutdownTimestamp?: null
+      shutdownTimestamp?: null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       {
@@ -1704,28 +1342,20 @@ export class Potion extends BaseContract {
       }
     >;
 
-    "EndedSponsorPosition(address)"(
-      sponsor?: string | null
-    ): TypedEventFilter<[string], { sponsor: string }>;
+    "EndedSponsorPosition(address)"(sponsor?: string | null): TypedEventFilter<[string], { sponsor: string }>;
 
-    EndedSponsorPosition(
-      sponsor?: string | null
-    ): TypedEventFilter<[string], { sponsor: string }>;
+    EndedSponsorPosition(sponsor?: string | null): TypedEventFilter<[string], { sponsor: string }>;
 
-    "FinalFeesPaid(uint256)"(
-      amount?: BigNumberish | null
-    ): TypedEventFilter<[BigNumber], { amount: BigNumber }>;
+    "FinalFeesPaid(uint256)"(amount?: BigNumberish | null): TypedEventFilter<[BigNumber], { amount: BigNumber }>;
 
-    FinalFeesPaid(
-      amount?: BigNumberish | null
-    ): TypedEventFilter<[BigNumber], { amount: BigNumber }>;
+    FinalFeesPaid(amount?: BigNumberish | null): TypedEventFilter<[BigNumber], { amount: BigNumber }>;
 
     "LiquidationCreated(address,address,uint256,uint256,uint256)"(
       sponsor?: string | null,
       liquidator?: string | null,
       liquidationId?: BigNumberish | null,
       tokensOutstanding?: null,
-      lockedCollateral?: null
+      lockedCollateral?: null,
     ): TypedEventFilter<
       [string, string, BigNumber, BigNumber, BigNumber],
       {
@@ -1742,7 +1372,7 @@ export class Potion extends BaseContract {
       liquidator?: string | null,
       liquidationId?: BigNumberish | null,
       tokensOutstanding?: null,
-      lockedCollateral?: null
+      lockedCollateral?: null,
     ): TypedEventFilter<
       [string, string, BigNumber, BigNumber, BigNumber],
       {
@@ -1759,7 +1389,7 @@ export class Potion extends BaseContract {
       liquidator?: string | null,
       disputer?: string | null,
       liquidationId?: null,
-      disputeBondAmount?: null
+      disputeBondAmount?: null,
     ): TypedEventFilter<
       [string, string, string, BigNumber, BigNumber],
       {
@@ -1776,7 +1406,7 @@ export class Potion extends BaseContract {
       liquidator?: string | null,
       disputer?: string | null,
       liquidationId?: null,
-      disputeBondAmount?: null
+      disputeBondAmount?: null,
     ): TypedEventFilter<
       [string, string, string, BigNumber, BigNumber],
       {
@@ -1791,7 +1421,7 @@ export class Potion extends BaseContract {
     "LiquidationWithdrawn(address,uint256,uint8)"(
       caller?: string | null,
       withdrawalAmount?: null,
-      liquidationStatus?: BigNumberish | null
+      liquidationStatus?: BigNumberish | null,
     ): TypedEventFilter<
       [string, BigNumber, number],
       { caller: string; withdrawalAmount: BigNumber; liquidationStatus: number }
@@ -1800,24 +1430,20 @@ export class Potion extends BaseContract {
     LiquidationWithdrawn(
       caller?: string | null,
       withdrawalAmount?: null,
-      liquidationStatus?: BigNumberish | null
+      liquidationStatus?: BigNumberish | null,
     ): TypedEventFilter<
       [string, BigNumber, number],
       { caller: string; withdrawalAmount: BigNumber; liquidationStatus: number }
     >;
 
-    "NewSponsor(address)"(
-      sponsor?: string | null
-    ): TypedEventFilter<[string], { sponsor: string }>;
+    "NewSponsor(address)"(sponsor?: string | null): TypedEventFilter<[string], { sponsor: string }>;
 
-    NewSponsor(
-      sponsor?: string | null
-    ): TypedEventFilter<[string], { sponsor: string }>;
+    NewSponsor(sponsor?: string | null): TypedEventFilter<[string], { sponsor: string }>;
 
     "PositionCreated(address,uint256,uint256)"(
       sponsor?: string | null,
       collateralAmount?: BigNumberish | null,
-      tokenAmount?: BigNumberish | null
+      tokenAmount?: BigNumberish | null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { sponsor: string; collateralAmount: BigNumber; tokenAmount: BigNumber }
@@ -1826,7 +1452,7 @@ export class Potion extends BaseContract {
     PositionCreated(
       sponsor?: string | null,
       collateralAmount?: BigNumberish | null,
-      tokenAmount?: BigNumberish | null
+      tokenAmount?: BigNumberish | null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { sponsor: string; collateralAmount: BigNumber; tokenAmount: BigNumber }
@@ -1835,7 +1461,7 @@ export class Potion extends BaseContract {
     "Redeem(address,uint256,uint256)"(
       sponsor?: string | null,
       collateralAmount?: BigNumberish | null,
-      tokenAmount?: BigNumberish | null
+      tokenAmount?: BigNumberish | null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { sponsor: string; collateralAmount: BigNumber; tokenAmount: BigNumber }
@@ -1844,7 +1470,7 @@ export class Potion extends BaseContract {
     Redeem(
       sponsor?: string | null,
       collateralAmount?: BigNumberish | null,
-      tokenAmount?: BigNumberish | null
+      tokenAmount?: BigNumberish | null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { sponsor: string; collateralAmount: BigNumber; tokenAmount: BigNumber }
@@ -1852,104 +1478,68 @@ export class Potion extends BaseContract {
 
     "RegularFeesPaid(uint256,uint256)"(
       regularFee?: BigNumberish | null,
-      lateFee?: BigNumberish | null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber],
-      { regularFee: BigNumber; lateFee: BigNumber }
-    >;
+      lateFee?: BigNumberish | null,
+    ): TypedEventFilter<[BigNumber, BigNumber], { regularFee: BigNumber; lateFee: BigNumber }>;
 
     RegularFeesPaid(
       regularFee?: BigNumberish | null,
-      lateFee?: BigNumberish | null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber],
-      { regularFee: BigNumber; lateFee: BigNumber }
-    >;
+      lateFee?: BigNumberish | null,
+    ): TypedEventFilter<[BigNumber, BigNumber], { regularFee: BigNumber; lateFee: BigNumber }>;
 
-    "RequestTransferPosition(address)"(
-      oldSponsor?: string | null
-    ): TypedEventFilter<[string], { oldSponsor: string }>;
+    "RequestTransferPosition(address)"(oldSponsor?: string | null): TypedEventFilter<[string], { oldSponsor: string }>;
 
-    RequestTransferPosition(
-      oldSponsor?: string | null
-    ): TypedEventFilter<[string], { oldSponsor: string }>;
+    RequestTransferPosition(oldSponsor?: string | null): TypedEventFilter<[string], { oldSponsor: string }>;
 
     "RequestTransferPositionCanceled(address)"(
-      oldSponsor?: string | null
+      oldSponsor?: string | null,
     ): TypedEventFilter<[string], { oldSponsor: string }>;
 
-    RequestTransferPositionCanceled(
-      oldSponsor?: string | null
-    ): TypedEventFilter<[string], { oldSponsor: string }>;
+    RequestTransferPositionCanceled(oldSponsor?: string | null): TypedEventFilter<[string], { oldSponsor: string }>;
 
     "RequestTransferPositionExecuted(address,address)"(
       oldSponsor?: string | null,
-      newSponsor?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { oldSponsor: string; newSponsor: string }
-    >;
+      newSponsor?: string | null,
+    ): TypedEventFilter<[string, string], { oldSponsor: string; newSponsor: string }>;
 
     RequestTransferPositionExecuted(
       oldSponsor?: string | null,
-      newSponsor?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { oldSponsor: string; newSponsor: string }
-    >;
+      newSponsor?: string | null,
+    ): TypedEventFilter<[string, string], { oldSponsor: string; newSponsor: string }>;
 
     "RequestWithdrawal(address,uint256)"(
       sponsor?: string | null,
-      collateralAmount?: BigNumberish | null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { sponsor: string; collateralAmount: BigNumber }
-    >;
+      collateralAmount?: BigNumberish | null,
+    ): TypedEventFilter<[string, BigNumber], { sponsor: string; collateralAmount: BigNumber }>;
 
     RequestWithdrawal(
       sponsor?: string | null,
-      collateralAmount?: BigNumberish | null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { sponsor: string; collateralAmount: BigNumber }
-    >;
+      collateralAmount?: BigNumberish | null,
+    ): TypedEventFilter<[string, BigNumber], { sponsor: string; collateralAmount: BigNumber }>;
 
     "RequestWithdrawalCanceled(address,uint256)"(
       sponsor?: string | null,
-      collateralAmount?: BigNumberish | null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { sponsor: string; collateralAmount: BigNumber }
-    >;
+      collateralAmount?: BigNumberish | null,
+    ): TypedEventFilter<[string, BigNumber], { sponsor: string; collateralAmount: BigNumber }>;
 
     RequestWithdrawalCanceled(
       sponsor?: string | null,
-      collateralAmount?: BigNumberish | null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { sponsor: string; collateralAmount: BigNumber }
-    >;
+      collateralAmount?: BigNumberish | null,
+    ): TypedEventFilter<[string, BigNumber], { sponsor: string; collateralAmount: BigNumber }>;
 
     "RequestWithdrawalExecuted(address,uint256)"(
       sponsor?: string | null,
-      collateralAmount?: BigNumberish | null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { sponsor: string; collateralAmount: BigNumber }
-    >;
+      collateralAmount?: BigNumberish | null,
+    ): TypedEventFilter<[string, BigNumber], { sponsor: string; collateralAmount: BigNumber }>;
 
     RequestWithdrawalExecuted(
       sponsor?: string | null,
-      collateralAmount?: BigNumberish | null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { sponsor: string; collateralAmount: BigNumber }
-    >;
+      collateralAmount?: BigNumberish | null,
+    ): TypedEventFilter<[string, BigNumber], { sponsor: string; collateralAmount: BigNumber }>;
 
     "SettleExpiredPosition(address,uint256,uint256)"(
       caller?: string | null,
       collateralReturned?: BigNumberish | null,
-      tokensBurned?: BigNumberish | null
+      tokensBurned?: BigNumberish | null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { caller: string; collateralReturned: BigNumber; tokensBurned: BigNumber }
@@ -1958,7 +1548,7 @@ export class Potion extends BaseContract {
     SettleExpiredPosition(
       caller?: string | null,
       collateralReturned?: BigNumberish | null,
-      tokensBurned?: BigNumberish | null
+      tokensBurned?: BigNumberish | null,
     ): TypedEventFilter<
       [string, BigNumber, BigNumber],
       { caller: string; collateralReturned: BigNumber; tokensBurned: BigNumber }
@@ -1966,35 +1556,25 @@ export class Potion extends BaseContract {
 
     "Withdrawal(address,uint256)"(
       sponsor?: string | null,
-      collateralAmount?: BigNumberish | null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { sponsor: string; collateralAmount: BigNumber }
-    >;
+      collateralAmount?: BigNumberish | null,
+    ): TypedEventFilter<[string, BigNumber], { sponsor: string; collateralAmount: BigNumber }>;
 
     Withdrawal(
       sponsor?: string | null,
-      collateralAmount?: BigNumberish | null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { sponsor: string; collateralAmount: BigNumber }
-    >;
+      collateralAmount?: BigNumberish | null,
+    ): TypedEventFilter<[string, BigNumber], { sponsor: string; collateralAmount: BigNumber }>;
   };
 
   estimateGas: {
     /**
      * Cancels a pending transfer position request.
      */
-    cancelTransferPosition(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    cancelTransferPosition(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     /**
      * Cancels a pending withdrawal request.
      */
-    cancelWithdrawal(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    cancelWithdrawal(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     collateralCurrency(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -2009,7 +1589,7 @@ export class Potion extends BaseContract {
       numTokens: { rawValue: BigNumberish },
       premiumDeposit: { rawValue: BigNumberish },
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     createLiquidation(
@@ -2020,7 +1600,7 @@ export class Potion extends BaseContract {
       assetPrice: { rawValue: BigNumberish },
       finalFeeBond: { rawValue: BigNumberish },
       excessDeposit: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     cumulativeFeeMultiplier(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2029,13 +1609,13 @@ export class Potion extends BaseContract {
 
     deposit(
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     depositTo(
       sponsor: string,
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     /**
@@ -2047,7 +1627,7 @@ export class Potion extends BaseContract {
     dispute(
       liquidationId: BigNumberish,
       sponsor: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     disputeBondPct(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2058,9 +1638,7 @@ export class Potion extends BaseContract {
      * Only the governor can call this function as they are permissioned within the `FinancialContractAdmin`. Upon emergency shutdown, the contract settlement time is set to the shutdown time. This enables withdrawal to occur via the standard `settleExpired` function. Contract state is set to `ExpiredPriceRequested` which prevents re-entry into this function or the `expire` function. No fees are paid when calling `emergencyShutdown` as the governor who would call the function would also receive the fees.
      * Premature contract settlement under emergency circumstances.
      */
-    emergencyShutdown(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    emergencyShutdown(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     expirationTimestamp(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -2068,9 +1646,7 @@ export class Potion extends BaseContract {
      * this function can only be called once the contract is expired and can't be re-called.
      * Locks contract state in expired and requests oracle price.
      */
-    expire(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    expire(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     expiryPrice(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -2081,10 +1657,7 @@ export class Potion extends BaseContract {
      * Accessor method for a sponsor's collateral.
      * @param sponsor address whose collateral amount is retrieved.
      */
-    getCollateral(
-      sponsor: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getCollateral(sponsor: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     /**
      * Gets the current time. Will return the last time set in `setCurrentTime` if running in test mode. Otherwise, it will return the block timestamp.
@@ -2097,26 +1670,17 @@ export class Potion extends BaseContract {
      * Gets all liquidation information for a given sponsor address.
      * @param sponsor address of the position sponsor.
      */
-    getLiquidations(
-      sponsor: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getLiquidations(sponsor: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     liquidationLiveness(overrides?: CallOverrides): Promise<BigNumber>;
 
-    liquidations(
-      arg0: string,
-      arg1: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    liquidations(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     /**
      * These must be paid periodically for the life of the contract. If the contract has not paid its regular fee in a week or more then a late penalty is applied which is sent to the caller. If the amount of fees owed are greater than the pfc, then this will pay as much as possible from the available collateral. An event is only fired if the fees charged are greater than 0.
      * Pays UMA DVM regular fees (as a % of the collateral pool) to the Store contract.
      */
-    payRegularFees(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    payRegularFees(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     /**
      * This is equivalent to the collateral pool available from which to pay fees. Therefore, derived contracts are expected to implement this so that pay-fee methods can correctly compute the owed fees as a % of PfC.
@@ -2134,28 +1698,24 @@ export class Potion extends BaseContract {
 
     redeem(
       numTokens: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     /**
      * This is supposed to be implemented by any contract that inherits `AdministrateeInterface` and callable only by the Governor contract. This method is therefore minimally implemented in this contract and does nothing.
      * Theoretically supposed to pay fees and move money between margin accounts to make sure they reflect the NAV of the contract. However, this functionality doesn't apply to this contract.
      */
-    remargin(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    remargin(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     /**
      * The liveness length is the same as the withdrawal liveness.
      * Requests to transfer ownership of the caller's current position to a new sponsor address. Once the request liveness is passed, the sponsor can execute the transfer and specify the new sponsor.
      */
-    requestTransferPosition(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    requestTransferPosition(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     requestWithdrawal(
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     /**
@@ -2163,18 +1723,13 @@ export class Potion extends BaseContract {
      * Sets the current time.
      * @param time timestamp to set current Testable time to.
      */
-    setCurrentTime(
-      time: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    setCurrentTime(time: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     /**
      * This burns all tokens from the caller of `tokenCurrency` and sends back the proportional amount of `collateralCurrency`. Might not redeem the full proportional amount of collateral in order to account for precision loss. This contract must be approved to spend `tokenCurrency` at least up to the caller's full balance.
      * After a contract has passed expiry all token holders can redeem their tokens for underlying at the prevailing price defined by the DVM from the `expire` function.
      */
-    settleExpired(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    settleExpired(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     sponsorDisputeRewardPct(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -2198,28 +1753,26 @@ export class Potion extends BaseContract {
      */
     transferPositionPassedRequest(
       newSponsorAddress: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     withdraw(
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     withdrawLiquidation(
       liquidationId: BigNumberish,
       sponsor: string,
       caller: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     /**
      * Might not withdraw the full requested amount in order to account for precision loss or if the full requested amount exceeds the collateral in the position (due to paying fees).
      * After a passed withdrawal request (i.e., by a call to `requestWithdrawal` and waiting `withdrawalLiveness`), withdraws `positionData.withdrawalRequestAmount` of collateral currency.
      */
-    withdrawPassedRequest(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    withdrawPassedRequest(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     withdrawalLiveness(overrides?: CallOverrides): Promise<BigNumber>;
   };
@@ -2228,24 +1781,16 @@ export class Potion extends BaseContract {
     /**
      * Cancels a pending transfer position request.
      */
-    cancelTransferPosition(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    cancelTransferPosition(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     /**
      * Cancels a pending withdrawal request.
      */
-    cancelWithdrawal(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    cancelWithdrawal(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
-    collateralCurrency(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    collateralCurrency(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    collateralRequirement(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    collateralRequirement(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     contractState(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -2256,7 +1801,7 @@ export class Potion extends BaseContract {
       numTokens: { rawValue: BigNumberish },
       premiumDeposit: { rawValue: BigNumberish },
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     createLiquidation(
@@ -2267,26 +1812,22 @@ export class Potion extends BaseContract {
       assetPrice: { rawValue: BigNumberish },
       finalFeeBond: { rawValue: BigNumberish },
       excessDeposit: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    cumulativeFeeMultiplier(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    cumulativeFeeMultiplier(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    deploymentTimestamp(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    deploymentTimestamp(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     deposit(
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     depositTo(
       sponsor: string,
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -2298,34 +1839,26 @@ export class Potion extends BaseContract {
     dispute(
       liquidationId: BigNumberish,
       sponsor: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     disputeBondPct(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    disputerDisputeRewardPct(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    disputerDisputeRewardPct(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     /**
      * Only the governor can call this function as they are permissioned within the `FinancialContractAdmin`. Upon emergency shutdown, the contract settlement time is set to the shutdown time. This enables withdrawal to occur via the standard `settleExpired` function. Contract state is set to `ExpiredPriceRequested` which prevents re-entry into this function or the `expire` function. No fees are paid when calling `emergencyShutdown` as the governor who would call the function would also receive the fees.
      * Premature contract settlement under emergency circumstances.
      */
-    emergencyShutdown(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    emergencyShutdown(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
-    expirationTimestamp(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    expirationTimestamp(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     /**
      * this function can only be called once the contract is expired and can't be re-called.
      * Locks contract state in expired and requests oracle price.
      */
-    expire(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    expire(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     expiryPrice(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -2336,46 +1869,30 @@ export class Potion extends BaseContract {
      * Accessor method for a sponsor's collateral.
      * @param sponsor address whose collateral amount is retrieved.
      */
-    getCollateral(
-      sponsor: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getCollateral(sponsor: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     /**
      * Gets the current time. Will return the last time set in `setCurrentTime` if running in test mode. Otherwise, it will return the block timestamp.
      */
     getCurrentTime(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getDeploymentTimestamp(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getDeploymentTimestamp(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     /**
      * Gets all liquidation information for a given sponsor address.
      * @param sponsor address of the position sponsor.
      */
-    getLiquidations(
-      sponsor: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getLiquidations(sponsor: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    liquidationLiveness(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    liquidationLiveness(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    liquidations(
-      arg0: string,
-      arg1: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    liquidations(arg0: string, arg1: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     /**
      * These must be paid periodically for the life of the contract. If the contract has not paid its regular fee in a week or more then a late penalty is applied which is sent to the caller. If the amount of fees owed are greater than the pfc, then this will pay as much as possible from the available collateral. An event is only fired if the fees charged are greater than 0.
      * Pays UMA DVM regular fees (as a % of the collateral pool) to the Store contract.
      */
-    payRegularFees(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    payRegularFees(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     /**
      * This is equivalent to the collateral pool available from which to pay fees. Therefore, derived contracts are expected to implement this so that pay-fee methods can correctly compute the owed fees as a % of PfC.
@@ -2383,45 +1900,34 @@ export class Potion extends BaseContract {
      */
     pfc(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    positions(
-      arg0: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    positions(arg0: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     priceIdentifier(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    rawLiquidationCollateral(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    rawLiquidationCollateral(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    rawTotalPositionCollateral(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    rawTotalPositionCollateral(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     redeem(
       numTokens: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     /**
      * This is supposed to be implemented by any contract that inherits `AdministrateeInterface` and callable only by the Governor contract. This method is therefore minimally implemented in this contract and does nothing.
      * Theoretically supposed to pay fees and move money between margin accounts to make sure they reflect the NAV of the contract. However, this functionality doesn't apply to this contract.
      */
-    remargin(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    remargin(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     /**
      * The liveness length is the same as the withdrawal liveness.
      * Requests to transfer ownership of the caller's current position to a new sponsor address. Once the request liveness is passed, the sponsor can execute the transfer and specify the new sponsor.
      */
-    requestTransferPosition(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    requestTransferPosition(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     requestWithdrawal(
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     /**
@@ -2431,20 +1937,16 @@ export class Potion extends BaseContract {
      */
     setCurrentTime(
       time: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     /**
      * This burns all tokens from the caller of `tokenCurrency` and sends back the proportional amount of `collateralCurrency`. Might not redeem the full proportional amount of collateral in order to account for precision loss. This contract must be approved to spend `tokenCurrency` at least up to the caller's full balance.
      * After a contract has passed expiry all token holders can redeem their tokens for underlying at the prevailing price defined by the DVM from the `expire` function.
      */
-    settleExpired(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    settleExpired(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
-    sponsorDisputeRewardPct(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    sponsorDisputeRewardPct(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     strikePrice(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -2455,13 +1957,9 @@ export class Potion extends BaseContract {
     /**
      * Accessor method for the total collateral stored within the PricelessPositionManager.
      */
-    totalPositionCollateral(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    totalPositionCollateral(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    totalTokensOutstanding(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    totalTokensOutstanding(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     /**
      * Transferring positions can only occur if the recipient does not already have a position.
@@ -2470,31 +1968,27 @@ export class Potion extends BaseContract {
      */
     transferPositionPassedRequest(
       newSponsorAddress: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     withdraw(
       collateralAmount: { rawValue: BigNumberish },
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     withdrawLiquidation(
       liquidationId: BigNumberish,
       sponsor: string,
       caller: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     /**
      * Might not withdraw the full requested amount in order to account for precision loss or if the full requested amount exceeds the collateral in the position (due to paying fees).
      * After a passed withdrawal request (i.e., by a call to `requestWithdrawal` and waiting `withdrawalLiveness`), withdraws `positionData.withdrawalRequestAmount` of collateral currency.
      */
-    withdrawPassedRequest(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    withdrawPassedRequest(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
-    withdrawalLiveness(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    withdrawalLiveness(overrides?: CallOverrides): Promise<PopulatedTransaction>;
   };
 }

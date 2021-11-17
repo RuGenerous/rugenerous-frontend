@@ -59,98 +59,40 @@ interface EthContractInterface extends ethers.utils.Interface {
 
   encodeFunctionData(functionFragment: "DAO", values?: undefined): string;
   encodeFunctionData(functionFragment: "OHM", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "adjustment",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "assetPrice",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "adjustment", values?: undefined): string;
+  encodeFunctionData(functionFragment: "assetPrice", values?: undefined): string;
   encodeFunctionData(functionFragment: "bondInfo", values: [string]): string;
   encodeFunctionData(functionFragment: "bondPrice", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "bondPriceInUSD",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "currentDebt",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "bondPriceInUSD", values?: undefined): string;
+  encodeFunctionData(functionFragment: "currentDebt", values?: undefined): string;
   encodeFunctionData(functionFragment: "debtDecay", values?: undefined): string;
   encodeFunctionData(functionFragment: "debtRatio", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "deposit",
-    values: [BigNumberish, BigNumberish, string]
-  ): string;
+  encodeFunctionData(functionFragment: "deposit", values: [BigNumberish, BigNumberish, string]): string;
   encodeFunctionData(
     functionFragment: "initializeBondTerms",
-    values: [
-      BigNumberish,
-      BigNumberish,
-      BigNumberish,
-      BigNumberish,
-      BigNumberish,
-      BigNumberish
-    ]
+    values: [BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish],
   ): string;
   encodeFunctionData(functionFragment: "lastDecay", values?: undefined): string;
   encodeFunctionData(functionFragment: "maxPayout", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "payoutFor",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "pendingPayoutFor",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "percentVestedFor",
-    values: [string]
-  ): string;
+  encodeFunctionData(functionFragment: "payoutFor", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "pendingPayoutFor", values: [string]): string;
+  encodeFunctionData(functionFragment: "percentVestedFor", values: [string]): string;
   encodeFunctionData(functionFragment: "policy", values?: undefined): string;
   encodeFunctionData(functionFragment: "principle", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "pullManagement",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "pushManagement",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "recoverLostToken",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "redeem",
-    values: [string, boolean]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "renounceManagement",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "pullManagement", values?: undefined): string;
+  encodeFunctionData(functionFragment: "pushManagement", values: [string]): string;
+  encodeFunctionData(functionFragment: "recoverLostToken", values: [string]): string;
+  encodeFunctionData(functionFragment: "redeem", values: [string, boolean]): string;
+  encodeFunctionData(functionFragment: "renounceManagement", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "setAdjustment",
-    values: [boolean, BigNumberish, BigNumberish, BigNumberish]
+    values: [boolean, BigNumberish, BigNumberish, BigNumberish],
   ): string;
-  encodeFunctionData(
-    functionFragment: "setBondTerms",
-    values: [BigNumberish, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setStaking",
-    values: [string, boolean]
-  ): string;
+  encodeFunctionData(functionFragment: "setBondTerms", values: [BigNumberish, BigNumberish]): string;
+  encodeFunctionData(functionFragment: "setStaking", values: [string, boolean]): string;
   encodeFunctionData(functionFragment: "staking", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "stakingHelper",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "standardizedDebtRatio",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "stakingHelper", values?: undefined): string;
+  encodeFunctionData(functionFragment: "standardizedDebtRatio", values?: undefined): string;
   encodeFunctionData(functionFragment: "terms", values?: undefined): string;
   encodeFunctionData(functionFragment: "totalDebt", values?: undefined): string;
   encodeFunctionData(functionFragment: "treasury", values?: undefined): string;
@@ -162,69 +104,30 @@ interface EthContractInterface extends ethers.utils.Interface {
   decodeFunctionResult(functionFragment: "assetPrice", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "bondInfo", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "bondPrice", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "bondPriceInUSD",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "currentDebt",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "bondPriceInUSD", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "currentDebt", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "debtDecay", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "debtRatio", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "initializeBondTerms",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "initializeBondTerms", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "lastDecay", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "maxPayout", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "payoutFor", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "pendingPayoutFor",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "percentVestedFor",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "pendingPayoutFor", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "percentVestedFor", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "policy", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "principle", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "pullManagement",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "pushManagement",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "recoverLostToken",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "pullManagement", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "pushManagement", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "recoverLostToken", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "redeem", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceManagement",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setAdjustment",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setBondTerms",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "renounceManagement", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setAdjustment", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setBondTerms", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "setStaking", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "staking", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "stakingHelper",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "standardizedDebtRatio",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "stakingHelper", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "standardizedDebtRatio", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "terms", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "totalDebt", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "treasury", data: BytesLike): Result;
@@ -281,13 +184,9 @@ export type ControlVariableAdjustmentEvent = TypedEvent<
   }
 >;
 
-export type OwnershipPulledEvent = TypedEvent<
-  [string, string] & { previousOwner: string; newOwner: string }
->;
+export type OwnershipPulledEvent = TypedEvent<[string, string] & { previousOwner: string; newOwner: string }>;
 
-export type OwnershipPushedEvent = TypedEvent<
-  [string, string] & { previousOwner: string; newOwner: string }
->;
+export type OwnershipPushedEvent = TypedEvent<[string, string] & { previousOwner: string; newOwner: string }>;
 
 export class EthContract extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -295,26 +194,26 @@ export class EthContract extends BaseContract {
   deployed(): Promise<this>;
 
   listeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): Array<TypedListener<EventArgsArray, EventArgsObject>>;
   off<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   on<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   once<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeListener<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeAllListeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): this;
 
   listeners(eventName?: string): Array<Listener>;
@@ -327,7 +226,7 @@ export class EthContract extends BaseContract {
   queryFilter<EventArgsArray extends Array<any>, EventArgsObject>(
     event: TypedEventFilter<EventArgsArray, EventArgsObject>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
   interface: EthContractInterface;
@@ -337,9 +236,7 @@ export class EthContract extends BaseContract {
 
     OHM(overrides?: CallOverrides): Promise<[string]>;
 
-    adjustment(
-      overrides?: CallOverrides
-    ): Promise<
+    adjustment(overrides?: CallOverrides): Promise<
       [boolean, BigNumber, BigNumber, BigNumber, BigNumber] & {
         add: boolean;
         rate: BigNumber;
@@ -353,7 +250,7 @@ export class EthContract extends BaseContract {
 
     bondInfo(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber] & {
         payout: BigNumber;
@@ -363,29 +260,21 @@ export class EthContract extends BaseContract {
       }
     >;
 
-    bondPrice(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { price_: BigNumber }>;
+    bondPrice(overrides?: CallOverrides): Promise<[BigNumber] & { price_: BigNumber }>;
 
-    bondPriceInUSD(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { price_: BigNumber }>;
+    bondPriceInUSD(overrides?: CallOverrides): Promise<[BigNumber] & { price_: BigNumber }>;
 
     currentDebt(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    debtDecay(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { decay_: BigNumber }>;
+    debtDecay(overrides?: CallOverrides): Promise<[BigNumber] & { decay_: BigNumber }>;
 
-    debtRatio(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber] & { debtRatio_: BigNumber }>;
+    debtRatio(overrides?: CallOverrides): Promise<[BigNumber] & { debtRatio_: BigNumber }>;
 
     deposit(
       _amount: BigNumberish,
       _maxPrice: BigNumberish,
       _depositor: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     initializeBondTerms(
@@ -395,74 +284,67 @@ export class EthContract extends BaseContract {
       _maxPayout: BigNumberish,
       _maxDebt: BigNumberish,
       _initialDebt: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     lastDecay(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     maxPayout(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    payoutFor(
-      _value: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    payoutFor(_value: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     pendingPayoutFor(
       _depositor: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { pendingPayout_: BigNumber }>;
 
     percentVestedFor(
       _depositor: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { percentVested_: BigNumber }>;
 
     policy(overrides?: CallOverrides): Promise<[string]>;
 
     principle(overrides?: CallOverrides): Promise<[string]>;
 
-    pullManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     pushManagement(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     recoverLostToken(
       _token: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     redeem(
       _recipient: string,
       _stake: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    renounceManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     setAdjustment(
       _addition: boolean,
       _increment: BigNumberish,
       _target: BigNumberish,
       _buffer: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     setBondTerms(
       _parameter: BigNumberish,
       _input: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     setStaking(
       _staking: string,
       _helper: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     staking(overrides?: CallOverrides): Promise<[string]>;
@@ -471,9 +353,7 @@ export class EthContract extends BaseContract {
 
     standardizedDebtRatio(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    terms(
-      overrides?: CallOverrides
-    ): Promise<
+    terms(overrides?: CallOverrides): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
         controlVariable: BigNumber;
         vestingTerm: BigNumber;
@@ -494,9 +374,7 @@ export class EthContract extends BaseContract {
 
   OHM(overrides?: CallOverrides): Promise<string>;
 
-  adjustment(
-    overrides?: CallOverrides
-  ): Promise<
+  adjustment(overrides?: CallOverrides): Promise<
     [boolean, BigNumber, BigNumber, BigNumber, BigNumber] & {
       add: boolean;
       rate: BigNumber;
@@ -510,7 +388,7 @@ export class EthContract extends BaseContract {
 
   bondInfo(
     arg0: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [BigNumber, BigNumber, BigNumber, BigNumber] & {
       payout: BigNumber;
@@ -534,7 +412,7 @@ export class EthContract extends BaseContract {
     _amount: BigNumberish,
     _maxPrice: BigNumberish,
     _depositor: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   initializeBondTerms(
@@ -544,74 +422,61 @@ export class EthContract extends BaseContract {
     _maxPayout: BigNumberish,
     _maxDebt: BigNumberish,
     _initialDebt: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   lastDecay(overrides?: CallOverrides): Promise<BigNumber>;
 
   maxPayout(overrides?: CallOverrides): Promise<BigNumber>;
 
-  payoutFor(
-    _value: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  payoutFor(_value: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-  pendingPayoutFor(
-    _depositor: string,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  pendingPayoutFor(_depositor: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-  percentVestedFor(
-    _depositor: string,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  percentVestedFor(_depositor: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   policy(overrides?: CallOverrides): Promise<string>;
 
   principle(overrides?: CallOverrides): Promise<string>;
 
-  pullManagement(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   pushManagement(
     newOwner_: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   recoverLostToken(
     _token: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   redeem(
     _recipient: string,
     _stake: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
-  renounceManagement(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   setAdjustment(
     _addition: boolean,
     _increment: BigNumberish,
     _target: BigNumberish,
     _buffer: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   setBondTerms(
     _parameter: BigNumberish,
     _input: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   setStaking(
     _staking: string,
     _helper: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   staking(overrides?: CallOverrides): Promise<string>;
@@ -620,9 +485,7 @@ export class EthContract extends BaseContract {
 
   standardizedDebtRatio(overrides?: CallOverrides): Promise<BigNumber>;
 
-  terms(
-    overrides?: CallOverrides
-  ): Promise<
+  terms(overrides?: CallOverrides): Promise<
     [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
       controlVariable: BigNumber;
       vestingTerm: BigNumber;
@@ -643,9 +506,7 @@ export class EthContract extends BaseContract {
 
     OHM(overrides?: CallOverrides): Promise<string>;
 
-    adjustment(
-      overrides?: CallOverrides
-    ): Promise<
+    adjustment(overrides?: CallOverrides): Promise<
       [boolean, BigNumber, BigNumber, BigNumber, BigNumber] & {
         add: boolean;
         rate: BigNumber;
@@ -659,7 +520,7 @@ export class EthContract extends BaseContract {
 
     bondInfo(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber] & {
         payout: BigNumber;
@@ -683,7 +544,7 @@ export class EthContract extends BaseContract {
       _amount: BigNumberish,
       _maxPrice: BigNumberish,
       _depositor: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     initializeBondTerms(
@@ -693,27 +554,18 @@ export class EthContract extends BaseContract {
       _maxPayout: BigNumberish,
       _maxDebt: BigNumberish,
       _initialDebt: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     lastDecay(overrides?: CallOverrides): Promise<BigNumber>;
 
     maxPayout(overrides?: CallOverrides): Promise<BigNumber>;
 
-    payoutFor(
-      _value: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    payoutFor(_value: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    pendingPayoutFor(
-      _depositor: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    pendingPayoutFor(_depositor: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    percentVestedFor(
-      _depositor: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    percentVestedFor(_depositor: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     policy(overrides?: CallOverrides): Promise<string>;
 
@@ -723,16 +575,9 @@ export class EthContract extends BaseContract {
 
     pushManagement(newOwner_: string, overrides?: CallOverrides): Promise<void>;
 
-    recoverLostToken(
-      _token: string,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    recoverLostToken(_token: string, overrides?: CallOverrides): Promise<boolean>;
 
-    redeem(
-      _recipient: string,
-      _stake: boolean,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    redeem(_recipient: string, _stake: boolean, overrides?: CallOverrides): Promise<BigNumber>;
 
     renounceManagement(overrides?: CallOverrides): Promise<void>;
 
@@ -741,20 +586,12 @@ export class EthContract extends BaseContract {
       _increment: BigNumberish,
       _target: BigNumberish,
       _buffer: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
-    setBondTerms(
-      _parameter: BigNumberish,
-      _input: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setBondTerms(_parameter: BigNumberish, _input: BigNumberish, overrides?: CallOverrides): Promise<void>;
 
-    setStaking(
-      _staking: string,
-      _helper: boolean,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setStaking(_staking: string, _helper: boolean, overrides?: CallOverrides): Promise<void>;
 
     staking(overrides?: CallOverrides): Promise<string>;
 
@@ -762,9 +599,7 @@ export class EthContract extends BaseContract {
 
     standardizedDebtRatio(overrides?: CallOverrides): Promise<BigNumber>;
 
-    terms(
-      overrides?: CallOverrides
-    ): Promise<
+    terms(overrides?: CallOverrides): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
         controlVariable: BigNumber;
         vestingTerm: BigNumber;
@@ -786,7 +621,7 @@ export class EthContract extends BaseContract {
       deposit?: null,
       payout?: BigNumberish | null,
       expires?: BigNumberish | null,
-      priceInUSD?: BigNumberish | null
+      priceInUSD?: BigNumberish | null,
     ): TypedEventFilter<
       [BigNumber, BigNumber, BigNumber, BigNumber],
       {
@@ -801,7 +636,7 @@ export class EthContract extends BaseContract {
       deposit?: null,
       payout?: BigNumberish | null,
       expires?: BigNumberish | null,
-      priceInUSD?: BigNumberish | null
+      priceInUSD?: BigNumberish | null,
     ): TypedEventFilter<
       [BigNumber, BigNumber, BigNumber, BigNumber],
       {
@@ -815,7 +650,7 @@ export class EthContract extends BaseContract {
     "BondPriceChanged(uint256,uint256,uint256)"(
       priceInUSD?: BigNumberish | null,
       internalPrice?: BigNumberish | null,
-      debtRatio?: BigNumberish | null
+      debtRatio?: BigNumberish | null,
     ): TypedEventFilter<
       [BigNumber, BigNumber, BigNumber],
       { priceInUSD: BigNumber; internalPrice: BigNumber; debtRatio: BigNumber }
@@ -824,7 +659,7 @@ export class EthContract extends BaseContract {
     BondPriceChanged(
       priceInUSD?: BigNumberish | null,
       internalPrice?: BigNumberish | null,
-      debtRatio?: BigNumberish | null
+      debtRatio?: BigNumberish | null,
     ): TypedEventFilter<
       [BigNumber, BigNumber, BigNumber],
       { priceInUSD: BigNumber; internalPrice: BigNumber; debtRatio: BigNumber }
@@ -833,26 +668,20 @@ export class EthContract extends BaseContract {
     "BondRedeemed(address,uint256,uint256)"(
       recipient?: string | null,
       payout?: null,
-      remaining?: null
-    ): TypedEventFilter<
-      [string, BigNumber, BigNumber],
-      { recipient: string; payout: BigNumber; remaining: BigNumber }
-    >;
+      remaining?: null,
+    ): TypedEventFilter<[string, BigNumber, BigNumber], { recipient: string; payout: BigNumber; remaining: BigNumber }>;
 
     BondRedeemed(
       recipient?: string | null,
       payout?: null,
-      remaining?: null
-    ): TypedEventFilter<
-      [string, BigNumber, BigNumber],
-      { recipient: string; payout: BigNumber; remaining: BigNumber }
-    >;
+      remaining?: null,
+    ): TypedEventFilter<[string, BigNumber, BigNumber], { recipient: string; payout: BigNumber; remaining: BigNumber }>;
 
     "ControlVariableAdjustment(uint256,uint256,uint256,bool)"(
       initialBCV?: null,
       newBCV?: null,
       adjustment?: null,
-      addition?: null
+      addition?: null,
     ): TypedEventFilter<
       [BigNumber, BigNumber, BigNumber, boolean],
       {
@@ -867,7 +696,7 @@ export class EthContract extends BaseContract {
       initialBCV?: null,
       newBCV?: null,
       adjustment?: null,
-      addition?: null
+      addition?: null,
     ): TypedEventFilter<
       [BigNumber, BigNumber, BigNumber, boolean],
       {
@@ -880,35 +709,23 @@ export class EthContract extends BaseContract {
 
     "OwnershipPulled(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     OwnershipPulled(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     "OwnershipPushed(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     OwnershipPushed(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
   };
 
   estimateGas: {
@@ -936,7 +753,7 @@ export class EthContract extends BaseContract {
       _amount: BigNumberish,
       _maxPrice: BigNumberish,
       _depositor: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     initializeBondTerms(
@@ -946,74 +763,55 @@ export class EthContract extends BaseContract {
       _maxPayout: BigNumberish,
       _maxDebt: BigNumberish,
       _initialDebt: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     lastDecay(overrides?: CallOverrides): Promise<BigNumber>;
 
     maxPayout(overrides?: CallOverrides): Promise<BigNumber>;
 
-    payoutFor(
-      _value: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    payoutFor(_value: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    pendingPayoutFor(
-      _depositor: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    pendingPayoutFor(_depositor: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    percentVestedFor(
-      _depositor: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    percentVestedFor(_depositor: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     policy(overrides?: CallOverrides): Promise<BigNumber>;
 
     principle(overrides?: CallOverrides): Promise<BigNumber>;
 
-    pullManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
-    pushManagement(
-      newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    pushManagement(newOwner_: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
-    recoverLostToken(
-      _token: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    recoverLostToken(_token: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     redeem(
       _recipient: string,
       _stake: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    renounceManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     setAdjustment(
       _addition: boolean,
       _increment: BigNumberish,
       _target: BigNumberish,
       _buffer: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     setBondTerms(
       _parameter: BigNumberish,
       _input: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     setStaking(
       _staking: string,
       _helper: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     staking(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1040,10 +838,7 @@ export class EthContract extends BaseContract {
 
     assetPrice(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    bondInfo(
-      arg0: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    bondInfo(arg0: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     bondPrice(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -1059,7 +854,7 @@ export class EthContract extends BaseContract {
       _amount: BigNumberish,
       _maxPrice: BigNumberish,
       _depositor: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     initializeBondTerms(
@@ -1069,83 +864,68 @@ export class EthContract extends BaseContract {
       _maxPayout: BigNumberish,
       _maxDebt: BigNumberish,
       _initialDebt: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     lastDecay(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     maxPayout(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    payoutFor(
-      _value: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    payoutFor(_value: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    pendingPayoutFor(
-      _depositor: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    pendingPayoutFor(_depositor: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    percentVestedFor(
-      _depositor: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    percentVestedFor(_depositor: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     policy(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     principle(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    pullManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    pullManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     pushManagement(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     recoverLostToken(
       _token: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     redeem(
       _recipient: string,
       _stake: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    renounceManagement(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    renounceManagement(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     setAdjustment(
       _addition: boolean,
       _increment: BigNumberish,
       _target: BigNumberish,
       _buffer: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     setBondTerms(
       _parameter: BigNumberish,
       _input: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     setStaking(
       _staking: string,
       _helper: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     staking(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     stakingHelper(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    standardizedDebtRatio(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    standardizedDebtRatio(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     terms(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 

@@ -87,492 +87,144 @@ interface AwardAbi2Interface extends ethers.utils.Interface {
   };
 
   encodeFunctionData(functionFragment: "VERSION", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "addExternalErc20Award",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "addExternalErc20Awards",
-    values: [string[]]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "addExternalErc721Award",
-    values: [string, BigNumberish[]]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "beforeAwardListener",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "beforeTokenMint",
-    values: [string, BigNumberish, string, string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "beforeTokenTransfer",
-    values: [string, string, BigNumberish, string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "blocklistRetryCount",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "calculateNextPrizePeriodStartTime",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "canCompleteAward",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "canStartAward",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "cancelAward",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "carryOverBlocklist",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "completeAward",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "currentPrize",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "estimateRemainingBlocksToPrize",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getExternalErc20Awards",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getExternalErc721AwardTokenIds",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getExternalErc721Awards",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getLastRngLockBlock",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getLastRngRequestId",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "addExternalErc20Award", values: [string]): string;
+  encodeFunctionData(functionFragment: "addExternalErc20Awards", values: [string[]]): string;
+  encodeFunctionData(functionFragment: "addExternalErc721Award", values: [string, BigNumberish[]]): string;
+  encodeFunctionData(functionFragment: "beforeAwardListener", values?: undefined): string;
+  encodeFunctionData(functionFragment: "beforeTokenMint", values: [string, BigNumberish, string, string]): string;
+  encodeFunctionData(functionFragment: "beforeTokenTransfer", values: [string, string, BigNumberish, string]): string;
+  encodeFunctionData(functionFragment: "blocklistRetryCount", values?: undefined): string;
+  encodeFunctionData(functionFragment: "calculateNextPrizePeriodStartTime", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "canCompleteAward", values?: undefined): string;
+  encodeFunctionData(functionFragment: "canStartAward", values?: undefined): string;
+  encodeFunctionData(functionFragment: "cancelAward", values?: undefined): string;
+  encodeFunctionData(functionFragment: "carryOverBlocklist", values?: undefined): string;
+  encodeFunctionData(functionFragment: "completeAward", values?: undefined): string;
+  encodeFunctionData(functionFragment: "currentPrize", values?: undefined): string;
+  encodeFunctionData(functionFragment: "estimateRemainingBlocksToPrize", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "getExternalErc20Awards", values?: undefined): string;
+  encodeFunctionData(functionFragment: "getExternalErc721AwardTokenIds", values: [string]): string;
+  encodeFunctionData(functionFragment: "getExternalErc721Awards", values?: undefined): string;
+  encodeFunctionData(functionFragment: "getLastRngLockBlock", values?: undefined): string;
+  encodeFunctionData(functionFragment: "getLastRngRequestId", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "initialize",
-    values: [
-      BigNumberish,
-      BigNumberish,
-      string,
-      string,
-      string,
-      string,
-      string[]
-    ]
+    values: [BigNumberish, BigNumberish, string, string, string, string, string[]],
   ): string;
   encodeFunctionData(
     functionFragment: "initializeMultipleWinners",
-    values: [
-      BigNumberish,
-      BigNumberish,
-      string,
-      string,
-      string,
-      string,
-      BigNumberish
-    ]
+    values: [BigNumberish, BigNumberish, string, string, string, string, BigNumberish],
   ): string;
-  encodeFunctionData(
-    functionFragment: "isBlocklisted",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "isPrizePeriodOver",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "isRngCompleted",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "isRngRequested",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "isRngTimedOut",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "numberOfWinners",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "isBlocklisted", values: [string]): string;
+  encodeFunctionData(functionFragment: "isPrizePeriodOver", values?: undefined): string;
+  encodeFunctionData(functionFragment: "isRngCompleted", values?: undefined): string;
+  encodeFunctionData(functionFragment: "isRngRequested", values?: undefined): string;
+  encodeFunctionData(functionFragment: "isRngTimedOut", values?: undefined): string;
+  encodeFunctionData(functionFragment: "numberOfWinners", values?: undefined): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "periodicPrizeStrategyListener",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "prizePeriodEndAt",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "prizePeriodRemainingSeconds",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "prizePeriodSeconds",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "prizePeriodStartedAt",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "periodicPrizeStrategyListener", values?: undefined): string;
+  encodeFunctionData(functionFragment: "prizePeriodEndAt", values?: undefined): string;
+  encodeFunctionData(functionFragment: "prizePeriodRemainingSeconds", values?: undefined): string;
+  encodeFunctionData(functionFragment: "prizePeriodSeconds", values?: undefined): string;
+  encodeFunctionData(functionFragment: "prizePeriodStartedAt", values?: undefined): string;
   encodeFunctionData(functionFragment: "prizePool", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "prizeSplit",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "prizeSplits",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "removeExternalErc20Award",
-    values: [string, string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "removeExternalErc721Award",
-    values: [string, string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "renounceOwnership",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "prizeSplit", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "prizeSplits", values?: undefined): string;
+  encodeFunctionData(functionFragment: "removeExternalErc20Award", values: [string, string]): string;
+  encodeFunctionData(functionFragment: "removeExternalErc721Award", values: [string, string]): string;
+  encodeFunctionData(functionFragment: "renounceOwnership", values?: undefined): string;
   encodeFunctionData(functionFragment: "rng", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "rngRequestTimeout",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setBeforeAwardListener",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setBlocklistRetryCount",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setBlocklisted",
-    values: [string, boolean]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setCarryBlocklist",
-    values: [boolean]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setNumberOfWinners",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setPeriodicPrizeStrategyListener",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setPrizePeriodSeconds",
-    values: [BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "rngRequestTimeout", values?: undefined): string;
+  encodeFunctionData(functionFragment: "setBeforeAwardListener", values: [string]): string;
+  encodeFunctionData(functionFragment: "setBlocklistRetryCount", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "setBlocklisted", values: [string, boolean]): string;
+  encodeFunctionData(functionFragment: "setCarryBlocklist", values: [boolean]): string;
+  encodeFunctionData(functionFragment: "setNumberOfWinners", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "setPeriodicPrizeStrategyListener", values: [string]): string;
+  encodeFunctionData(functionFragment: "setPrizePeriodSeconds", values: [BigNumberish]): string;
   encodeFunctionData(
     functionFragment: "setPrizeSplit",
-    values: [
-      { target: string; percentage: BigNumberish; token: BigNumberish },
-      BigNumberish
-    ]
+    values: [{ target: string; percentage: BigNumberish; token: BigNumberish }, BigNumberish],
   ): string;
   encodeFunctionData(
     functionFragment: "setPrizeSplits",
-    values: [
-      { target: string; percentage: BigNumberish; token: BigNumberish }[]
-    ]
+    values: [{ target: string; percentage: BigNumberish; token: BigNumberish }[]],
   ): string;
-  encodeFunctionData(
-    functionFragment: "setRngRequestTimeout",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setRngService",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setSplitExternalErc20Awards",
-    values: [boolean]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setTokenListener",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "splitExternalErc20Awards",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "sponsorship",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "startAward",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "supportsInterface",
-    values: [BytesLike]
-  ): string;
+  encodeFunctionData(functionFragment: "setRngRequestTimeout", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "setRngService", values: [string]): string;
+  encodeFunctionData(functionFragment: "setSplitExternalErc20Awards", values: [boolean]): string;
+  encodeFunctionData(functionFragment: "setTokenListener", values: [string]): string;
+  encodeFunctionData(functionFragment: "splitExternalErc20Awards", values?: undefined): string;
+  encodeFunctionData(functionFragment: "sponsorship", values?: undefined): string;
+  encodeFunctionData(functionFragment: "startAward", values?: undefined): string;
+  encodeFunctionData(functionFragment: "supportsInterface", values: [BytesLike]): string;
   encodeFunctionData(functionFragment: "ticket", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "tokenListener",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "transferOwnership",
-    values: [string]
-  ): string;
+  encodeFunctionData(functionFragment: "tokenListener", values?: undefined): string;
+  encodeFunctionData(functionFragment: "transferOwnership", values: [string]): string;
 
   decodeFunctionResult(functionFragment: "VERSION", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "addExternalErc20Award",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "addExternalErc20Awards",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "addExternalErc721Award",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "beforeAwardListener",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "beforeTokenMint",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "beforeTokenTransfer",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "blocklistRetryCount",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "calculateNextPrizePeriodStartTime",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "canCompleteAward",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "canStartAward",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "cancelAward",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "carryOverBlocklist",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "completeAward",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "currentPrize",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "estimateRemainingBlocksToPrize",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getExternalErc20Awards",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getExternalErc721AwardTokenIds",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getExternalErc721Awards",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getLastRngLockBlock",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getLastRngRequestId",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "addExternalErc20Award", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "addExternalErc20Awards", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "addExternalErc721Award", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "beforeAwardListener", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "beforeTokenMint", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "beforeTokenTransfer", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "blocklistRetryCount", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "calculateNextPrizePeriodStartTime", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "canCompleteAward", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "canStartAward", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "cancelAward", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "carryOverBlocklist", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "completeAward", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "currentPrize", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "estimateRemainingBlocksToPrize", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getExternalErc20Awards", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getExternalErc721AwardTokenIds", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getExternalErc721Awards", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getLastRngLockBlock", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getLastRngRequestId", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "initializeMultipleWinners",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "isBlocklisted",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "isPrizePeriodOver",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "isRngCompleted",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "isRngRequested",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "isRngTimedOut",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "numberOfWinners",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "initializeMultipleWinners", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "isBlocklisted", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "isPrizePeriodOver", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "isRngCompleted", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "isRngRequested", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "isRngTimedOut", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "numberOfWinners", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "periodicPrizeStrategyListener",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "prizePeriodEndAt",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "prizePeriodRemainingSeconds",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "prizePeriodSeconds",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "prizePeriodStartedAt",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "periodicPrizeStrategyListener", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "prizePeriodEndAt", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "prizePeriodRemainingSeconds", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "prizePeriodSeconds", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "prizePeriodStartedAt", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "prizePool", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "prizeSplit", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "prizeSplits",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "removeExternalErc20Award",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "removeExternalErc721Award",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceOwnership",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "prizeSplits", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "removeExternalErc20Award", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "removeExternalErc721Award", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "renounceOwnership", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "rng", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "rngRequestTimeout",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setBeforeAwardListener",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setBlocklistRetryCount",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setBlocklisted",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setCarryBlocklist",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setNumberOfWinners",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setPeriodicPrizeStrategyListener",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setPrizePeriodSeconds",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setPrizeSplit",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setPrizeSplits",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setRngRequestTimeout",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setRngService",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setSplitExternalErc20Awards",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setTokenListener",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "splitExternalErc20Awards",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "sponsorship",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "rngRequestTimeout", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setBeforeAwardListener", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setBlocklistRetryCount", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setBlocklisted", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setCarryBlocklist", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setNumberOfWinners", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setPeriodicPrizeStrategyListener", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setPrizePeriodSeconds", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setPrizeSplit", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setPrizeSplits", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setRngRequestTimeout", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setRngService", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setSplitExternalErc20Awards", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setTokenListener", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "splitExternalErc20Awards", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "sponsorship", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "startAward", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "supportsInterface",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "supportsInterface", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "ticket", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "tokenListener",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "transferOwnership",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "tokenListener", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "transferOwnership", data: BytesLike): Result;
 
   events: {
     "BeforeAwardListenerSet(address)": EventFragment;
@@ -615,9 +267,7 @@ interface AwardAbi2Interface extends ethers.utils.Interface {
   getEvent(nameOrSignatureOrTopic: "NoWinners"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "NumberOfWinnersSet"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
-  getEvent(
-    nameOrSignatureOrTopic: "PeriodicPrizeStrategyListenerSet"
-  ): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "PeriodicPrizeStrategyListenerSet"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "PrizePeriodSecondsUpdated"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "PrizePoolAwardCancelled"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "PrizePoolAwardStarted"): EventFragment;
@@ -629,41 +279,27 @@ interface AwardAbi2Interface extends ethers.utils.Interface {
   getEvent(nameOrSignatureOrTopic: "RngRequestFailed"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RngRequestTimeoutSet"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RngServiceUpdated"): EventFragment;
-  getEvent(
-    nameOrSignatureOrTopic: "SplitExternalErc20AwardsSet"
-  ): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "SplitExternalErc20AwardsSet"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "TokenListenerUpdated"): EventFragment;
 }
 
-export type BeforeAwardListenerSetEvent = TypedEvent<
-  [string] & { beforeAwardListener: string }
->;
+export type BeforeAwardListenerSetEvent = TypedEvent<[string] & { beforeAwardListener: string }>;
 
 export type BlocklistCarrySetEvent = TypedEvent<[boolean] & { carry: boolean }>;
 
-export type BlocklistRetryCountSetEvent = TypedEvent<
-  [BigNumber] & { count: BigNumber }
->;
+export type BlocklistRetryCountSetEvent = TypedEvent<[BigNumber] & { count: BigNumber }>;
 
-export type BlocklistSetEvent = TypedEvent<
-  [string, boolean] & { user: string; isBlocked: boolean }
->;
+export type BlocklistSetEvent = TypedEvent<[string, boolean] & { user: string; isBlocked: boolean }>;
 
-export type ExternalErc20AwardAddedEvent = TypedEvent<
-  [string] & { externalErc20: string }
->;
+export type ExternalErc20AwardAddedEvent = TypedEvent<[string] & { externalErc20: string }>;
 
-export type ExternalErc20AwardRemovedEvent = TypedEvent<
-  [string] & { externalErc20Award: string }
->;
+export type ExternalErc20AwardRemovedEvent = TypedEvent<[string] & { externalErc20Award: string }>;
 
 export type ExternalErc721AwardAddedEvent = TypedEvent<
   [string, BigNumber[]] & { externalErc721: string; tokenIds: BigNumber[] }
 >;
 
-export type ExternalErc721AwardRemovedEvent = TypedEvent<
-  [string] & { externalErc721Award: string }
->;
+export type ExternalErc721AwardRemovedEvent = TypedEvent<[string] & { externalErc721Award: string }>;
 
 export type InitializedEvent = TypedEvent<
   [BigNumber, BigNumber, string, string, string, string, string[]] & {
@@ -679,21 +315,13 @@ export type InitializedEvent = TypedEvent<
 
 export type NoWinnersEvent = TypedEvent<[] & {}>;
 
-export type NumberOfWinnersSetEvent = TypedEvent<
-  [BigNumber] & { numberOfWinners: BigNumber }
->;
+export type NumberOfWinnersSetEvent = TypedEvent<[BigNumber] & { numberOfWinners: BigNumber }>;
 
-export type OwnershipTransferredEvent = TypedEvent<
-  [string, string] & { previousOwner: string; newOwner: string }
->;
+export type OwnershipTransferredEvent = TypedEvent<[string, string] & { previousOwner: string; newOwner: string }>;
 
-export type PeriodicPrizeStrategyListenerSetEvent = TypedEvent<
-  [string] & { periodicPrizeStrategyListener: string }
->;
+export type PeriodicPrizeStrategyListenerSetEvent = TypedEvent<[string] & { periodicPrizeStrategyListener: string }>;
 
-export type PrizePeriodSecondsUpdatedEvent = TypedEvent<
-  [BigNumber] & { prizePeriodSeconds: BigNumber }
->;
+export type PrizePeriodSecondsUpdatedEvent = TypedEvent<[BigNumber] & { prizePeriodSeconds: BigNumber }>;
 
 export type PrizePoolAwardCancelledEvent = TypedEvent<
   [string, string, number, number] & {
@@ -713,17 +341,13 @@ export type PrizePoolAwardStartedEvent = TypedEvent<
   }
 >;
 
-export type PrizePoolAwardedEvent = TypedEvent<
-  [string, BigNumber] & { operator: string; randomNumber: BigNumber }
->;
+export type PrizePoolAwardedEvent = TypedEvent<[string, BigNumber] & { operator: string; randomNumber: BigNumber }>;
 
 export type PrizePoolOpenedEvent = TypedEvent<
   [string, BigNumber] & { operator: string; prizePeriodStartedAt: BigNumber }
 >;
 
-export type PrizeSplitRemovedEvent = TypedEvent<
-  [BigNumber] & { target: BigNumber }
->;
+export type PrizeSplitRemovedEvent = TypedEvent<[BigNumber] & { target: BigNumber }>;
 
 export type PrizeSplitSetEvent = TypedEvent<
   [string, number, number, BigNumber] & {
@@ -734,27 +358,17 @@ export type PrizeSplitSetEvent = TypedEvent<
   }
 >;
 
-export type RetryMaxLimitReachedEvent = TypedEvent<
-  [BigNumber] & { numberOfWinners: BigNumber }
->;
+export type RetryMaxLimitReachedEvent = TypedEvent<[BigNumber] & { numberOfWinners: BigNumber }>;
 
 export type RngRequestFailedEvent = TypedEvent<[] & {}>;
 
-export type RngRequestTimeoutSetEvent = TypedEvent<
-  [number] & { rngRequestTimeout: number }
->;
+export type RngRequestTimeoutSetEvent = TypedEvent<[number] & { rngRequestTimeout: number }>;
 
-export type RngServiceUpdatedEvent = TypedEvent<
-  [string] & { rngService: string }
->;
+export type RngServiceUpdatedEvent = TypedEvent<[string] & { rngService: string }>;
 
-export type SplitExternalErc20AwardsSetEvent = TypedEvent<
-  [boolean] & { splitExternalErc20Awards: boolean }
->;
+export type SplitExternalErc20AwardsSetEvent = TypedEvent<[boolean] & { splitExternalErc20Awards: boolean }>;
 
-export type TokenListenerUpdatedEvent = TypedEvent<
-  [string] & { tokenListener: string }
->;
+export type TokenListenerUpdatedEvent = TypedEvent<[string] & { tokenListener: string }>;
 
 export class AwardAbi2 extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -762,26 +376,26 @@ export class AwardAbi2 extends BaseContract {
   deployed(): Promise<this>;
 
   listeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): Array<TypedListener<EventArgsArray, EventArgsObject>>;
   off<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   on<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   once<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeListener<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeAllListeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): this;
 
   listeners(eventName?: string): Array<Listener>;
@@ -794,7 +408,7 @@ export class AwardAbi2 extends BaseContract {
   queryFilter<EventArgsArray extends Array<any>, EventArgsObject>(
     event: TypedEventFilter<EventArgsArray, EventArgsObject>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
   interface: AwardAbi2Interface;
@@ -804,18 +418,18 @@ export class AwardAbi2 extends BaseContract {
 
     addExternalErc20Award(
       _externalErc20: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     addExternalErc20Awards(
       _externalErc20s: string[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     addExternalErc721Award(
       _externalErc721: string,
       _tokenIds: BigNumberish[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     beforeAwardListener(overrides?: CallOverrides): Promise<[string]>;
@@ -825,7 +439,7 @@ export class AwardAbi2 extends BaseContract {
       amount: BigNumberish,
       controlledToken: string,
       referrer: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     beforeTokenTransfer(
@@ -833,43 +447,33 @@ export class AwardAbi2 extends BaseContract {
       to: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     blocklistRetryCount(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    calculateNextPrizePeriodStartTime(
-      currentTime: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    calculateNextPrizePeriodStartTime(currentTime: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     canCompleteAward(overrides?: CallOverrides): Promise<[boolean]>;
 
     canStartAward(overrides?: CallOverrides): Promise<[boolean]>;
 
-    cancelAward(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    cancelAward(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     carryOverBlocklist(overrides?: CallOverrides): Promise<[boolean]>;
 
-    completeAward(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    completeAward(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     currentPrize(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     estimateRemainingBlocksToPrize(
       secondsPerBlockMantissa: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     getExternalErc20Awards(overrides?: CallOverrides): Promise<[string[]]>;
 
-    getExternalErc721AwardTokenIds(
-      _externalErc721: string,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber[]]>;
+    getExternalErc721AwardTokenIds(_externalErc721: string, overrides?: CallOverrides): Promise<[BigNumber[]]>;
 
     getExternalErc721Awards(overrides?: CallOverrides): Promise<[string[]]>;
 
@@ -885,7 +489,7 @@ export class AwardAbi2 extends BaseContract {
       _sponsorship: string,
       _rng: string,
       externalErc20Awards: string[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     initializeMultipleWinners(
@@ -896,7 +500,7 @@ export class AwardAbi2 extends BaseContract {
       _sponsorship: string,
       _rng: string,
       _numberOfWinners: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     isBlocklisted(arg0: string, overrides?: CallOverrides): Promise<[boolean]>;
@@ -917,9 +521,7 @@ export class AwardAbi2 extends BaseContract {
 
     prizePeriodEndAt(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    prizePeriodRemainingSeconds(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    prizePeriodRemainingSeconds(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     prizePeriodSeconds(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -929,44 +531,40 @@ export class AwardAbi2 extends BaseContract {
 
     prizeSplit(
       prizeSplitIndex: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [
         [string, number, number] & {
           target: string;
           percentage: number;
           token: number;
-        }
+        },
       ]
     >;
 
-    prizeSplits(
-      overrides?: CallOverrides
-    ): Promise<
+    prizeSplits(overrides?: CallOverrides): Promise<
       [
         ([string, number, number] & {
           target: string;
           percentage: number;
           token: number;
-        })[]
+        })[],
       ]
     >;
 
     removeExternalErc20Award(
       _externalErc20: string,
       _prevExternalErc20: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     removeExternalErc721Award(
       _externalErc721: string,
       _prevExternalErc721: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     rng(overrides?: CallOverrides): Promise<[string]>;
 
@@ -974,38 +572,38 @@ export class AwardAbi2 extends BaseContract {
 
     setBeforeAwardListener(
       _beforeAwardListener: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     setBlocklistRetryCount(
       _count: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     setBlocklisted(
       _user: string,
       _isBlocked: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     setCarryBlocklist(
       _carry: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     setNumberOfWinners(
       count: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     setPeriodicPrizeStrategyListener(
       _periodicPrizeStrategyListener: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     setPrizePeriodSeconds(
       _prizePeriodSeconds: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     setPrizeSplit(
@@ -1015,7 +613,7 @@ export class AwardAbi2 extends BaseContract {
         token: BigNumberish;
       },
       prizeSplitIndex: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     setPrizeSplits(
@@ -1024,41 +622,36 @@ export class AwardAbi2 extends BaseContract {
         percentage: BigNumberish;
         token: BigNumberish;
       }[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     setRngRequestTimeout(
       _rngRequestTimeout: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     setRngService(
       rngService: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     setSplitExternalErc20Awards(
       _splitExternalErc20Awards: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     setTokenListener(
       _tokenListener: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     splitExternalErc20Awards(overrides?: CallOverrides): Promise<[boolean]>;
 
     sponsorship(overrides?: CallOverrides): Promise<[string]>;
 
-    startAward(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    startAward(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
-    supportsInterface(
-      interfaceId: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<[boolean]>;
+    supportsInterface(interfaceId: BytesLike, overrides?: CallOverrides): Promise<[boolean]>;
 
     ticket(overrides?: CallOverrides): Promise<[string]>;
 
@@ -1066,7 +659,7 @@ export class AwardAbi2 extends BaseContract {
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
   };
 
@@ -1074,18 +667,18 @@ export class AwardAbi2 extends BaseContract {
 
   addExternalErc20Award(
     _externalErc20: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   addExternalErc20Awards(
     _externalErc20s: string[],
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   addExternalErc721Award(
     _externalErc721: string,
     _tokenIds: BigNumberish[],
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   beforeAwardListener(overrides?: CallOverrides): Promise<string>;
@@ -1095,7 +688,7 @@ export class AwardAbi2 extends BaseContract {
     amount: BigNumberish,
     controlledToken: string,
     referrer: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   beforeTokenTransfer(
@@ -1103,43 +696,30 @@ export class AwardAbi2 extends BaseContract {
     to: string,
     amount: BigNumberish,
     controlledToken: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   blocklistRetryCount(overrides?: CallOverrides): Promise<BigNumber>;
 
-  calculateNextPrizePeriodStartTime(
-    currentTime: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  calculateNextPrizePeriodStartTime(currentTime: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
   canCompleteAward(overrides?: CallOverrides): Promise<boolean>;
 
   canStartAward(overrides?: CallOverrides): Promise<boolean>;
 
-  cancelAward(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  cancelAward(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   carryOverBlocklist(overrides?: CallOverrides): Promise<boolean>;
 
-  completeAward(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  completeAward(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   currentPrize(overrides?: CallOverrides): Promise<BigNumber>;
 
-  estimateRemainingBlocksToPrize(
-    secondsPerBlockMantissa: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  estimateRemainingBlocksToPrize(secondsPerBlockMantissa: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
   getExternalErc20Awards(overrides?: CallOverrides): Promise<string[]>;
 
-  getExternalErc721AwardTokenIds(
-    _externalErc721: string,
-    overrides?: CallOverrides
-  ): Promise<BigNumber[]>;
+  getExternalErc721AwardTokenIds(_externalErc721: string, overrides?: CallOverrides): Promise<BigNumber[]>;
 
   getExternalErc721Awards(overrides?: CallOverrides): Promise<string[]>;
 
@@ -1155,7 +735,7 @@ export class AwardAbi2 extends BaseContract {
     _sponsorship: string,
     _rng: string,
     externalErc20Awards: string[],
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   initializeMultipleWinners(
@@ -1166,7 +746,7 @@ export class AwardAbi2 extends BaseContract {
     _sponsorship: string,
     _rng: string,
     _numberOfWinners: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   isBlocklisted(arg0: string, overrides?: CallOverrides): Promise<boolean>;
@@ -1197,7 +777,7 @@ export class AwardAbi2 extends BaseContract {
 
   prizeSplit(
     prizeSplitIndex: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [string, number, number] & {
       target: string;
@@ -1206,9 +786,7 @@ export class AwardAbi2 extends BaseContract {
     }
   >;
 
-  prizeSplits(
-    overrides?: CallOverrides
-  ): Promise<
+  prizeSplits(overrides?: CallOverrides): Promise<
     ([string, number, number] & {
       target: string;
       percentage: number;
@@ -1219,18 +797,16 @@ export class AwardAbi2 extends BaseContract {
   removeExternalErc20Award(
     _externalErc20: string,
     _prevExternalErc20: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   removeExternalErc721Award(
     _externalErc721: string,
     _prevExternalErc721: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
-  renounceOwnership(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   rng(overrides?: CallOverrides): Promise<string>;
 
@@ -1238,38 +814,38 @@ export class AwardAbi2 extends BaseContract {
 
   setBeforeAwardListener(
     _beforeAwardListener: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   setBlocklistRetryCount(
     _count: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   setBlocklisted(
     _user: string,
     _isBlocked: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   setCarryBlocklist(
     _carry: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   setNumberOfWinners(
     count: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   setPeriodicPrizeStrategyListener(
     _periodicPrizeStrategyListener: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   setPrizePeriodSeconds(
     _prizePeriodSeconds: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   setPrizeSplit(
@@ -1279,7 +855,7 @@ export class AwardAbi2 extends BaseContract {
       token: BigNumberish;
     },
     prizeSplitIndex: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   setPrizeSplits(
@@ -1288,41 +864,36 @@ export class AwardAbi2 extends BaseContract {
       percentage: BigNumberish;
       token: BigNumberish;
     }[],
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   setRngRequestTimeout(
     _rngRequestTimeout: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   setRngService(
     rngService: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   setSplitExternalErc20Awards(
     _splitExternalErc20Awards: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   setTokenListener(
     _tokenListener: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   splitExternalErc20Awards(overrides?: CallOverrides): Promise<boolean>;
 
   sponsorship(overrides?: CallOverrides): Promise<string>;
 
-  startAward(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  startAward(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
-  supportsInterface(
-    interfaceId: BytesLike,
-    overrides?: CallOverrides
-  ): Promise<boolean>;
+  supportsInterface(interfaceId: BytesLike, overrides?: CallOverrides): Promise<boolean>;
 
   ticket(overrides?: CallOverrides): Promise<string>;
 
@@ -1330,26 +901,20 @@ export class AwardAbi2 extends BaseContract {
 
   transferOwnership(
     newOwner: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   callStatic: {
     VERSION(overrides?: CallOverrides): Promise<string>;
 
-    addExternalErc20Award(
-      _externalErc20: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    addExternalErc20Award(_externalErc20: string, overrides?: CallOverrides): Promise<void>;
 
-    addExternalErc20Awards(
-      _externalErc20s: string[],
-      overrides?: CallOverrides
-    ): Promise<void>;
+    addExternalErc20Awards(_externalErc20s: string[], overrides?: CallOverrides): Promise<void>;
 
     addExternalErc721Award(
       _externalErc721: string,
       _tokenIds: BigNumberish[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     beforeAwardListener(overrides?: CallOverrides): Promise<string>;
@@ -1359,7 +924,7 @@ export class AwardAbi2 extends BaseContract {
       amount: BigNumberish,
       controlledToken: string,
       referrer: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     beforeTokenTransfer(
@@ -1367,15 +932,12 @@ export class AwardAbi2 extends BaseContract {
       to: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     blocklistRetryCount(overrides?: CallOverrides): Promise<BigNumber>;
 
-    calculateNextPrizePeriodStartTime(
-      currentTime: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    calculateNextPrizePeriodStartTime(currentTime: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     canCompleteAward(overrides?: CallOverrides): Promise<boolean>;
 
@@ -1391,15 +953,12 @@ export class AwardAbi2 extends BaseContract {
 
     estimateRemainingBlocksToPrize(
       secondsPerBlockMantissa: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getExternalErc20Awards(overrides?: CallOverrides): Promise<string[]>;
 
-    getExternalErc721AwardTokenIds(
-      _externalErc721: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber[]>;
+    getExternalErc721AwardTokenIds(_externalErc721: string, overrides?: CallOverrides): Promise<BigNumber[]>;
 
     getExternalErc721Awards(overrides?: CallOverrides): Promise<string[]>;
 
@@ -1415,7 +974,7 @@ export class AwardAbi2 extends BaseContract {
       _sponsorship: string,
       _rng: string,
       externalErc20Awards: string[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     initializeMultipleWinners(
@@ -1426,7 +985,7 @@ export class AwardAbi2 extends BaseContract {
       _sponsorship: string,
       _rng: string,
       _numberOfWinners: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     isBlocklisted(arg0: string, overrides?: CallOverrides): Promise<boolean>;
@@ -1457,7 +1016,7 @@ export class AwardAbi2 extends BaseContract {
 
     prizeSplit(
       prizeSplitIndex: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [string, number, number] & {
         target: string;
@@ -1466,9 +1025,7 @@ export class AwardAbi2 extends BaseContract {
       }
     >;
 
-    prizeSplits(
-      overrides?: CallOverrides
-    ): Promise<
+    prizeSplits(overrides?: CallOverrides): Promise<
       ([string, number, number] & {
         target: string;
         percentage: number;
@@ -1479,13 +1036,13 @@ export class AwardAbi2 extends BaseContract {
     removeExternalErc20Award(
       _externalErc20: string,
       _prevExternalErc20: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     removeExternalErc721Award(
       _externalErc721: string,
       _prevExternalErc721: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
@@ -1494,41 +1051,19 @@ export class AwardAbi2 extends BaseContract {
 
     rngRequestTimeout(overrides?: CallOverrides): Promise<number>;
 
-    setBeforeAwardListener(
-      _beforeAwardListener: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setBeforeAwardListener(_beforeAwardListener: string, overrides?: CallOverrides): Promise<void>;
 
-    setBlocklistRetryCount(
-      _count: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    setBlocklistRetryCount(_count: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
-    setBlocklisted(
-      _user: string,
-      _isBlocked: boolean,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    setBlocklisted(_user: string, _isBlocked: boolean, overrides?: CallOverrides): Promise<boolean>;
 
-    setCarryBlocklist(
-      _carry: boolean,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    setCarryBlocklist(_carry: boolean, overrides?: CallOverrides): Promise<boolean>;
 
-    setNumberOfWinners(
-      count: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setNumberOfWinners(count: BigNumberish, overrides?: CallOverrides): Promise<void>;
 
-    setPeriodicPrizeStrategyListener(
-      _periodicPrizeStrategyListener: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setPeriodicPrizeStrategyListener(_periodicPrizeStrategyListener: string, overrides?: CallOverrides): Promise<void>;
 
-    setPrizePeriodSeconds(
-      _prizePeriodSeconds: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setPrizePeriodSeconds(_prizePeriodSeconds: BigNumberish, overrides?: CallOverrides): Promise<void>;
 
     setPrizeSplit(
       prizeStrategySplit: {
@@ -1537,7 +1072,7 @@ export class AwardAbi2 extends BaseContract {
         token: BigNumberish;
       },
       prizeSplitIndex: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setPrizeSplits(
@@ -1546,25 +1081,16 @@ export class AwardAbi2 extends BaseContract {
         percentage: BigNumberish;
         token: BigNumberish;
       }[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
-    setRngRequestTimeout(
-      _rngRequestTimeout: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setRngRequestTimeout(_rngRequestTimeout: BigNumberish, overrides?: CallOverrides): Promise<void>;
 
     setRngService(rngService: string, overrides?: CallOverrides): Promise<void>;
 
-    setSplitExternalErc20Awards(
-      _splitExternalErc20Awards: boolean,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setSplitExternalErc20Awards(_splitExternalErc20Awards: boolean, overrides?: CallOverrides): Promise<void>;
 
-    setTokenListener(
-      _tokenListener: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setTokenListener(_tokenListener: string, overrides?: CallOverrides): Promise<void>;
 
     splitExternalErc20Awards(overrides?: CallOverrides): Promise<boolean>;
 
@@ -1572,100 +1098,72 @@ export class AwardAbi2 extends BaseContract {
 
     startAward(overrides?: CallOverrides): Promise<void>;
 
-    supportsInterface(
-      interfaceId: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    supportsInterface(interfaceId: BytesLike, overrides?: CallOverrides): Promise<boolean>;
 
     ticket(overrides?: CallOverrides): Promise<string>;
 
     tokenListener(overrides?: CallOverrides): Promise<string>;
 
-    transferOwnership(
-      newOwner: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    transferOwnership(newOwner: string, overrides?: CallOverrides): Promise<void>;
   };
 
   filters: {
     "BeforeAwardListenerSet(address)"(
-      beforeAwardListener?: string | null
+      beforeAwardListener?: string | null,
     ): TypedEventFilter<[string], { beforeAwardListener: string }>;
 
     BeforeAwardListenerSet(
-      beforeAwardListener?: string | null
+      beforeAwardListener?: string | null,
     ): TypedEventFilter<[string], { beforeAwardListener: string }>;
 
-    "BlocklistCarrySet(bool)"(
-      carry?: null
-    ): TypedEventFilter<[boolean], { carry: boolean }>;
+    "BlocklistCarrySet(bool)"(carry?: null): TypedEventFilter<[boolean], { carry: boolean }>;
 
-    BlocklistCarrySet(
-      carry?: null
-    ): TypedEventFilter<[boolean], { carry: boolean }>;
+    BlocklistCarrySet(carry?: null): TypedEventFilter<[boolean], { carry: boolean }>;
 
-    "BlocklistRetryCountSet(uint256)"(
-      count?: null
-    ): TypedEventFilter<[BigNumber], { count: BigNumber }>;
+    "BlocklistRetryCountSet(uint256)"(count?: null): TypedEventFilter<[BigNumber], { count: BigNumber }>;
 
-    BlocklistRetryCountSet(
-      count?: null
-    ): TypedEventFilter<[BigNumber], { count: BigNumber }>;
+    BlocklistRetryCountSet(count?: null): TypedEventFilter<[BigNumber], { count: BigNumber }>;
 
     "BlocklistSet(address,bool)"(
       user?: string | null,
-      isBlocked?: null
-    ): TypedEventFilter<
-      [string, boolean],
-      { user: string; isBlocked: boolean }
-    >;
+      isBlocked?: null,
+    ): TypedEventFilter<[string, boolean], { user: string; isBlocked: boolean }>;
 
     BlocklistSet(
       user?: string | null,
-      isBlocked?: null
-    ): TypedEventFilter<
-      [string, boolean],
-      { user: string; isBlocked: boolean }
-    >;
+      isBlocked?: null,
+    ): TypedEventFilter<[string, boolean], { user: string; isBlocked: boolean }>;
 
     "ExternalErc20AwardAdded(address)"(
-      externalErc20?: string | null
+      externalErc20?: string | null,
     ): TypedEventFilter<[string], { externalErc20: string }>;
 
-    ExternalErc20AwardAdded(
-      externalErc20?: string | null
-    ): TypedEventFilter<[string], { externalErc20: string }>;
+    ExternalErc20AwardAdded(externalErc20?: string | null): TypedEventFilter<[string], { externalErc20: string }>;
 
     "ExternalErc20AwardRemoved(address)"(
-      externalErc20Award?: string | null
+      externalErc20Award?: string | null,
     ): TypedEventFilter<[string], { externalErc20Award: string }>;
 
     ExternalErc20AwardRemoved(
-      externalErc20Award?: string | null
+      externalErc20Award?: string | null,
     ): TypedEventFilter<[string], { externalErc20Award: string }>;
 
     "ExternalErc721AwardAdded(address,uint256[])"(
       externalErc721?: string | null,
-      tokenIds?: null
-    ): TypedEventFilter<
-      [string, BigNumber[]],
-      { externalErc721: string; tokenIds: BigNumber[] }
-    >;
+      tokenIds?: null,
+    ): TypedEventFilter<[string, BigNumber[]], { externalErc721: string; tokenIds: BigNumber[] }>;
 
     ExternalErc721AwardAdded(
       externalErc721?: string | null,
-      tokenIds?: null
-    ): TypedEventFilter<
-      [string, BigNumber[]],
-      { externalErc721: string; tokenIds: BigNumber[] }
-    >;
+      tokenIds?: null,
+    ): TypedEventFilter<[string, BigNumber[]], { externalErc721: string; tokenIds: BigNumber[] }>;
 
     "ExternalErc721AwardRemoved(address)"(
-      externalErc721Award?: string | null
+      externalErc721Award?: string | null,
     ): TypedEventFilter<[string], { externalErc721Award: string }>;
 
     ExternalErc721AwardRemoved(
-      externalErc721Award?: string | null
+      externalErc721Award?: string | null,
     ): TypedEventFilter<[string], { externalErc721Award: string }>;
 
     "Initialized(uint256,uint256,address,address,address,address,address[])"(
@@ -1675,7 +1173,7 @@ export class AwardAbi2 extends BaseContract {
       ticket?: null,
       sponsorship?: null,
       rng?: null,
-      externalErc20Awards?: null
+      externalErc20Awards?: null,
     ): TypedEventFilter<
       [BigNumber, BigNumber, string, string, string, string, string[]],
       {
@@ -1696,7 +1194,7 @@ export class AwardAbi2 extends BaseContract {
       ticket?: null,
       sponsorship?: null,
       rng?: null,
-      externalErc20Awards?: null
+      externalErc20Awards?: null,
     ): TypedEventFilter<
       [BigNumber, BigNumber, string, string, string, string, string[]],
       {
@@ -1715,50 +1213,42 @@ export class AwardAbi2 extends BaseContract {
     NoWinners(): TypedEventFilter<[], {}>;
 
     "NumberOfWinnersSet(uint256)"(
-      numberOfWinners?: null
+      numberOfWinners?: null,
     ): TypedEventFilter<[BigNumber], { numberOfWinners: BigNumber }>;
 
-    NumberOfWinnersSet(
-      numberOfWinners?: null
-    ): TypedEventFilter<[BigNumber], { numberOfWinners: BigNumber }>;
+    NumberOfWinnersSet(numberOfWinners?: null): TypedEventFilter<[BigNumber], { numberOfWinners: BigNumber }>;
 
     "OwnershipTransferred(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     OwnershipTransferred(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     "PeriodicPrizeStrategyListenerSet(address)"(
-      periodicPrizeStrategyListener?: string | null
+      periodicPrizeStrategyListener?: string | null,
     ): TypedEventFilter<[string], { periodicPrizeStrategyListener: string }>;
 
     PeriodicPrizeStrategyListenerSet(
-      periodicPrizeStrategyListener?: string | null
+      periodicPrizeStrategyListener?: string | null,
     ): TypedEventFilter<[string], { periodicPrizeStrategyListener: string }>;
 
     "PrizePeriodSecondsUpdated(uint256)"(
-      prizePeriodSeconds?: null
+      prizePeriodSeconds?: null,
     ): TypedEventFilter<[BigNumber], { prizePeriodSeconds: BigNumber }>;
 
     PrizePeriodSecondsUpdated(
-      prizePeriodSeconds?: null
+      prizePeriodSeconds?: null,
     ): TypedEventFilter<[BigNumber], { prizePeriodSeconds: BigNumber }>;
 
     "PrizePoolAwardCancelled(address,address,uint32,uint32)"(
       operator?: string | null,
       prizePool?: string | null,
       rngRequestId?: BigNumberish | null,
-      rngLockBlock?: null
+      rngLockBlock?: null,
     ): TypedEventFilter<
       [string, string, number, number],
       {
@@ -1773,7 +1263,7 @@ export class AwardAbi2 extends BaseContract {
       operator?: string | null,
       prizePool?: string | null,
       rngRequestId?: BigNumberish | null,
-      rngLockBlock?: null
+      rngLockBlock?: null,
     ): TypedEventFilter<
       [string, string, number, number],
       {
@@ -1788,7 +1278,7 @@ export class AwardAbi2 extends BaseContract {
       operator?: string | null,
       prizePool?: string | null,
       rngRequestId?: BigNumberish | null,
-      rngLockBlock?: null
+      rngLockBlock?: null,
     ): TypedEventFilter<
       [string, string, number, number],
       {
@@ -1803,7 +1293,7 @@ export class AwardAbi2 extends BaseContract {
       operator?: string | null,
       prizePool?: string | null,
       rngRequestId?: BigNumberish | null,
-      rngLockBlock?: null
+      rngLockBlock?: null,
     ): TypedEventFilter<
       [string, string, number, number],
       {
@@ -1816,49 +1306,33 @@ export class AwardAbi2 extends BaseContract {
 
     "PrizePoolAwarded(address,uint256)"(
       operator?: string | null,
-      randomNumber?: null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { operator: string; randomNumber: BigNumber }
-    >;
+      randomNumber?: null,
+    ): TypedEventFilter<[string, BigNumber], { operator: string; randomNumber: BigNumber }>;
 
     PrizePoolAwarded(
       operator?: string | null,
-      randomNumber?: null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { operator: string; randomNumber: BigNumber }
-    >;
+      randomNumber?: null,
+    ): TypedEventFilter<[string, BigNumber], { operator: string; randomNumber: BigNumber }>;
 
     "PrizePoolOpened(address,uint256)"(
       operator?: string | null,
-      prizePeriodStartedAt?: BigNumberish | null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { operator: string; prizePeriodStartedAt: BigNumber }
-    >;
+      prizePeriodStartedAt?: BigNumberish | null,
+    ): TypedEventFilter<[string, BigNumber], { operator: string; prizePeriodStartedAt: BigNumber }>;
 
     PrizePoolOpened(
       operator?: string | null,
-      prizePeriodStartedAt?: BigNumberish | null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { operator: string; prizePeriodStartedAt: BigNumber }
-    >;
+      prizePeriodStartedAt?: BigNumberish | null,
+    ): TypedEventFilter<[string, BigNumber], { operator: string; prizePeriodStartedAt: BigNumber }>;
 
-    "PrizeSplitRemoved(uint256)"(
-      target?: BigNumberish | null
-    ): TypedEventFilter<[BigNumber], { target: BigNumber }>;
+    "PrizeSplitRemoved(uint256)"(target?: BigNumberish | null): TypedEventFilter<[BigNumber], { target: BigNumber }>;
 
-    PrizeSplitRemoved(
-      target?: BigNumberish | null
-    ): TypedEventFilter<[BigNumber], { target: BigNumber }>;
+    PrizeSplitRemoved(target?: BigNumberish | null): TypedEventFilter<[BigNumber], { target: BigNumber }>;
 
     "PrizeSplitSet(address,uint16,uint8,uint256)"(
       target?: string | null,
       percentage?: null,
       token?: null,
-      index?: null
+      index?: null,
     ): TypedEventFilter<
       [string, number, number, BigNumber],
       { target: string; percentage: number; token: number; index: BigNumber }
@@ -1868,55 +1342,43 @@ export class AwardAbi2 extends BaseContract {
       target?: string | null,
       percentage?: null,
       token?: null,
-      index?: null
+      index?: null,
     ): TypedEventFilter<
       [string, number, number, BigNumber],
       { target: string; percentage: number; token: number; index: BigNumber }
     >;
 
     "RetryMaxLimitReached(uint256)"(
-      numberOfWinners?: null
+      numberOfWinners?: null,
     ): TypedEventFilter<[BigNumber], { numberOfWinners: BigNumber }>;
 
-    RetryMaxLimitReached(
-      numberOfWinners?: null
-    ): TypedEventFilter<[BigNumber], { numberOfWinners: BigNumber }>;
+    RetryMaxLimitReached(numberOfWinners?: null): TypedEventFilter<[BigNumber], { numberOfWinners: BigNumber }>;
 
     "RngRequestFailed()"(): TypedEventFilter<[], {}>;
 
     RngRequestFailed(): TypedEventFilter<[], {}>;
 
-    "RngRequestTimeoutSet(uint32)"(
-      rngRequestTimeout?: null
-    ): TypedEventFilter<[number], { rngRequestTimeout: number }>;
+    "RngRequestTimeoutSet(uint32)"(rngRequestTimeout?: null): TypedEventFilter<[number], { rngRequestTimeout: number }>;
 
-    RngRequestTimeoutSet(
-      rngRequestTimeout?: null
-    ): TypedEventFilter<[number], { rngRequestTimeout: number }>;
+    RngRequestTimeoutSet(rngRequestTimeout?: null): TypedEventFilter<[number], { rngRequestTimeout: number }>;
 
-    "RngServiceUpdated(address)"(
-      rngService?: string | null
-    ): TypedEventFilter<[string], { rngService: string }>;
+    "RngServiceUpdated(address)"(rngService?: string | null): TypedEventFilter<[string], { rngService: string }>;
 
-    RngServiceUpdated(
-      rngService?: string | null
-    ): TypedEventFilter<[string], { rngService: string }>;
+    RngServiceUpdated(rngService?: string | null): TypedEventFilter<[string], { rngService: string }>;
 
     "SplitExternalErc20AwardsSet(bool)"(
-      splitExternalErc20Awards?: null
+      splitExternalErc20Awards?: null,
     ): TypedEventFilter<[boolean], { splitExternalErc20Awards: boolean }>;
 
     SplitExternalErc20AwardsSet(
-      splitExternalErc20Awards?: null
+      splitExternalErc20Awards?: null,
     ): TypedEventFilter<[boolean], { splitExternalErc20Awards: boolean }>;
 
     "TokenListenerUpdated(address)"(
-      tokenListener?: string | null
+      tokenListener?: string | null,
     ): TypedEventFilter<[string], { tokenListener: string }>;
 
-    TokenListenerUpdated(
-      tokenListener?: string | null
-    ): TypedEventFilter<[string], { tokenListener: string }>;
+    TokenListenerUpdated(tokenListener?: string | null): TypedEventFilter<[string], { tokenListener: string }>;
   };
 
   estimateGas: {
@@ -1924,18 +1386,18 @@ export class AwardAbi2 extends BaseContract {
 
     addExternalErc20Award(
       _externalErc20: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     addExternalErc20Awards(
       _externalErc20s: string[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     addExternalErc721Award(
       _externalErc721: string,
       _tokenIds: BigNumberish[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     beforeAwardListener(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1945,7 +1407,7 @@ export class AwardAbi2 extends BaseContract {
       amount: BigNumberish,
       controlledToken: string,
       referrer: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     beforeTokenTransfer(
@@ -1953,43 +1415,33 @@ export class AwardAbi2 extends BaseContract {
       to: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     blocklistRetryCount(overrides?: CallOverrides): Promise<BigNumber>;
 
-    calculateNextPrizePeriodStartTime(
-      currentTime: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    calculateNextPrizePeriodStartTime(currentTime: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     canCompleteAward(overrides?: CallOverrides): Promise<BigNumber>;
 
     canStartAward(overrides?: CallOverrides): Promise<BigNumber>;
 
-    cancelAward(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    cancelAward(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     carryOverBlocklist(overrides?: CallOverrides): Promise<BigNumber>;
 
-    completeAward(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    completeAward(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     currentPrize(overrides?: CallOverrides): Promise<BigNumber>;
 
     estimateRemainingBlocksToPrize(
       secondsPerBlockMantissa: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getExternalErc20Awards(overrides?: CallOverrides): Promise<BigNumber>;
 
-    getExternalErc721AwardTokenIds(
-      _externalErc721: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getExternalErc721AwardTokenIds(_externalErc721: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     getExternalErc721Awards(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -2005,7 +1457,7 @@ export class AwardAbi2 extends BaseContract {
       _sponsorship: string,
       _rng: string,
       externalErc20Awards: string[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     initializeMultipleWinners(
@@ -2016,7 +1468,7 @@ export class AwardAbi2 extends BaseContract {
       _sponsorship: string,
       _rng: string,
       _numberOfWinners: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     isBlocklisted(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -2033,9 +1485,7 @@ export class AwardAbi2 extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
-    periodicPrizeStrategyListener(
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    periodicPrizeStrategyListener(overrides?: CallOverrides): Promise<BigNumber>;
 
     prizePeriodEndAt(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -2047,28 +1497,23 @@ export class AwardAbi2 extends BaseContract {
 
     prizePool(overrides?: CallOverrides): Promise<BigNumber>;
 
-    prizeSplit(
-      prizeSplitIndex: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    prizeSplit(prizeSplitIndex: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     prizeSplits(overrides?: CallOverrides): Promise<BigNumber>;
 
     removeExternalErc20Award(
       _externalErc20: string,
       _prevExternalErc20: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     removeExternalErc721Award(
       _externalErc721: string,
       _prevExternalErc721: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     rng(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -2076,38 +1521,35 @@ export class AwardAbi2 extends BaseContract {
 
     setBeforeAwardListener(
       _beforeAwardListener: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     setBlocklistRetryCount(
       _count: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     setBlocklisted(
       _user: string,
       _isBlocked: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    setCarryBlocklist(
-      _carry: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    setCarryBlocklist(_carry: boolean, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     setNumberOfWinners(
       count: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     setPeriodicPrizeStrategyListener(
       _periodicPrizeStrategyListener: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     setPrizePeriodSeconds(
       _prizePeriodSeconds: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     setPrizeSplit(
@@ -2117,7 +1559,7 @@ export class AwardAbi2 extends BaseContract {
         token: BigNumberish;
       },
       prizeSplitIndex: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     setPrizeSplits(
@@ -2126,41 +1568,33 @@ export class AwardAbi2 extends BaseContract {
         percentage: BigNumberish;
         token: BigNumberish;
       }[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     setRngRequestTimeout(
       _rngRequestTimeout: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    setRngService(
-      rngService: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    setRngService(rngService: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     setSplitExternalErc20Awards(
       _splitExternalErc20Awards: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     setTokenListener(
       _tokenListener: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     splitExternalErc20Awards(overrides?: CallOverrides): Promise<BigNumber>;
 
     sponsorship(overrides?: CallOverrides): Promise<BigNumber>;
 
-    startAward(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    startAward(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
-    supportsInterface(
-      interfaceId: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    supportsInterface(interfaceId: BytesLike, overrides?: CallOverrides): Promise<BigNumber>;
 
     ticket(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -2168,7 +1602,7 @@ export class AwardAbi2 extends BaseContract {
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
   };
 
@@ -2177,30 +1611,28 @@ export class AwardAbi2 extends BaseContract {
 
     addExternalErc20Award(
       _externalErc20: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     addExternalErc20Awards(
       _externalErc20s: string[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     addExternalErc721Award(
       _externalErc721: string,
       _tokenIds: BigNumberish[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    beforeAwardListener(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    beforeAwardListener(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     beforeTokenMint(
       to: string,
       amount: BigNumberish,
       controlledToken: string,
       referrer: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     beforeTokenTransfer(
@@ -2208,61 +1640,42 @@ export class AwardAbi2 extends BaseContract {
       to: string,
       amount: BigNumberish,
       controlledToken: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    blocklistRetryCount(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    blocklistRetryCount(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     calculateNextPrizePeriodStartTime(
       currentTime: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     canCompleteAward(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     canStartAward(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    cancelAward(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    cancelAward(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
-    carryOverBlocklist(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    carryOverBlocklist(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    completeAward(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    completeAward(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     currentPrize(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     estimateRemainingBlocksToPrize(
       secondsPerBlockMantissa: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
-    getExternalErc20Awards(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getExternalErc20Awards(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getExternalErc721AwardTokenIds(
-      _externalErc721: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getExternalErc721AwardTokenIds(_externalErc721: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getExternalErc721Awards(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getExternalErc721Awards(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getLastRngLockBlock(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getLastRngLockBlock(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getLastRngRequestId(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getLastRngRequestId(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     initialize(
       _prizePeriodStart: BigNumberish,
@@ -2272,7 +1685,7 @@ export class AwardAbi2 extends BaseContract {
       _sponsorship: string,
       _rng: string,
       externalErc20Awards: string[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     initializeMultipleWinners(
@@ -2283,13 +1696,10 @@ export class AwardAbi2 extends BaseContract {
       _sponsorship: string,
       _rng: string,
       _numberOfWinners: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    isBlocklisted(
-      arg0: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    isBlocklisted(arg0: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     isPrizePeriodOver(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -2303,48 +1713,35 @@ export class AwardAbi2 extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    periodicPrizeStrategyListener(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    periodicPrizeStrategyListener(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     prizePeriodEndAt(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    prizePeriodRemainingSeconds(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    prizePeriodRemainingSeconds(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    prizePeriodSeconds(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    prizePeriodSeconds(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    prizePeriodStartedAt(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    prizePeriodStartedAt(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     prizePool(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    prizeSplit(
-      prizeSplitIndex: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    prizeSplit(prizeSplitIndex: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     prizeSplits(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     removeExternalErc20Award(
       _externalErc20: string,
       _prevExternalErc20: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     removeExternalErc721Award(
       _externalErc721: string,
       _prevExternalErc721: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     rng(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -2352,38 +1749,38 @@ export class AwardAbi2 extends BaseContract {
 
     setBeforeAwardListener(
       _beforeAwardListener: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     setBlocklistRetryCount(
       _count: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     setBlocklisted(
       _user: string,
       _isBlocked: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     setCarryBlocklist(
       _carry: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     setNumberOfWinners(
       count: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     setPeriodicPrizeStrategyListener(
       _periodicPrizeStrategyListener: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     setPrizePeriodSeconds(
       _prizePeriodSeconds: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     setPrizeSplit(
@@ -2393,7 +1790,7 @@ export class AwardAbi2 extends BaseContract {
         token: BigNumberish;
       },
       prizeSplitIndex: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     setPrizeSplits(
@@ -2402,43 +1799,36 @@ export class AwardAbi2 extends BaseContract {
         percentage: BigNumberish;
         token: BigNumberish;
       }[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     setRngRequestTimeout(
       _rngRequestTimeout: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     setRngService(
       rngService: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     setSplitExternalErc20Awards(
       _splitExternalErc20Awards: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     setTokenListener(
       _tokenListener: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    splitExternalErc20Awards(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    splitExternalErc20Awards(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     sponsorship(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    startAward(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    startAward(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
-    supportsInterface(
-      interfaceId: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    supportsInterface(interfaceId: BytesLike, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     ticket(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -2446,7 +1836,7 @@ export class AwardAbi2 extends BaseContract {
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
   };
 }

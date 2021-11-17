@@ -41,100 +41,37 @@ interface RUGPreSaleInterface extends ethers.utils.Interface {
 
   encodeFunctionData(functionFragment: "DAI", values?: undefined): string;
   encodeFunctionData(functionFragment: "aRUG", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "addressToSendDai",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "calculateSaleQuote",
-    values: [BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "addressToSendDai", values?: undefined): string;
+  encodeFunctionData(functionFragment: "calculateSaleQuote", values: [BigNumberish]): string;
   encodeFunctionData(functionFragment: "endOfSale", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "getAllotmentPerBuyer",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "initialize",
-    values: [string, string, BigNumberish, BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "getAllotmentPerBuyer", values?: undefined): string;
+  encodeFunctionData(functionFragment: "initialize", values: [string, string, BigNumberish, BigNumberish]): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "purchaseaRUG",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "renounceOwnership",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "purchaseaRUG", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "renounceOwnership", values?: undefined): string;
   encodeFunctionData(functionFragment: "salePrice", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "saleStarted",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "sendRemainingaRUG",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "totalWhiteListed",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "transferOwnership",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "whiteListBuyers",
-    values: [string[]]
-  ): string;
+  encodeFunctionData(functionFragment: "saleStarted", values?: undefined): string;
+  encodeFunctionData(functionFragment: "sendRemainingaRUG", values: [string]): string;
+  encodeFunctionData(functionFragment: "totalWhiteListed", values?: undefined): string;
+  encodeFunctionData(functionFragment: "transferOwnership", values: [string]): string;
+  encodeFunctionData(functionFragment: "whiteListBuyers", values: [string[]]): string;
 
   decodeFunctionResult(functionFragment: "DAI", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "aRUG", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "addressToSendDai",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "calculateSaleQuote",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "addressToSendDai", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "calculateSaleQuote", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "endOfSale", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "getAllotmentPerBuyer",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "getAllotmentPerBuyer", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "purchaseaRUG",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceOwnership",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "purchaseaRUG", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "renounceOwnership", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "salePrice", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "saleStarted",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "sendRemainingaRUG",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "totalWhiteListed",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "transferOwnership",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "whiteListBuyers",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "saleStarted", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "sendRemainingaRUG", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "totalWhiteListed", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "transferOwnership", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "whiteListBuyers", data: BytesLike): Result;
 
   events: {
     "OwnershipTransferred(address,address)": EventFragment;
@@ -143,9 +80,7 @@ interface RUGPreSaleInterface extends ethers.utils.Interface {
   getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
 }
 
-export type OwnershipTransferredEvent = TypedEvent<
-  [string, string] & { previousOwner: string; newOwner: string }
->;
+export type OwnershipTransferredEvent = TypedEvent<[string, string] & { previousOwner: string; newOwner: string }>;
 
 export class RUGPreSale extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -153,26 +88,26 @@ export class RUGPreSale extends BaseContract {
   deployed(): Promise<this>;
 
   listeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): Array<TypedListener<EventArgsArray, EventArgsObject>>;
   off<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   on<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   once<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeListener<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeAllListeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): this;
 
   listeners(eventName?: string): Array<Listener>;
@@ -185,7 +120,7 @@ export class RUGPreSale extends BaseContract {
   queryFilter<EventArgsArray extends Array<any>, EventArgsObject>(
     event: TypedEventFilter<EventArgsArray, EventArgsObject>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
   interface: RUGPreSaleInterface;
@@ -197,10 +132,7 @@ export class RUGPreSale extends BaseContract {
 
     addressToSendDai(overrides?: CallOverrides): Promise<[string]>;
 
-    calculateSaleQuote(
-      paymentAmount_: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    calculateSaleQuote(paymentAmount_: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     endOfSale(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -211,19 +143,17 @@ export class RUGPreSale extends BaseContract {
       _aRUG: string,
       _salePrice: BigNumberish,
       _saleLength: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
     purchaseaRUG(
       _amountDAI: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     salePrice(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -231,19 +161,19 @@ export class RUGPreSale extends BaseContract {
 
     sendRemainingaRUG(
       _sendaRUGTo: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     totalWhiteListed(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     transferOwnership(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     whiteListBuyers(
       _buyers: string[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
   };
 
@@ -253,10 +183,7 @@ export class RUGPreSale extends BaseContract {
 
   addressToSendDai(overrides?: CallOverrides): Promise<string>;
 
-  calculateSaleQuote(
-    paymentAmount_: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  calculateSaleQuote(paymentAmount_: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
   endOfSale(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -267,19 +194,17 @@ export class RUGPreSale extends BaseContract {
     _aRUG: string,
     _salePrice: BigNumberish,
     _saleLength: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   owner(overrides?: CallOverrides): Promise<string>;
 
   purchaseaRUG(
     _amountDAI: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
-  renounceOwnership(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   salePrice(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -287,19 +212,19 @@ export class RUGPreSale extends BaseContract {
 
   sendRemainingaRUG(
     _sendaRUGTo: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   totalWhiteListed(overrides?: CallOverrides): Promise<BigNumber>;
 
   transferOwnership(
     newOwner_: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   whiteListBuyers(
     _buyers: string[],
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -309,10 +234,7 @@ export class RUGPreSale extends BaseContract {
 
     addressToSendDai(overrides?: CallOverrides): Promise<string>;
 
-    calculateSaleQuote(
-      paymentAmount_: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    calculateSaleQuote(paymentAmount_: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     endOfSale(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -323,15 +245,12 @@ export class RUGPreSale extends BaseContract {
       _aRUG: string,
       _salePrice: BigNumberish,
       _saleLength: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     owner(overrides?: CallOverrides): Promise<string>;
 
-    purchaseaRUG(
-      _amountDAI: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    purchaseaRUG(_amountDAI: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
@@ -339,40 +258,25 @@ export class RUGPreSale extends BaseContract {
 
     saleStarted(overrides?: CallOverrides): Promise<boolean>;
 
-    sendRemainingaRUG(
-      _sendaRUGTo: string,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    sendRemainingaRUG(_sendaRUGTo: string, overrides?: CallOverrides): Promise<boolean>;
 
     totalWhiteListed(overrides?: CallOverrides): Promise<BigNumber>;
 
-    transferOwnership(
-      newOwner_: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    transferOwnership(newOwner_: string, overrides?: CallOverrides): Promise<void>;
 
-    whiteListBuyers(
-      _buyers: string[],
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    whiteListBuyers(_buyers: string[], overrides?: CallOverrides): Promise<boolean>;
   };
 
   filters: {
     "OwnershipTransferred(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     OwnershipTransferred(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
   };
 
   estimateGas: {
@@ -382,10 +286,7 @@ export class RUGPreSale extends BaseContract {
 
     addressToSendDai(overrides?: CallOverrides): Promise<BigNumber>;
 
-    calculateSaleQuote(
-      paymentAmount_: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    calculateSaleQuote(paymentAmount_: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     endOfSale(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -396,19 +297,17 @@ export class RUGPreSale extends BaseContract {
       _aRUG: string,
       _salePrice: BigNumberish,
       _saleLength: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
     purchaseaRUG(
       _amountDAI: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     salePrice(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -416,20 +315,17 @@ export class RUGPreSale extends BaseContract {
 
     sendRemainingaRUG(
       _sendaRUGTo: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     totalWhiteListed(overrides?: CallOverrides): Promise<BigNumber>;
 
     transferOwnership(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
-    whiteListBuyers(
-      _buyers: string[],
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    whiteListBuyers(_buyers: string[], overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
   };
 
   populateTransaction: {
@@ -439,35 +335,28 @@ export class RUGPreSale extends BaseContract {
 
     addressToSendDai(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    calculateSaleQuote(
-      paymentAmount_: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    calculateSaleQuote(paymentAmount_: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     endOfSale(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getAllotmentPerBuyer(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getAllotmentPerBuyer(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     initialize(
       _dai: string,
       _aRUG: string,
       _salePrice: BigNumberish,
       _saleLength: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     purchaseaRUG(
       _amountDAI: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     salePrice(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -475,19 +364,19 @@ export class RUGPreSale extends BaseContract {
 
     sendRemainingaRUG(
       _sendaRUGTo: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     totalWhiteListed(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     transferOwnership(
       newOwner_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     whiteListBuyers(
       _buyers: string[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
   };
 }

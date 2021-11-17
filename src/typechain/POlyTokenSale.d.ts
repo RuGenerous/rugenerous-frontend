@@ -37,89 +37,35 @@ interface POlyTokenSaleInterface extends ethers.utils.Interface {
     "withdrawTokens(address)": FunctionFragment;
   };
 
-  encodeFunctionData(
-    functionFragment: "approveBuyer",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "approveBuyers",
-    values: [string[]]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "approvedBuyers",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "buyPOly",
-    values: [BigNumberish]
-  ): string;
+  encodeFunctionData(functionFragment: "approveBuyer", values: [string]): string;
+  encodeFunctionData(functionFragment: "approveBuyers", values: [string[]]): string;
+  encodeFunctionData(functionFragment: "approvedBuyers", values: [string]): string;
+  encodeFunctionData(functionFragment: "buyPOly", values: [BigNumberish]): string;
   encodeFunctionData(functionFragment: "dai", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "initialize",
-    values: [string, string, BigNumberish, string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "initialized",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "initialize", values: [string, string, BigNumberish, string]): string;
+  encodeFunctionData(functionFragment: "initialized", values?: undefined): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(functionFragment: "pOly", values?: undefined): string;
   encodeFunctionData(functionFragment: "pOlyPrice", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "renounceOwnership",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setPOlyPrice",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "transferOwnership",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "withdrawTokens",
-    values: [string]
-  ): string;
+  encodeFunctionData(functionFragment: "renounceOwnership", values?: undefined): string;
+  encodeFunctionData(functionFragment: "setPOlyPrice", values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: "transferOwnership", values: [string]): string;
+  encodeFunctionData(functionFragment: "withdrawTokens", values: [string]): string;
 
-  decodeFunctionResult(
-    functionFragment: "approveBuyer",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "approveBuyers",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "approvedBuyers",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "approveBuyer", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "approveBuyers", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "approvedBuyers", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "buyPOly", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "dai", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "initialized",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "initialized", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "pOly", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "pOlyPrice", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceOwnership",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setPOlyPrice",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "transferOwnership",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "withdrawTokens",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "renounceOwnership", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setPOlyPrice", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "transferOwnership", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "withdrawTokens", data: BytesLike): Result;
 
   events: {
     "OwnershipTransferred(address,address)": EventFragment;
@@ -134,17 +80,11 @@ interface POlyTokenSaleInterface extends ethers.utils.Interface {
   getEvent(nameOrSignatureOrTopic: "SellerApproval"): EventFragment;
 }
 
-export type OwnershipTransferredEvent = TypedEvent<
-  [string, string] & { previousOwner: string; newOwner: string }
->;
+export type OwnershipTransferredEvent = TypedEvent<[string, string] & { previousOwner: string; newOwner: string }>;
 
-export type SaleEndedEvent = TypedEvent<
-  [string, BigNumber] & { activator: string; timestamp: BigNumber }
->;
+export type SaleEndedEvent = TypedEvent<[string, BigNumber] & { activator: string; timestamp: BigNumber }>;
 
-export type SaleStartedEvent = TypedEvent<
-  [string, BigNumber] & { activator: string; timestamp: BigNumber }
->;
+export type SaleStartedEvent = TypedEvent<[string, BigNumber] & { activator: string; timestamp: BigNumber }>;
 
 export type SellerApprovalEvent = TypedEvent<
   [string, string, string] & {
@@ -160,26 +100,26 @@ export class POlyTokenSale extends BaseContract {
   deployed(): Promise<this>;
 
   listeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): Array<TypedListener<EventArgsArray, EventArgsObject>>;
   off<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   on<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   once<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeListener<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>
+    listener: TypedListener<EventArgsArray, EventArgsObject>,
   ): this;
   removeAllListeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>
+    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
   ): this;
 
   listeners(eventName?: string): Array<Listener>;
@@ -192,7 +132,7 @@ export class POlyTokenSale extends BaseContract {
   queryFilter<EventArgsArray extends Array<any>, EventArgsObject>(
     event: TypedEventFilter<EventArgsArray, EventArgsObject>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
   interface: POlyTokenSaleInterface;
@@ -200,19 +140,19 @@ export class POlyTokenSale extends BaseContract {
   functions: {
     approveBuyer(
       newBuyer_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     approveBuyers(
       newBuyers_: string[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     approvedBuyers(arg0: string, overrides?: CallOverrides): Promise<[boolean]>;
 
     buyPOly(
       amountPaid_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     dai(overrides?: CallOverrides): Promise<[string]>;
@@ -222,7 +162,7 @@ export class POlyTokenSale extends BaseContract {
       dai_: string,
       pOlyPrice_: BigNumberish,
       saleProceedsAddress_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     initialized(overrides?: CallOverrides): Promise<[boolean]>;
@@ -233,41 +173,39 @@ export class POlyTokenSale extends BaseContract {
 
     pOlyPrice(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
     setPOlyPrice(
       newPOlyPrice_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
 
     withdrawTokens(
       tokenToWithdraw_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
   };
 
   approveBuyer(
     newBuyer_: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   approveBuyers(
     newBuyers_: string[],
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   approvedBuyers(arg0: string, overrides?: CallOverrides): Promise<boolean>;
 
   buyPOly(
     amountPaid_: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   dai(overrides?: CallOverrides): Promise<string>;
@@ -277,7 +215,7 @@ export class POlyTokenSale extends BaseContract {
     dai_: string,
     pOlyPrice_: BigNumberish,
     saleProceedsAddress_: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   initialized(overrides?: CallOverrides): Promise<boolean>;
@@ -288,42 +226,31 @@ export class POlyTokenSale extends BaseContract {
 
   pOlyPrice(overrides?: CallOverrides): Promise<BigNumber>;
 
-  renounceOwnership(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
+  renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
 
   setPOlyPrice(
     newPOlyPrice_: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   transferOwnership(
     newOwner: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   withdrawTokens(
     tokenToWithdraw_: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
+    overrides?: Overrides & { from?: string | Promise<string> },
   ): Promise<ContractTransaction>;
 
   callStatic: {
-    approveBuyer(
-      newBuyer_: string,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    approveBuyer(newBuyer_: string, overrides?: CallOverrides): Promise<boolean>;
 
-    approveBuyers(
-      newBuyers_: string[],
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    approveBuyers(newBuyers_: string[], overrides?: CallOverrides): Promise<BigNumber>;
 
     approvedBuyers(arg0: string, overrides?: CallOverrides): Promise<boolean>;
 
-    buyPOly(
-      amountPaid_: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    buyPOly(amountPaid_: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
     dai(overrides?: CallOverrides): Promise<string>;
 
@@ -332,7 +259,7 @@ export class POlyTokenSale extends BaseContract {
       dai_: string,
       pOlyPrice_: BigNumberish,
       saleProceedsAddress_: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     initialized(overrides?: CallOverrides): Promise<boolean>;
@@ -345,107 +272,68 @@ export class POlyTokenSale extends BaseContract {
 
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
-    setPOlyPrice(
-      newPOlyPrice_: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    setPOlyPrice(newPOlyPrice_: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    transferOwnership(
-      newOwner: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    transferOwnership(newOwner: string, overrides?: CallOverrides): Promise<void>;
 
-    withdrawTokens(
-      tokenToWithdraw_: string,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    withdrawTokens(tokenToWithdraw_: string, overrides?: CallOverrides): Promise<boolean>;
   };
 
   filters: {
     "OwnershipTransferred(address,address)"(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     OwnershipTransferred(
       previousOwner?: string | null,
-      newOwner?: string | null
-    ): TypedEventFilter<
-      [string, string],
-      { previousOwner: string; newOwner: string }
-    >;
+      newOwner?: string | null,
+    ): TypedEventFilter<[string, string], { previousOwner: string; newOwner: string }>;
 
     "SaleEnded(address,uint256)"(
       activator?: string | null,
-      timestamp?: null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { activator: string; timestamp: BigNumber }
-    >;
+      timestamp?: null,
+    ): TypedEventFilter<[string, BigNumber], { activator: string; timestamp: BigNumber }>;
 
     SaleEnded(
       activator?: string | null,
-      timestamp?: null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { activator: string; timestamp: BigNumber }
-    >;
+      timestamp?: null,
+    ): TypedEventFilter<[string, BigNumber], { activator: string; timestamp: BigNumber }>;
 
     "SaleStarted(address,uint256)"(
       activator?: string | null,
-      timestamp?: null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { activator: string; timestamp: BigNumber }
-    >;
+      timestamp?: null,
+    ): TypedEventFilter<[string, BigNumber], { activator: string; timestamp: BigNumber }>;
 
     SaleStarted(
       activator?: string | null,
-      timestamp?: null
-    ): TypedEventFilter<
-      [string, BigNumber],
-      { activator: string; timestamp: BigNumber }
-    >;
+      timestamp?: null,
+    ): TypedEventFilter<[string, BigNumber], { activator: string; timestamp: BigNumber }>;
 
     "SellerApproval(address,address,string)"(
       approver?: string | null,
       seller?: string | null,
-      message?: string | null
-    ): TypedEventFilter<
-      [string, string, string],
-      { approver: string; seller: string; message: string }
-    >;
+      message?: string | null,
+    ): TypedEventFilter<[string, string, string], { approver: string; seller: string; message: string }>;
 
     SellerApproval(
       approver?: string | null,
       seller?: string | null,
-      message?: string | null
-    ): TypedEventFilter<
-      [string, string, string],
-      { approver: string; seller: string; message: string }
-    >;
+      message?: string | null,
+    ): TypedEventFilter<[string, string, string], { approver: string; seller: string; message: string }>;
   };
 
   estimateGas: {
-    approveBuyer(
-      newBuyer_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    approveBuyer(newBuyer_: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     approveBuyers(
       newBuyers_: string[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     approvedBuyers(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    buyPOly(
-      amountPaid_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    buyPOly(amountPaid_: BigNumberish, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     dai(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -454,7 +342,7 @@ export class POlyTokenSale extends BaseContract {
       dai_: string,
       pOlyPrice_: BigNumberish,
       saleProceedsAddress_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     initialized(overrides?: CallOverrides): Promise<BigNumber>;
@@ -465,45 +353,40 @@ export class POlyTokenSale extends BaseContract {
 
     pOlyPrice(overrides?: CallOverrides): Promise<BigNumber>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     setPOlyPrice(
       newPOlyPrice_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
 
     withdrawTokens(
       tokenToWithdraw_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     approveBuyer(
       newBuyer_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     approveBuyers(
       newBuyers_: string[],
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
-    approvedBuyers(
-      arg0: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    approvedBuyers(arg0: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     buyPOly(
       amountPaid_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     dai(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -513,7 +396,7 @@ export class POlyTokenSale extends BaseContract {
       dai_: string,
       pOlyPrice_: BigNumberish,
       saleProceedsAddress_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     initialized(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -524,23 +407,21 @@ export class POlyTokenSale extends BaseContract {
 
     pOlyPrice(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
+    renounceOwnership(overrides?: Overrides & { from?: string | Promise<string> }): Promise<PopulatedTransaction>;
 
     setPOlyPrice(
       newPOlyPrice_: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
 
     withdrawTokens(
       tokenToWithdraw_: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
+      overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<PopulatedTransaction>;
   };
 }

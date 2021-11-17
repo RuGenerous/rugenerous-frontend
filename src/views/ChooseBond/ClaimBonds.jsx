@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ClaimBondTableData, ClaimBondCardData } from "./ClaimRow";
 import { txnButtonText, isPendingTxn, txnButtonTextGeneralPending } from "src/slices/PendingTxnsSlice";
-import { redeemAllBonds, redeemBond } from "src/slices/BondSlice";
+//import { redeemAllBonds, redeemBond } from "src/slices/BondSlice";
 import { calculateUserBondDetails } from "src/slices/AccountSlice";
 import CardHeader from "../../components/CardHeader/CardHeader";
 import { useWeb3Context } from "src/hooks/web3Context";
@@ -94,7 +94,7 @@ function ClaimBonds({ activeBonds }) {
                 justifyContent="center"
                 className={`global-claim-buttons ${isSmallScreen ? "small" : ""}`}
               >
-                {numberOfBonds > 1 && (
+                {/* {numberOfBonds > 1 && (
                   <>
                     <Button
                       variant="contained"
@@ -127,7 +127,7 @@ function ClaimBonds({ activeBonds }) {
                       )}
                     </Button>
                   </>
-                )}
+                )} */}
               </Box>
             </Box>
           </Paper>

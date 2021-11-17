@@ -3,7 +3,8 @@ import { Paper, Grid, Typography, Box, Zoom, Container, useMediaQuery } from "@m
 import { Skeleton } from "@material-ui/lab";
 import { useSelector } from "react-redux";
 import Chart from "../../components/Chart/Chart.jsx";
-import { trim, formatCurrency } from "../../helpers";
+import { trim } from "../../helpers";
+import { formatCurrency } from "src/helpers/format-currency.ts";
 import {
   treasuryDataQuery,
   rebasesDataQuery,

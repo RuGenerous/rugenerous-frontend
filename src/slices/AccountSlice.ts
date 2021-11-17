@@ -230,14 +230,13 @@ interface IAccountSlice {
     rug: string;
     srug: string;
     dai: string;
-    oldsrug: string;
   };
   loading: boolean;
 }
 const initialState: IAccountSlice = {
   loading: false,
   bonds: {},
-  balances: { rug: "", srug: "", dai: "", oldsrug: "" },
+  balances: { rug: "", srug: "", dai: "" },
 };
 
 const accountSlice = createSlice({

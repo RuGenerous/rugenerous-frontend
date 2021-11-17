@@ -6,14 +6,16 @@ export const BLOCK_RATE_SECONDS = 13.14;
 
 export const TOKEN_DECIMALS = 9;
 
-export const POOL_GRAPH_URLS = {
-  97: "https://api.thegraph.com/subgraphs/name/pooltogether/rinkeby-v3_4_3",
-  43114: "https://api.thegraph.com/subgraphs/name/pooltogether/pooltogether-v3_4_3",
-};
+// export const POOL_GRAPH_URLS = {
+//   4: "https://api.thegraph.com/subgraphs/name/pooltogether/rinkeby-v3_4_3",
+//   1: "https://api.thegraph.com/subgraphs/name/pooltogether/pooltogether-v3_4_3",
+// };
 
 interface IAddresses {
   [key: number]: { [key: string]: string };
 }
+
+export const AVALANCHE = 43113;
 
 export const addresses: IAddresses = {
   4: {
@@ -45,12 +47,12 @@ export const addresses: IAddresses = {
     ARUG_ADDRESS: "0x0e85aC73edeC08F8F324F073A787c2B0123B752A",
     DISTRIBUTOR_ADDRESS: "0x2d448c508f7a599cab41F2AE13aBB30Ff8eDFA26",
     BONDINGCALC_ADDRESS: "0x0bC65542e9A8fD79002beE76C2E8CfE5A0CA573A",
-    CIRCULATING_SUPPLY_ADDRESS: "0x0efff9199aa1ac3c3e34e957567c1be8bf295034",
+    //CIRCULATING_SUPPLY_ADDRESS: "0x0efff9199aa1ac3c3e34e957567c1be8bf295034",
     TREASURY_ADDRESS: "0x2F87A9550f19666cEF5De29c5F613966cf164BE6",
     //CRUCIBLE_RUG_LUSD: "0x2230ad29920D61A535759678191094b74271f373",
     SCAM: "0x6dea81c8171d0ba574754ef6f8b412f2ed88c54d",
     MIST: "0x88acdd2a6425c3faae4bc9650fd7e27e0bebb7ab",
-    REDEEM_HELPER_ADDRESS: "0xE1e83825613DE12E8F0502Da939523558f0B819E",
+    REDEEM_HELPER_ADDRESS: "0x1236AFB376D271F2575666A92812CA7a5f9A7A49",
     // PT_TOKEN_ADDRESS: "0x0E930b8610229D74Da0A174626138Deb732cE6e9", // 33T token address, taken from `ticket` function on PRIZE_STRATEGY_ADDRESS
     // PT_PRIZE_POOL_ADDRESS: "0xEaB695A8F5a44f583003A8bC97d677880D528248", // NEW
     // PT_PRIZE_STRATEGY_ADDRESS: "0xf3d253257167c935f8C62A02AEaeBB24c9c5012a", // NEW

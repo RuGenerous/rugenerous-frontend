@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { EnvHelper } from "../helpers/Environment";
+import { EnvHelper } from "../helpers";
 import { useLocation } from "react-router-dom";
 import { useWeb3Context } from "src/hooks/web3Context";
 import { v4 as uuidv4 } from "uuid";

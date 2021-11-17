@@ -1,11 +1,11 @@
 import { ethers, BigNumber, BigNumberish } from "ethers";
-import { contractForRedeemHelper } from "../helpers";
+//import { contractForRedeemHelper } from "../helpers";
 import { getBalances, calculateUserBondDetails } from "./AccountSlice";
 import { findOrLoadMarketPrice } from "./AppSlice";
 import { error, info } from "./MessagesSlice";
 import { clearPendingTxn, fetchPendingTxns } from "./PendingTxnsSlice";
 import { createAsyncThunk, createSelector, createSlice } from "@reduxjs/toolkit";
-import { getBondCalculator } from "src/helpers/BondCalculator";
+import { getBondCalculator } from "src/helpers/bond-calculator";
 import { RootState } from "src/store";
 import {
   IApproveBondAsyncThunk,
@@ -16,6 +16,9 @@ import {
   IRedeemBondAsyncThunk,
 } from "./interfaces";
 import { segmentUA } from "../helpers/userAnalyticHelpers";
+import { AVALANCHE } from "src/constants";
+
+
 
 export const changeApproval = createAsyncThunk(
   "bonding/changeApproval",
@@ -85,7 +88,7 @@ export const calcBondDetails = createAsyncThunk(
       valuation = 0,
       bondQuote: BigNumberish = BigNumber.from(0);
     const bondContract = bond.getContractForBond(networkID, provider);
-    const bondCalcContract = getBondCalculator(networkID, provider);
+    const bondCalcContract = getBondCalculator(AVALANCHE, provider);
 
     const terms = await bondContract.terms();
     const maxBondPrice = await bondContract.maxPayout();
@@ -261,44 +264,44 @@ export const redeemBond = createAsyncThunk(
   },
 );
 
-export const redeemAllBonds = createAsyncThunk(
-  "bonding/redeemAllBonds",
-  async ({ bonds, address, networkID, provider, autostake }: IRedeemAllBondsAsyncThunk, { dispatch }) => {
-    if (!provider) {
-      dispatch(error("Please connect your wallet!"));
-      return;
-    }
+// export const redeemAllBonds = createAsyncThunk(
+//   "bonding/redeemAllBonds",
+//   async ({ bonds, address, networkID, provider, autostake }: IRedeemAllBondsAsyncThunk, { dispatch }) => {
+//     if (!provider) {
+//       dispatch(error("Please connect your wallet!"));
+//       return;
+//     }
 
-    const signer = provider.getSigner();
-    const redeemHelperContract = contractForRedeemHelper({ networkID, provider: signer });
+//     const signer = provider.getSigner();
+//     const redeemHelperContract = contractForRedeemHelper({ networkID, provider: signer });
 
-    let redeemAllTx;
+//     let redeemAllTx;
 
-    try {
-      redeemAllTx = await redeemHelperContract.redeemAll(address, autostake);
-      const pendingTxnType = "redeem_all_bonds" + (autostake === true ? "_autostake" : "");
+//     try {
+//       redeemAllTx = await redeemHelperContract.redeemAll(address, autostake);
+//       const pendingTxnType = "redeem_all_bonds" + (autostake === true ? "_autostake" : "");
 
-      await dispatch(
-        fetchPendingTxns({ txnHash: redeemAllTx.hash, text: "Redeeming All Bonds", type: pendingTxnType }),
-      );
+//       await dispatch(
+//         fetchPendingTxns({ txnHash: redeemAllTx.hash, text: "Redeeming All Bonds", type: pendingTxnType }),
+//       );
 
-      await redeemAllTx.wait();
+//       await redeemAllTx.wait();
 
-      bonds &&
-        bonds.forEach(async bond => {
-          dispatch(calculateUserBondDetails({ address, bond, networkID, provider }));
-        });
+//       bonds &&
+//         bonds.forEach(async bond => {
+//           dispatch(calculateUserBondDetails({ address, bond, networkID, provider }));
+//         });
 
-      dispatch(getBalances({ address, networkID, provider }));
-    } catch (e: unknown) {
-      dispatch(error((e as IJsonRPCError).message));
-    } finally {
-      if (redeemAllTx) {
-        dispatch(clearPendingTxn(redeemAllTx.hash));
-      }
-    }
-  },
-);
+//       dispatch(getBalances({ address, networkID, provider }));
+//     } catch (e: unknown) {
+//       dispatch(error((e as IJsonRPCError).message));
+//     } finally {
+//       if (redeemAllTx) {
+//         dispatch(clearPendingTxn(redeemAllTx.hash));
+//       }
+//     }
+//   },
+// );
 
 // Note(zx): this is a barebones interface for the state. Update to be more accurate
 interface IBondSlice {

@@ -14,7 +14,7 @@ import {
 } from "@material-ui/core";
 import { BondDataCard, BondTableData } from "./BondRow";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { formatCurrency } from "../../helpers";
+import { formatCurrency } from "../../helpers/format-currency";
 import useBonds from "../../hooks/Bonds";
 import { useWeb3Context } from "src/hooks/web3Context";
 
@@ -22,7 +22,7 @@ import "./choosebond.scss";
 import { Skeleton } from "@material-ui/lab";
 import ClaimBonds from "./ClaimBonds";
 import isEmpty from "lodash/isEmpty";
-import { allBondsMap } from "src/helpers/AllBonds";
+import { allBondsMap } from "src/helpers/bond";
 
 function ChooseBond() {
   const { chainID } = useWeb3Context();

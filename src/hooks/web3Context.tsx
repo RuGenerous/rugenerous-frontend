@@ -3,8 +3,7 @@ import Web3Modal from "web3modal";
 import { StaticJsonRpcProvider, JsonRpcProvider, Web3Provider } from "@ethersproject/providers";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { IFrameEthereumProvider } from "@ledgerhq/iframe-provider";
-import { EnvHelper } from "../helpers/Environment";
-import { NodeHelper } from "../../src/helpers/NodeHelper";
+import { EnvHelper, NodeHelper } from "../../src/helpers";
 
 /**
  * kept as function to mimic `getMainnetURI()`

@@ -2,9 +2,9 @@ import { StaticJsonRpcProvider, JsonRpcSigner } from "@ethersproject/providers";
 import { ethers } from "ethers";
 
 import { abi as ierc20Abi } from "src/abi/IERC20.json";
-import { getBondCalculator } from "../../src/helpers/BondCalculator";
+import { getBondCalculator } from "../../src/helpers/bond-calculator";
 import { EthContract, PairContract } from "src/typechain";
-import { addresses } from "src/constants";
+import { addresses, AVALANCHE } from "src/constants";
 import React from "react";
 
 export enum NetworkID {
@@ -128,7 +128,7 @@ export class LPBond extends Bond {
   async getTreasuryBalance(networkID: NetworkID, provider: StaticJsonRpcProvider) {
     const token = this.getContractForReserve(networkID, provider);
     const tokenAddress = this.getAddressForReserve(networkID);
-    const bondCalculator = getBondCalculator(networkID, provider);
+    const bondCalculator = getBondCalculator(AVALANCHE, provider);
     const tokenAmount = await token.balanceOf(addresses[networkID].TREASURY_ADDRESS);
     const valuation = await bondCalculator.valuation(tokenAddress, tokenAmount);
     const markdown = await bondCalculator.markdown(tokenAddress);

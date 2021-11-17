@@ -1,229 +1,168 @@
-import { ethers } from "ethers";
-import { addresses } from "../constants";
-import { abi as RuGenerousStakingv2ABI } from "../abi/RuGenerousStakingv2.json";
-import { abi as sRUGv2 } from "../abi/sRugv2.json";
-import { setAll, getTokenPrice, getMarketPrice } from "../helpers";
+import { abi as StakingContract } from "../abi/RuGenerousStakingv2.json";
+import { abi as sRugTokenContract } from "../abi/tokens/MemoContract.json";
+import { abi as RugTokenContract } from "../abi/tokens/TimeContract..json";
+import { setAll, getMarketPrice } from "../helpers";
 import apollo from "../lib/apolloClient.js";
-import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
-import { RootState } from "src/store";
 import { IBaseAsyncThunk } from "./interfaces";
 import { RuGenerousStakingv2, SRugv2 } from "../../src/typechain";
+import { ethers } from "ethers";
+import {addresses as getAddresses} from "../constants";
+import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
+import { JsonRpcProvider } from "@ethersproject/providers";
+import { getTokenPrice } from "../helpers/token-price";
+import { RootState } from "../store";
+import allBonds from "../helpers/bond";
 
-const initialState = {
-  loading: false,
-  loadingMarketPrice: false,
-};
+interface ILoadAppDetails {
+    networkID: number;
+    provider: JsonRpcProvider;
+}
 
 export const loadAppDetails = createAsyncThunk(
-  "app/loadAppDetails",
-  async ({ networkID, provider }: IBaseAsyncThunk, { dispatch }) => {
-    const protocolMetricsQuery = `
-  query {
-    _meta {
-      block {
-        number
-      }
-    }
-    protocolMetrics(first: 1, orderBy: timestamp, orderDirection: desc) {
-      timestamp
-      rugCirculatingSupply
-      sRugCirculatingSupply
-      totalSupply
-      rugPrice
-      marketCap
-      totalValueLocked
-      treasuryMarketValue
-      nextEpochRebase
-      nextDistributedRug
-    }
-  }
-`;
+    "app/loadAppDetails",
+    //@ts-ignore
+    async ({ networkID, provider }: ILoadAppDetails) => {
+        const mimPrice = getTokenPrice("MIM");
 
-    const graphData = await apollo(protocolMetricsQuery);
+        const ohmPrice = getTokenPrice("OHM");
+        const ohmAmount = 1512.12854088 * ohmPrice;
 
-    if (!graphData || graphData == null) {
-      console.error("Returned a null response when querying TheGraph");
-      return;
-    }
+        const stakingContract = new ethers.Contract(getAddresses[networkID].STAKING_ADDRESS, StakingContract, provider);
+        const currentBlock = await provider.getBlockNumber();
+        const currentBlockTime = (await provider.getBlock(currentBlock)).timestamp;
+        const memoContract = new ethers.Contract(getAddresses[networkID].SRUG_ADDRESS, sRugTokenContract, provider);
+        const timeContract = new ethers.Contract(getAddresses[networkID].RUG_ADDRESS, RugTokenContract, provider);
 
-    const stakingTVL = parseFloat(graphData.data.protocolMetrics[0].totalValueLocked);
-    // NOTE (appleseed): marketPrice from Graph was delayed, so get CoinGecko price
-    // const marketPrice = parseFloat(graphData.data.protocolMetrics[0].rugPrice);
-    let marketPrice;
-    try {
-      const originalPromiseResult = await dispatch(
-        loadMarketPrice({ networkID: networkID, provider: provider }),
-      ).unwrap();
-      marketPrice = originalPromiseResult?.marketPrice;
-    } catch (rejectedValueOrSerializedError) {
-      // handle error here
-      console.error("Returned a null response from dispatch(loadMarketPrice)");
-      return;
-    }
+        const marketPrice = ((await getMarketPrice(networkID, provider)) / Math.pow(10, 9)) * mimPrice;
 
-    const marketCap = parseFloat(graphData.data.protocolMetrics[0].marketCap);
-    const circSupply = parseFloat(graphData.data.protocolMetrics[0].rugCirculatingSupply);
-    const totalSupply = parseFloat(graphData.data.protocolMetrics[0].totalSupply);
-    const treasuryMarketValue = parseFloat(graphData.data.protocolMetrics[0].treasuryMarketValue);
-    // const currentBlock = parseFloat(graphData.data._meta.block.number);
+        const totalSupply = (await timeContract.totalSupply()) / Math.pow(10, 9);
+        const circSupply = (await memoContract.circulatingSupply()) / Math.pow(10, 9);
 
-    if (!provider) {
-      console.error("failed to connect to provider, please connect your wallet");
-      return {
-        stakingTVL,
-        marketPrice,
-        marketCap,
-        circSupply,
-        totalSupply,
-        treasuryMarketValue,
-      };
-    }
-    const currentBlock = await provider.getBlockNumber();
+        const stakingTVL = circSupply * marketPrice;
+        const marketCap = totalSupply * marketPrice;
 
-    const stakingContract = new ethers.Contract(
-      addresses[networkID].STAKING_ADDRESS as string,
-      RuGenerousStakingv2ABI,
-      provider,
-    ) as RuGenerousStakingv2;
+        const tokenBalPromises = allBonds.map(bond => bond.getTreasuryBalance(networkID, provider));
+        const tokenBalances = await Promise.all(tokenBalPromises);
+        const treasuryBalance = tokenBalances.reduce((tokenBalance0, tokenBalance1) => tokenBalance0 + tokenBalance1, ohmAmount);
 
-    const srugMainContract = new ethers.Contract(
-      addresses[networkID].SRUG_ADDRESS as string,
-      sRUGv2,
-      provider,
-    ) as SRugv2;
+        const tokenAmountsPromises = allBonds.map(bond => bond.getTokenAmount(networkID, provider));
+        const tokenAmounts = await Promise.all(tokenAmountsPromises);
+        const rfvTreasury = tokenAmounts.reduce((tokenAmount0, tokenAmount1) => tokenAmount0 + tokenAmount1, ohmAmount);
 
-    // Calculating staking
-    const epoch = await stakingContract.epoch();
-    const stakingReward = epoch.distribute;
-    const circ = await srugMainContract.circulatingSupply();
-    const stakingRebase = Number(stakingReward.toString()) / Number(circ.toString());
-    const fiveDayRate = Math.pow(1 + stakingRebase, 5 * 3) - 1;
-    const stakingAPY = Math.pow(1 + stakingRebase, 365 * 3) - 1;
+        const timeBondsAmountsPromises = allBonds.map(bond => bond.getTimeAmount(networkID, provider));
+        const timeBondsAmounts = await Promise.all(timeBondsAmountsPromises);
+        const timeAmount = timeBondsAmounts.reduce((timeAmount0, timeAmount1) => timeAmount0 + timeAmount1, 0);
+        const timeSupply = totalSupply - timeAmount;
 
-    // Current index
-    const currentIndex = await stakingContract.index();
+        const rfv = rfvTreasury / timeSupply;
 
-    return {
-      currentIndex: ethers.utils.formatUnits(currentIndex, "gwei"),
-      currentBlock,
-      fiveDayRate,
-      stakingAPY,
-      stakingTVL,
-      stakingRebase,
-      marketCap,
-      marketPrice,
-      circSupply,
-      totalSupply,
-      treasuryMarketValue,
-    } as IAppData;
-  },
+        const epoch = await stakingContract.epoch();
+        const stakingReward = epoch.distribute;
+        const circ = await memoContract.circulatingSupply();
+        const stakingRebase = stakingReward / circ;
+        const fiveDayRate = Math.pow(1 + stakingRebase, 5 * 3) - 1;
+        const stakingAPY = Math.pow(1 + stakingRebase, 365 * 3) - 1;
+
+        const currentIndex = await stakingContract.index();
+        const nextRebase = epoch.endTime;
+
+        const treasuryRunway = rfvTreasury / circSupply;
+        const runway = Math.log(treasuryRunway) / Math.log(1 + stakingRebase) / 3;
+
+        return {
+            currentIndex: Number(ethers.utils.formatUnits(currentIndex, "gwei")) / 4.5,
+            totalSupply,
+            marketCap,
+            currentBlock,
+            circSupply,
+            fiveDayRate,
+            treasuryBalance,
+            stakingAPY,
+            stakingTVL,
+            stakingRebase,
+            marketPrice,
+            currentBlockTime,
+            nextRebase,
+            rfv,
+            runway,
+        };
+    },
 );
 
-/**
- * checks if app.slice has marketPrice already
- * if yes then simply load that state
- * if no then fetches via `loadMarketPrice`
- *
- * `usage`:
- * ```
- * const originalPromiseResult = await dispatch(
- *    findOrLoadMarketPrice({ networkID: networkID, provider: provider }),
- *  ).unwrap();
- * originalPromiseResult?.whateverValue;
- * ```
- */
-export const findOrLoadMarketPrice = createAsyncThunk(
-  "app/findOrLoadMarketPrice",
-  async ({ networkID, provider }: IBaseAsyncThunk, { dispatch, getState }) => {
-    const state: any = getState();
-    let marketPrice;
-    // check if we already have loaded market price
-    if (state.app.loadingMarketPrice === false && state.app.marketPrice) {
-      // go get marketPrice from app.state
-      marketPrice = state.app.marketPrice;
-    } else {
-      // we don't have marketPrice in app.state, so go get it
-      try {
-        const originalPromiseResult = await dispatch(
-          loadMarketPrice({ networkID: networkID, provider: provider }),
-        ).unwrap();
-        marketPrice = originalPromiseResult?.marketPrice;
-      } catch (rejectedValueOrSerializedError) {
-        // handle error here
-        console.error("Returned a null response from dispatch(loadMarketPrice)");
-        return;
-      }
-    }
-    return { marketPrice };
-  },
-);
+const initialState = {
+    loading: true,
+};
 
-/**
- * - fetches the RUG price from CoinGecko (via getTokenPrice)
- * - falls back to fetch marketPrice from rug-dai contract
- * - updates the App.slice when it runs
- */
-const loadMarketPrice = createAsyncThunk("app/loadMarketPrice", async ({ networkID, provider }: IBaseAsyncThunk) => {
-  let marketPrice: number;
-  try {
-    marketPrice = await getMarketPrice({ networkID, provider });
-    marketPrice = marketPrice / Math.pow(10, 9);
-  } catch (e) {
-    marketPrice = await getTokenPrice("olympus");
-  }
-  return { marketPrice };
-});
-
-interface IAppData {
-  readonly circSupply: number;
-  readonly currentIndex?: string;
-  readonly currentBlock?: number;
-  readonly fiveDayRate?: number;
-  readonly marketCap: number;
-  readonly marketPrice: number;
-  readonly stakingAPY?: number;
-  readonly stakingRebase?: number;
-  readonly stakingTVL: number;
-  readonly totalSupply: number;
-  readonly treasuryBalance?: number;
-  readonly treasuryMarketValue?: number;
+export interface IAppSlice {
+    loading: boolean;
+    stakingTVL: number;
+    marketPrice: number;
+    marketCap: number;
+    circSupply: number;
+    currentIndex: string;
+    currentBlock: number;
+    currentBlockTime: number;
+    fiveDayRate: number;
+    treasuryBalance: number;
+    stakingAPY: number;
+    stakingRebase: number;
+    networkID: number;
+    nextRebase: number;
+    totalSupply: number;
+    rfv: number;
+    runway: number;
 }
 
 const appSlice = createSlice({
-  name: "app",
-  initialState,
-  reducers: {
-    fetchAppSuccess(state, action) {
-      setAll(state, action.payload);
+    name: "app",
+    initialState,
+    reducers: {
+        fetchAppSuccess(state, action) {
+            setAll(state, action.payload);
+        },
     },
-  },
-  extraReducers: builder => {
-    builder
-      .addCase(loadAppDetails.pending, state => {
-        state.loading = true;
-      })
-      .addCase(loadAppDetails.fulfilled, (state, action) => {
-        setAll(state, action.payload);
-        state.loading = false;
-      })
-      .addCase(loadAppDetails.rejected, (state, { error }) => {
-        state.loading = false;
-        console.error(error.name, error.message, error.stack);
-      })
-      .addCase(loadMarketPrice.pending, (state, action) => {
-        state.loadingMarketPrice = true;
-      })
-      .addCase(loadMarketPrice.fulfilled, (state, action) => {
-        setAll(state, action.payload);
-        state.loadingMarketPrice = false;
-      })
-      .addCase(loadMarketPrice.rejected, (state, { error }) => {
-        state.loadingMarketPrice = false;
-        console.error(error.name, error.message, error.stack);
-      });
-  },
+    extraReducers: builder => {
+        builder
+            .addCase(loadAppDetails.pending, (state, action) => {
+                state.loading = true;
+            })
+            .addCase(loadAppDetails.fulfilled, (state, action) => {
+                setAll(state, action.payload);
+                state.loading = false;
+            })
+            .addCase(loadAppDetails.rejected, (state, { error }) => {
+                state.loading = false;
+                console.log(error);
+            });
+    },
 });
 
+export const findOrLoadMarketPrice = createAsyncThunk(
+    "app/findOrLoadMarketPrice",
+    async ({ networkID, provider }: IBaseAsyncThunk, { dispatch, getState }) => {
+      const state: any = getState();
+      let marketPrice;
+      // check if we already have loaded market price
+      if (state.app.loadingMarketPrice === false && state.app.marketPrice) {
+        // go get marketPrice from app.state
+        marketPrice = state.app.marketPrice;
+      } else {
+        // we don't have marketPrice in app.state, so go get it
+        try {
+          const originalPromiseResult = await dispatch(
+            loadMarketPrice({ networkID: networkID, provider: provider }),
+          ).unwrap();
+          marketPrice = originalPromiseResult?.marketPrice;
+        } catch (rejectedValueOrSerializedError) {
+          // handle error here
+          console.error("Returned a null response from dispatch(loadMarketPrice)");
+          return;
+        }
+      }
+      return { marketPrice };
+    },
+  );
+  
 const baseInfo = (state: RootState) => state.app;
 
 export default appSlice.reducer;

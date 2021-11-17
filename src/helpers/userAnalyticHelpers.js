@@ -1,4 +1,4 @@
-import { EnvHelper } from "./Environment";
+import { EnvHelper } from "./";
 
 /**
  * Obtain country from IP address

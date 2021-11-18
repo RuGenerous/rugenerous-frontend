@@ -6,7 +6,7 @@ import apollo from "../lib/apolloClient.js";
 import { IBaseAsyncThunk } from "./interfaces";
 import { RuGenerousStakingv2, SRugv2 } from "../../src/typechain";
 import { ethers } from "ethers";
-import { addresses as getAddresses } from "../constants";
+import { addresses as getAddresses, AVALANCHE } from "../constants";
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
 import { JsonRpcProvider } from "@ethersproject/providers";
 import { getTokenPrice } from "../helpers/token-price";
@@ -153,7 +153,7 @@ export const findOrLoadMarketPrice = createAsyncThunk(
       // we don't have marketPrice in app.state, so go get it
       try {
         const originalPromiseResult = await dispatch(
-          loadMarketPrice({ networkID: networkID, provider: provider }),
+          loadMarketPrice({ networkID: AVALANCHE, provider: provider }),
         ).unwrap();
         marketPrice = originalPromiseResult?.marketPrice;
       } catch (rejectedValueOrSerializedError) {

@@ -1,3 +1,0 @@
-
-export { abi as MemoTokenContract } from "./tokens/MemoContract.json";
-export { abi as TimeTokenContract } from "./tokens/TimeContract..json";

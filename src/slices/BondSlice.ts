@@ -61,6 +61,12 @@ export const changeApproval = createAsyncThunk(
   },
 );
 
+
+export interface IBondSlice {
+  loading: boolean;
+  [key: string]: any;
+}
+
 export interface IBondDetails {
   bond: string;
   bondDiscount: number;
@@ -302,10 +308,9 @@ export const redeemBond = createAsyncThunk(
 // );
 
 // Note(zx): this is a barebones interface for the state. Update to be more accurate
-interface IBondSlice {
-  status: string;
-  [key: string]: any;
-}
+// export interface IBondSlice {
+//   status: string;
+// }
 
 const setBondState = (state: IBondSlice, payload: any) => {
   const bond = payload.bond;
@@ -315,7 +320,7 @@ const setBondState = (state: IBondSlice, payload: any) => {
 };
 
 const initialState: IBondSlice = {
-  status: "idle",
+  loading: true,
 };
 
 const bondingSlice = createSlice({

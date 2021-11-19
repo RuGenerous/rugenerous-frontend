@@ -26,13 +26,13 @@ export const loadAppDetails = createAsyncThunk(
     const stakingContract = new ethers.Contract(addresses.STAKING_ADDRESS, StakingContract, provider);
     const currentBlock = await provider.getBlockNumber();
     const currentBlockTime = (await provider.getBlock(currentBlock)).timestamp;
-    const memoContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, provider);
-    const timeContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
+    const srugContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, provider);
+    const rugContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
 
     const marketPrice = ((await getMarketPrice(networkID, provider)) / Math.pow(10, 9)) * mimPrice;
 
-    const totalSupply = (await timeContract.totalSupply()) / Math.pow(10, 9);
-    const circSupply = (await memoContract.circulatingSupply()) / Math.pow(10, 9);
+    const totalSupply = (await rugContract.totalSupply()) / Math.pow(10, 9);
+    const circSupply = (await srugContract.circulatingSupply()) / Math.pow(10, 9);
 
     const stakingTVL = circSupply * marketPrice;
     const marketCap = totalSupply * marketPrice;
@@ -57,13 +57,13 @@ export const loadAppDetails = createAsyncThunk(
 
     const epoch = await stakingContract.epoch();
     const stakingReward = epoch.distribute;
-    const circ = await memoContract.circulatingSupply();
+    const circ = await srugContract.circulatingSupply();
     const stakingRebase = stakingReward / circ;
     const fiveDayRate = Math.pow(1 + stakingRebase, 5 * 3) - 1;
     const stakingAPY = Math.pow(1 + stakingRebase, 365 * 3) - 1;
 
     const currentIndex = await stakingContract.index();
-    const nextRebase = epoch.endRug;
+    const nextRebase = epoch.endTime;
 
     const treasuryRunway = rfvTreasury / circSupply;
     const runway = Math.log(treasuryRunway) / Math.log(1 + stakingRebase) / 3;

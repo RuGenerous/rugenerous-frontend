@@ -71,7 +71,7 @@ export const avaxRug = new CustomLPBond({
   reserveContractAbi: LpReserveContract,
   networkAddrs: {
     [Networks.AVAX]: {
-      bondAddress: "0xE02B1AA2c4BE73093BE79d763fdFFC0E3cf67318",
+      bondAddress: "0x2F0151C87e661d6066182c8C870159b69347beC0",
       reserveAddress: "0xC0123C360f000338Ce3b54B600697F3584054Bc1",
     },
   },

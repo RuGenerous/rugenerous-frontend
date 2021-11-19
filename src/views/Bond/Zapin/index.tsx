@@ -5,7 +5,7 @@ import "./zapin.scss";
 import ArrowUpImg from "../../../assets/icons/arrow-down.svg";
 import { Skeleton } from "@material-ui/lab";
 import ChooseToken from "./ChooseToken";
-import { IAllBondData } from "../../../hooks/bonds";
+import { IAllBondData } from "../../../hooks/Bonds";
 import useTokens, { IAllTokenData } from "../../../hooks/tokens";
 import { avax, mim } from "../../../helpers/tokens";
 import { shorten, trim } from "../../../helpers";

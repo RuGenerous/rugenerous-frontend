@@ -8,7 +8,7 @@ import IconsSearch from "../../../../assets/icons/akar-icons_search.svg";
 import { Skeleton } from "@material-ui/lab";
 import useTokens, { IAllTokenData } from "../../../../hooks/tokens";
 import { trim } from "../../../../helpers";
-import { IAllBondData } from "../../../../hooks/bonds";
+import { IAllBondData } from "../../../../hooks/Bonds";
 import { mim, wavax } from "../../../../helpers/bond";
 import { mim as mimToken, wavax as wavaxToken } from "../../../../helpers/tokens";
 

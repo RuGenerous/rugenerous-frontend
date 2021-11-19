@@ -7,7 +7,7 @@ import RugenerousIcon from "../../../assets/RuGenerous.svg";
 import DashboardIcon from "../../../assets/icons/dashboard.svg";
 import { trim, shorten } from "../../../helpers";
 import { useAddress } from "../../../hooks";
-import useBonds from "../../../hooks/bonds";
+import useBonds from "../../../hooks/Bonds";
 import { Link } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 import "./drawer-content.scss";

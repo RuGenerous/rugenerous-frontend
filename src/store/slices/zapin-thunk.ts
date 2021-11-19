@@ -10,7 +10,7 @@ import { getGasPrice } from "../../helpers/get-gas-price";
 import { ethers } from "ethers";
 import { MimTokenContract, ZapinContract } from "../../abi";
 import { calculateUserBondDetails, fetchAccountSuccess } from "./account-slice";
-import { IAllBondData } from "../../hooks/bonds";
+import { IAllBondData } from "../../hooks/Bonds";
 import { zapinData, zapinLpData } from "../../helpers/zapin-fetch-data";
 import { trim } from "../../helpers/trim";
 import { sleep } from "../../helpers";

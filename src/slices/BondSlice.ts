@@ -61,12 +61,6 @@ export const changeApproval = createAsyncThunk(
   },
 );
 
-
-export interface IBondSlice {
-  loading: boolean;
-  [key: string]: any;
-}
-
 export interface IBondDetails {
   bond: string;
   bondDiscount: number;
@@ -318,6 +312,11 @@ const setBondState = (state: IBondSlice, payload: any) => {
   state[bond] = newState;
   state.loading = false;
 };
+
+export interface IBondSlice {
+  loading: boolean;
+  [key: string]: any;
+}
 
 const initialState: IBondSlice = {
   loading: true,

@@ -1,9 +1,9 @@
 import { NetworkID, BondType } from "src/lib/Bond";
 import { StableBond, CustomBond } from "./stable-bond";
 import { LPBond } from "./lp-bond";
-import DaiImg from "src/assets/tokens/DAI.svg";
-import RugDaiImg from "src/assets/tokens/RUG-DAI.svg";
-import FraxImg from "src/assets/tokens/FRAX.svg";
+import DaiImg from "src/assets/tokens/MIM.svg";
+import RugDaiImg from "src/assets/tokens/RUG-MIM.svg";
+import FraxImg from "src/assets/tokens/MIM.svg";
 import AVAXImg from "src/assets/tokens/AVAX.svg";
 import { abi as BondRugDaiContract } from "src/abi/bonds/RugDaiContract.json";
 import { abi as DaiBondContract } from "src/abi/bonds/DaiContract.json";

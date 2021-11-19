@@ -8,7 +8,7 @@ import { JsonRpcProvider, StaticJsonRpcProvider } from "@ethersproject/providers
 import { Bond } from "../../helpers/bond/bond";
 import { Networks } from "../../constants/blockchain";
 import React from "react";
-import { RootState } from "../store";
+import { RootState } from "../../store";
 import { IToken } from "../../helpers/tokens";
 
 interface IGetBalances {

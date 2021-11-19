@@ -5,9 +5,9 @@ import { IBondSlice } from "../BondSlice";
 import { MessagesState } from "./messages-slice";
 
 export interface IReduxState {
-    pendingTransactions: IPendingTxn[];
-    account: IAccountSlice;
-    app: IAppSlice;
-    bonding: IBondSlice;
-    messages: MessagesState;
+  pendingTransactions: IPendingTxn[];
+  account: IAccountSlice;
+  app: IAppSlice;
+  bonding: IBondSlice;
+  messages: MessagesState;
 }

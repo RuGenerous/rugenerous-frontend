@@ -173,3 +173,9 @@ export default appSlice.reducer;
 export const { fetchAppSuccess } = appSlice.actions;
 
 export const getAppState = createSelector(baseInfo, app => app);
+function loadMarketPrice(arg0: {
+  networkID: import("../lib/Bond").NetworkID;
+  provider: ethers.providers.JsonRpcProvider | ethers.providers.StaticJsonRpcProvider;
+}): any {
+  throw new Error("Function not implemented.");
+}

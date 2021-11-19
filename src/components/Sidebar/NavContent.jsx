@@ -61,7 +61,7 @@ function NavContent() {
 
           <div className="dapp-menu-links">
             <div className="dapp-nav" id="navbarNav">
-              {/* <Link
+              <Link
                 component={NavLink}
                 id="dash-nav"
                 to="/dashboard"
@@ -74,7 +74,7 @@ function NavContent() {
                   <SvgIcon color="primary" component={DashboardIcon} />
                   Dashboard
                 </Typography>
-              </Link> */}
+              </Link>
 
               <Link
                 component={NavLink}

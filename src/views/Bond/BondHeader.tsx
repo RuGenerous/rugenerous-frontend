@@ -6,7 +6,7 @@ import { IconButton, SvgIcon, Link } from "@material-ui/core";
 import { ReactComponent as SettingsIcon } from "../../assets/icons/settings.svg";
 import { ReactComponent as XIcon } from "../../assets/icons/x.svg";
 import { useEscape } from "../../hooks";
-import { IAllBondData } from "../../hooks/bonds";
+import { IAllBondData } from "../../hooks/Bonds";
 
 interface IBondHeaderProps {
   bond: IAllBondData;

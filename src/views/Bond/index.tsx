@@ -10,7 +10,7 @@ import "./bond.scss";
 import { useWeb3Context } from "../../hooks";
 import { Skeleton } from "@material-ui/lab";
 import { IReduxState } from "../../store/slices/state.interface";
-import { IAllBondData } from "../../hooks/bonds";
+import { IAllBondData } from "../../hooks/Bonds";
 import classnames from "classnames";
 
 interface IBondProps {

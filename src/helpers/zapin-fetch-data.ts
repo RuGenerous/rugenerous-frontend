@@ -1,6 +1,6 @@
 import { IToken } from "../helpers/tokens";
 import { ethers, utils } from "ethers";
-import { IAllBondData } from "../hooks/bonds";
+import { IAllBondData } from "../hooks/Bonds";
 import { getAddresses, Networks } from "../constants";
 import axios from "axios";
 import { TraderZapinContract } from "../abi";

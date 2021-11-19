@@ -7,7 +7,7 @@ import { loadAppDetails } from "../store/slices/app-slice";
 import { loadAccountDetails, calculateUserBondDetails, calculateUserTokenDetails } from "../store/slices/account-slice";
 import { IReduxState } from "../store/slices/state.interface";
 import Loading from "../components/Loader";
-import useBonds from "../hooks/bonds";
+import useBonds from "../hooks/Bonds";
 import ViewBase from "../components/ViewBase";
 import { Stake, ChooseBond, Bond, Dashboard, NotFound } from "../views";
 import "./style.scss";

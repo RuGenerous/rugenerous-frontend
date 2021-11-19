@@ -44,7 +44,7 @@ export class LPBond extends Bond {
     return this.getReserves(networkID, provider, true);
   }
 
-  public getTimeAmount(networkID: Networks, provider: StaticJsonRpcProvider) {
+  public getRugAmount(networkID: Networks, provider: StaticJsonRpcProvider) {
     return this.getReserves(networkID, provider, false);
   }
 
@@ -55,15 +55,15 @@ export class LPBond extends Bond {
 
     let [reserve0, reserve1] = await token.getReserves();
     const token1: string = await token.token1();
-    const isTime = token1.toLowerCase() === addresses.TIME_ADDRESS.toLowerCase();
+    const isRug = token1.toLowerCase() === addresses.RUG_ADDRESS.toLowerCase();
 
     return isToken
-      ? this.toTokenDecimal(false, isTime ? reserve0 : reserve1)
-      : this.toTokenDecimal(true, isTime ? reserve1 : reserve0);
+      ? this.toTokenDecimal(false, isRug ? reserve0 : reserve1)
+      : this.toTokenDecimal(true, isRug ? reserve1 : reserve0);
   }
 
-  private toTokenDecimal(isTime: boolean, reserve: number) {
-    return isTime ? reserve / Math.pow(10, 9) : reserve / Math.pow(10, 18);
+  private toTokenDecimal(isRug: boolean, reserve: number) {
+    return isRug ? reserve / Math.pow(10, 9) : reserve / Math.pow(10, 18);
   }
 }
 

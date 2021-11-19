@@ -4,7 +4,7 @@ import { Paper, TableRow, TableCell, Slide, Link } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import "./choosebond.scss";
 import { Skeleton } from "@material-ui/lab";
-import { IAllBondData } from "../../hooks/Bonds";
+import { IAllBondData } from "../../hooks/bonds";
 
 interface IBondProps {
   bond: IAllBondData;

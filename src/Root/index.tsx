@@ -24,7 +24,13 @@ function Root() {
     </HashRouter>
   );
 
-  return isApp() ? app() : <App />;
+  return isApp() ? (
+    app()
+  ) : (
+    <HashRouter>
+      <App />
+    </HashRouter>
+  );
 }
 
 export default Root;

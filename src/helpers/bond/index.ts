@@ -24,7 +24,7 @@ export const mim = new StableBond({
   reserveContractAbi: StableReserveContract,
   networkAddrs: {
     [Networks.AVAX]: {
-      bondAddress: "0x694738E0A438d90487b4a549b201142c1a97B556",
+      bondAddress: "0xB18ab414499E732554f67698d9214d3f5f1DCc73",
       reserveAddress: "0x130966628846BFd36ff31a822705796e8cb8C18D",
     },
   },
@@ -39,7 +39,7 @@ export const wavax = new CustomBond({
   reserveContractAbi: StableReserveContract,
   networkAddrs: {
     [Networks.AVAX]: {
-      bondAddress: "0xE02B1AA2c4BE73093BE79d763fdFFC0E3cf67318",
+      bondAddress: "0x2896fE053551d5f4590311E33e8A1f5E3ADFe640",
       reserveAddress: "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
     },
   },
@@ -59,23 +59,23 @@ export const mimRug = new LPBond({
     },
   },
   lpUrl:
-    "https://www.traderjoexyz.com/#/pool/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb54f16fB19478766A268F172C9480f8da1a7c9C3",
+    "https://www.traderjoexyz.com/#/pool/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb8EF3a190b68175000B74B4160d325FD5024760e",
 });
 
 export const avaxRug = new CustomLPBond({
-  name: "dai_rug_lp",
-  displayName: "RUG-DAI LP",
-  bondToken: "DAI",
+  name: "avax_rug_lp",
+  displayName: "RUG-AVAX LP",
+  bondToken: "AVAX",
   bondIconSvg: AvaxRugIcon,
   bondContractABI: LpBondContract,
   reserveContractAbi: LpReserveContract,
   networkAddrs: {
     [Networks.AVAX]: {
-      bondAddress: "0xE02B1AA2c4BE73093BE79d763fdFFC0E3cf67318",
-      reserveAddress: "0xC0123C360f000338Ce3b54B600697F3584054Bc1",
+      bondAddress: "0x2896fE053551d5f4590311E33e8A1f5E3ADFe640",
+      reserveAddress: "0xaef4b048a500140be5f612d43f1bc13dfc987b30",
     },
   },
-  lpUrl: "https://www.traderjoexyz.com/#/pool/AVAX/0xb54f16fB19478766A268F172C9480f8da1a7c9C3",
+  lpUrl: "https://www.traderjoexyz.com/#/pool/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
 });
 
-export default [mim, wavax, mimRug, avaxRug];
+export default [mim, mimRug, wavax, avaxRug];

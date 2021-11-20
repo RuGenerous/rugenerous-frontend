@@ -273,14 +273,14 @@ function Stake() {
                     <div className="data-row">
                       <p className="data-row-name">Your Staked Balance</p>
                       <p className="data-row-value">
-                        {isAppLoading ? <Skeleton width="80px" /> : <>{trimmedMemoBalance} MEMO</>}
+                        {isAppLoading ? <Skeleton width="80px" /> : <>{trimmedMemoBalance} RUGGED (SRUG)</>}
                       </p>
                     </div>
 
                     <div className="data-row">
                       <p className="data-row-name">Next Reward Amount</p>
                       <p className="data-row-value">
-                        {isAppLoading ? <Skeleton width="80px" /> : <>{nextRewardValue} MEMO</>}
+                        {isAppLoading ? <Skeleton width="80px" /> : <>{nextRewardValue} RUGGED (SRUG)</>}
                       </p>
                     </div>
 

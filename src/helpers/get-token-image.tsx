@@ -1,4 +1,4 @@
-import RugImg from "../assets/tokens/RUG.svg";
+import RugImg from "../assets/tokens/RUG.png";
 import SRugImg from "../assets/tokens/SRUG.png";
 
 function toUrl(tokenPath: string): string {
@@ -7,11 +7,11 @@ function toUrl(tokenPath: string): string {
 }
 
 export function getTokenUrl(name: string) {
-  if (name === "time") {
+  if (name === "rug") {
     return toUrl(RugImg);
   }
 
-  if (name === "memo") {
+  if (name === "srug") {
     return toUrl(SRugImg);
   }
 

@@ -1,5 +1,5 @@
 import { Dispatch } from "redux";
-import { error } from "../slices/MessagesSlice";
+import { error } from "../store/slices/messages-slice";
 import { messages } from "../constants/messages";
 
 export const metamaskErrorWrap = (err: any, dispatch: Dispatch) => {
@@ -29,5 +29,5 @@ export const metamaskErrorWrap = (err: any, dispatch: Dispatch) => {
     }
   }
 
-  return dispatch(error(String({ text, error: err })));
+  return dispatch(error({ text, error: err }));
 };

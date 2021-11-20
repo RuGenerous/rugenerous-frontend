@@ -1,4 +1,4 @@
-.choose-bond-view{
+.choose-bond-view {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,68 +9,68 @@
   max-width: 833px;
   margin: auto;
 
-  .choose-bond-view-card{
+  .choose-bond-view-card {
     border-radius: 10px;
     padding: 20px;
     width: 100%;
 
     position: relative;
     z-index: 2;
-    
+
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-      background: rgba(36, 39, 41, 0.1);
+      background: rgba(62, 58, 113, 0.5);
       backdrop-filter: blur(40px);
     }
-  
+
     /* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
     @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-      background: #181B1C;
+      background: #3E3A71;
     }
 
-    .choose-bond-view-card-header{
-      .choose-bond-view-card-title{
+    .choose-bond-view-card-header {
+      .choose-bond-view-card-title {
         font-family: Montserrat Bold;
         font-weight: bold;
         font-size: 20px;
-        color: #FFFFFF;
+        color: #ffffff;
       }
     }
 
-    .choose-bond-view-card-metrics{
+    .choose-bond-view-card-metrics {
       margin: 30px 0;
-      
-      .choose-bond-view-card-metrics-title{
+
+      .choose-bond-view-card-metrics-title {
         font-family: Montserrat Medium;
         font-weight: 500;
         font-size: 20px;
         line-height: 24px;
         color: rgba(255, 255, 255, 0.6);
       }
-    
-      .choose-bond-view-card-metrics-value{
+
+      .choose-bond-view-card-metrics-value {
         font-family: Montserrat Bold;
         font-weight: bold;
         font-size: 24px;
         line-height: 29px;
-        color: #FFFFFF;
+        color: #ffffff;
         display: flex;
         align-items: center;
         flex-direction: column;
       }
     }
 
-    .choose-bond-view-card-table{
-      .choose-bond-view-card-table-title{
+    .choose-bond-view-card-table {
+      .choose-bond-view-card-table-title {
         font-family: Montserrat SemiBold;
         font-weight: 600;
         font-size: 14px;
         line-height: 17px;
-        color: #FFFFFF;
+        color: #ffffff;
       }
     }
   }
 
-  .choose-bond-view-card-container{
+  .choose-bond-view-card-container {
     margin-top: 16px;
 
     .bond-data-card {
@@ -103,11 +103,11 @@
         justify-content: space-between;
         flex-direction: row;
         margin: 12px 0;
-  
+
         .bond-price {
           display: flex;
           align-items: center;
-  
+
           svg {
             margin-right: 5px;
           }
@@ -128,30 +128,30 @@
     min-width: 15px;
   }
 
-  .bond-name-title{
+  .bond-name-title {
     font-family: Montserrat SemiBold;
     font-weight: 600;
     font-size: 14px;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
-  .bond-table-btn{
+  .bond-table-btn {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid #767676;
     border-radius: 10px;
     padding: 6px 35.5px;
     text-align: center;
 
-    &:hover{
+    &:hover {
       border: 1px solid rgba(255, 255, 255, 0.6);
     }
-  
-    p{
+
+    p {
       font-family: Montserrat Semibold;
       font-style: normal;
       font-weight: 600;
       font-size: 16px;
-      color: #FFFFFF;
+      color: #ffffff;
     }
   }
 
@@ -229,7 +229,7 @@
 }
 
 @media screen and (max-width: 1240px) {
-  .choose-bond-view{
+  .choose-bond-view {
     width: 100%;
   }
 }

@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import allBonds from "../helpers/bond";
-import { IUserBondDetails } from "../slices/interfaces/account-slice";
+import { IUserBondDetails } from "../store/slices/account-slice";
 import { Bond } from "../helpers/bond/bond";
-import { IBondDetails, IBondSlice } from "../slices/interfaces/bond-slice";
-import { IReduxState } from "../slices/interfaces/state.interface";
+import { IBondDetails, IBondSlice } from "../store/slices/bond-slice";
+import { IReduxState } from "../store/slices/state.interface";
 
 // Smash all the interfaces together to get the BondData Type
 export interface IAllBondData extends Bond, IBondDetails, IUserBondDetails {}

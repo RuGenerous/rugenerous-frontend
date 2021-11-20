@@ -35,7 +35,7 @@ import SpellIcon from "../assets/tokens/SPELL.png";
 import SushiEIcon from "../assets/tokens/SUSHI.e.png";
 import SynIcon from "../assets/tokens/SYN.png";
 import TeddyIcon from "../assets/tokens/TEDDY.png";
-import TimeIcon from "../assets/tokens/TIME.svg";
+import RugIcon from "../assets/tokens/RUG.svg";
 import TsdIcon from "../assets/tokens/TSD.png";
 import UsdcEIcon from "../assets/tokens/USDC.e.png";
 import UsdtEIcon from "../assets/tokens/USDT.e.png";
@@ -316,9 +316,9 @@ const teddy: IToken = {
 };
 
 const time: IToken = {
-  name: "TIME",
-  address: "0xb54f16fB19478766A268F172C9480f8da1a7c9C3",
-  img: TimeIcon,
+  name: "RUG",
+  address: "0xb8EF3a190b68175000B74B4160d325FD5024760e",
+  img: RugIcon,
   decimals: 9,
 };
 

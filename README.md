@@ -1,7 +1,7 @@
-# [Rug Dao Frontend](https://app.rugdao.finance/)
-This is the front-end repo for Rug that allows users be part of the future of Greece. 
+# [RuGenerous Frontend](https://app.rugdao.finance/)
+This is the front-end repo for Rug that allows users be part of the future of Rugs... 
 
-**_ Note We're currently in the process of switching to TypeScript. Please read  this  guide on how to use TypeScript for this repository. https://github.com/RugDAO/Rug-frontend/wiki/TypeScript-Refactor-General-Guidelines _**
+**_ Note We're currently in the process of switching to TypeScript. Please read  this  guide on how to use TypeScript for this repository. https://github.com/RuGenerous/rugenerous-frontend/wiki/TypeScript-Refactor-General-Guidelines _**
 
 ##  🔧 Setting up Local Development
 
@@ -74,8 +74,8 @@ _**TODO**: TheGraph implementation/how/why we use it._
 Commits to the follow branches are automatically deployed to their respective URLs.
 | Branch | URL |
 | --- | --- |
-| master | https://app.Rugdao.finance |
-| deploy | https://staging.Rugdao.finance |
+| master | https://app.rug.farm - not LIVE|
+| deploy | https://staging.rug.farm - not LIVE |
 
 **Pull Requests**:
 Each PR into master will get its own custom URL that is visible on the PR page. QA & validate changes on that URL before merging into the deploy branch. 
@@ -83,10 +83,10 @@ Each PR into master will get its own custom URL that is visible on the PR page. 
 
 ## 👏🏽 Contributing Guidelines 
 
-We keep an updated list of bugs/feature requests in [Github Issues](https://github.com/dreesuschrist/rugdao/issues). 
+We keep an updated list of bugs/feature requests in [Github Issues](https://github.com/RuGenerous/rugenerous/issues). 
 
 
-![GitHub issues](https://img.shields.io/github/issues/dreesuschrist/rugdao?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/RuGenerous/rugdao?style=flat-square)
 
 Filter by ["good first issue"](https://github.com/dreesuschrist/rugdao/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) to get your feet wet!
 Once you submit a PR, our CI will generate a temporary testing URL where you can validate your changes. Tag any of the gatekeepers on the review to merge them into master. 

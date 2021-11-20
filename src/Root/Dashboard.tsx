@@ -2,7 +2,7 @@ import { useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { useWeb3Context } from "../hooks";
 import { loadAppDetails } from "../store/slices/app-slice";
-import Landing from "../views/Landing";
+import Dashboard from "../views/Dashboard";
 import "./style.scss";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
     loadApp(provider);
   }, []);
 
-  return <Landing />;
+  return <Dashboard />;
 }
 
 export default App;

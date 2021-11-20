@@ -15,7 +15,7 @@
   /* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
   @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
     .MuiBackdrop-root {
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(62, 58, 113, 0.8);
     }
   }
 

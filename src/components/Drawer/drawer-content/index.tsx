@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import Social from "./social";
 import StakeIcon from "../../../assets/icons/stake.svg";
 import BondIcon from "../../../assets/icons/bond.svg";
-import RugenerousIcon from "../../../assets/RuGenerous.svg";
+import RugenerousIcon from "../../../assets/rugNoBg.png";
 import DashboardIcon from "../../../assets/icons/dashboard.svg";
 import { trim, shorten } from "../../../helpers";
 import { useAddress } from "../../../hooks";
@@ -36,9 +36,9 @@ function NavContent() {
 
   return (
     <div className="dapp-sidebar">
-      <div className="branding-header logo-style">
+      <div className="branding-header ">
         <Link href="https://rug.farm" target="_blank">
-          <img alt="" src={RugenerousIcon} />
+          <img className="logo-style" alt="" src={RugenerousIcon} />
         </Link>
 
         {address && (

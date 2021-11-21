@@ -62,7 +62,7 @@ function NavContent() {
           >
             <div className="dapp-menu-item">
               <img alt="" src={DashboardIcon} />
-              <p>Dashboard</p>
+              <p>Definitely Real Stats</p>
             </div>
           </Link>
 
@@ -76,7 +76,7 @@ function NavContent() {
           >
             <div className="dapp-menu-item">
               <img alt="" src={StakeIcon} />
-              <p>Stake</p>
+              <p>A Ponzi Yield</p>
             </div>
           </Link>
 
@@ -91,7 +91,7 @@ function NavContent() {
           >
             <div className="dapp-menu-item">
               <img alt="" src={BondIcon} />
-              <p>Mint</p>
+              <p>Some Ruggy Mints</p>
             </div>
           </Link>
 
@@ -113,7 +113,7 @@ function NavContent() {
         </div>
       </div>
       <div className="dapp-menu-doc-link">
-        <Link href="https://rugenerous.gitbook.io/rugenerous/" target="_blank">
+        <Link href="https://docs.rug.farm" target="_blank">
           <img alt="" src={DocsIcon} />
           <p>Documentation</p>
         </Link>

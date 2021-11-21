@@ -44,26 +44,26 @@ function Dashboard() {
               </div>
             </Grid>
 
-            {/* <Grid item lg={6} md={6} sm={6} xs={12}>
-                            <div className="dashboard-card">
-                                <p className="card-title">Supply (Staked/Total)</p>
-                                <p className="card-value">
-                                    {isAppLoading ? (
-                                        <Skeleton width="250px" />
-                                    ) : (
-                                        `${new Intl.NumberFormat("en-US", {
-                                            maximumFractionDigits: 0,
-                                            minimumFractionDigits: 0,
-                                        }).format(app.circSupply)}
+            <Grid item lg={6} md={6} sm={6} xs={12}>
+              <div className="dashboard-card">
+                <p className="card-title">Supply (Staked/Total)</p>
+                <p className="card-value">
+                  {isAppLoading ? (
+                    <Skeleton width="250px" />
+                  ) : (
+                    `${new Intl.NumberFormat("en-US", {
+                      maximumFractionDigits: 0,
+                      minimumFractionDigits: 0,
+                    }).format(app.circSupply)}
                                         /
                                         ${new Intl.NumberFormat("en-US", {
-                                            maximumFractionDigits: 0,
-                                            minimumFractionDigits: 0,
+                                          maximumFractionDigits: 0,
+                                          minimumFractionDigits: 0,
                                         }).format(app.totalSupply)}`
-                                    )}
-                                </p>
-                            </div>
-                        </Grid> */}
+                  )}
+                </p>
+              </div>
+            </Grid>
 
             <Grid item lg={6} md={6} sm={6} xs={12}>
               <div className="dashboard-card">
@@ -86,11 +86,12 @@ function Dashboard() {
             <Grid item lg={6} md={6} sm={6} xs={12}>
               <div className="dashboard-card">
                 <p className="card-title">APY</p>
-                <p className="card-value">
+                <p className="card-value text-center">
                   {isAppLoading ? (
                     <Skeleton width="250px" />
                   ) : (
-                    `${new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%`
+                    // `${new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%`
+                    `Issa big round number, it doesn't fit!`
                   )}
                 </p>
               </div>

@@ -159,7 +159,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
               await onBond();
             }}
           >
-            <p>{txnButtonText(pendingTransactions, "bond_" + bond.name, "Mint")}</p>
+            <p>{txnButtonText(pendingTransactions, "bond_" + bond.name, "Rug Me")}</p>
           </div>
         ) : (
           <div
@@ -180,8 +180,8 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
         {!hasAllowance() && !useAvax && (
           <div className="help-text">
             <p className="help-text-desc">
-              Note: The "Approve" transaction is only needed when minting for the first time; subsequent minting only
-              requires you to perform the "Mint" transaction.
+              Note: The "Approve" transaction is only needed when rugging yourself for the first time; subsequent rugs
+              only requires you to perform the "Rug Me" transaction.
             </p>
           </div>
         )}

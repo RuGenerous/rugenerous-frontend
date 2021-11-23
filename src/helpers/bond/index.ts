@@ -39,7 +39,7 @@ export const wavax = new CustomBond({
   reserveContractAbi: StableReserveContract,
   networkAddrs: {
     [Networks.AVAX]: {
-      bondAddress: "0x2896fE053551d5f4590311E33e8A1f5E3ADFe640",
+      bondAddress: "0x3a93493e2E486F818672991de6828a27346Ab0Cb",
       reserveAddress: "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
     },
   },
@@ -71,11 +71,27 @@ export const avaxRug = new CustomLPBond({
   reserveContractAbi: LpReserveContract,
   networkAddrs: {
     [Networks.AVAX]: {
-      bondAddress: "0x2896fE053551d5f4590311E33e8A1f5E3ADFe640",
-      reserveAddress: "0xaef4b048a500140be5f612d43f1bc13dfc987b30",
+      bondAddress: "0x8a4E5B690EdFa273E59f28BBE2302aCEeCeEFc41",
+      reserveAddress: "0xAef4B048a500140bE5F612D43f1bC13DFC987B30",
     },
   },
   lpUrl: "https://www.traderjoexyz.com/#/pool/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
 });
+
+// export const avaxQi = new CustomLPBond({
+//   name: "avax_qi_lp",
+//   displayName: "QI-AVAX LP",
+//   bondToken: "BenQi",
+//   bondIconSvg: AvaxRugIcon,
+//   bondContractABI: LpBondContract,
+//   reserveContractAbi: LpReserveContract,
+//   networkAddrs: {
+//     [Networks.AVAX]: {
+//       bondAddress: "0x24Bf3F9E6FcB9761A614B9bEB7C542a7D52C8617",
+//       reserveAddress: "0xE530dC2095Ef5653205CF5ea79F8979a7028065c",
+//     },
+//   },
+//   lpUrl: "https://www.traderjoexyz.com/#/pool/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+// });
 
 export default [mim, mimRug, wavax, avaxRug];

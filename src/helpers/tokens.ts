@@ -46,6 +46,7 @@ import WetIcon from "../assets/tokens/WET.png";
 import WethEIcon from "../assets/tokens/WETH.e.png";
 import XavaIcon from "../assets/tokens/XAVA.png";
 import YakIcon from "../assets/tokens/YAK.png";
+import CrvIcon from "../assets/tokens/CRV.png";
 
 export interface IToken {
   name: string;
@@ -102,6 +103,13 @@ const bnb: IToken = {
   name: "BNB",
   address: "0x264c1383EA520f73dd837F915ef3a732e204a493",
   img: BnbIcon,
+  decimals: 18,
+};
+
+const crvPool: IToken = {
+  name: "3PoolCRV",
+  address: "0xAEA2E71b631fA93683BCF256A8689dFa0e094fcD",
+  img: CrvIcon,
   decimals: 18,
 };
 

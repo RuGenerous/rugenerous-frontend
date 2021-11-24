@@ -5,6 +5,7 @@ import StakeIcon from "../../../assets/icons/stake.svg";
 import BondIcon from "../../../assets/icons/bond.svg";
 import RugenerousIcon from "../../../assets/rugNoBg.png";
 import DashboardIcon from "../../../assets/icons/dashboard.svg";
+import ForumIcon from "../../../assets/icons/forum.svg";
 import { trim, shorten } from "../../../helpers";
 import { useAddress } from "../../../hooks";
 import useBonds from "../../../hooks/Bonds";
@@ -13,6 +14,7 @@ import { Skeleton } from "@material-ui/lab";
 import "./drawer-content.scss";
 import DocsIcon from "../../../assets/icons/stake.svg";
 import BrowserIcon from "../../../assets/icons/browser.png";
+import BurgerIcon from "../../../assets/icons/hamburger.svg";
 import classnames from "classnames";
 
 function NavContent() {
@@ -113,6 +115,10 @@ function NavContent() {
         </div>
       </div>
       <div className="dapp-menu-doc-link">
+        <Link href="https://snapshot.org/#/saynotorug.eth" target="_blank">
+          <img alt="" src={ForumIcon} />
+          <p>Governance</p>
+        </Link>
         <Link href="https://docs.rug.farm" target="_blank">
           <img alt="" src={DocsIcon} />
           <p>Documentation</p>

@@ -3,6 +3,8 @@
   max-width: 833px;
   margin: auto;
 
+  
+
   .stake-card {
     position: relative;
     z-index: 2;
@@ -222,6 +224,24 @@
         margin-top: 30px;
       }
     }
+  }
+}
+
+.tooltip {
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat SemiBold;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      color: #ffffff;
+      text-align: center;
+
+  .tooltip-item {
+    text-decoration: none;
+    padding: 13px 20px;
+
   }
 }
 

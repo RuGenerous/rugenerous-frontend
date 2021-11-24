@@ -7,9 +7,9 @@
 
   width: 89%;
   max-width: 833px;
-  margin: auto; 
+  margin: auto;
 
-  .text-center{
+  .text-center {
     text-align: center;
   }
 
@@ -30,7 +30,7 @@
 
       /* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
       @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-        background: #3E3A71;
+        background: #3e3a71;
       }
 
       border-radius: 10px;
@@ -50,6 +50,13 @@
         font-weight: bold;
         color: #ffffff;
       }
+    }
+    .tooltip-value {
+      font-family: Montserrat Bold;
+      font-weight: bold;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffffff;
     }
   }
 }

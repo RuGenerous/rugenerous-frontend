@@ -31,7 +31,8 @@ export const loadAppDetails = createAsyncThunk(
 
     const marketPrice = ((await getMarketPrice(networkID, provider)) / Math.pow(10, 9)) * mimPrice;
 
-    const totalSupply = (await rugContract.totalSupply()) / Math.pow(10, 9);
+    const burnedSupply = (await rugContract.balanceOf(addresses.BURN_ADDRESS)) / Math.pow(10, 9);
+    const totalSupply = (await rugContract.totalSupply()) / Math.pow(10, 9) - burnedSupply;
     const circSupply = (await srugContract.circulatingSupply()) / Math.pow(10, 9);
 
     const stakingTVL = circSupply * marketPrice;

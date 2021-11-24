@@ -5,6 +5,7 @@ import "./dashboard.scss";
 import { Skeleton } from "@material-ui/lab";
 import { IReduxState } from "../../store/slices/state.interface";
 import { IAppSlice } from "../../store/slices/app-slice";
+import ReactTooltip from "react-tooltip";
 
 function Dashboard() {
   const isAppLoading = useSelector<IReduxState, boolean>(state => state.app.loading);
@@ -86,15 +87,22 @@ function Dashboard() {
             <Grid item lg={6} md={6} sm={6} xs={12}>
               <div className="dashboard-card">
                 <p className="card-title">APY</p>
-                <p className="card-value text-center">
+                <>
                   {isAppLoading ? (
-                    <Skeleton width="250px" />
+                    <p className="card-value text-center">
+                      <Skeleton width="250px" />
+                    </p>
                   ) : (
-                    // `${new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%`
-                    `Issa big round number, it doesn't fit!`
+                    <p
+                      className="card-value text-center"
+                      data-tip={`${new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%`}
+                    >
+                      Very big number
+                    </p>
                   )}
-                </p>
+                </>
               </div>
+              <ReactTooltip />
             </Grid>
 
             <Grid item lg={6} md={6} sm={6} xs={12}>

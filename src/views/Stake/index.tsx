@@ -12,8 +12,12 @@ import { IReduxState } from "../../store/slices/state.interface";
 import { messages } from "../../constants/messages";
 import classnames from "classnames";
 import { warning } from "../../store/slices/messages-slice";
+import { MouseEvent } from "react";
+import { Popper, Fade } from "@material-ui/core";
 
 function Stake() {
+  const [anchorEl, setAnchorEl] = useState(null);
+
   const dispatch = useDispatch();
   const { provider, address, connect, chainID, checkWrongNetwork } = useWeb3Context();
 
@@ -96,6 +100,12 @@ function Stake() {
   const stakingRebasePercentage = trim(stakingRebase * 100, 4);
   const nextRewardValue = trim((Number(stakingRebasePercentage) / 100) * Number(trimmedMemoBalance), 6);
 
+  const handleClick = (event: any) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const open = Boolean(anchorEl);
+
   return (
     <div className="stake-view">
       <Zoom in={true}>
@@ -114,14 +124,33 @@ function Stake() {
                   <Grid item xs={12} sm={4} md={4} lg={4}>
                     <div className="stake-card-apy">
                       <p className="stake-card-metrics-title">APY</p>
-                      <p className="stake-card-metrics-value">
+                      <>
                         {stakingAPY ? (
-                          `'Big' - trust me bro...`
+                          <div>
+                            <p
+                              className="stake-card-metrics-value"
+                              onMouseEnter={e => handleClick(e)}
+                              onMouseLeave={e => handleClick(e)}
+                            >
+                              `'Big' - trust me bro...`
+                            </p>
+
+                            <Popper className="time-menu-popper tooltip" open={open} anchorEl={anchorEl} transition>
+                              {({ TransitionProps }) => (
+                                <Fade {...TransitionProps} timeout={200}>
+                                  <p className="tooltip-item">
+                                    ${new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%
+                                  </p>
+                                </Fade>
+                              )}
+                            </Popper>
+                          </div>
                         ) : (
-                          // <>{new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%</>
-                          <Skeleton width="150px" />
+                          <p className="stake-card-metrics-value">
+                            <Skeleton width="150px" />
+                          </p>
                         )}
-                      </p>
+                      </>
                     </div>
                   </Grid>
 

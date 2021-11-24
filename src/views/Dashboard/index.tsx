@@ -87,22 +87,20 @@ function Dashboard() {
             <Grid item lg={6} md={6} sm={6} xs={12}>
               <div className="dashboard-card">
                 <p className="card-title">APY</p>
-                <>
-                  {isAppLoading ? (
-                    <p className="card-value text-center">
-                      <Skeleton width="250px" />
-                    </p>
-                  ) : (
-                    <p
-                      className="card-value text-center"
-                      data-tip={`${new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%`}
-                    >
-                      Very big number
-                    </p>
-                  )}
-                </>
+                {isAppLoading ? (
+                  <p className="card-value text-center">
+                    <Skeleton width="250px" />
+                  </p>
+                ) : (
+                  <p
+                    className="card-value text-center"
+                    data-tip={`${new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%`}
+                  >
+                    Nice Round Number
+                  </p>
+                )}
               </div>
-              <ReactTooltip />
+              <ReactTooltip className="tooltip-value" />
             </Grid>
 
             <Grid item lg={6} md={6} sm={6} xs={12}>

@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { getAddresses } from "../../constants";
-import { RugTokenContract, SRugTokenContract, MimTokenContract } from "../../abi";
+import { RugTokenContract, SRugTokenContract, MimTokenContract, StakingContract } from "../../abi";
 import { setAll } from "../../helpers";
 
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
@@ -10,6 +10,7 @@ import { Networks } from "../../constants/blockchain";
 import React from "react";
 import { RootState } from "../store";
 import { IToken } from "../../helpers/tokens";
+import { NumberLiteralType } from "typescript";
 
 interface IGetBalances {
   address: string;
@@ -43,11 +44,39 @@ export const getBalances = createAsyncThunk(
   },
 );
 
+interface IWarmUpInfo {
+  warmupInfo: {
+    expiry: number;
+    deposit: string;
+  };
+}
+
 interface ILoadAccountDetails {
   address: string;
   networkID: Networks;
   provider: StaticJsonRpcProvider | JsonRpcProvider;
 }
+
+export const loadWarmUpInfo = createAsyncThunk(
+  "account/loadWarmUpInfo",
+  async ({ networkID, provider, address }: ILoadAccountDetails): Promise<IWarmUpInfo> => {
+    let expiry = 0;
+    let deposit = 0;
+    const addresses = getAddresses(networkID);
+
+    const stakingContract = new ethers.Contract(addresses.STAKING_ADDRESS, StakingContract, provider);
+    const warmupDetails = await stakingContract.warmupInfo(address);
+    const depositBalance = warmupDetails.deposit;
+    const warmupExpiry = warmupDetails.expiry;
+
+    return {
+      warmupInfo: {
+        expiry: Math.floor(warmupExpiry / 3600),
+        deposit: ethers.utils.formatUnits(depositBalance, "gwei"),
+      },
+    };
+  },
+);
 
 interface IUserAccountDetails {
   balances: {
@@ -241,6 +270,10 @@ export interface IAccountSlice {
     time: number;
     memo: number;
   };
+  warmupInfo: {
+    expiry: number;
+    deposit: string;
+  };
   tokens: { [key: string]: IUserTokenDetails };
 }
 
@@ -249,6 +282,7 @@ const initialState: IAccountSlice = {
   bonds: {},
   balances: { memo: "", time: "" },
   staking: { time: 0, memo: 0 },
+  warmupInfo: { expiry: 0, deposit: "" },
   tokens: {},
 };
 
@@ -262,6 +296,17 @@ const accountSlice = createSlice({
   },
   extraReducers: builder => {
     builder
+      .addCase(loadWarmUpInfo.pending, state => {
+        state.loading = true;
+      })
+      .addCase(loadWarmUpInfo.fulfilled, (state, action) => {
+        setAll(state, action.payload);
+        state.loading = false;
+      })
+      .addCase(loadWarmUpInfo.rejected, (state, { error }) => {
+        state.loading = false;
+        console.log(error);
+      })
       .addCase(loadAccountDetails.pending, state => {
         state.loading = true;
       })

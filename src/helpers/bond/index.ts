@@ -6,6 +6,7 @@ import MimIcon from "../../assets/tokens/MIM.svg";
 import AvaxIcon from "../../assets/tokens/AVAX.svg";
 import MimRugIcon from "../../assets/tokens/RUG-MIM.svg";
 import AvaxRugIcon from "../../assets/tokens/RUG-AVAX.svg";
+import BenQiIcon from "../../assets/tokens/QI.png";
 
 import {
   StableBondContract,
@@ -26,6 +27,21 @@ export const mim = new StableBond({
     [Networks.AVAX]: {
       bondAddress: "0xB18ab414499E732554f67698d9214d3f5f1DCc73",
       reserveAddress: "0x130966628846BFd36ff31a822705796e8cb8C18D",
+    },
+  },
+});
+
+export const benqi = new CustomBond({
+  name: "benqi",
+  displayName: "QI",
+  bondToken: "QI",
+  bondIconSvg: BenQiIcon,
+  bondContractABI: StableBondContract,
+  reserveContractAbi: StableReserveContract,
+  networkAddrs: {
+    [Networks.AVAX]: {
+      bondAddress: "0x96A03Ff213D47d0556A6Bd454779E59c12722D19",
+      reserveAddress: "0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
     },
   },
 });
@@ -81,17 +97,17 @@ export const avaxRug = new CustomLPBond({
 // export const avaxQi = new CustomLPBond({
 //   name: "avax_qi_lp",
 //   displayName: "QI-AVAX LP",
-//   bondToken: "BenQi",
-//   bondIconSvg: AvaxRugIcon,
+//   bondToken: "QI",
+//   bondIconSvg: BenQiIcon,
 //   bondContractABI: LpBondContract,
 //   reserveContractAbi: LpReserveContract,
 //   networkAddrs: {
 //     [Networks.AVAX]: {
-//       bondAddress: "0x24Bf3F9E6FcB9761A614B9bEB7C542a7D52C8617",
+//       bondAddress: "0x9c2d5FDD71bA16b4641A9d4B1bEe48061ec846dA",
 //       reserveAddress: "0xE530dC2095Ef5653205CF5ea79F8979a7028065c",
 //     },
 //   },
-//   lpUrl: "https://www.traderjoexyz.com/#/pool/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+//   lpUrl: "https://app.pangolin.exchange/#/pool/AVAX/0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
 // });
 
-export default [mim, mimRug, wavax, avaxRug];
+export default [mim, mimRug, wavax, avaxRug, benqi];

@@ -34,6 +34,12 @@ function Stake() {
   const timeBalance = useSelector<IReduxState, string>(state => {
     return state.account.balances && state.account.balances.time;
   });
+  const warmupBalance = useSelector<IReduxState, string>(state => {
+    return state.account.warmupInfo && state.account.warmupInfo.deposit;
+  });
+  const warmupExpiry = useSelector<IReduxState, number>(state => {
+    return state.account.warmupInfo && state.account.warmupInfo.expiry;
+  });
   const memoBalance = useSelector<IReduxState, string>(state => {
     return state.account.balances && state.account.balances.memo;
   });
@@ -245,7 +251,7 @@ function Stake() {
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
                                 if (isPendingTxn(pendingTransactions, "approve_staking")) return;
-                                onSeekApproval("time");
+                                onSeekApproval("rug");
                               }}
                             >
                               <p>{txnButtonText(pendingTransactions, "approve_staking", "Approve")}</p>
@@ -300,12 +306,23 @@ function Stake() {
                       </p>
                     </div>
 
+                    <br />
+
                     <div className="data-row">
-                      <p className="data-row-name">Your Warm Balance</p>
+                      <p className="data-row-name">Your Warm Up Balance</p>
                       <p className="data-row-value">
-                        {isAppLoading ? <Skeleton width="80px" /> : <>{trimmedMemoBalance} RUGGED (SRUG)</>}
+                        {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(warmupBalance), 4)} RUG</>}
                       </p>
                     </div>
+
+                    <div className="data-row">
+                      <p className="data-row-name">Staked Warm Up Remaining</p>
+                      <p className="data-row-value">
+                        {isAppLoading ? <Skeleton width="80px" /> : <>{warmupExpiry} Hours</>}
+                      </p>
+                    </div>
+
+                    <br />
 
                     <div className="data-row">
                       <p className="data-row-name">Your Staked Balance</p>

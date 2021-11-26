@@ -251,7 +251,7 @@ function Stake() {
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
                                 if (isPendingTxn(pendingTransactions, "approve_staking")) return;
-                                onSeekApproval("rug");
+                                onSeekApproval("time");
                               }}
                             >
                               <p>{txnButtonText(pendingTransactions, "approve_staking", "Approve")}</p>

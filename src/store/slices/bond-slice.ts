@@ -10,7 +10,7 @@ import { Bond } from "../../helpers/bond/bond";
 import { Networks } from "../../constants/blockchain";
 import { getBondCalculator } from "../../helpers/bond-calculator";
 import { RootState } from "../store";
-import { avaxRug, wavax } from "../../helpers/bond";
+import { avaxRug, wavax, benqi } from "../../helpers/bond";
 import { error, warning, success, info } from "../slices/messages-slice";
 import { messages } from "../../constants/messages";
 import { getGasPrice } from "../../helpers/get-gas-price";
@@ -128,6 +128,10 @@ export const calcBondDetails = createAsyncThunk(
         const avaxPrice = getTokenPrice("AVAX");
         bondPrice = bondPrice * avaxPrice;
       }
+      if (bond.name === benqi.name) {
+        const benqiPrice = getTokenPrice("QI");
+        bondPrice = bondPrice * benqiPrice;
+      }
 
       bondDiscount = (marketPrice * Math.pow(10, 18) - bondPrice) / bondPrice;
     } catch (e) {
@@ -176,6 +180,10 @@ export const calcBondDetails = createAsyncThunk(
       purchased = purchased / Math.pow(10, 18);
       const avaxPrice = getTokenPrice("AVAX");
       purchased = purchased * avaxPrice;
+    } else if (bond.name === benqi.name) {
+      purchased = purchased / Math.pow(10, 18);
+      const benqiPrice = getTokenPrice("QI");
+      purchased = purchased * benqiPrice;
     } else {
       purchased = purchased / Math.pow(10, 18);
     }

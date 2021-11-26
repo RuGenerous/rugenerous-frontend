@@ -222,6 +222,20 @@
         margin: auto;
         padding: 0 5px;
         margin-top: 30px;
+
+        .stake-card-action-help-text {
+          margin-top: 10px;
+
+          p {
+            font-family: Montserrat Light;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 17px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+          }
+        }
       }
     }
   }

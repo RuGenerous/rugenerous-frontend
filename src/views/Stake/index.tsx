@@ -301,6 +301,13 @@ function Stake() {
                     </div>
 
                     <div className="data-row">
+                      <p className="data-row-name">Your Warm Balance</p>
+                      <p className="data-row-value">
+                        {isAppLoading ? <Skeleton width="80px" /> : <>{trimmedMemoBalance} RUGGED (SRUG)</>}
+                      </p>
+                    </div>
+
+                    <div className="data-row">
                       <p className="data-row-name">Your Staked Balance</p>
                       <p className="data-row-value">
                         {isAppLoading ? <Skeleton width="80px" /> : <>{trimmedMemoBalance} RUGGED (SRUG)</>}
@@ -325,6 +332,16 @@ function Stake() {
                       <p className="data-row-name">ROI (5-Day Rate)</p>
                       <p className="data-row-value">
                         {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(fiveDayRate) * 100, 4)}%</>}
+                      </p>
+                    </div>
+
+                    <div className="stake-card-action-help-text">
+                      <br />
+                      <p>
+                        Note: As voted on by the community; There is a 12-Hour warm-up staking period, where users must
+                        be staked for more than 12 hours before receiving any rebase rewards. When 12 hours has
+                        surpassed your staked balance will show accordingly and you will automatically receive the
+                        rebase rewards.
                       </p>
                     </div>
                   </div>

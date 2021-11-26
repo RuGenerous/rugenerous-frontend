@@ -6,10 +6,10 @@ import { StaticJsonRpcProvider } from "@ethersproject/providers";
 import { getBondCalculator } from "../bond-calculator";
 import { getAddresses } from "../../constants/addresses";
 
-// Keep all LP specific fields/logic within the LPBond class
 export interface LPBondOpts extends BondOpts {
   readonly reserveContractAbi: ContractInterface;
   readonly lpUrl: string;
+  readonly name: string;
 }
 
 export class LPBond extends Bond {
@@ -17,12 +17,14 @@ export class LPBond extends Bond {
   readonly lpUrl: string;
   readonly reserveContractAbi: ContractInterface;
   readonly displayUnits: string;
+  readonly name: string;
 
   constructor(lpBondOpts: LPBondOpts) {
     super(BondType.LP, lpBondOpts);
 
     this.lpUrl = lpBondOpts.lpUrl;
     this.reserveContractAbi = lpBondOpts.reserveContractAbi;
+    this.name = lpBondOpts.name;
     this.displayUnits = "LP";
   }
 
@@ -31,7 +33,7 @@ export class LPBond extends Bond {
 
     const token = this.getContractForReserve(networkID, provider);
     const tokenAddress = this.getAddressForReserve(networkID);
-    const bondCalculator = getBondCalculator(networkID, provider);
+    const bondCalculator = getBondCalculator(networkID, provider, this.name);
     const tokenAmount = await token.balanceOf(addresses.TREASURY_ADDRESS);
     const valuation = await bondCalculator.valuation(tokenAddress, tokenAmount);
     const markdown = await bondCalculator.markdown(tokenAddress);

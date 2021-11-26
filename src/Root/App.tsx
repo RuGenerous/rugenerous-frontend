@@ -4,7 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useAddress, useWeb3Context } from "../hooks";
 import { calcBondDetails } from "../store/slices/bond-slice";
 import { loadAppDetails } from "../store/slices/app-slice";
-import { loadAccountDetails, calculateUserBondDetails, calculateUserTokenDetails } from "../store/slices/account-slice";
+import {
+  loadAccountDetails,
+  calculateUserBondDetails,
+  calculateUserTokenDetails,
+  loadWarmUpInfo,
+} from "../store/slices/account-slice";
 import { IReduxState } from "../store/slices/state.interface";
 import Loading from "../components/Loader";
 import useBonds from "../hooks/Bonds";
@@ -57,6 +62,7 @@ function App() {
   const loadApp = useCallback(
     loadProvider => {
       dispatch(loadAppDetails({ networkID: chainID, provider: loadProvider }));
+      dispatch(loadWarmUpInfo({ networkID: chainID, address, provider: loadProvider }));
       bonds.map(bond => {
         dispatch(calcBondDetails({ bond, value: null, provider: loadProvider, networkID: chainID }));
       });

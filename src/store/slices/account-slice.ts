@@ -48,6 +48,7 @@ interface IWarmUpInfo {
   warmupInfo: {
     expiry: number;
     deposit: string;
+    epoch: number;
   };
 }
 
@@ -60,19 +61,19 @@ interface ILoadAccountDetails {
 export const loadWarmUpInfo = createAsyncThunk(
   "account/loadWarmUpInfo",
   async ({ networkID, provider, address }: ILoadAccountDetails): Promise<IWarmUpInfo> => {
-    let expiry = 0;
-    let deposit = 0;
     const addresses = getAddresses(networkID);
 
     const stakingContract = new ethers.Contract(addresses.STAKING_ADDRESS, StakingContract, provider);
     const warmupDetails = await stakingContract.warmupInfo(address);
     const depositBalance = warmupDetails.deposit;
     const warmupExpiry = warmupDetails.expiry;
+    const currentEpoch = await stakingContract.epoch().number;
 
     return {
       warmupInfo: {
         expiry: Math.floor(warmupExpiry / 3600),
         deposit: ethers.utils.formatUnits(depositBalance, "gwei"),
+        epoch: currentEpoch,
       },
     };
   },
@@ -273,6 +274,7 @@ export interface IAccountSlice {
   warmupInfo: {
     expiry: number;
     deposit: string;
+    epoch: number;
   };
   tokens: { [key: string]: IUserTokenDetails };
 }
@@ -282,7 +284,7 @@ const initialState: IAccountSlice = {
   bonds: {},
   balances: { memo: "", time: "" },
   staking: { time: 0, memo: 0 },
-  warmupInfo: { expiry: 0, deposit: "" },
+  warmupInfo: { expiry: 0, deposit: "", epoch: 0 },
   tokens: {},
 };
 

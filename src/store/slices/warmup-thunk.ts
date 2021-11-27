@@ -9,12 +9,8 @@ import { Networks } from "../../constants/blockchain";
 import { warning, success, info, error } from "./messages-slice";
 import { messages } from "../../constants/messages";
 import { getGasPrice } from "../../helpers/get-gas-price";
-<<<<<<< Updated upstream
 import { sleep } from "../../helpers";
-=======
-import { sleep } from "../../helpers"
 import { metamaskErrorWrap } from "../../helpers/metamask-error-wrap"
->>>>>>> Stashed changes
 
 interface IForfeit {
   action: string;
@@ -39,7 +35,6 @@ export const forfeit = createAsyncThunk(
     try {
       const gasPrice = await getGasPrice(provider);
 
-<<<<<<< Updated upstream
       if (action === "forfeit") {
         forfeitTx = await staking.forfeit({ gasPrice });
       }
@@ -50,7 +45,6 @@ export const forfeit = createAsyncThunk(
       //   dispatch(success({ text: messages.tx_successfully_send }));
       // } catch (err: any) {
       //   return metamaskErrorWrap(err, dispatch);
-=======
       if (action === "claim") {
         forfeitTx = await staking.claim(address, { gasPrice });
       }
@@ -60,16 +54,12 @@ export const forfeit = createAsyncThunk(
         dispatch(success({ text: messages.tx_successfully_send }));
       } catch (err: any) {
         return metamaskErrorWrap(err, dispatch);
->>>>>>> Stashed changes
     } finally {
       if (forfeitTx) {
         dispatch(clearPendingTxn(forfeitTx.hash));
       }
     }
-<<<<<<< Updated upstream
-=======
     await sleep(10);
->>>>>>> Stashed changes
     return;
   },
 );

@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, SetStateAction } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Grid, InputAdornment, OutlinedInput, Zoom } from "@material-ui/core";
 import RebaseTimer from "../../components/RebaseTimer";
@@ -14,6 +14,8 @@ import classnames from "classnames";
 import { warning } from "../../store/slices/messages-slice";
 import { MouseEvent } from "react";
 import { Popper, Fade } from "@material-ui/core";
+import { forfeit } from "../../store/slices/warmup-thunk";
+import { sleep } from "../../helpers";
 
 function Stake() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -63,9 +65,13 @@ function Stake() {
     return state.pendingTransactions;
   });
 
+  const trimmedWarmUpBalance = trim(Number(warmupBalance), 4);
+
   const setMax = () => {
     if (view === 0) {
-      setQuantity(timeBalance);
+      const fullBalance = Number(timeBalance) + Number(warmupBalance);
+      setQuantity(trim(fullBalance, 4));
+      console.log(quantity);
     } else {
       setQuantity(memoBalance);
     }
@@ -82,10 +88,40 @@ function Stake() {
     if (quantity === "" || parseFloat(quantity) === 0) {
       dispatch(warning({ text: action === "stake" ? messages.before_stake : messages.before_unstake }));
     } else {
-      await dispatch(changeStake({ address, action, value: String(quantity), provider, networkID: chainID }));
+      await dispatch(
+        changeStake({
+          address,
+          action,
+          value: String(quantity),
+          provider,
+          networkID: chainID,
+          warmUpBalance: Number(warmupBalance),
+        }),
+      );
       setQuantity("");
     }
   };
+
+  const onChangeForfeitAndStake = async (action: string) => {
+    if (await checkWrongNetwork()) return;
+    await dispatch(
+      changeStake({
+        address,
+        action,
+        value: String(quantity),
+        provider,
+        networkID: chainID,
+        warmUpBalance: Number(warmupBalance),
+      }),
+    );
+    setQuantity("");
+  };
+
+  // const onChangeForfeit = async (action: string) => {
+  //   if (await checkWrongNetwork()) return;
+  //   await dispatch(forfeit({ address, action, provider, networkID: chainID }));
+  //   setQuantity("");
+  // };
 
   const hasAllowance = useCallback(
     token => {
@@ -240,6 +276,9 @@ function Stake() {
                             <div
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
+                                if (Number(warmupBalance) > 0) {
+                                  onChangeForfeitAndStake("forfeit");
+                                }
                                 if (isPendingTxn(pendingTransactions, "staking")) return;
                                 onChangeStake("stake");
                               }}
@@ -251,7 +290,7 @@ function Stake() {
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
                                 if (isPendingTxn(pendingTransactions, "approve_staking")) return;
-                                onSeekApproval("rug");
+                                onSeekApproval("time");
                               }}
                             >
                               <p>{txnButtonText(pendingTransactions, "approve_staking", "Approve")}</p>

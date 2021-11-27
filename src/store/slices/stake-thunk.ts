@@ -3,7 +3,7 @@ import { getAddresses } from "../../constants";
 import { StakingHelperContract, RugTokenContract, SRugTokenContract, StakingContract } from "../../abi";
 import { clearPendingTxn, fetchPendingTxns, getStakingTypeText } from "./pending-txns-slice";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchAccountSuccess, getBalances } from "./account-slice";
+import { fetchAccountSuccess, getBalances, loadWarmUpInfo } from "./account-slice";
 import { JsonRpcProvider, StaticJsonRpcProvider } from "@ethersproject/providers";
 import { Networks } from "../../constants/blockchain";
 import { warning, success, info, error } from "../../store/slices/messages-slice";
@@ -129,6 +129,7 @@ export const changeStake = createAsyncThunk(
     dispatch(info({ text: messages.your_balance_update_soon }));
     await sleep(10);
     await dispatch(getBalances({ address, networkID, provider }));
+    await dispatch(loadWarmUpInfo({ address, networkID, provider }));
     dispatch(info({ text: messages.your_balance_updated }));
     return;
   },

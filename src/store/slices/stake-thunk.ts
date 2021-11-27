@@ -3,7 +3,7 @@ import { getAddresses } from "../../constants";
 import { StakingHelperContract, RugTokenContract, SRugTokenContract, StakingContract } from "../../abi";
 import { clearPendingTxn, fetchPendingTxns, getStakingTypeText } from "./pending-txns-slice";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchAccountSuccess, getBalances } from "./account-slice";
+import { fetchAccountSuccess, getBalances, loadWarmUpInfo } from "./account-slice";
 import { JsonRpcProvider, StaticJsonRpcProvider } from "@ethersproject/providers";
 import { Networks } from "../../constants/blockchain";
 import { warning, success, info, error } from "../../store/slices/messages-slice";
@@ -82,11 +82,12 @@ interface IChangeStake {
   provider: StaticJsonRpcProvider | JsonRpcProvider;
   address: string;
   networkID: Networks;
+  warmUpBalance: number;
 }
 
 export const changeStake = createAsyncThunk(
   "stake/changeStake",
-  async ({ action, value, provider, address, networkID }: IChangeStake, { dispatch }) => {
+  async ({ action, value, provider, address, networkID, warmUpBalance }: IChangeStake, { dispatch }) => {
     if (!provider) {
       dispatch(warning({ text: messages.please_connect_wallet }));
       return;
@@ -97,9 +98,15 @@ export const changeStake = createAsyncThunk(
     const stakingHelper = new ethers.Contract(addresses.STAKING_HELPER_ADDRESS, StakingHelperContract, signer);
 
     let stakeTx;
+    let forfeitTx;
 
     try {
       const gasPrice = await getGasPrice(provider);
+
+      if (action === "stake" && warmUpBalance > 0) {
+        forfeitTx = await staking.forfeit({ gasPrice });
+        await forfeitTx.wait();
+      }
 
       if (action === "stake") {
         stakeTx = await stakingHelper.stake(ethers.utils.parseUnits(value, "gwei"), address, { gasPrice });
@@ -111,7 +118,9 @@ export const changeStake = createAsyncThunk(
       await stakeTx.wait();
       dispatch(success({ text: messages.tx_successfully_send }));
     } catch (err: any) {
-      return metamaskErrorWrap(err, dispatch);
+      if (err.data.message.length > 1) {
+        return metamaskErrorWrap(err, dispatch);
+      }
     } finally {
       if (stakeTx) {
         dispatch(clearPendingTxn(stakeTx.hash));
@@ -120,6 +129,7 @@ export const changeStake = createAsyncThunk(
     dispatch(info({ text: messages.your_balance_update_soon }));
     await sleep(10);
     await dispatch(getBalances({ address, networkID, provider }));
+    await dispatch(loadWarmUpInfo({ address, networkID, provider }));
     dispatch(info({ text: messages.your_balance_updated }));
     return;
   },

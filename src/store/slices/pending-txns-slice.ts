@@ -24,6 +24,10 @@ const pendingTxnsSlice = createSlice({
   },
 });
 
+// export const getForfeitTypeText = (action: string) => {
+//   return action.toLowerCase() === "forfeit" ? "Removing from warmup contract" : undefined;
+// };
+
 export const getStakingTypeText = (action: string) => {
   return action.toLowerCase() === "stake" ? "Staking RUG" : "Unstaking RUGGED";
 };

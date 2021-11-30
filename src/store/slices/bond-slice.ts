@@ -16,6 +16,7 @@ import { messages } from "../../constants/messages";
 import { getGasPrice } from "../../helpers/get-gas-price";
 import { metamaskErrorWrap } from "../../helpers/metamask-error-wrap";
 import { sleep } from "../../helpers";
+import { getAddress } from "@ethersproject/address";
 
 interface IChangeApproval {
   bond: Bond;

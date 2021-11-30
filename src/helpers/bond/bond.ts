@@ -4,6 +4,8 @@ import { ContractInterface, Contract } from "ethers";
 import React from "react";
 import { JsonRpcSigner, StaticJsonRpcProvider } from "@ethersproject/providers";
 import { getTokenPrice } from "../token-price";
+import { getAddresses } from "src/constants";
+import { abi as TreasuryContract } from "src/abi/TreasuryContract.json";
 
 export interface BondOpts {
   readonly name: string; // Internal name used for references
@@ -60,6 +62,11 @@ export abstract class Bond {
   public getContractForReserve(networkID: Networks, provider: StaticJsonRpcProvider | JsonRpcSigner) {
     const reserveAddress = this.getAddressForReserve(networkID);
     return new Contract(reserveAddress, this.reserveContractAbi, provider);
+  }
+
+  public getContractForTreasury(networkID: Networks, provider: StaticJsonRpcProvider | JsonRpcSigner) {
+    const treasuryAddress = getAddresses(networkID).TREASURY_ADDRESS;
+    return new Contract(treasuryAddress, TreasuryContract, provider);
   }
 
   protected getTokenPrice(): number {

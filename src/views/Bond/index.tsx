@@ -65,6 +65,8 @@ function Bond({ bond }: IBondProps) {
                       <Skeleton />
                     ) : bond.isLP || bond.name === "wavax" ? (
                       `$${trim(bond.bondPrice, 2)}`
+                    ) : bond.bondPrice > 1000000 ? (
+                      "Sold Out - Please Claim"
                     ) : (
                       `${trim(bond.bondPrice, 2)} MIM`
                     )}
@@ -79,12 +81,20 @@ function Bond({ bond }: IBondProps) {
               </Box>
 
               <div className="bond-one-table">
-                <div className={classnames("bond-one-table-btn", { active: !view })} onClick={changeView(0)}>
-                  <p>Mint</p>
-                </div>
-                <div className={classnames("bond-one-table-btn", { active: view })} onClick={changeView(1)}>
-                  <p>Redeem</p>
-                </div>
+                {bond.bondPrice < 10000000 ? (
+                  <>
+                    <div className={classnames("bond-one-table-btn", { active: !view })} onClick={changeView(0)}>
+                      <p>Mint</p>
+                    </div>
+                    <div className={classnames("bond-one-table-btn", { active: view })} onClick={changeView(1)}>
+                      <p>Redeem</p>
+                    </div>
+                  </>
+                ) : (
+                  <div className={classnames("bond-one-table-btn", { active: !view })}>
+                    <p>Redeem</p>
+                  </div>
+                )}
               </div>
 
               <TabPanel value={view} index={0}>

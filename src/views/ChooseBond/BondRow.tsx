@@ -12,6 +12,7 @@ interface IBondProps {
 
 export function BondDataCard({ bond }: IBondProps) {
   const isBondLoading = !bond.bondPrice ?? true;
+  const maxBond = 10000000;
 
   return (
     <Slide direction="up" in={true}>
@@ -33,9 +34,7 @@ export function BondDataCard({ bond }: IBondProps) {
         <div className="data-row">
           <p className="bond-name-title">Price</p>
           <p className="bond-price bond-name-title">
-            <>
-              {priceUnits(bond)} {isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)}
-            </>
+            <>{isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)}</>
           </p>
         </div>
 
@@ -73,6 +72,7 @@ export function BondDataCard({ bond }: IBondProps) {
 
 export function BondTableData({ bond }: IBondProps) {
   const isBondLoading = !bond.bondPrice ?? true;
+  const maxBond = 10000000;
 
   return (
     <TableRow>
@@ -90,8 +90,15 @@ export function BondTableData({ bond }: IBondProps) {
       <TableCell align="center">
         <p className="bond-name-title">
           <>
-            <span className="currency-icon">{priceUnits(bond)}</span>{" "}
-            {isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)}
+            {isBondLoading ? (
+              <Skeleton width="50px" />
+            ) : bond.bondPrice < maxBond ? (
+              <>
+                <span className="currency-icon">{priceUnits(bond)}</span> {trim(bond.bondPrice, 2)}
+              </>
+            ) : (
+              "Sold out"
+            )}{" "}
           </>
         </p>
       </TableCell>
@@ -116,9 +123,15 @@ export function BondTableData({ bond }: IBondProps) {
       </TableCell>
       <TableCell>
         <Link component={NavLink} to={`/mints/${bond.name}`}>
-          <div className="bond-table-btn">
-            <p>Rug Me</p>
-          </div>
+          {bond.bondPrice < maxBond ? (
+            <div className="bond-table-btn">
+              <p>Mint</p>
+            </div>
+          ) : (
+            <div className="bond-table-btn">
+              <p>Withdraw</p>
+            </div>
+          )}
         </Link>
       </TableCell>
     </TableRow>

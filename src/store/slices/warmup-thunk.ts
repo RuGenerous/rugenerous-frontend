@@ -10,6 +10,7 @@ import { warning, success, info, error } from "./messages-slice";
 import { messages } from "../../constants/messages";
 import { getGasPrice } from "../../helpers/get-gas-price";
 import { sleep } from "../../helpers";
+import { metamaskErrorWrap } from "../../helpers/metamask-error-wrap"
 
 interface IForfeit {
   action: string;
@@ -44,11 +45,21 @@ export const forfeit = createAsyncThunk(
       //   dispatch(success({ text: messages.tx_successfully_send }));
       // } catch (err: any) {
       //   return metamaskErrorWrap(err, dispatch);
+      if (action === "claim") {
+        forfeitTx = await staking.claim(address, { gasPrice });
+      }
+        const pendingTxnType = action === "forfeit" ? "forfeit" : "";
+        dispatch(fetchPendingTxns({ txnHash: forfeitTx.hash, text: getStakingTypeText(action), type: pendingTxnType }));
+        await forfeitTx.wait();
+        dispatch(success({ text: messages.tx_successfully_send }));
+      } catch (err: any) {
+        return metamaskErrorWrap(err, dispatch);
     } finally {
       if (forfeitTx) {
         dispatch(clearPendingTxn(forfeitTx.hash));
       }
     }
+    await sleep(10);
     return;
   },
 );

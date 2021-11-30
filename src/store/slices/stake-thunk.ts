@@ -107,6 +107,10 @@ export const changeStake = createAsyncThunk(
         forfeitTx = await staking.forfeit({ gasPrice });
         await forfeitTx.wait();
       }
+      if (action === "claim") {
+        forfeitTx = await staking.claim(address, { gasPrice });
+        await forfeitTx.wait();
+      }
 
       if (action === "stake") {
         stakeTx = await stakingHelper.stake(ethers.utils.parseUnits(value, "gwei"), address, { gasPrice });

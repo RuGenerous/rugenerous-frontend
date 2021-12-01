@@ -71,7 +71,7 @@ export const loadWarmUpInfo = createAsyncThunk(
 
     return {
       warmupInfo: {
-        expiry: Math.floor(warmupExpiry / 3600),
+        expiry: warmupExpiry,
         deposit: ethers.utils.formatUnits(depositBalance, "gwei"),
         epoch: currentEpoch,
       },

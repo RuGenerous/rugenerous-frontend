@@ -67,8 +67,8 @@ export const loadWarmUpInfo = createAsyncThunk(
     const warmupDetails = await stakingContract.warmupInfo(address);
     const depositBalance = warmupDetails.deposit;
     const warmupExpiry = warmupDetails.expiry;
-    const currentEpoch = await stakingContract.epoch().number;
-
+    const epochDetails = await stakingContract.epoch();
+    const currentEpoch = epochDetails.number;
     return {
       warmupInfo: {
         expiry: warmupExpiry,
@@ -272,9 +272,9 @@ export interface IAccountSlice {
     memo: number;
   };
   warmupInfo: {
-    expiry: number;
+    expiry: string;
     deposit: string;
-    epoch: number;
+    epoch: string;
   };
   tokens: { [key: string]: IUserTokenDetails };
 }
@@ -284,7 +284,7 @@ const initialState: IAccountSlice = {
   bonds: {},
   balances: { memo: "", time: "" },
   staking: { time: 0, memo: 0 },
-  warmupInfo: { expiry: 0, deposit: "", epoch: 0 },
+  warmupInfo: { expiry: "", deposit: "", epoch: "" },
   tokens: {},
 };
 

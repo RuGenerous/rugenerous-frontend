@@ -351,7 +351,7 @@ function Stake() {
                           <p className="data-row-value">
                             {isAppLoading ? (
                               <Skeleton width="80px" />
-                            ) : warmupExpiry > currentEpoch ? (
+                            ) : warmupExpiry >= currentEpoch ? (
                               <>
                                 <div
                                   className="claim-btn"

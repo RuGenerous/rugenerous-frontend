@@ -192,7 +192,7 @@ function Stake() {
                               {({ TransitionProps }) => (
                                 <Fade {...TransitionProps} timeout={200}>
                                   <p className="tooltip-item">
-                                    ${new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%
+                                    {new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%
                                   </p>
                                 </Fade>
                               )}
@@ -287,9 +287,6 @@ function Stake() {
                             <div
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
-                                if (Number(warmupBalance) > 0) {
-                                  onChangeForfeitAndStake("forfeit");
-                                }
                                 if (isPendingTxn(pendingTransactions, "staking")) return;
                                 onChangeStake("stake");
                               }}
@@ -375,6 +372,7 @@ function Stake() {
                               <div
                                 className="claim-btn"
                                 onClick={() => {
+                                  if (isPendingTxn(pendingTransactions, "claim")) return;
                                   onChangeWarmup("claim");
                                 }}
                               >
@@ -387,6 +385,7 @@ function Stake() {
                                 <div
                                   className="forfeit-btn"
                                   onClick={() => {
+                                    if (isPendingTxn(pendingTransactions, "forfeit")) return;
                                     onChangeWarmup("forfeit");
                                   }}
                                 >

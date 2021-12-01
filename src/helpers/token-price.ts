@@ -9,6 +9,7 @@ export const loadTokenPrices = async () => {
 
   cache["AVAX"] = data["avalanche-2"].usd;
   cache["MIM"] = data["magic-internet-money"].usd;
+  cache["USDC"] = data["magic-internet-money"].usd;
   cache["OHM"] = data["olympus"].usd;
   cache["QI"] = data["benqi"].usd;
 };

@@ -98,7 +98,9 @@ function NavContent() {
           </Link>
 
           <div className="bond-discounts">
-            <p>Mint discounts</p>
+            <p>
+              <strong>Mint discounts</strong>
+            </p>
             {bonds.map((bond, i) => (
               <Link component={NavLink} to={`/mints/${bond.name}`} key={i} className={"bond"}>
                 {!bond.bondDiscount ? (
@@ -106,7 +108,11 @@ function NavContent() {
                 ) : (
                   <p>
                     {bond.displayName}
-                    <span className="bond-pair-roi">{bond.bondDiscount && trim(bond.bondDiscount * 100, 2)}%</span>
+                    <span className="bond-pair-roi">
+                      {bond.bondPrice < 10000000
+                        ? `${bond.bondDiscount && trim(bond.bondDiscount * 100, 2)}%`
+                        : "Sold Out"}
+                    </span>
                   </p>
                 )}
               </Link>

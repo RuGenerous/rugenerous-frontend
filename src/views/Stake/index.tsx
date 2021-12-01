@@ -14,8 +14,10 @@ import classnames from "classnames";
 import { warning } from "../../store/slices/messages-slice";
 import { MouseEvent } from "react";
 import { Popper, Fade } from "@material-ui/core";
-import { forfeit } from "../../store/slices/warmup-thunk";
+import { forfeitOrClaim } from "../../store/slices/warmup-thunk";
 import { sleep } from "../../helpers";
+import WarmUpTimer from "src/components/WarmUpTimer";
+import BasicModal from "../../components/Modal";
 
 function Stake() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -42,6 +44,9 @@ function Stake() {
   const warmupExpiry = useSelector<IReduxState, number>(state => {
     return state.account.warmupInfo && state.account.warmupInfo.expiry;
   });
+  const currentEpoch = useSelector<IReduxState, number>(state => {
+    return state.account.warmupInfo && state.account.warmupInfo.epoch;
+  });
   const memoBalance = useSelector<IReduxState, string>(state => {
     return state.account.balances && state.account.balances.memo;
   });
@@ -65,11 +70,9 @@ function Stake() {
     return state.pendingTransactions;
   });
 
-  const trimmedWarmUpBalance = trim(Number(warmupBalance), 4);
-
   const setMax = () => {
     if (view === 0) {
-      const fullBalance = Number(timeBalance) + Number(warmupBalance);
+      const fullBalance = Number(timeBalance);
       setQuantity(trim(fullBalance, 4));
       console.log(quantity);
     } else {
@@ -102,26 +105,17 @@ function Stake() {
     }
   };
 
-  const onChangeForfeitAndStake = async (action: string) => {
+  const onChangeWarmup = async (action: string) => {
     if (await checkWrongNetwork()) return;
     await dispatch(
-      changeStake({
+      forfeitOrClaim({
         address,
         action,
-        value: String(quantity),
         provider,
         networkID: chainID,
-        warmUpBalance: Number(warmupBalance),
       }),
     );
-    setQuantity("");
   };
-
-  // const onChangeForfeit = async (action: string) => {
-  //   if (await checkWrongNetwork()) return;
-  //   await dispatch(forfeit({ address, action, provider, networkID: chainID }));
-  //   setQuantity("");
-  // };
 
   const hasAllowance = useCallback(
     token => {
@@ -181,7 +175,7 @@ function Stake() {
                               {({ TransitionProps }) => (
                                 <Fade {...TransitionProps} timeout={200}>
                                   <p className="tooltip-item">
-                                    ${new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%
+                                    {new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%
                                   </p>
                                 </Fade>
                               )}
@@ -276,9 +270,6 @@ function Stake() {
                             <div
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
-                                if (Number(warmupBalance) > 0) {
-                                  onChangeForfeitAndStake("forfeit");
-                                }
                                 if (isPendingTxn(pendingTransactions, "staking")) return;
                                 onChangeStake("stake");
                               }}
@@ -345,23 +336,45 @@ function Stake() {
                       </p>
                     </div>
 
-                    <br />
+                    {Number(warmupBalance) > 0 && (
+                      <>
+                        <br />
+                        <div className="data-row">
+                          <p className="data-row-name">Your Warm Up Balance</p>
+                          <p className="data-row-value">
+                            {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(warmupBalance), 4)} RUG</>}
+                          </p>
+                        </div>
 
-                    <div className="data-row">
-                      <p className="data-row-name">Your Warm Up Balance</p>
-                      <p className="data-row-value">
-                        {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(warmupBalance), 4)} RUG</>}
-                      </p>
-                    </div>
-
-                    <div className="data-row">
-                      <p className="data-row-name">Staked Warm Up Remaining</p>
-                      <p className="data-row-value">
-                        {isAppLoading ? <Skeleton width="80px" /> : <>{warmupExpiry} Hours</>}
-                      </p>
-                    </div>
-
-                    <br />
+                        <div className="data-row">
+                          <p className="data-row-name">Pending Warm Up Till Release</p>
+                          <p className="data-row-value">
+                            {isAppLoading ? (
+                              <Skeleton width="80px" />
+                            ) : warmupExpiry > currentEpoch ? (
+                              <>
+                                <div
+                                  className="claim-btn"
+                                  onClick={() => {
+                                    if (isPendingTxn(pendingTransactions, "claim")) return;
+                                    onChangeWarmup("claim");
+                                  }}
+                                >
+                                  <p>{txnButtonText(pendingTransactions, "claim", "Claim SRUG")}</p>
+                                </div>
+                                <br />
+                              </>
+                            ) : (
+                              <>
+                                {" "}
+                                {WarmUpTimer()}
+                                <div className="forfeit-btn">{BasicModal(onChangeWarmup)}</div>
+                              </>
+                            )}
+                          </p>
+                        </div>
+                      </>
+                    )}
 
                     <div className="data-row">
                       <p className="data-row-name">Your Staked Balance</p>
@@ -394,10 +407,10 @@ function Stake() {
                     <div className="stake-card-action-help-text">
                       <br />
                       <p>
-                        Note: As voted on by the community; There is a 12-Hour warm-up staking period, where users must
-                        be staked for more than 12 hours before receiving any rebase rewards. When 12 hours has
-                        surpassed your staked balance will show accordingly and you will automatically receive the
-                        rebase rewards.
+                        Note: There is a 8-Hour warm-up staking period, where users must be staked for more than 8 hours
+                        before receiving any rebase rewards. When 8 hours has surpassed your staked balance can be
+                        claimed from the warm up contract and you will automatically receive the rebase rewards
+                        thereafter.
                       </p>
                     </div>
                   </div>

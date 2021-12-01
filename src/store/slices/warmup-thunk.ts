@@ -1,15 +1,16 @@
 import { ethers } from "ethers";
 import { getAddresses } from "../../constants";
-import { StakingHelperContract, RugTokenContract, SRugTokenContract, StakingContract } from "../../abi";
-import { clearPendingTxn, fetchPendingTxns, getStakingTypeText } from "./pending-txns-slice";
+import { StakingContract } from "../../abi";
+import { clearPendingTxn, fetchPendingTxns, getWarmupTypeText } from "./pending-txns-slice";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchAccountSuccess, getBalances } from "./account-slice";
+import { loadWarmUpInfo, getBalances } from "./account-slice";
 import { JsonRpcProvider, StaticJsonRpcProvider } from "@ethersproject/providers";
 import { Networks } from "../../constants/blockchain";
 import { warning, success, info, error } from "./messages-slice";
 import { messages } from "../../constants/messages";
 import { getGasPrice } from "../../helpers/get-gas-price";
 import { sleep } from "../../helpers";
+import { metamaskErrorWrap } from "../../helpers/metamask-error-wrap";
 
 interface IForfeit {
   action: string;
@@ -18,8 +19,8 @@ interface IForfeit {
   networkID: Networks;
 }
 
-export const forfeit = createAsyncThunk(
-  "warmup/forfeit",
+export const forfeitOrClaim = createAsyncThunk(
+  "warmup/forfeitOrClaim",
   async ({ action, provider, address, networkID }: IForfeit, { dispatch }) => {
     if (!provider) {
       dispatch(warning({ text: messages.please_connect_wallet }));
@@ -36,19 +37,28 @@ export const forfeit = createAsyncThunk(
 
       if (action === "forfeit") {
         forfeitTx = await staking.forfeit({ gasPrice });
+      } else {
+        forfeitTx = await staking.claim(address, { gasPrice });
       }
       await forfeitTx.wait();
-      //   const pendingTxnType = action === "forfeit" ? "forfeit" : "";
-      //   dispatch(fetchPendingTxns({ txnHash: forfeitTx.hash, text: getStakingTypeText(action), type: pendingTxnType }));
-      //   await forfeitTx.wait();
-      //   dispatch(success({ text: messages.tx_successfully_send }));
-      // } catch (err: any) {
-      //   return metamaskErrorWrap(err, dispatch);
+
+      const pendingTxnType = action === "forfeit" ? "forfeit" : "claim";
+      dispatch(fetchPendingTxns({ txnHash: forfeitTx.hash, text: getWarmupTypeText(action), type: pendingTxnType }));
+      await forfeitTx.wait();
+      dispatch(success({ text: messages.tx_successfully_send }));
+    } catch (err: any) {
+      return metamaskErrorWrap(err, dispatch);
     } finally {
       if (forfeitTx) {
         dispatch(clearPendingTxn(forfeitTx.hash));
       }
     }
+    dispatch(info({ text: messages.your_balance_update_soon }));
+    await sleep(10);
+    await dispatch(getBalances({ address, networkID, provider }));
+    await dispatch(loadWarmUpInfo({ address, networkID, provider }));
+    dispatch(info({ text: messages.your_balance_updated }));
+    await sleep(10);
     return;
   },
 );

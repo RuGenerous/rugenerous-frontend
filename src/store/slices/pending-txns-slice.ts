@@ -32,6 +32,9 @@ export const getStakingTypeText = (action: string) => {
   return action.toLowerCase() === "stake" ? "Staking RUG" : "Unstaking RUGGED";
 };
 
+export const getWarmupTypeText = (action: string) => {
+  return action.toLowerCase() === "forfeit" ? "Exiting Warmup" : "Claiming RUGGED(SRUG)";
+};
 export const isPendingTxn = (pendingTransactions: IPendingTxn[], type: string) => {
   return pendingTransactions.map(x => x.type).includes(type);
 };

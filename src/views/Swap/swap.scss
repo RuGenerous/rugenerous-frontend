@@ -1,11 +1,11 @@
-.stake-view {
+.swap-view {
   width: 89%;
   max-width: 833px;
   margin: auto;
 
   
 
-  .stake-card {
+  .swap-card {
     position: relative;
     z-index: 2;
 
@@ -23,13 +23,13 @@
     padding: 20px;
     width: 100%;
 
-    .stake-card-grid {
+    .swap-card-grid {
       margin: 0;
       width: 100%;
     }
 
-    .stake-card-header {
-      .stake-card-header-title {
+    .swap-card-header {
+      .swap-card-header-title {
         font-family: Montserrat Bold;
         font-weight: bold;
         font-size: 20px;
@@ -38,16 +38,16 @@
       }
     }
 
-    .stake-card-metrics {
+    .swap-card-metrics {
       display: flex;
       width: 100%;
       padding: 0;
       text-align: center;
       margin-top: 10px;
 
-      .stake-card-apy,
-      .stake-card-tvl,
-      .stake-card-index {
+      .swap-card-apy,
+      .swap-card-tvl,
+      .swap-card-index {
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -56,7 +56,7 @@
         white-space: nowrap;
         overflow: hidden;
 
-        .stake-card-metrics-title {
+        .swap-card-metrics-title {
           font-family: Montserrat Medium;
           font-style: normal;
           font-weight: 500;
@@ -65,7 +65,7 @@
           margin-bottom: 2px;
         }
 
-        .stake-card-metrics-value {
+        .swap-card-metrics-value {
           font-family: Montserrat Bold;
           font-style: normal;
           font-weight: bold;
@@ -76,11 +76,11 @@
       }
     }
 
-    .stake-card-area {
-      .stake-card-wallet-notification {
+    .swap-card-area {
+      .swap-card-wallet-notification {
         text-align: center;
 
-        .stake-card-wallet-connect-btn {
+        .swap-card-wallet-connect-btn {
           background: rgba(132, 41, 189, 0.596);
           box-shadow: 0px 0px 10px rgba(61, 53, 165, 0.1);
           border-radius: 10px;
@@ -98,7 +98,7 @@
           }
         }
 
-        .stake-card-wallet-desc-text {
+        .swap-card-wallet-desc-text {
           font-family: Montserrat Light;
           font-weight: 300;
           font-size: 14px;
@@ -108,16 +108,16 @@
         }
       }
 
-      .stake-card-action-area {
+      .swap-card-action-area {
         width: 100%;
         margin-top: 25px;
 
-        .stake-card-action-stage-btns-wrap {
+        .swap-card-action-stage-btns-wrap {
           display: flex;
           align-items: center;
           justify-content: center;
 
-          .stake-card-action-stage-btn {
+          .swap-card-action-stage-btn {
             margin: 0px 30px;
             padding: 6px;
             cursor: pointer;
@@ -132,7 +132,7 @@
             }
           }
 
-          .stake-card-action-stage-btn.active {
+          .swap-card-action-stage-btn.active {
             p {
               color: #ffffff;
             }
@@ -141,12 +141,12 @@
           }
         }
 
-        .stake-card-action-row {
+        .swap-card-action-row {
           display: flex;
           align-items: center;
           margin-top: 20px;
 
-          .stake-card-action-input {
+          .swap-card-action-input {
             width: 100%;
 
             background: rgba(103, 43, 138, 0.2);
@@ -167,7 +167,7 @@
               border-color: rgba(255, 255, 255, 0.2) !important;
             }
 
-            .stake-card-action-input-btn {
+            .swap-card-action-input-btn {
               cursor: pointer;
 
               p {
@@ -179,11 +179,11 @@
             }
           }
 
-          .stake-card-tab-panel {
+          .swap-card-tab-panel {
             min-width: 215px;
             margin-left: 10px;
 
-            .stake-card-tab-panel-btn {
+            .swap-card-tab-panel-btn {
               background: #2BA9AE;
               box-shadow: 0px 0px 10px rgba(44, 39, 109, 0.1);
               border-radius: 10px;
@@ -202,7 +202,7 @@
           }
         }
 
-        .stake-card-action-help-text {
+        .swap-card-action-help-text {
           margin-top: 10px;
 
           p {
@@ -217,13 +217,13 @@
         }
       }
 
-      .stake-user-data {
+      .swap-user-data {
         justify-content: center;
         margin: auto;
         padding: 0 5px;
         margin-top: 30px;
 
-        .stake-card-action-help-text {
+        .swap-card-action-help-text {
           margin-top: 10px;
 
           p {
@@ -315,16 +315,16 @@
 }
 
 @media screen and (max-width: 600px) {
-  .stake-view {
-    .stake-card {
-      .stake-card-metrics {
-        .stake-card-apy,
-        .stake-card-tvl,
-        .stake-card-index {
+  .swap-view {
+    .swap-card {
+      .swap-card-metrics {
+        .swap-card-apy,
+        .swap-card-tvl,
+        .swap-card-index {
           align-items: flex-start;
         }
 
-        .stake-card {
+        .swap-card {
           width: 50%;
           display: flex;
           flex-direction: column;
@@ -332,11 +332,11 @@
         }
       }
 
-      .stake-card-area {
-        .stake-card-action-area {
-          .stake-card-action-row {
+      .swap-card-area {
+        .swap-card-action-area {
+          .swap-card-action-row {
             flex-direction: column;
-            .stake-card-tab-panel {
+            .swap-card-tab-panel {
               margin-left: 0;
               margin-top: 20px;
               min-width: none;
@@ -350,7 +350,7 @@
 }
 
 @media screen and (max-width: 1240px) {
-  .stake-view {
+  .swap-view {
     width: 100%;
   }
 }

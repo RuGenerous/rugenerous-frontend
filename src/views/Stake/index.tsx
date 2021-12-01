@@ -14,9 +14,10 @@ import classnames from "classnames";
 import { warning } from "../../store/slices/messages-slice";
 import { MouseEvent } from "react";
 import { Popper, Fade } from "@material-ui/core";
-import { forfeit } from "../../store/slices/warmup-thunk";
+import { forfeitOrClaim } from "../../store/slices/warmup-thunk";
 import { sleep } from "../../helpers";
 import WarmUpTimer from "src/components/WarmUpTimer";
+import ModalUnstyled from "@mui/base/ModalUnstyled";
 
 function Stake() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -121,11 +122,17 @@ function Stake() {
     setQuantity("");
   };
 
-  // const onChangeForfeit = async (action: string) => {
-  //   if (await checkWrongNetwork()) return;
-  //   await dispatch(forfeit({ address, action, provider, networkID: chainID }));
-  //   setQuantity("");
-  // };
+  const onChangeWarmup = async (action: string) => {
+    if (await checkWrongNetwork()) return;
+    await dispatch(
+      forfeitOrClaim({
+        address,
+        action,
+        provider,
+        networkID: chainID,
+      }),
+    );
+  };
 
   const hasAllowance = useCallback(
     token => {
@@ -364,12 +371,28 @@ function Stake() {
                           <p className="data-row-value">
                             {isAppLoading ? (
                               <Skeleton width="80px" />
-                            ) : warmupExpiry > currentEpoch ? (
-                              <>
+                            ) : warmupExpiry < currentEpoch ? (
+                              <div
+                                className="claim-btn"
+                                onClick={() => {
+                                  onChangeWarmup("claim");
+                                }}
+                              >
                                 <p>{txnButtonText(pendingTransactions, "claim", "Claim SRUG")}</p>
-                              </>
+                              </div>
                             ) : (
-                              <> {WarmUpTimer()} </>
+                              <>
+                                {" "}
+                                {WarmUpTimer()}{" "}
+                                <div
+                                  className="forfeit-btn"
+                                  onClick={() => {
+                                    onChangeWarmup("forfeit");
+                                  }}
+                                >
+                                  <p>{txnButtonText(pendingTransactions, "forfeit", "Exit Warm-up")}</p>
+                                </div>
+                              </>
                             )}
                           </p>
                         </div>

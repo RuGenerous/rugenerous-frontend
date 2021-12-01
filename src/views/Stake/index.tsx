@@ -351,7 +351,7 @@ function Stake() {
                           <p className="data-row-value">
                             {isAppLoading ? (
                               <Skeleton width="80px" />
-                            ) : warmupExpiry <= currentEpoch ? (
+                            ) : Number(warmupExpiry) <= currentEpoch ? (
                               <>
                                 <div
                                   className="claim-btn"
@@ -362,6 +362,7 @@ function Stake() {
                                 >
                                   <p>{txnButtonText(pendingTransactions, "claim", "Claim SRUG")}</p>
                                 </div>
+
                                 <br />
                               </>
                             ) : (

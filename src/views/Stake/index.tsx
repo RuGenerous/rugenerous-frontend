@@ -17,7 +17,7 @@ import { Popper, Fade } from "@material-ui/core";
 import { forfeitOrClaim } from "../../store/slices/warmup-thunk";
 import { sleep } from "../../helpers";
 import WarmUpTimer from "src/components/WarmUpTimer";
-import ModalUnstyled from "@mui/base/ModalUnstyled";
+import BasicModal from "../../components/Modal";
 
 function Stake() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -70,11 +70,9 @@ function Stake() {
     return state.pendingTransactions;
   });
 
-  const trimmedWarmUpBalance = trim(Number(warmupBalance), 4);
-
   const setMax = () => {
     if (view === 0) {
-      const fullBalance = Number(timeBalance) + Number(warmupBalance);
+      const fullBalance = Number(timeBalance);
       setQuantity(trim(fullBalance, 4));
       console.log(quantity);
     } else {
@@ -105,21 +103,6 @@ function Stake() {
       );
       setQuantity("");
     }
-  };
-
-  const onChangeForfeitAndStake = async (action: string) => {
-    if (await checkWrongNetwork()) return;
-    await dispatch(
-      changeStake({
-        address,
-        action,
-        value: String(quantity),
-        provider,
-        networkID: chainID,
-        warmUpBalance: Number(warmupBalance),
-      }),
-    );
-    setQuantity("");
   };
 
   const onChangeWarmup = async (action: string) => {
@@ -192,7 +175,7 @@ function Stake() {
                               {({ TransitionProps }) => (
                                 <Fade {...TransitionProps} timeout={200}>
                                   <p className="tooltip-item">
-                                    ${new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%
+                                    {new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%
                                   </p>
                                 </Fade>
                               )}
@@ -287,9 +270,6 @@ function Stake() {
                             <div
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
-                                if (Number(warmupBalance) > 0) {
-                                  onChangeForfeitAndStake("forfeit");
-                                }
                                 if (isPendingTxn(pendingTransactions, "staking")) return;
                                 onChangeStake("stake");
                               }}
@@ -371,32 +351,28 @@ function Stake() {
                           <p className="data-row-value">
                             {isAppLoading ? (
                               <Skeleton width="80px" />
-                            ) : warmupExpiry < currentEpoch ? (
-                              <div
-                                className="claim-btn"
-                                onClick={() => {
-                                  onChangeWarmup("claim");
-                                }}
-                              >
-                                <p>{txnButtonText(pendingTransactions, "claim", "Claim SRUG")}</p>
-                              </div>
+                            ) : warmupExpiry > currentEpoch ? (
+                              <>
+                                <div
+                                  className="claim-btn"
+                                  onClick={() => {
+                                    if (isPendingTxn(pendingTransactions, "claim")) return;
+                                    onChangeWarmup("claim");
+                                  }}
+                                >
+                                  <p>{txnButtonText(pendingTransactions, "claim", "Claim SRUG")}</p>
+                                </div>
+                                <br />
+                              </>
                             ) : (
                               <>
                                 {" "}
-                                {WarmUpTimer()}{" "}
-                                <div
-                                  className="forfeit-btn"
-                                  onClick={() => {
-                                    onChangeWarmup("forfeit");
-                                  }}
-                                >
-                                  <p>{txnButtonText(pendingTransactions, "forfeit", "Exit Warm-up")}</p>
-                                </div>
+                                {WarmUpTimer()}
+                                <div className="forfeit-btn">{BasicModal(onChangeWarmup)}</div>
                               </>
                             )}
                           </p>
                         </div>
-                        <br />
                       </>
                     )}
 

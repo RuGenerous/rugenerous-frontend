@@ -41,10 +41,10 @@ function Stake() {
   const warmupBalance = useSelector<IReduxState, string>(state => {
     return state.account.warmupInfo && state.account.warmupInfo.deposit;
   });
-  const warmupExpiry = useSelector<IReduxState, number>(state => {
+  const warmupExpiry = useSelector<IReduxState, string>(state => {
     return state.account.warmupInfo && state.account.warmupInfo.expiry;
   });
-  const currentEpoch = useSelector<IReduxState, number>(state => {
+  const currentEpoch = useSelector<IReduxState, string>(state => {
     return state.account.warmupInfo && state.account.warmupInfo.epoch;
   });
   const memoBalance = useSelector<IReduxState, string>(state => {
@@ -362,7 +362,6 @@ function Stake() {
                                 >
                                   <p>{txnButtonText(pendingTransactions, "claim", "Claim SRUG")}</p>
                                 </div>
-
                                 <br />
                               </>
                             ) : (
@@ -370,6 +369,7 @@ function Stake() {
                                 {" "}
                                 {WarmUpTimer()}
                                 <div className="forfeit-btn">{BasicModal(onChangeWarmup)}</div>
+                                {console.log(Number(warmupExpiry))} {console.log(Number(currentEpoch))}
                               </>
                             )}
                           </p>

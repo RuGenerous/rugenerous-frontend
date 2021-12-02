@@ -34,7 +34,15 @@ export function BondDataCard({ bond }: IBondProps) {
         <div className="data-row">
           <p className="bond-name-title">Price</p>
           <p className="bond-price bond-name-title">
-            <>{isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)}</>
+            <>
+              {isBondLoading ? (
+                <Skeleton width="50px" />
+              ) : bond.bondPrice < maxBond ? (
+                trim(bond.bondPrice, 2)
+              ) : (
+                "Sold Out"
+              )}{" "}
+            </>
           </p>
         </div>
 
@@ -110,7 +118,13 @@ export function BondTableData({ bond }: IBondProps) {
       </TableCell>
       <TableCell align="right">
         <p className="bond-name-title">
-          {isBondLoading ? <Skeleton width="50px" /> : `${trim(bond.bondDiscount * 100, 2)}%`}
+          {isBondLoading ? (
+            <Skeleton width="50px" />
+          ) : bond.bondPrice < maxBond ? (
+            `${trim(bond.bondDiscount * 100, 2)}%`
+          ) : (
+            "-"
+          )}
         </p>
       </TableCell>
       <TableCell align="right">

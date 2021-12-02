@@ -124,7 +124,7 @@ export const mimRugRlp = new LPBond({
     },
   },
   lpUrl:
-    "https://swap.rug.farm/#/add/AVAX/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+    "https://swap.rug.farm/#/add/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb8EF3a190b68175000B74B4160d325FD5024760e",
 });
 
 export const avaxRug = new CustomLPBond({

@@ -120,7 +120,7 @@ export const mimRugRlp = new LPBond({
   networkAddrs: {
     [Networks.AVAX]: {
       bondAddress: "0x25e5B2a546c8a4CE3B2d21C113C009A78B31FE07",
-      reserveAddress: "0x5f953ac71a131cf877c5a9d040e67aedd6e37caf",
+      reserveAddress: "0x5F953AC71A131cF877C5A9d040E67aedd6e37caf",
     },
   },
   lpUrl:
@@ -175,4 +175,4 @@ export const avaxRugRlp = new CustomLPBond({
 //   lpUrl: "https://app.pangolin.exchange/add/AVAX/0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
 // });
 
-export default [mim, mimRug, wavax, avaxRug, benqi, avaxRugRlp, mimRugRlp];
+export default [mim, mimRug, wavax, avaxRug, benqi, avaxRugRlp];

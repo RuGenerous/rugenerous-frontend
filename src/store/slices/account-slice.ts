@@ -176,7 +176,8 @@ export const calculateUserBondDetails = createAsyncThunk(
 
     allowance = await reserveContract.allowance(address, bond.getAddressForBond(networkID));
     balance = await reserveContract.balanceOf(address);
-    const balanceVal = ethers.utils.formatEther(balance);
+    const tokenDecimal = await reserveContract.decimals();
+    const balanceVal = Number(balance) / Math.pow(10, tokenDecimal);
 
     const avaxBalance = await provider.getSigner().getBalance();
     const avaxVal = ethers.utils.formatEther(avaxBalance);

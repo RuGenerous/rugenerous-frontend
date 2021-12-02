@@ -173,7 +173,7 @@ export const calcBondDetails = createAsyncThunk(
       purchased = await bondCalcContract.valuation(assetAddress, purchased);
       purchased = (markdown / Math.pow(10, 18)) * (purchased / Math.pow(10, 9));
 
-      if (bond.name === avaxRug.name) {
+      if (bond.name === avaxRug.name || bond.name === avaxRugRlp.name) {
         const avaxPrice = getTokenPrice("AVAX");
         purchased = purchased * avaxPrice;
       }

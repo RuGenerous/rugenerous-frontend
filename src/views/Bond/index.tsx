@@ -65,10 +65,10 @@ function Bond({ bond }: IBondProps) {
                   <p className="bond-price-data-value">
                     {isBondLoading ? (
                       <Skeleton />
-                    ) : bond.isLP || bond.name === "wavax" ? (
-                      `$${trim(bond.bondPrice, 2)}`
                     ) : bond.bondPrice > maxBondPrice ? (
                       "Sold Out - Please Claim"
+                    ) : bond.isLP || bond.name === "wavax" ? (
+                      `$${trim(bond.bondPrice, 2)}`
                     ) : (
                       `${trim(bond.bondPrice, 2)} MIM`
                     )}

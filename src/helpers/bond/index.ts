@@ -4,6 +4,7 @@ import { StableBond, CustomBond } from "./stable-bond";
 
 import MimIcon from "../../assets/tokens/MIM.svg";
 import USDCIcon from "../../assets/tokens/USDC.e.png";
+import USDTIcon from "../../assets/tokens/USDT.e.png";
 import AvaxIcon from "../../assets/tokens/AVAX.svg";
 import MimRugIcon from "../../assets/tokens/RUG-MIM.svg";
 import AvaxRugIcon from "../../assets/tokens/RUG-AVAX.svg";
@@ -37,6 +38,21 @@ export const usdc = new StableBond({
   displayName: "USDC",
   bondToken: "USDC",
   bondIconSvg: USDCIcon,
+  bondContractABI: StableBondContract,
+  reserveContractAbi: StableReserveContract,
+  networkAddrs: {
+    [Networks.AVAX]: {
+      bondAddress: "0x790463505821987709E4C661F9aB56DEf8A6B682",
+      reserveAddress: "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+    },
+  },
+});
+
+export const usdt = new StableBond({
+  name: "usdt",
+  displayName: "USDT",
+  bondToken: "USDT",
+  bondIconSvg: USDTIcon,
   bondContractABI: StableBondContract,
   reserveContractAbi: StableReserveContract,
   networkAddrs: {
@@ -125,6 +141,22 @@ export const avaxRug = new CustomLPBond({
     },
   },
   lpUrl: "https://www.traderjoexyz.com/#/pool/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+});
+
+export const avaxRugRlp = new CustomLPBond({
+  name: "avax_rug_rlp",
+  displayName: "RUG-AVAX RLP",
+  bondToken: "AVAX",
+  bondIconSvg: AvaxRugIcon,
+  bondContractABI: LpBondContract,
+  reserveContractAbi: LpReserveContract,
+  networkAddrs: {
+    [Networks.AVAX]: {
+      bondAddress: "0x881A8ECe1cD45A458eAcBA97f45b0fBc0752fCBF",
+      reserveAddress: "0xB6E73230B0a8D1cAa44F186Ab8146F10ab49314A",
+    },
+  },
+  lpUrl: "https://swap.rug.farm/#/pool/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
 });
 
 // export const avaxQi = new CustomLPBond({

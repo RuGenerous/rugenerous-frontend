@@ -17,7 +17,7 @@ function WarmUpTimer() {
 
   const timeUntilRebase = useMemo(() => {
     if (currentBlockTime && nextRebase) {
-      const seconds = secondsUntilBlock(currentBlockTime, nextRebase);
+      const seconds = secondsUntilBlock(currentBlockTime, nextRebase) * 2;
       return prettifySeconds(seconds);
     }
   }, [currentBlockTime, nextRebase]);

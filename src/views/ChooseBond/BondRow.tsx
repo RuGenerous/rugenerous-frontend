@@ -12,7 +12,7 @@ interface IBondProps {
 
 export function BondDataCard({ bond }: IBondProps) {
   const isBondLoading = !bond.bondPrice ?? true;
-  const maxBond = 10000000;
+  const maxBond = 100000;
 
   return (
     <Slide direction="up" in={true}>
@@ -41,7 +41,13 @@ export function BondDataCard({ bond }: IBondProps) {
         <div className="data-row">
           <p className="bond-name-title">ROI</p>
           <p className="bond-name-title">
-            {isBondLoading ? <Skeleton width="50px" /> : `${trim(bond.bondDiscount * 100, 2)}%`}
+            {isBondLoading ? (
+              <Skeleton width="50px" />
+            ) : bond.bondPrice < maxBond ? (
+              `${trim(bond.bondDiscount * 100, 2)}%`
+            ) : (
+              "-"
+            )}
           </p>
         </div>
 

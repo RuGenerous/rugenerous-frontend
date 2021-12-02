@@ -96,14 +96,21 @@ function Bond({ bond }: IBondProps) {
                   </div>
                 )}
               </div>
+              {bond.bondPrice < 10000000 ? (
+                <>
+                  <TabPanel value={view} index={0}>
+                    <BondPurchase bond={bond} slippage={slippage} recipientAddress={recipientAddress} />
+                  </TabPanel>
 
-              <TabPanel value={view} index={0}>
-                <BondPurchase bond={bond} slippage={slippage} recipientAddress={recipientAddress} />
-              </TabPanel>
-
-              <TabPanel value={view} index={1}>
-                <BondRedeem bond={bond} />
-              </TabPanel>
+                  <TabPanel value={view} index={1}>
+                    <BondRedeem bond={bond} />
+                  </TabPanel>
+                </>
+              ) : (
+                <TabPanel value={view} index={0}>
+                  <BondRedeem bond={bond} />
+                </TabPanel>
+              )}
             </div>
           </Fade>
         </Backdrop>

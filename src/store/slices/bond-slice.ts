@@ -112,7 +112,9 @@ export const calcBondDetails = createAsyncThunk(
     const addresses = getAddresses(networkID);
 
     const bondContract = bond.getContractForBond(networkID, provider);
+    const reserveContract = bond.getContractForReserve(networkID, provider);
     const bondCalcContract = getBondCalculator(networkID, provider, bond.name);
+    const reserveDecimals = await reserveContract.decimals();
 
     const terms = await bondContract.terms();
     const maxBondPrice = (await bondContract.maxPayout()) / Math.pow(10, 9);
@@ -134,7 +136,7 @@ export const calcBondDetails = createAsyncThunk(
         bondPrice = bondPrice * benqiPrice;
       }
 
-      bondDiscount = (marketPrice * Math.pow(10, 18) - bondPrice) / bondPrice;
+      bondDiscount = (marketPrice * Math.pow(10, reserveDecimals) - bondPrice) / bondPrice;
     } catch (e) {
       console.log("error getting bondPriceInUSD", e);
     }
@@ -186,7 +188,7 @@ export const calcBondDetails = createAsyncThunk(
       const benqiPrice = getTokenPrice("QI");
       purchased = purchased * benqiPrice;
     } else {
-      purchased = purchased / Math.pow(10, 18);
+      purchased = purchased / Math.pow(10, reserveDecimals);
     }
 
     return {
@@ -196,7 +198,7 @@ export const calcBondDetails = createAsyncThunk(
       purchased,
       vestingTerm: Number(terms.vestingTerm),
       maxBondPrice,
-      bondPrice: bondPrice / Math.pow(10, 18),
+      bondPrice: bondPrice / Math.pow(10, reserveDecimals),
       marketPrice,
       maxBondPriceToken,
     };

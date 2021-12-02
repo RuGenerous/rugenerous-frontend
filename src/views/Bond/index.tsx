@@ -43,6 +43,8 @@ function Bond({ bond }: IBondProps) {
     setView(newView);
   };
 
+  const maxBondPrice = 1000000;
+
   return (
     <Fade in={true} mountOnEnter unmountOnExit>
       <Grid className="bond-view">
@@ -65,7 +67,7 @@ function Bond({ bond }: IBondProps) {
                       <Skeleton />
                     ) : bond.isLP || bond.name === "wavax" ? (
                       `$${trim(bond.bondPrice, 2)}`
-                    ) : bond.bondPrice > 1000000 ? (
+                    ) : bond.bondPrice > maxBondPrice ? (
                       "Sold Out - Please Claim"
                     ) : (
                       `${trim(bond.bondPrice, 2)} MIM`
@@ -81,7 +83,7 @@ function Bond({ bond }: IBondProps) {
               </Box>
 
               <div className="bond-one-table">
-                {bond.bondPrice < 10000000 ? (
+                {bond.bondPrice < maxBondPrice ? (
                   <>
                     <div className={classnames("bond-one-table-btn", { active: !view })} onClick={changeView(0)}>
                       <p>Mint</p>
@@ -96,7 +98,7 @@ function Bond({ bond }: IBondProps) {
                   </div>
                 )}
               </div>
-              {bond.bondPrice < 10000000 ? (
+              {bond.bondPrice < maxBondPrice ? (
                 <>
                   <TabPanel value={view} index={0}>
                     <BondPurchase bond={bond} slippage={slippage} recipientAddress={recipientAddress} />

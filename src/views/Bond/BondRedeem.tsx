@@ -59,6 +59,7 @@ function BondRedeem({ bond }: IBondRedeem) {
     return prettifySeconds(bondingState.vestingTerm, "day");
   };
 
+  const maxBondPrice = 100000000;
   return (
     <Box display="flex" flexDirection="column">
       <Box display="flex" justifyContent="space-around" flexWrap="wrap">
@@ -106,7 +107,13 @@ function BondRedeem({ bond }: IBondRedeem) {
           <div className="data-row">
             <p className="bond-balance-title">ROI</p>
             <p className="bond-balance-title">
-              {isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.bondDiscount * 100, 2)}%`}
+              {isBondLoading ? (
+                <Skeleton width="100px" />
+              ) : bond.bondPrice < maxBondPrice ? (
+                `${trim(bond.bondDiscount * 100, 2)}%`
+              ) : (
+                "-"
+              )}
             </p>
           </div>
 

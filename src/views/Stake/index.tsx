@@ -409,9 +409,8 @@ function Stake() {
                       <br />
                       <p>
                         Note: There is a 8-Hour warm-up staking period, where users must be staked for more than 8 hours
-                        before receiving any rebase rewards. When 8 hours has surpassed your staked balance can be
-                        claimed from the warm up contract and you will automatically receive the rebase rewards
-                        thereafter.
+                        before receiving any rebase rewards. When 8 hours has elapsed your staked balance can be claimed
+                        from the warm up contract and you will automatically receive the rebase rewards thereafter.
                       </p>
                     </div>
                   </div>

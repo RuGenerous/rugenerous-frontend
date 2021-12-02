@@ -4,6 +4,7 @@ import { StableBond, CustomBond } from "./stable-bond";
 
 import MimIcon from "../../assets/tokens/MIM.svg";
 import USDCIcon from "../../assets/tokens/USDC.e.png";
+import USDTIcon from "../../assets/tokens/USDT.e.png";
 import AvaxIcon from "../../assets/tokens/AVAX.svg";
 import MimRugIcon from "../../assets/tokens/RUG-MIM.svg";
 import AvaxRugIcon from "../../assets/tokens/RUG-AVAX.svg";
@@ -42,7 +43,22 @@ export const usdc = new StableBond({
   networkAddrs: {
     [Networks.AVAX]: {
       bondAddress: "0x790463505821987709E4C661F9aB56DEf8A6B682",
-      reserveAddress: "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+      reserveAddress: "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+    },
+  },
+});
+
+export const usdt = new StableBond({
+  name: "usdt",
+  displayName: "USDT",
+  bondToken: "USDT",
+  bondIconSvg: USDTIcon,
+  bondContractABI: StableBondContract,
+  reserveContractAbi: StableReserveContract,
+  networkAddrs: {
+    [Networks.AVAX]: {
+      bondAddress: "0x8Ab416d2DC33ed848A2B3FA75293C7E3B16F056e",
+      reserveAddress: "0xc7198437980c041c805a1edcba50c1ce5db95118",
     },
   },
 });
@@ -127,6 +143,22 @@ export const avaxRug = new CustomLPBond({
   lpUrl: "https://www.traderjoexyz.com/#/pool/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
 });
 
+export const avaxRugRlp = new CustomLPBond({
+  name: "avax_rug_rlp",
+  displayName: "RUG-AVAX RLP",
+  bondToken: "AVAX",
+  bondIconSvg: AvaxRugIcon,
+  bondContractABI: LpBondContract,
+  reserveContractAbi: LpReserveContract,
+  networkAddrs: {
+    [Networks.AVAX]: {
+      bondAddress: "0x881A8ECe1cD45A458eAcBA97f45b0fBc0752fCBF",
+      reserveAddress: "0xB6E73230B0a8D1cAa44F186Ab8146F10ab49314A",
+    },
+  },
+  lpUrl: "https://swap.rug.farm/#/add/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+});
+
 // export const avaxQi = new CustomLPBond({
 //   name: "avax_qi_lp",
 //   displayName: "QI-AVAX LP",
@@ -140,7 +172,7 @@ export const avaxRug = new CustomLPBond({
 //       reserveAddress: "0xE530dC2095Ef5653205CF5ea79F8979a7028065c",
 //     },
 //   },
-//   lpUrl: "https://app.pangolin.exchange/#/pool/AVAX/0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
+//   lpUrl: "https://app.pangolin.exchange/add/AVAX/0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
 // });
 
-export default [mim, mimRug, wavax, avaxRug, benqi];
+export default [mim, mimRug, wavax, avaxRug, benqi, avaxRugRlp];

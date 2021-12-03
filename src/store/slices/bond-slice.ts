@@ -17,6 +17,7 @@ import { getGasPrice } from "../../helpers/get-gas-price";
 import { metamaskErrorWrap } from "../../helpers/metamask-error-wrap";
 import { sleep } from "../../helpers";
 import { getAddress } from "@ethersproject/address";
+import { BondDataCard } from "src/views/ChooseBond/BondRow";
 
 interface IChangeApproval {
   bond: Bond;
@@ -219,7 +220,10 @@ export const bondAsset = createAsyncThunk(
   async ({ value, address, bond, networkID, provider, slippage, useAvax }: IBondAsset, { dispatch }) => {
     const depositorAddress = address;
     const acceptedSlippage = slippage / 100 || 0.005;
-    const valueInWei = ethers.utils.parseUnits(value, "ether");
+    const reserveContract = bond.getContractForReserve(networkID, provider);
+    const reserveDecimals = await reserveContract.decimals();
+    //Number(value) * Math.pow(10, reserveDecimals)
+    var valueInWei = ethers.utils.parseUnits(value, reserveDecimals);
     const signer = provider.getSigner();
     const bondContract = bond.getContractForBond(networkID, signer);
 

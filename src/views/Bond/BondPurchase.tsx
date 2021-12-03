@@ -65,6 +65,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
       }
     } else {
       const trimBalance = trim(Number(quantity), 10);
+      console.log(trimBalance);
       await dispatch(
         //@ts-ignore
         bondAsset({

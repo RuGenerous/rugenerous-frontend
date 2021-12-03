@@ -175,4 +175,4 @@ export const avaxRugRlp = new CustomLPBond({
 //   lpUrl: "https://app.pangolin.exchange/add/AVAX/0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
 // });
 
-export default [mim, mimRug, wavax, avaxRug, benqi, avaxRugRlp];
+export default [mim, mimRug, wavax, usdc, avaxRug, benqi, avaxRugRlp];

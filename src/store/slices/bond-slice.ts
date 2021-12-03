@@ -224,9 +224,6 @@ export const bondAsset = createAsyncThunk(
     const reserveDecimals = await reserveContract.decimals();
     //Number(value) * Math.pow(10, reserveDecimals)
     var valueInWei = ethers.utils.parseUnits(value, reserveDecimals);
-    // if (reserveDecimals < 18) {
-    //   valueInWei = Number(value) * Math.pow(10, reserveDecimals);
-    // }
     const signer = provider.getSigner();
     const bondContract = bond.getContractForBond(networkID, signer);
 

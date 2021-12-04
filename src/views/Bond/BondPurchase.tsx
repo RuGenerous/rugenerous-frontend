@@ -180,7 +180,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
         {!hasAllowance() && !useAvax && (
           <div className="help-text">
             <p className="help-text-desc">
-              Note: The "Approve" transaction is only needed when rugging yourself for the first time; subsequent rugs
+              Note: The "Approve" transaction is only needed when rugging yourself for the first rug; subsequent rugs
               only requires you to perform the "Rug Me" transaction.
             </p>
           </div>

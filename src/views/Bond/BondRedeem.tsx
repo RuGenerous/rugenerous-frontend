@@ -98,7 +98,7 @@ function BondRedeem({ bond }: IBondRedeem) {
             </p>
           </div>
           <div className="data-row">
-            <p className="bond-balance-title">Time until fully vested</p>
+            <p className="bond-balance-title">rug until fully vested</p>
             <p className="price-data bond-balance-title">
               {isBondLoading ? <Skeleton width="100px" /> : vestingTime()}
             </p>

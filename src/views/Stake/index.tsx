@@ -36,7 +36,7 @@ function Stake() {
     return state.app.fiveDayRate;
   });
   const timeBalance = useSelector<IReduxState, string>(state => {
-    return state.account.balances && state.account.balances.time;
+    return state.account.balances && state.account.balances.rug;
   });
   const warmupBalance = useSelector<IReduxState, string>(state => {
     return state.account.warmupInfo && state.account.warmupInfo.deposit;
@@ -48,13 +48,13 @@ function Stake() {
     return state.account.warmupInfo && state.account.warmupInfo.epoch;
   });
   const memoBalance = useSelector<IReduxState, string>(state => {
-    return state.account.balances && state.account.balances.memo;
+    return state.account.balances && state.account.balances.srug;
   });
   const stakeAllowance = useSelector<IReduxState, number>(state => {
-    return state.account.staking && state.account.staking.time;
+    return state.account.staking && state.account.staking.rug;
   });
   const unstakeAllowance = useSelector<IReduxState, number>(state => {
-    return state.account.staking && state.account.staking.memo;
+    return state.account.staking && state.account.staking.srug;
   });
   const stakingRebase = useSelector<IReduxState, number>(state => {
     return state.app.stakingRebase;
@@ -119,8 +119,8 @@ function Stake() {
 
   const hasAllowance = useCallback(
     token => {
-      if (token === "time") return stakeAllowance > 0;
-      if (token === "memo") return unstakeAllowance > 0;
+      if (token === "rug") return stakeAllowance > 0;
+      if (token === "srug") return unstakeAllowance > 0;
       return 0;
     },
     [stakeAllowance],
@@ -171,7 +171,7 @@ function Stake() {
                               `'Big' - trust me bro...`
                             </p>
 
-                            <Popper className="time-menu-popper tooltip" open={open} anchorEl={anchorEl} transition>
+                            <Popper className="rug-menu-popper tooltip" open={open} anchorEl={anchorEl} transition>
                               {({ TransitionProps }) => (
                                 <Fade {...TransitionProps} timeout={200}>
                                   <p className="tooltip-item">
@@ -266,7 +266,7 @@ function Stake() {
 
                       {view === 0 && (
                         <div className="stake-card-tab-panel">
-                          {address && hasAllowance("time") ? (
+                          {address && hasAllowance("rug") ? (
                             <div
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
@@ -281,7 +281,7 @@ function Stake() {
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
                                 if (isPendingTxn(pendingTransactions, "approve_staking")) return;
-                                onSeekApproval("time");
+                                onSeekApproval("rug");
                               }}
                             >
                               <p>{txnButtonText(pendingTransactions, "approve_staking", "Approve")}</p>
@@ -292,7 +292,7 @@ function Stake() {
 
                       {view === 1 && (
                         <div className="stake-card-tab-panel">
-                          {address && hasAllowance("memo") ? (
+                          {address && hasAllowance("srug") ? (
                             <div
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
@@ -307,7 +307,7 @@ function Stake() {
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
                                 if (isPendingTxn(pendingTransactions, "approve_unstaking")) return;
-                                onSeekApproval("memo");
+                                onSeekApproval("srug");
                               }}
                             >
                               <p>{txnButtonText(pendingTransactions, "approve_unstaking", "Approve")}</p>
@@ -318,9 +318,9 @@ function Stake() {
                     </div>
 
                     <div className="stake-card-action-help-text">
-                      {address && ((!hasAllowance("time") && view === 0) || (!hasAllowance("memo") && view === 1)) && (
+                      {address && ((!hasAllowance("rug") && view === 0) || (!hasAllowance("srug") && view === 1)) && (
                         <p>
-                          Note: The "Approve" transaction is only needed when staking/unstaking for the first time;
+                          Note: The "Approve" transaction is only needed when staking/unstaking for the first rug;
                           subsequent staking/unstaking only requires you to perform the "Stake" or "Unstake"
                           transaction.
                         </p>
@@ -365,12 +365,11 @@ function Stake() {
                                 <br />
                               </>
                             ) : (
-                              <>
+                              <div className="warmup-text">
                                 {" "}
-                                {WarmUpTimer()}
+                                {Number(warmupExpiry) - Number(currentEpoch)} Rebase(s) left till claimable
                                 <div className="forfeit-btn">{BasicModal(onChangeWarmup)}</div>
-                                {console.log(Number(warmupExpiry))} {console.log(Number(currentEpoch))}
-                              </>
+                              </div>
                             )}
                           </p>
                         </div>

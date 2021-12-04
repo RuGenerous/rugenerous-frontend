@@ -118,6 +118,21 @@ function NavContent() {
               </Link>
             ))}
           </div>
+
+          <Link
+            component={NavLink}
+            id="bond-nav"
+            to="/calculator"
+            isActive={(match: any, location: any) => {
+              return checkPage(location, "calculator");
+            }}
+            className={classnames("button-dapp-menu", { active: isActive })}
+          >
+            <div className="dapp-menu-item">
+              <img alt="" src={BrowserIcon} />
+              <p>Calculator</p>
+            </div>
+          </Link>
         </div>
       </div>
       <div className="dapp-menu-doc-link">

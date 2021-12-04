@@ -1,5 +1,5 @@
-.time-menu-root {
-  .time-menu-btn {
+.rug-menu-root {
+  .rug-menu-btn {
     padding: 9px 20px;
     background: #2BA9AE;
     box-shadow: 0px 0px 10px rgba(44, 39, 109, 0.1);
@@ -16,7 +16,7 @@
   }
 }
 
-.time-menu-popper {
+.rug-menu-popper {
   margin-top: 10px;
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {

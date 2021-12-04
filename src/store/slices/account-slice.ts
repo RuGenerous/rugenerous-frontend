@@ -20,8 +20,8 @@ interface IGetBalances {
 
 interface IAccountBalances {
   balances: {
-    memo: string;
-    time: string;
+    srug: string;
+    rug: string;
   };
 }
 
@@ -37,8 +37,8 @@ export const getBalances = createAsyncThunk(
 
     return {
       balances: {
-        memo: ethers.utils.formatUnits(memoBalance, "gwei"),
-        time: ethers.utils.formatUnits(timeBalance, "gwei"),
+        srug: ethers.utils.formatUnits(memoBalance, "gwei"),
+        rug: ethers.utils.formatUnits(timeBalance, "gwei"),
       },
     };
   },
@@ -81,12 +81,12 @@ export const loadWarmUpInfo = createAsyncThunk(
 
 interface IUserAccountDetails {
   balances: {
-    time: string;
-    memo: string;
+    rug: string;
+    srug: string;
   };
   staking: {
-    time: number;
-    memo: number;
+    rug: number;
+    srug: number;
   };
 }
 
@@ -114,12 +114,12 @@ export const loadAccountDetails = createAsyncThunk(
 
     return {
       balances: {
-        memo: ethers.utils.formatUnits(memoBalance, "gwei"),
-        time: ethers.utils.formatUnits(timeBalance, "gwei"),
+        srug: ethers.utils.formatUnits(memoBalance, "gwei"),
+        rug: ethers.utils.formatUnits(timeBalance, "gwei"),
       },
       staking: {
-        time: Number(stakeAllowance),
-        memo: Number(unstakeAllowance),
+        rug: Number(stakeAllowance),
+        srug: Number(unstakeAllowance),
       },
     };
   },
@@ -264,13 +264,13 @@ export const calculateUserTokenDetails = createAsyncThunk(
 export interface IAccountSlice {
   bonds: { [key: string]: IUserBondDetails };
   balances: {
-    memo: string;
-    time: string;
+    srug: string;
+    rug: string;
   };
   loading: boolean;
   staking: {
-    time: number;
-    memo: number;
+    rug: number;
+    srug: number;
   };
   warmupInfo: {
     expiry: string;
@@ -283,8 +283,8 @@ export interface IAccountSlice {
 const initialState: IAccountSlice = {
   loading: true,
   bonds: {},
-  balances: { memo: "", time: "" },
-  staking: { time: 0, memo: 0 },
+  balances: { srug: "", rug: "" },
+  staking: { rug: 0, srug: 0 },
   warmupInfo: { expiry: "", deposit: "", epoch: "" },
   tokens: {},
 };

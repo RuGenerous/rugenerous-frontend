@@ -323,7 +323,7 @@ const teddy: IToken = {
   decimals: 18,
 };
 
-const time: IToken = {
+const rug: IToken = {
   name: "RUG",
   address: "0xb8EF3a190b68175000B74B4160d325FD5024760e",
   img: RugIcon,
@@ -438,7 +438,7 @@ export default [
   sushi,
   syn,
   teddy,
-  time,
+  rug,
   tsd,
   usdc,
   usdt,

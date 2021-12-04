@@ -49,12 +49,12 @@ function TimeMenu() {
   const open = Boolean(anchorEl);
 
   return (
-    <div className="time-menu-root" onMouseEnter={e => handleClick(e)} onMouseLeave={e => handleClick(e)}>
-      <div className="time-menu-btn">
+    <div className="rug-menu-root" onMouseEnter={e => handleClick(e)} onMouseLeave={e => handleClick(e)}>
+      <div className="rug-menu-btn">
         <p>RUG</p>
       </div>
 
-      <Popper className="time-menu-popper" open={open} anchorEl={anchorEl} transition>
+      <Popper className="rug-menu-popper" open={open} anchorEl={anchorEl} transition>
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={200}>
             <div className="tooltip">

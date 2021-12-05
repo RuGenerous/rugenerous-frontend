@@ -70,7 +70,7 @@ function Bond({ bond }: IBondProps) {
                     ) : bond.isLP || bond.name === "wavax" ? (
                       `$${trim(bond.bondPrice, 2)}`
                     ) : (
-                      `${trim(bond.bondPrice, 2)} MIM`
+                      `$${trim(bond.bondPrice, 2)}`
                     )}
                   </p>
                 </div>

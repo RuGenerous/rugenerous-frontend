@@ -15,5 +15,9 @@ export function getTokenUrl(name: string) {
     return toUrl(SRugImg);
   }
 
+  if (name === "wsrug") {
+    return toUrl(SRugImg);
+  }
+
   throw Error(`Token url doesn't support: ${name}`);
 }

@@ -39,6 +39,7 @@ function TimeMenu() {
 
   const addresses = getAddresses(networkID);
 
+  const WSRUG_ADDRESS = addresses.WSRUG_ADDRESS;
   const SRUG_ADDRESS = addresses.SRUG_ADDRESS;
   const RUG_ADDRESS = addresses.RUG_ADDRESS;
 
@@ -83,6 +84,9 @@ function TimeMenu() {
                   </div>
                   <div className="tooltip-item" onClick={addTokenToWallet("SRUG", SRUG_ADDRESS)}>
                     <p>SRUG</p>
+                  </div>
+                  <div className="tooltip-item" onClick={addTokenToWallet("WSRUG", WSRUG_ADDRESS)}>
+                    <p>WSRUG</p>
                   </div>
                 </div>
               )}

@@ -4,6 +4,7 @@ import { StableBond, CustomBond } from "./stable-bond";
 
 import MimIcon from "../../assets/tokens/MIM.svg";
 import USDCIcon from "../../assets/tokens/USDC.e.png";
+import USDCRUGIcon from "../../assets/tokens/USDC-RUG.png";
 import USDTIcon from "../../assets/tokens/USDT.e.png";
 import AvaxIcon from "../../assets/tokens/AVAX.svg";
 import MimRugIcon from "../../assets/tokens/RUG-MIM.svg";
@@ -119,12 +120,29 @@ export const mimRugRlp = new LPBond({
   reserveContractAbi: LpReserveContract,
   networkAddrs: {
     [Networks.AVAX]: {
-      bondAddress: "0x25e5B2a546c8a4CE3B2d21C113C009A78B31FE07",
+      bondAddress: "0x5791CB62D2e1611E4fe64e85e56d1Ba81b890726",
       reserveAddress: "0x5F953AC71A131cF877C5A9d040E67aedd6e37caf",
     },
   },
   lpUrl:
     "https://swap.rug.farm/#/add/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+});
+
+export const usdcRugRlp = new LPBond({
+  name: "usdc_rug_rlp",
+  displayName: "RUG-USDC RLP",
+  bondToken: "USDC",
+  bondIconSvg: USDCRUGIcon,
+  bondContractABI: LpBondContract,
+  reserveContractAbi: LpReserveContract,
+  networkAddrs: {
+    [Networks.AVAX]: {
+      bondAddress: "0xDE664169D78c2FC3C14106095e21c6935C2027EE",
+      reserveAddress: "0x24bD0F349Da6afE313A5AbffD45fC4D107700ADB",
+    },
+  },
+  lpUrl:
+    "https://swap.rug.farm/#/add/0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664/0xb8EF3a190b68175000B74B4160d325FD5024760e",
 });
 
 export const avaxRug = new CustomLPBond({
@@ -175,4 +193,4 @@ export const avaxRugRlp = new CustomLPBond({
 //   lpUrl: "https://app.pangolin.exchange/add/AVAX/0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
 // });
 
-export default [mim, mimRug, wavax, usdc, usdt, avaxRug, benqi, avaxRugRlp];
+export default [mim, mimRug, wavax, usdc, usdt, avaxRug, benqi, avaxRugRlp, usdcRugRlp];

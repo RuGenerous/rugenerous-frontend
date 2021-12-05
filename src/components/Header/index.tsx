@@ -6,6 +6,7 @@ import RugMenu from "./rug-menu";
 import ConnectButton from "./connect-button";
 import "./header.scss";
 import { DRAWER_WIDTH, TRANSITION_DURATION } from "../../constants/style";
+import WrapButton from "./wrap-button";
 
 interface IHeader {
   handleDrawerToggle: () => void;
@@ -43,6 +44,7 @@ const useStyles = makeStyles(theme => ({
 function Header({ handleDrawerToggle, drawe }: IHeader) {
   const classes = useStyles();
   const isVerySmallScreen = useMediaQuery("(max-width: 400px)");
+  const isWrapShow = useMediaQuery("(max-width: 480px)");
 
   return (
     <div className={`${classes.topBar} ${!drawe && classes.topBarShift}`}>
@@ -53,6 +55,7 @@ function Header({ handleDrawerToggle, drawe }: IHeader) {
           </div>
           <div className="dapp-topbar-btns-wrap">
             {!isVerySmallScreen && <RugMenu />}
+            {!isWrapShow && <WrapButton />}
             <ConnectButton />
           </div>
         </Toolbar>

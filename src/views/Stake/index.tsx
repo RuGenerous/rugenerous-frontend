@@ -41,6 +41,9 @@ function Stake() {
   const warmupBalance = useSelector<IReduxState, string>(state => {
     return state.account.warmupInfo && state.account.warmupInfo.deposit;
   });
+  const gonsBalance = useSelector<IReduxState, string>(state => {
+    return state.account.warmupInfo && state.account.warmupInfo.gonsBalance;
+  });
   const warmupExpiry = useSelector<IReduxState, string>(state => {
     return state.account.warmupInfo && state.account.warmupInfo.expiry;
   });
@@ -345,6 +348,17 @@ function Stake() {
                             {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(warmupBalance), 4)} RUG</>}
                           </p>
                         </div>
+
+                        {Number(warmupBalance) < Number(gonsBalance) && (
+                          <>
+                            <div className="data-row">
+                              <p className="data-row-name">With Rebases</p>
+                              <p className="data-row-value">
+                                {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(gonsBalance), 4)} RUG</>}
+                              </p>
+                            </div>
+                          </>
+                        )}
 
                         <div className="data-row">
                           <p className="data-row-name">Pending Warm Up Till Release</p>

@@ -35,6 +35,11 @@ export const getStakingTypeText = (action: string) => {
 export const getWarmupTypeText = (action: string) => {
   return action.toLowerCase() === "forfeit" ? "Exiting Warmup" : "Claiming RUGGED(SRUG)";
 };
+
+export const getWrapingTypeText = (isWrap: boolean) => {
+  return isWrap ? "Wrap RUG" : "Unwrap wsRUG";
+};
+
 export const isPendingTxn = (pendingTransactions: IPendingTxn[], type: string) => {
   return pendingTransactions.map(x => x.type).includes(type);
 };

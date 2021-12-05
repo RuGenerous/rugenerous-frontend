@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { getAddresses } from "../../constants";
-import { RugTokenContract, SRugTokenContract, MimTokenContract, StakingContract } from "../../abi";
+import { RugTokenContract, SRugTokenContract, MimTokenContract, StakingContract, wsRugTokenContract } from "../../abi";
 import { setAll } from "../../helpers";
 
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
@@ -22,6 +22,7 @@ interface IAccountBalances {
   balances: {
     srug: string;
     rug: string;
+    wsrug: string;
   };
 }
 
@@ -34,11 +35,14 @@ export const getBalances = createAsyncThunk(
     const memoBalance = await memoContract.balanceOf(address);
     const timeContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
     const timeBalance = await timeContract.balanceOf(address);
+    const wsrugContract = new ethers.Contract(addresses.WSRUG_ADDRESS, wsRugTokenContract, provider);
+    const wsrugBalance = await wsrugContract.balanceOf(address);
 
     return {
       balances: {
         srug: ethers.utils.formatUnits(memoBalance, "gwei"),
         rug: ethers.utils.formatUnits(timeBalance, "gwei"),
+        wsrug: ethers.utils.formatEther(wsrugBalance),
       },
     };
   },
@@ -83,9 +87,13 @@ interface IUserAccountDetails {
   balances: {
     rug: string;
     srug: string;
+    wsrug: string;
   };
   staking: {
     rug: number;
+    srug: number;
+  };
+  wraping: {
     srug: number;
   };
 }
@@ -95,6 +103,8 @@ export const loadAccountDetails = createAsyncThunk(
   async ({ networkID, provider, address }: ILoadAccountDetails): Promise<IUserAccountDetails> => {
     let timeBalance = 0;
     let memoBalance = 0;
+    let wsRugBalance = 0;
+    let sRugwsRugAllowance = 0;
     let stakeAllowance = 0;
     let unstakeAllowance = 0;
 
@@ -110,16 +120,28 @@ export const loadAccountDetails = createAsyncThunk(
       const memoContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, provider);
       memoBalance = await memoContract.balanceOf(address);
       unstakeAllowance = await memoContract.allowance(address, addresses.STAKING_ADDRESS);
+      if (addresses.WSRUG_ADDRESS) {
+        sRugwsRugAllowance = await memoContract.allowance(address, addresses.WSRUG_ADDRESS);
+      }
+    }
+
+    if (addresses.WSRUG_ADDRESS) {
+      const wsrugContract = new ethers.Contract(addresses.WSRUG_ADDRESS, wsRugTokenContract, provider);
+      wsRugBalance = await wsrugContract.balanceOf(address);
     }
 
     return {
       balances: {
         srug: ethers.utils.formatUnits(memoBalance, "gwei"),
         rug: ethers.utils.formatUnits(timeBalance, "gwei"),
+        wsrug: ethers.utils.formatEther(wsRugBalance),
       },
       staking: {
         rug: Number(stakeAllowance),
         srug: Number(unstakeAllowance),
+      },
+      wraping: {
+        srug: Number(sRugwsRugAllowance),
       },
     };
   },
@@ -266,10 +288,14 @@ export interface IAccountSlice {
   balances: {
     srug: string;
     rug: string;
+    wsrug: string;
   };
   loading: boolean;
   staking: {
     rug: number;
+    srug: number;
+  };
+  wraping: {
     srug: number;
   };
   warmupInfo: {
@@ -283,9 +309,10 @@ export interface IAccountSlice {
 const initialState: IAccountSlice = {
   loading: true,
   bonds: {},
-  balances: { srug: "", rug: "" },
+  balances: { srug: "", rug: "", wsrug: "" },
   staking: { rug: 0, srug: 0 },
   warmupInfo: { expiry: "", deposit: "", epoch: "" },
+  wraping: { srug: 0 },
   tokens: {},
 };
 

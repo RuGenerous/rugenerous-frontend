@@ -1,7 +1,8 @@
-import { StaticJsonRpcProvider } from "@ethersproject/providers";
+import { JsonRpcProvider, Provider, StaticJsonRpcProvider } from "@ethersproject/providers";
 import axios from "axios";
 import { ethers } from "ethers";
-import { abi as TimeContract } from "../abi/tokens/RugTokenContract..json";
+import { abi as MemoContract } from "../abi/tokens/SRugContract.json";
+import { getMainnetURI } from "src/hooks/web3/helpers";
 
 const cache: { [key: string]: number } = {};
 
@@ -11,8 +12,12 @@ export const loadTokenPrices = async () => {
   const { data } = await axios.get(url);
 
   async function getCurrentIndex() {
-    const Time = new ethers.Contract("0x0", TimeContract);
-    const TimeCurrentIndex = await Time.currentIndex();
+    const Time = new ethers.Contract(
+      "0x136Acd46C134E8269052c62A67042D6bDeDde3C9",
+      MemoContract,
+      new JsonRpcProvider(getMainnetURI()),
+    );
+    const TimeCurrentIndex = await Time.INDEX();
     return Number(TimeCurrentIndex);
   }
 

@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import { getAddresses } from "../../constants";
 import { RugTokenContract, SRugTokenContract, MimTokenContract, StakingContract } from "../../abi";
-import { setAll } from "../../helpers";
+import { getBalanceForGons, setAll } from "../../helpers";
 
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
 import { JsonRpcProvider, StaticJsonRpcProvider } from "@ethersproject/providers";
@@ -49,6 +49,8 @@ interface IWarmUpInfo {
     expiry: number;
     deposit: string;
     epoch: number;
+    gons: string;
+    gonsBalance: string;
   };
 }
 
@@ -69,11 +71,17 @@ export const loadWarmUpInfo = createAsyncThunk(
     const warmupExpiry = warmupDetails.expiry;
     const epochDetails = await stakingContract.epoch();
     const currentEpoch = epochDetails.number;
+
+    const gons = warmupDetails.gons;
+    const gonsBalance = await getBalanceForGons(gons, networkID, provider);
+
     return {
       warmupInfo: {
         expiry: warmupExpiry,
         deposit: ethers.utils.formatUnits(depositBalance, "gwei"),
         epoch: currentEpoch,
+        gons: gons,
+        gonsBalance: ethers.utils.formatUnits(gonsBalance, "gwei"),
       },
     };
   },
@@ -276,6 +284,8 @@ export interface IAccountSlice {
     expiry: string;
     deposit: string;
     epoch: string;
+    gons: string;
+    gonsBalance: string;
   };
   tokens: { [key: string]: IUserTokenDetails };
 }
@@ -285,7 +295,7 @@ const initialState: IAccountSlice = {
   bonds: {},
   balances: { srug: "", rug: "" },
   staking: { rug: 0, srug: 0 },
-  warmupInfo: { expiry: "", deposit: "", epoch: "" },
+  warmupInfo: { expiry: "", deposit: "", epoch: "", gons: "", gonsBalance: "" },
   tokens: {},
 };
 

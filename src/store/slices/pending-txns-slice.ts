@@ -36,7 +36,7 @@ export const getWarmupTypeText = (action: string) => {
   return action.toLowerCase() === "forfeit" ? "Exiting Warmup" : "Claiming RUGGED(SRUG)";
 };
 
-export const getWrapingTypeText = (isWrap: boolean) => {
+export const getwrappingTypeText = (isWrap: boolean) => {
   return isWrap ? "Wrap RUG" : "Unwrap wsRUG";
 };
 

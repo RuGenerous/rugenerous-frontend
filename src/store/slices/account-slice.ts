@@ -93,7 +93,7 @@ interface IUserAccountDetails {
     rug: number;
     srug: number;
   };
-  wraping: {
+  wrapping: {
     srug: number;
   };
 }
@@ -140,7 +140,7 @@ export const loadAccountDetails = createAsyncThunk(
         rug: Number(stakeAllowance),
         srug: Number(unstakeAllowance),
       },
-      wraping: {
+      wrapping: {
         srug: Number(sRugwsRugAllowance),
       },
     };
@@ -295,7 +295,7 @@ export interface IAccountSlice {
     rug: number;
     srug: number;
   };
-  wraping: {
+  wrapping: {
     srug: number;
   };
   warmupInfo: {
@@ -312,7 +312,7 @@ const initialState: IAccountSlice = {
   balances: { srug: "", rug: "", wsrug: "" },
   staking: { rug: 0, srug: 0 },
   warmupInfo: { expiry: "", deposit: "", epoch: "" },
-  wraping: { srug: 0 },
+  wrapping: { srug: 0 },
   tokens: {},
 };
 

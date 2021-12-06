@@ -34,7 +34,7 @@ function Wrap({ open, handleClose }: IAdvancedSettingsProps) {
   });
 
   const wrapValue = useSelector<IReduxState, string>(state => {
-    return state.wraping && state.wraping.wrapValue;
+    return state.wrapping && state.wrapping.wrapValue;
   });
 
   const pendingTransactions = useSelector<IReduxState, IPendingTxn[]>(state => {
@@ -42,7 +42,7 @@ function Wrap({ open, handleClose }: IAdvancedSettingsProps) {
   });
 
   const srugAllowance = useSelector<IReduxState, number>(state => {
-    return state.account.wraping && state.account.wraping.srug;
+    return state.account.wrapping && state.account.wrapping.srug;
   });
 
   const [isWrap, setIsWrap] = useState(true);
@@ -164,33 +164,33 @@ function Wrap({ open, handleClose }: IAdvancedSettingsProps) {
               className="wrap-btn"
               onClick={() => {
                 const inPending = isWrap
-                  ? isPendingTxn(pendingTransactions, "wraping")
-                  : isPendingTxn(pendingTransactions, "unwraping");
+                  ? isPendingTxn(pendingTransactions, "wrapping")
+                  : isPendingTxn(pendingTransactions, "unwrapping");
                 if (inPending) return;
                 handleOnWrap();
               }}
             >
               <p>
                 {isWrap
-                  ? txnButtonText(pendingTransactions, "wraping", "Wrap")
-                  : txnButtonText(pendingTransactions, "unwraping", "Unwrap")}
+                  ? txnButtonText(pendingTransactions, "wrapping", "Wrap")
+                  : txnButtonText(pendingTransactions, "unwrapping", "Unwrap")}
               </p>
             </div>
           ) : (
             <div
               className="wrap-btn"
               onClick={() => {
-                if (isPendingTxn(pendingTransactions, "approve_wraping")) return;
+                if (isPendingTxn(pendingTransactions, "approve_wrapping")) return;
                 onSeekApproval();
               }}
             >
-              <p>{txnButtonText(pendingTransactions, "approve_wraping", "Approve")}</p>
+              <p>{txnButtonText(pendingTransactions, "approve_wrapping", "Approve")}</p>
             </div>
           )}
           {!hasAllowance() && (
             <div className="wrap-help-text">
               <p>Note: The "Approve" transaction is only needed when</p>
-              <p>wraping for the first time; subsequent wraping only</p>
+              <p>wrapping for the first time; subsequent wrapping only</p>
               <p>requires you to perform the "Wrap" transaction.</p>
             </div>
           )}

@@ -352,7 +352,7 @@ function Stake() {
                         {Number(warmupBalance) < Number(gonsBalance) && (
                           <>
                             <div className="data-row">
-                              <p className="data-row-name">With Rebases</p>
+                              <p className="data-row-name">Warm Up Balance with Rebase Rewards</p>
                               <p className="data-row-value">
                                 {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(gonsBalance), 4)} RUG</>}
                               </p>

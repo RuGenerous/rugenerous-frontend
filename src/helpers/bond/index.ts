@@ -96,7 +96,7 @@ export const wavax = new CustomBond({
 
 export const mimRug = new LPBond({
   name: "mim_time_lp",
-  displayName: "RUG-MIM LP",
+  displayName: "RUG-MIM JLP",
   bondToken: "MIM",
   bondIconSvg: MimRugIcon,
   bondContractABI: LpBondContract,
@@ -147,7 +147,7 @@ export const usdcRugRlp = new LPBond({
 
 export const avaxRug = new CustomLPBond({
   name: "avax_rug_lp",
-  displayName: "RUG-AVAX LP",
+  displayName: "RUG-AVAX JLP",
   bondToken: "AVAX",
   bondIconSvg: AvaxRugIcon,
   bondContractABI: LpBondContract,

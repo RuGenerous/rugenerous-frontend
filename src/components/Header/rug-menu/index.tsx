@@ -64,6 +64,7 @@ function TimeMenu() {
                 target="_blank"
               >
                 <p>Buy on RUG Exchange</p>
+                <span className="exchange-subtext">The cheapest swap you'll make on AVAX</span>
               </Link>
               <Link
                 className="tooltip-item"

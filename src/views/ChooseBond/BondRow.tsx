@@ -39,8 +39,10 @@ export function BondDataCard({ bond }: IBondProps) {
                 <Skeleton width="50px" />
               ) : bond.bondPrice < maxBond ? (
                 trim(bond.bondPrice, 2)
-              ) : (
+              ) : bond.purchased > 1000 ? (
                 "Sold Out"
+              ) : (
+                "N/A"
               )}{" "}
             </>
           </p>
@@ -110,8 +112,10 @@ export function BondTableData({ bond }: IBondProps) {
               <>
                 <span className="currency-icon">{priceUnits(bond)}</span> {trim(bond.bondPrice, 2)}
               </>
+            ) : bond.purchased > 1000 ? (
+              "Sold Out"
             ) : (
-              "Sold out"
+              "Coming Soon"
             )}{" "}
           </>
         </p>
@@ -141,19 +145,21 @@ export function BondTableData({ bond }: IBondProps) {
           )}
         </p>
       </TableCell>
-      <TableCell>
-        <Link component={NavLink} to={`/mints/${bond.name}`}>
-          {bond.bondPrice < maxBond ? (
-            <div className="bond-table-btn">
-              <p>Mint</p>
-            </div>
-          ) : (
-            <div className="bond-table-btn">
-              <p>Withdraw</p>
-            </div>
-          )}
-        </Link>
-      </TableCell>
+      {bond.purchased > 1000 ? (
+        <TableCell>
+          <Link component={NavLink} to={`/mints/${bond.name}`}>
+            {bond.bondPrice < maxBond ? (
+              <div className="bond-table-btn">
+                <p>Mint</p>
+              </div>
+            ) : (
+              <div className="bond-table-btn">
+                <p>Withdraw</p>
+              </div>
+            )}
+          </Link>
+        </TableCell>
+      ) : undefined}
     </TableRow>
   );
 }

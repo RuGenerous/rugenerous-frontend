@@ -41,6 +41,9 @@ function Stake() {
   const warmupBalance = useSelector<IReduxState, string>(state => {
     return state.account.warmupInfo && state.account.warmupInfo.deposit;
   });
+  const gonsBalance = useSelector<IReduxState, string>(state => {
+    return state.account.warmupInfo && state.account.warmupInfo.gonsBalance;
+  });
   const warmupExpiry = useSelector<IReduxState, string>(state => {
     return state.account.warmupInfo && state.account.warmupInfo.expiry;
   });
@@ -346,6 +349,17 @@ function Stake() {
                           </p>
                         </div>
 
+                        {Number(warmupBalance) < Number(gonsBalance) && (
+                          <>
+                            <div className="data-row">
+                              <p className="data-row-name">Warm Up Balance with Rebase Rewards</p>
+                              <p className="data-row-value">
+                                {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(gonsBalance), 4)} RUG</>}
+                              </p>
+                            </div>
+                          </>
+                        )}
+
                         <div className="data-row">
                           <p className="data-row-name">Pending Warm Up Till Release</p>
                           <p className="data-row-value">
@@ -407,9 +421,10 @@ function Stake() {
                     <div className="stake-card-action-help-text">
                       <br />
                       <p>
-                        Note: There is a 8-Hour warm-up staking period, where users must be staked for more than 8 hours
-                        before receiving any rebase rewards. When 8 hours has elapsed your staked balance can be claimed
-                        from the warm up contract and you will automatically receive the rebase rewards thereafter.
+                        Note: There is a 2 epoch warm-up staking period, where users must be staked for more than 2
+                        epoch's /rebases before claiming any rebase rewards. When 2 epochs has elapsed your staked
+                        balance can be claimed from the warm up contract and you will automatically receive the rebase
+                        rewards thereafter.
                       </p>
                     </div>
                   </div>

@@ -10,7 +10,7 @@ import { Bond } from "../../helpers/bond/bond";
 import { Networks } from "../../constants/blockchain";
 import { getBondCalculator } from "../../helpers/bond-calculator";
 import { RootState } from "../store";
-import { avaxRug, wavax, benqi, avaxRugRlp } from "../../helpers/bond";
+import { avaxRug, wavax, benqi, avaxRugRlp, usdcRugRlp } from "../../helpers/bond";
 import { error, warning, success, info } from "../slices/messages-slice";
 import { messages } from "../../constants/messages";
 import { getGasPrice } from "../../helpers/get-gas-price";
@@ -114,8 +114,8 @@ export const calcBondDetails = createAsyncThunk(
 
     const bondContract = bond.getContractForBond(networkID, provider);
     const reserveContract = bond.getContractForReserve(networkID, provider);
-    const bondCalcContract = getBondCalculator(networkID, provider, bond.name);
     const reserveDecimals = await reserveContract.decimals();
+    const bondCalcContract = getBondCalculator(networkID, provider, bond.name);
 
     const terms = await bondContract.terms();
     const maxBondPrice = (await bondContract.maxPayout()) / Math.pow(10, 9);
@@ -128,13 +128,20 @@ export const calcBondDetails = createAsyncThunk(
     try {
       bondPrice = await bondContract.bondPriceInUSD();
 
-      if (bond.name === avaxRug.name || bond.name === avaxRugRlp.name) {
-        const avaxPrice = getTokenPrice("AVAX");
-        bondPrice = bondPrice * avaxPrice;
-      }
-      if (bond.name === benqi.name) {
-        const benqiPrice = getTokenPrice("QI");
-        bondPrice = bondPrice * benqiPrice;
+      switch (bond.name) {
+        case avaxRug.name:
+        case avaxRugRlp.name:
+          const avaxPrice = getTokenPrice("AVAX");
+          bondPrice = bondPrice * avaxPrice;
+          break;
+        case benqi.name:
+          const benqiPrice = getTokenPrice("QI");
+          bondPrice = bondPrice * benqiPrice;
+          break;
+        case usdcRugRlp.name:
+          const usdcPrice = getTokenPrice("USDC");
+          bondPrice = bondPrice * usdcPrice;
+          break;
       }
 
       bondDiscount = (marketPrice * Math.pow(10, reserveDecimals) - bondPrice) / bondPrice;

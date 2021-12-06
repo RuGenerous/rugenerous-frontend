@@ -111,7 +111,9 @@ function NavContent() {
                     <span className="bond-pair-roi">
                       {bond.bondPrice < 10000000
                         ? `${bond.bondDiscount && trim(bond.bondDiscount * 100, 2)}%`
-                        : "Sold Out"}
+                        : bond.purchased > 1000
+                        ? "Sold Out"
+                        : "N/A"}
                     </span>
                   </p>
                 )}

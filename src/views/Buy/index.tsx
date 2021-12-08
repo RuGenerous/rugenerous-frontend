@@ -1,7 +1,6 @@
 import { Grid, Box, Zoom } from "@material-ui/core";
 import React, { useState } from "react";
 import "./buy.scss";
-import TJLogo from "../../assets/icons/tj_logo.png";
 
 function Buy() {
   const urlRegDex = "https://swap.rug.farm";

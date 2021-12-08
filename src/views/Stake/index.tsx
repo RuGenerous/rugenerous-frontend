@@ -423,11 +423,9 @@ function Stake() {
                       <p>
                         Please Note: there is a two-epoch warm-up period when staking. One epoch is eight hours (one rebase window).
                         During warm-up, your staked tokens are held by the warm-up contract. Exiting the warm-up early will return your
-                        original deposit to your wallet.
-
-                        Your staked tokens and their accrued rebase rewards will be available to claim at the start of the third epoch 
-                        after you initially staked. Once claimed, the tokens move to your staked token balance, where they will continue
-                        to earn rebase rewards and can be unstaked at any time without penalty.
+                        original deposit to your wallet.\n\nYour staked tokens and their accrued rebase rewards will be available to claim
+                        at the start of the third epoch after you initially staked. Once claimed, the tokens move to your staked token
+                        balance, where they will continue to earn rebase rewards and can be unstaked at any time without penalty.
                       </p>
                     </div>
                   </div>

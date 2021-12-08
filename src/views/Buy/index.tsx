@@ -4,15 +4,12 @@ import "./buy.scss";
 
 function Buy() {
   const urlRegDex = "https://swap.rug.farm";
-  const urlTJ =
+  const c =
     "https://traderjoexyz.com/#/trade?inputCurrency=0x130966628846bfd36ff31a822705796e8cb8c18d&amp;outputCurrency=0xb8ef3a190b68175000b74b4160d325fd5024760e#swap-page";
   const [dexUrl, setValue] = useState(urlRegDex);
 
-  const handleSetRegDex = () => {
-    setValue(urlRegDex);
-  };
-  const handleSetTJ = () => {
-    setValue(urlTJ);
+  const handleSetUrl = (url) => {
+    setValue(url);
   };
 
   return (
@@ -25,13 +22,13 @@ function Buy() {
           <Grid container item xs={12} spacing={2} className="choose-buy-view-buttons">
             <Grid item xs={12} sm={6}>
               <Box textAlign="center">
-                <input type="button" value="Rug Dex" className="stake-card-tab-panel-btn" onClick={handleSetRegDex} />
+                <input type="button" value="Rug Dex" className="stake-card-tab-panel-btn" onClick={handleSetUrl(urlRegDex)} />
               </Box>
             </Grid>
 
             <Grid item xs={12} sm={6}>
               <Box textAlign="center">
-                <input type="button" value="TraderJoe" className="stake-card-tab-panel-btn" onClick={handleSetTJ} />
+                <input type="button" value="TraderJoe" className="stake-card-tab-panel-btn" onClick={handleSetUrl(handleSetUrl)} />
               </Box>
             </Grid>
           </Grid>

@@ -14,7 +14,7 @@ import { IReduxState } from "../store/slices/state.interface";
 import Loading from "../components/Loader";
 import useBonds from "../hooks/Bonds";
 import ViewBase from "../components/ViewBase";
-import { Stake, ChooseBond, Bond, Dashboard, NotFound, Calculator } from "../views";
+import { Stake, ChooseBond, Bond, Dashboard, NotFound, Calculator, Buy } from "../views";
 import "./style.scss";
 import useTokens from "../hooks/tokens";
 
@@ -127,6 +127,10 @@ function App() {
 
         <Route path="/calculator">
           <Calculator />
+        </Route>
+
+        <Route path="/buy">
+          <Buy />
         </Route>
 
         <Route path="/mints">

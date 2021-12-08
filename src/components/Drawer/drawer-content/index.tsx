@@ -6,6 +6,7 @@ import BondIcon from "../../../assets/icons/bond.svg";
 import RugenerousIcon from "../../../assets/rugNoBg.png";
 import DashboardIcon from "../../../assets/icons/dashboard.svg";
 import ForumIcon from "../../../assets/icons/forum.svg";
+import BuyIcon from "../../../assets/icons/buy_icon.svg";
 import { trim, shorten } from "../../../helpers";
 import { useAddress } from "../../../hooks";
 import useBonds from "../../../hooks/Bonds";
@@ -65,6 +66,20 @@ function NavContent() {
             <div className="dapp-menu-item">
               <img alt="" src={DashboardIcon} />
               <p>Definitely Real Stats</p>
+            </div>
+          </Link>
+
+          <Link
+            component={NavLink}
+            to="/buy"
+            isActive={(match: any, location: any) => {
+              return checkPage(location, "buy");
+            }}
+            className={classnames("button-dapp-menu", { active: isActive })}
+          >
+            <div className="dapp-menu-item">
+              <img alt="" src={BuyIcon} />
+              <p>Buy Rug</p>
             </div>
           </Link>
 

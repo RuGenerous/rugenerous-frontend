@@ -6,7 +6,6 @@ import BondIcon from "../../../assets/icons/bond.svg";
 import RugenerousIcon from "../../../assets/rugNoBg.png";
 import DashboardIcon from "../../../assets/icons/dashboard.svg";
 import ForumIcon from "../../../assets/icons/forum.svg";
-import BuyIcon from "../../../assets/icons/buy_icon.svg";
 import { trim, shorten } from "../../../helpers";
 import { useAddress } from "../../../hooks";
 import useBonds from "../../../hooks/Bonds";

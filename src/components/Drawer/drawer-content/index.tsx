@@ -71,20 +71,6 @@ function NavContent() {
 
           <Link
             component={NavLink}
-            to="/buy"
-            isActive={(match: any, location: any) => {
-              return checkPage(location, "buy");
-            }}
-            className={classnames("button-dapp-menu", { active: isActive })}
-          >
-            <div className="dapp-menu-item">
-              <img alt="" src={BuyIcon} />
-              <p>Buy Rug</p>
-            </div>
-          </Link>
-
-          <Link
-            component={NavLink}
             to="/stake"
             isActive={(match: any, location: any) => {
               return checkPage(location, "stake");

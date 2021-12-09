@@ -70,6 +70,34 @@
     }
   }
 
+  .bond-one-table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .bond-one-table-btn {
+      margin: 0 20px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+
+      p {
+        font-family: Montserrat SemiBold;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    .bond-one-table-btn.active {
+      border-bottom: 1px solid #ffffff;
+
+      p {
+        color: #ffffff;
+      }
+    }
+  }
+
   .choose-bond-view-card-container {
     margin-top: 16px;
 

@@ -1,21 +1,13 @@
 import { Grid, Box, Zoom } from "@material-ui/core";
 import React, { useState } from "react";
 import "./buy.scss";
+import { exchanges } from "../../constants/exchanges";
 
-function Buy() {
-  const urlRegDex =
-    "https://swap.rug.farm/#/trade?inputCurrency=0x130966628846bfd36ff31a822705796e8cb8c18d&outputCurrency=0xb8ef3a190b68175000b74b4160d325fd5024760e";
-  const urlTJ =
-    "https://traderjoexyz.com/#/trade?inputCurrency=0x130966628846bfd36ff31a822705796e8cb8c18d&amp;outputCurrency=0xb8ef3a190b68175000b74b4160d325fd5024760e#swap-page";
-  const [dexUrl, setValue] = useState(urlRegDex);
+interface ExchangeUrlProps {
+  dexUrl: string;
+}
 
-  const handleSetRegDex = () => {
-    setValue(urlRegDex);
-  };
-  const handleSetTJ = () => {
-    setValue(urlTJ);
-  };
-
+function Buy({ dexUrl }: ExchangeUrlProps) {
   return (
     <div className="choose-buy-view">
       <Zoom in={true}>
@@ -23,19 +15,6 @@ function Buy() {
           <div className="choose-buy-view-card-header">
             <p className="choose-buy-view-card-title"> Get Rugged</p>
           </div>
-          <Grid container item xs={12} spacing={2} className="choose-buy-view-buttons">
-            <Grid item xs={12} sm={6}>
-              <Box textAlign="center">
-                <input type="button" value="Rug Dex" className="stake-card-tab-panel-btn" onClick={handleSetRegDex} />
-              </Box>
-            </Grid>
-
-            <Grid item xs={12} sm={6}>
-              <Box textAlign="center">
-                <input type="button" value="TraderJoe" className="stake-card-tab-panel-btn" onClick={handleSetTJ} />
-              </Box>
-            </Grid>
-          </Grid>
           <iframe src={dexUrl}></iframe>
         </div>
       </Zoom>

@@ -17,6 +17,7 @@ import ViewBase from "../components/ViewBase";
 import { Stake, ChooseBond, Bond, Dashboard, NotFound, Calculator, Buy } from "../views";
 import "./style.scss";
 import useTokens from "../hooks/tokens";
+import { exchanges } from "../constants/exchanges";
 
 function App() {
   const dispatch = useDispatch();
@@ -129,8 +130,12 @@ function App() {
           <Calculator />
         </Route>
 
-        <Route path="/buy">
-          <Buy />
+        <Route path="/buy/rugDex">
+          <Buy dexUrl={exchanges.rugDex} />
+        </Route>
+
+        <Route path="/buy/tjDex">
+          <Buy dexUrl={exchanges.tjDex} />
         </Route>
 
         <Route path="/mints">

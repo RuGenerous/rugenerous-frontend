@@ -18,6 +18,8 @@ import useBonds from "../../hooks/Bonds";
 import "./choosebond.scss";
 import { Skeleton } from "@material-ui/lab";
 import { IReduxState } from "../../store/slices/state.interface";
+import classnames from "classnames";
+import { useState } from "react";
 
 function ChooseBond() {
   const { bonds } = useBonds();
@@ -31,6 +33,12 @@ function ChooseBond() {
   const treasuryBalance = useSelector<IReduxState, number>(state => {
     return state.app.treasuryBalance;
   });
+
+  const [view, setView] = useState(0);
+
+  const changeView = (newView: number) => () => {
+    setView(newView);
+  };
 
   return (
     <div className="choose-bond-view">
@@ -70,34 +78,42 @@ function ChooseBond() {
           </Grid>
 
           {!isSmallScreen && (
-            <Grid container item>
-              <TableContainer className="choose-bond-view-card-table">
-                <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell align="center">
-                        <p className="choose-bond-view-card-table-title">Mint</p>
-                      </TableCell>
-                      <TableCell align="center">
-                        <p className="choose-bond-view-card-table-title">Price</p>
-                      </TableCell>
-                      <TableCell align="center">
-                        <p className="choose-bond-view-card-table-title">ROI</p>
-                      </TableCell>
-                      <TableCell align="right">
-                        <p className="choose-bond-view-card-table-title">Purchased</p>
-                      </TableCell>
-                      <TableCell align="right"></TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {bonds.map(bond => (
-                      <BondTableData key={bond.name} bond={bond} />
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </Grid>
+            <>
+              <div className={classnames("bond-one-table-btn", { active: !view })} onClick={changeView(0)}>
+                <p>Available Bonds</p>
+              </div>
+              <div className={classnames("bond-one-table-btn", { active: !view })} onClick={changeView(0)}>
+                <p>Sold Out Bonds</p>
+              </div>
+              <Grid container item>
+                <TableContainer className="choose-bond-view-card-table">
+                  <Table>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell align="center">
+                          <p className="choose-bond-view-card-table-title">Mint</p>
+                        </TableCell>
+                        <TableCell align="center">
+                          <p className="choose-bond-view-card-table-title">Price</p>
+                        </TableCell>
+                        <TableCell align="center">
+                          <p className="choose-bond-view-card-table-title">ROI</p>
+                        </TableCell>
+                        <TableCell align="right">
+                          <p className="choose-bond-view-card-table-title">Purchased</p>
+                        </TableCell>
+                        <TableCell align="right"></TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {bonds.map(bond => (
+                        <BondTableData key={bond.name} bond={bond} />
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Grid>
+            </>
           )}
         </div>
       </Zoom>

@@ -18,10 +18,8 @@ run: docker.build
 		$(IMAGE_NAME)
 
 docker.build:
-	export DOCKER_BUILDKIT=1 \
-	&& docker build \
+	docker build \
 		--no-cache \
-		--ssh default=~/.ssh/id_rsa \
 		$(PWD) \
 		-f .docker/Dockerfile \
 		-t $(IMAGE_NAME):latest

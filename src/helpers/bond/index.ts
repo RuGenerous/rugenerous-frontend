@@ -11,6 +11,7 @@ import MimRugIcon from "../../assets/tokens/RUG-MIM.svg";
 import AvaxRugIcon from "../../assets/tokens/RUG-AVAX.svg";
 import BenQiIcon from "../../assets/tokens/QI.png";
 import MemoIcon from "../../assets/tokens/MEMO.png";
+import TimeRugIcon from "../../assets/tokens/TIMERUG.png";
 
 import {
   StableBondContract,
@@ -188,6 +189,22 @@ export const avaxRugRlp = new CustomLPBond({
     [Networks.AVAX]: {
       bondAddress: "0x881A8ECe1cD45A458eAcBA97f45b0fBc0752fCBF",
       reserveAddress: "0xB6E73230B0a8D1cAa44F186Ab8146F10ab49314A",
+    },
+  },
+  lpUrl: "https://swap.rug.farm/#/add/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+});
+
+export const timeRugRlp = new CustomLPBond({
+  name: "time_rug_rlp",
+  displayName: "RUG-TIME RLP",
+  bondToken: "TIME",
+  bondIconSvg: TimeRugIcon,
+  bondContractABI: LpBondContract,
+  reserveContractAbi: LpReserveContract,
+  networkAddrs: {
+    [Networks.AVAX]: {
+      bondAddress: "0x1e79e35b377867b89bBEFf91dc0f3f58E37376fA",
+      reserveAddress: "0xb09b801aab1f9dfc4359a4a628525cbefdd10942",
     },
   },
   lpUrl: "https://swap.rug.farm/#/add/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",

@@ -18,6 +18,7 @@ import { forfeitOrClaim } from "../../store/slices/warmup-thunk";
 import { sleep } from "../../helpers";
 import WarmUpTimer from "src/components/WarmUpTimer";
 import BasicModal from "../../components/Modal";
+import { IAppSlice } from "../../store/slices/app-slice";
 
 function Stake() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -29,6 +30,7 @@ function Stake() {
   const [quantity, setQuantity] = useState<string>("");
 
   const isAppLoading = useSelector<IReduxState, boolean>(state => state.app.loading);
+  const app = useSelector<IReduxState, IAppSlice>(state => state.app);
   const currentIndex = useSelector<IReduxState, string>(state => {
     return state.app.currentIndex;
   });
@@ -132,9 +134,12 @@ function Stake() {
   };
 
   const trimmedMemoBalance = trim(Number(memoBalance), 6);
+  const trimmedMemoBalanceInUSD = trim(Number(memoBalance) * app.marketPrice, 2);
   const trimmedStakingAPY = trim(stakingAPY * 100, 1);
   const stakingRebasePercentage = trim(stakingRebase * 100, 4);
   const nextRewardValue = trim((Number(stakingRebasePercentage) / 100) * Number(trimmedMemoBalance), 6);
+  const nextRewardInUSD = Number(nextRewardValue) * app.marketPrice;
+  const trimmedEarningsPerDay = trim(nextRewardInUSD * 3, 2);
 
   const handleClick = (event: any) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
@@ -191,28 +196,19 @@ function Stake() {
                   </Grid>
 
                   <Grid item xs={6} sm={4} md={4} lg={4}>
-                    <div className="stake-card-tvl">
-                      <p className="stake-card-metrics-title">TVL</p>
+                    <div className="stake-card-index">
+                      <p className="stake-card-metrics-title">Current Index</p>
                       <p className="stake-card-metrics-value">
-                        {stakingTVL ? (
-                          new Intl.NumberFormat("en-US", {
-                            style: "currency",
-                            currency: "USD",
-                            maximumFractionDigits: 0,
-                            minimumFractionDigits: 0,
-                          }).format(stakingTVL)
-                        ) : (
-                          <Skeleton width="150px" />
-                        )}
+                        {currentIndex ? <>{trim(Number(currentIndex), 2)} RUG</> : <Skeleton width="150px" />}
                       </p>
                     </div>
                   </Grid>
 
                   <Grid item xs={6} sm={4} md={4} lg={4}>
                     <div className="stake-card-index">
-                      <p className="stake-card-metrics-title">Current Index</p>
+                      <p className="stake-card-metrics-title">Earnings per Day</p>
                       <p className="stake-card-metrics-value">
-                        {currentIndex ? <>{trim(Number(currentIndex), 2)} RUG</> : <Skeleton width="150px" />}
+                        {currentIndex ? <>${trimmedEarningsPerDay}</> : <Skeleton width="150px" />}
                       </p>
                     </div>
                   </Grid>
@@ -379,14 +375,26 @@ function Stake() {
                     <div className="data-row">
                       <p className="data-row-name">Your Staked Balance</p>
                       <p className="data-row-value">
-                        {isAppLoading ? <Skeleton width="80px" /> : <>{trimmedMemoBalance} RUGGED (SRUG)</>}
+                        {isAppLoading ? (
+                          <Skeleton width="80px" />
+                        ) : (
+                          <>
+                            {trimmedMemoBalance} sRUG (${trimmedMemoBalanceInUSD})
+                          </>
+                        )}
                       </p>
                     </div>
 
                     <div className="data-row">
                       <p className="data-row-name">Next Reward Amount</p>
                       <p className="data-row-value">
-                        {isAppLoading ? <Skeleton width="80px" /> : <>{nextRewardValue} RUGGED (SRUG)</>}
+                        {isAppLoading ? (
+                          <Skeleton width="80px" />
+                        ) : (
+                          <>
+                            {nextRewardValue} sRUG (${trim(nextRewardInUSD, 2)})
+                          </>
+                        )}
                       </p>
                     </div>
 

@@ -29,6 +29,22 @@ function Dashboard() {
 
             <Grid item lg={6} md={6} sm={6} xs={12}>
               <div className="dashboard-card">
+                <p className="card-title">5-day Staking ROI</p>
+                <p className="card-value">
+                  {isAppLoading ? (
+                    <Skeleton width="160px" />
+                  ) : (
+                    new Intl.NumberFormat("en-US", {
+                      style: "percent",
+                      minimumFractionDigits: 2,
+                    }).format(Number(app.fiveDayRate))
+                  )}
+                </p>
+              </div>
+            </Grid>
+
+            <Grid item lg={6} md={6} sm={6} xs={12}>
+              <div className="dashboard-card">
                 <p className="card-title">Market Cap</p>
                 <p className="card-value">
                   {isAppLoading ? (

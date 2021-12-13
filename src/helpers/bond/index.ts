@@ -10,6 +10,7 @@ import AvaxIcon from "../../assets/tokens/AVAX.svg";
 import MimRugIcon from "../../assets/tokens/RUG-MIM.svg";
 import AvaxRugIcon from "../../assets/tokens/RUG-AVAX.svg";
 import BenQiIcon from "../../assets/tokens/QI.png";
+import MemoIcon from "../../assets/tokens/MEMO.png";
 
 import {
   StableBondContract,
@@ -78,6 +79,21 @@ export const benqi = new CustomBond({
     },
   },
 });
+
+// export const wmemo = new CustomBond({
+//   name: "wmemo",
+//   displayName: "WMEMO",
+//   bondToken: "MEMO",
+//   bondIconSvg: MemoIcon,
+//   bondContractABI: StableBondContract,
+//   reserveContractAbi: StableReserveContract,
+//   networkAddrs: {
+//     [Networks.AVAX]: {
+//       bondAddress: "0x54Eac2a643927718F484176f079E364deee2a7FE",
+//       reserveAddress: "0x0da67235dD5787D67955420C84ca1cEcd4E5Bb3b",
+//     },
+//   },
+// });
 
 export const wavax = new CustomBond({
   name: "wavax",

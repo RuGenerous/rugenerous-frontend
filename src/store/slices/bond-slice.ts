@@ -142,6 +142,12 @@ export const calcBondDetails = createAsyncThunk(
           const usdcPrice = getTokenPrice("USDC");
           bondPrice = bondPrice * usdcPrice;
           break;
+        // case wmemo.name:
+        //   const wmemoPrice = getTokenPrice("MEMO");
+        //   console.log(wmemoPrice);
+        //   bondPrice = Number(bondPrice) * Number(wmemoPrice);
+        //   console.log(bondPrice);
+        //   break;
       }
 
       bondDiscount = (marketPrice * Math.pow(10, reserveDecimals) - bondPrice) / bondPrice;

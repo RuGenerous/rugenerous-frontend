@@ -20,8 +20,8 @@ export const loadAppDetails = createAsyncThunk(
     const mimPrice = getTokenPrice("MIM");
     const addresses = getAddresses(networkID);
 
-    const ohmPrice = getTokenPrice("OHM");
-    const ohmAmount = 0 * ohmPrice;
+    const wbtcPrice = getTokenPrice("WBTC");
+    const wbtcAmount = 3.37 * wbtcPrice;
 
     const stakingContract = new ethers.Contract(addresses.STAKING_ADDRESS, StakingContract, provider);
     const currentBlock = await provider.getBlockNumber();
@@ -44,7 +44,7 @@ export const loadAppDetails = createAsyncThunk(
 
     const tokenAmountsPromises = allBonds.map(bond => bond.getTokenAmount(networkID, provider));
     const tokenAmounts = await Promise.all(tokenAmountsPromises);
-    const rfvTreasury = tokenAmounts.reduce((tokenAmount0, tokenAmount1) => tokenAmount0 + tokenAmount1, ohmAmount);
+    const rfvTreasury = tokenAmounts.reduce((tokenAmount0, tokenAmount1) => tokenAmount0 + tokenAmount1, wbtcAmount);
 
     const timeBondsAmountsPromises = allBonds.map(bond => bond.getRugAmount(networkID, provider));
     const timeBondsAmounts = await Promise.all(timeBondsAmountsPromises);

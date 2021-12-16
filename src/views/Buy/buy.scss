@@ -1,0 +1,72 @@
+.choose-buy-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+
+  width: 100%;
+  height: 800px;
+  // margin: 20px;
+
+  .choose-buy-view-card {
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+    z-index: 2;
+
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      background: rgba(62, 58, 113, 0.5);
+      backdrop-filter: blur(40px);
+    }
+
+    /* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
+    @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+      background: #3E3A71;
+    }
+
+    iframe{
+      border-radius: 5px;
+      padding: 5px;
+      width: 100%;
+      height: 650px;
+    }
+
+    .choose-buy-view-card-header {
+      .choose-buy-view-card-title {
+        font-family: Montserrat Bold;
+        font-weight: bold;
+        font-size: 20px;
+        color: #ffffff;
+      }
+    }
+
+    .choose-buy-view-buttons {
+      margin: 10px;
+    }
+
+    .stake-card-tab-panel-btn {
+      background: #2BA9AE;
+      box-shadow: 0px 0px 10px rgba(44, 39, 109, 0.1);
+      border-radius: 10px;
+      padding: 14px 12px;
+      cursor: pointer;
+      text-align: center;
+
+      font-family: Montserrat SemiBold;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      color: #ffffff;
+    }
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .choose-buy-view {
+    width: 100%;
+  }
+}

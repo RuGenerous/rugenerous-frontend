@@ -10,6 +10,8 @@ import AvaxIcon from "../../assets/tokens/AVAX.svg";
 import MimRugIcon from "../../assets/tokens/RUG-MIM.svg";
 import AvaxRugIcon from "../../assets/tokens/RUG-AVAX.svg";
 import BenQiIcon from "../../assets/tokens/QI.png";
+import MemoIcon from "../../assets/tokens/MEMO.png";
+import TimeRugIcon from "../../assets/tokens/TIMERUG.png";
 
 import {
   StableBondContract,
@@ -78,6 +80,21 @@ export const benqi = new CustomBond({
     },
   },
 });
+
+// export const wmemo = new CustomBond({
+//   name: "wmemo",
+//   displayName: "WMEMO",
+//   bondToken: "MEMO",
+//   bondIconSvg: MemoIcon,
+//   bondContractABI: StableBondContract,
+//   reserveContractAbi: StableReserveContract,
+//   networkAddrs: {
+//     [Networks.AVAX]: {
+//       bondAddress: "0x54Eac2a643927718F484176f079E364deee2a7FE",
+//       reserveAddress: "0x0da67235dD5787D67955420C84ca1cEcd4E5Bb3b",
+//     },
+//   },
+// });
 
 export const wavax = new CustomBond({
   name: "wavax",
@@ -172,6 +189,22 @@ export const avaxRugRlp = new CustomLPBond({
     [Networks.AVAX]: {
       bondAddress: "0x881A8ECe1cD45A458eAcBA97f45b0fBc0752fCBF",
       reserveAddress: "0xB6E73230B0a8D1cAa44F186Ab8146F10ab49314A",
+    },
+  },
+  lpUrl: "https://swap.rug.farm/#/add/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+});
+
+export const timeRugRlp = new CustomLPBond({
+  name: "time_rug_rlp",
+  displayName: "RUG-TIME RLP",
+  bondToken: "TIME",
+  bondIconSvg: TimeRugIcon,
+  bondContractABI: LpBondContract,
+  reserveContractAbi: LpReserveContract,
+  networkAddrs: {
+    [Networks.AVAX]: {
+      bondAddress: "0x1e79e35b377867b89bBEFf91dc0f3f58E37376fA",
+      reserveAddress: "0xb09b801aab1f9dfc4359a4a628525cbefdd10942",
     },
   },
   lpUrl: "https://swap.rug.farm/#/add/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",

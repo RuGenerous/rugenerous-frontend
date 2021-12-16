@@ -2,9 +2,12 @@ import { useState } from "react";
 import { getAddresses, TOKEN_DECIMALS, DEFAULD_NETWORK } from "../../../constants";
 import { useSelector } from "react-redux";
 import { Link, Fade, Popper } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
 import "./rug-menu.scss";
 import { IReduxState } from "../../../store/slices/state.interface";
 import { getTokenUrl } from "../../../helpers";
+import classnames from "classnames";
+import { exchanges } from "../../../constants/exchanges";
 
 const addTokenToWallet = (tokenSymbol: string, tokenAddress: string) => async () => {
   const tokenImage = getTokenUrl(tokenSymbol.toLowerCase());
@@ -51,26 +54,24 @@ function TimeMenu() {
   return (
     <div className="rug-menu-root" onMouseEnter={e => handleClick(e)} onMouseLeave={e => handleClick(e)}>
       <div className="rug-menu-btn">
-        <p>RUG</p>
+        <p>BUY RUG</p>
       </div>
 
       <Popper className="rug-menu-popper" open={open} anchorEl={anchorEl} transition>
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={200}>
             <div className="tooltip">
+
               <Link
                 className="tooltip-item"
                 href={`https://swap.rug.farm/#/trade?inputCurrency=0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664&outputCurrency=0xb8ef3a190b68175000b74b4160d325fd5024760e`}
                 target="_blank"
               >
                 <p>Buy on RugSwap</p>
+
               </Link>
-              <Link
-                className="tooltip-item"
-                href={`https://traderjoexyz.com/#/trade?inputCurrency=0x130966628846bfd36ff31a822705796e8cb8c18d&outputCurrency=0xb8ef3a190b68175000b74b4160d325fd5024760e`}
-                target="_blank"
-              >
-                <p>Buy on Trader Joe</p>
+              <Link component={NavLink} to="/buy/tjDex" className="tooltip-item">
+                <p>Buy on TradeJoe</p>
               </Link>
 
               {isEthereumAPIAvailable && (

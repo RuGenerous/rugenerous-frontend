@@ -131,7 +131,11 @@ function App() {
         </Route>
 
         <Route path="/buy/rugDex">
-          <Buy dexUrl={exchanges.rugDex} />
+          <Buy dexUrl={exchanges.rugDexMIM} />
+        </Route>
+
+        <Route path="/buy/rugDexUSDC">
+          <Buy dexUrl={exchanges.rugDexUSDC} />
         </Route>
 
         <Route path="/buy/tjDex">

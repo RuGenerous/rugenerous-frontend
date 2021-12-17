@@ -8,7 +8,7 @@ const cache: { [key: string]: number } = {};
 
 export const loadTokenPrices = async () => {
   const url =
-    "https://api.coingecko.com/api/v3/simple/price?ids=avalanche-2,wonderland,benqi,usd-coin,tether,olympus,magic-internet-money&vs_currencies=usd";
+    "https://api.coingecko.com/api/v3/simple/price?ids=avalanche-2,wonderland,wrapped-bitcoin,benqi,usd-coin,tether,olympus,magic-internet-money&vs_currencies=usd";
   const { data } = await axios.get(url);
 
   async function getCurrentIndex() {
@@ -17,8 +17,9 @@ export const loadTokenPrices = async () => {
       MemoContract,
       new JsonRpcProvider(getMainnetURI()),
     );
-    const TimeCurrentIndex = await Time.INDEX();
-    return Number(TimeCurrentIndex);
+    const TimeCurrentIndex = await Time.index();
+    const memoPrice = TimeCurrentIndex / Math.pow(10, 9);
+    return Number(memoPrice);
   }
 
   cache["AVAX"] = data["avalanche-2"].usd;
@@ -27,6 +28,7 @@ export const loadTokenPrices = async () => {
   cache["USDT"] = data["tether"].usd;
   cache["OHM"] = data["olympus"].usd;
   cache["QI"] = data["benqi"].usd;
+  cache["WBTC"] = data["wrapped-bitcoin"].usd;
   cache["MEMO"] = data["wonderland"].usd * (await getCurrentIndex());
 };
 

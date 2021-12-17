@@ -1,3 +1,4 @@
+import ReactTooltip from "react-tooltip";
 import { useSelector } from "react-redux";
 import { Grid, Zoom } from "@material-ui/core";
 import { trim } from "../../helpers";
@@ -5,13 +6,13 @@ import "./dashboard.scss";
 import { Skeleton } from "@material-ui/lab";
 import { IReduxState } from "../../store/slices/state.interface";
 import { IAppSlice } from "../../store/slices/app-slice";
-import ReactTooltip from "react-tooltip";
+import { useGetMarketPrice } from "../../hooks";
 
-function Dashboard() {
+function Dashboard(): JSX.Element {
   const isAppLoading = useSelector<IReduxState, boolean>(state => state.app.loading);
   const app = useSelector<IReduxState, IAppSlice>(state => state.app);
-
   const trimmedStakingAPY = trim(app.stakingAPY * 100, 1);
+  const price = useGetMarketPrice();
 
   return (
     <div className="dashboard-view">
@@ -21,9 +22,7 @@ function Dashboard() {
             <Grid item lg={6} md={6} sm={6} xs={12}>
               <div className="dashboard-card">
                 <p className="card-title">RUG Price</p>
-                <p className="card-value">
-                  {isAppLoading ? <Skeleton width="100px" /> : `$${trim(app.marketPrice, 2)}`}
-                </p>
+                <p className="card-value">{isAppLoading && price ? <Skeleton width="100px" /> : price}</p>
               </div>
             </Grid>
 

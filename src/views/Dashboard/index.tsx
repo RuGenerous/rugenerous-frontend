@@ -1,6 +1,7 @@
 import ReactTooltip from "react-tooltip";
 import { useSelector } from "react-redux";
 import { Grid, Zoom } from "@material-ui/core";
+
 import { trim } from "../../helpers";
 import "./dashboard.scss";
 import { Skeleton } from "@material-ui/lab";
@@ -13,7 +14,6 @@ function Dashboard(): JSX.Element {
   const app = useSelector<IReduxState, IAppSlice>(state => state.app);
   const trimmedStakingAPY = trim(app.stakingAPY * 100, 1);
   const price = useGetMarketPrice();
-
   return (
     <div className="dashboard-view">
       <div className="dashboard-infos-wrap">

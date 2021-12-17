@@ -1,14 +1,16 @@
 import { useWeb3Context } from ".";
 import { useGetCurrentMarketPriceQuery } from "../queries";
-import { trim, getTokenPrice } from "../helpers";
+import { messages } from "../constants";
+
+const { price_loading_message } = messages;
 
 export const useGetMarketPrice = () => {
   const { provider } = useWeb3Context();
-  const { isFetched, isLoading, data: marketPrice = 0 } = useGetCurrentMarketPriceQuery(provider);
+  const { isLoading, data: marketPrice = price_loading_message } = useGetCurrentMarketPriceQuery(provider);
 
-  if (isFetched && marketPrice > 0) {
-    return `$${trim((marketPrice / Math.pow(10, 9)) * getTokenPrice("MIM"), 2)}`;
+  if (isLoading) {
+    return price_loading_message;
   }
 
-  return "Loading..";
+  return marketPrice;
 };

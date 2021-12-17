@@ -1,0 +1,1 @@
+export const PRICE_REFETCH_INTERVAL_MS = 10000;

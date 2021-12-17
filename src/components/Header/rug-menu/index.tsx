@@ -61,14 +61,12 @@ function TimeMenu() {
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={200}>
             <div className="tooltip">
-
               <Link
                 className="tooltip-item"
                 href={`https://swap.rug.farm/#/trade?inputCurrency=0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664&outputCurrency=0xb8ef3a190b68175000b74b4160d325fd5024760e`}
                 target="_blank"
               >
                 <p>Buy on RugSwap</p>
-
               </Link>
               <Link component={NavLink} to="/buy/tjDex" className="tooltip-item">
                 <p>Buy on TradeJoe</p>

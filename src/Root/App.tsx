@@ -14,9 +14,10 @@ import { IReduxState } from "../store/slices/state.interface";
 import Loading from "../components/Loader";
 import useBonds from "../hooks/Bonds";
 import ViewBase from "../components/ViewBase";
-import { Stake, ChooseBond, Bond, Dashboard, NotFound, Calculator } from "../views";
+import { Stake, ChooseBond, Bond, Dashboard, NotFound, Calculator, Buy } from "../views";
 import "./style.scss";
 import useTokens from "../hooks/tokens";
+import { exchanges } from "../constants/exchanges";
 
 function App() {
   const dispatch = useDispatch();
@@ -127,6 +128,18 @@ function App() {
 
         <Route path="/calculator">
           <Calculator />
+        </Route>
+
+        <Route path="/buy/rugDex">
+          <Buy dexUrl={exchanges.rugDexMIM} />
+        </Route>
+
+        <Route path="/buy/rugDexUSDC">
+          <Buy dexUrl={exchanges.rugDexUSDC} />
+        </Route>
+
+        <Route path="/buy/tjDex">
+          <Buy dexUrl={exchanges.tjDex} />
         </Route>
 
         <Route path="/mints">

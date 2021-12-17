@@ -39,7 +39,7 @@ function NavContent() {
   return (
     <div className="dapp-sidebar">
       <div className="branding-header ">
-        <Link href="https://www.rug.farm" target="_blank">
+        <Link href="https://www.rug.farm" target="_self">
           <img className="logo-style" alt="" src={RugenerousIcon} />
         </Link>
 

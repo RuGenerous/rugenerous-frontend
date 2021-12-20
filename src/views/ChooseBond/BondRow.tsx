@@ -5,6 +5,9 @@ import { NavLink } from "react-router-dom";
 import "./choosebond.scss";
 import { Skeleton } from "@material-ui/lab";
 import { IAllBondData } from "../../hooks/Bonds";
+import TabPanel from "../../components/TabPanel";
+import classnames from "classnames";
+import { useState } from "react";
 
 interface IBondProps {
   bond: IAllBondData;
@@ -90,76 +93,85 @@ export function BondTableData({ bond }: IBondProps) {
   const isBondLoading = !bond.bondPrice ?? true;
   const maxBond = 10000000;
 
+  const [view, setView] = useState(0);
+
+  const changeView = (newView: number) => () => {
+    setView(newView);
+  };
+
   return (
-    <TableRow>
-      <TableCell align="left">
-        <BondLogo bond={bond} />
-        <div className="bond-name">
-          <p className="bond-name-title">{bond.displayName}</p>
-          {bond.isLP && (
-            <Link color="primary" href={bond.lpUrl} target="_blank">
-              <p className="bond-name-title">View Contract</p>
-            </Link>
-          )}
-        </div>
-      </TableCell>
-      <TableCell align="center">
-        <p className="bond-name-title">
-          <>
+    <>
+      <div className={classnames("bond-one-table-btn", { active: !view })} onClick={changeView(0)}></div>
+      <TableRow>
+        <TableCell align="left">
+          <BondLogo bond={bond} />
+          <div className="bond-name">
+            <p className="bond-name-title">{bond.displayName}</p>
+            {bond.isLP && (
+              <Link color="primary" href={bond.lpUrl} target="_blank">
+                <p className="bond-name-title">View Contract</p>
+              </Link>
+            )}
+          </div>
+        </TableCell>
+        <TableCell align="center">
+          <p className="bond-name-title">
+            <>
+              {isBondLoading ? (
+                <Skeleton width="50px" />
+              ) : bond.bondPrice < maxBond ? (
+                <>
+                  <span className="currency-icon">{priceUnits(bond)}</span> {trim(bond.bondPrice, 2)}
+                </>
+              ) : bond.purchased > 1000 ? (
+                "Sold Out"
+              ) : (
+                "Coming Soon"
+              )}{" "}
+            </>
+          </p>
+        </TableCell>
+        <TableCell align="right">
+          <p className="bond-name-title">
             {isBondLoading ? (
               <Skeleton width="50px" />
             ) : bond.bondPrice < maxBond ? (
-              <>
-                <span className="currency-icon">{priceUnits(bond)}</span> {trim(bond.bondPrice, 2)}
-              </>
-            ) : bond.purchased > 1000 ? (
-              "Sold Out"
+              `${trim(bond.bondDiscount * 100, 2)}%`
             ) : (
-              "Coming Soon"
-            )}{" "}
-          </>
-        </p>
-      </TableCell>
-      <TableCell align="right">
-        <p className="bond-name-title">
-          {isBondLoading ? (
-            <Skeleton width="50px" />
-          ) : bond.bondPrice < maxBond ? (
-            `${trim(bond.bondDiscount * 100, 2)}%`
-          ) : (
-            "-"
-          )}
-        </p>
-      </TableCell>
-      <TableCell align="right">
-        <p className="bond-name-title">
-          {isBondLoading ? (
-            <Skeleton width="50px" />
-          ) : (
-            new Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: "USD",
-              maximumFractionDigits: 0,
-              minimumFractionDigits: 0,
-            }).format(bond.purchased)
-          )}
-        </p>
-      </TableCell>
-      {bond.purchased > 1000 ? (
-        <TableCell>
-          <Link component={NavLink} to={`/mints/${bond.name}`}>
-            {bond.bondPrice < maxBond ? (
-              <div className="bond-table-btn">
-                <p>Mint</p>
-              </div>
-            ) : (
-              <div className="bond-table-btn">
-                <p>Withdraw</p>
-              </div>
+              "-"
             )}
-          </Link>
+          </p>
         </TableCell>
-      ) : undefined}
-    </TableRow>
+        <TableCell align="right">
+          <p className="bond-name-title">
+            {isBondLoading ? (
+              <Skeleton width="50px" />
+            ) : (
+              new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+                maximumFractionDigits: 0,
+                minimumFractionDigits: 0,
+              }).format(bond.purchased)
+            )}
+          </p>
+        </TableCell>
+        {bond.purchased > 1000 ? (
+          <TableCell>
+            <Link component={NavLink} to={`/mints/${bond.name}`}>
+              {bond.bondPrice < maxBond ? (
+                <div className="bond-table-btn">
+                  <p>Mint</p>
+                </div>
+              ) : (
+                <div className="bond-table-btn">
+                  <p>Withdraw</p>
+                </div>
+              )}
+            </Link>
+          </TableCell>
+        ) : undefined}
+      </TableRow>
+    </>
   );
 }

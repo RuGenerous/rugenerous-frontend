@@ -15,7 +15,6 @@ interface IBondProps {
 
 export function BondDataCard({ bond }: IBondProps) {
   const isBondLoading = !bond.bondPrice ?? true;
-  const maxBond = 100000;
 
   return (
     <Slide direction="up" in={true}>
@@ -40,7 +39,7 @@ export function BondDataCard({ bond }: IBondProps) {
             <>
               {isBondLoading ? (
                 <Skeleton width="50px" />
-              ) : bond.bondPrice < maxBond ? (
+              ) : bond.available ? (
                 trim(bond.bondPrice, 2)
               ) : bond.purchased > 1000 ? (
                 "Sold Out"
@@ -54,13 +53,7 @@ export function BondDataCard({ bond }: IBondProps) {
         <div className="data-row">
           <p className="bond-name-title">ROI</p>
           <p className="bond-name-title">
-            {isBondLoading ? (
-              <Skeleton width="50px" />
-            ) : bond.bondPrice < maxBond ? (
-              `${trim(bond.bondDiscount * 100, 2)}%`
-            ) : (
-              "-"
-            )}
+            {isBondLoading ? <Skeleton width="50px" /> : bond.available ? `${trim(bond.bondDiscount * 100, 2)}%` : "-"}
           </p>
         </div>
 
@@ -119,11 +112,11 @@ export function BondTableData({ bond }: IBondProps) {
             <>
               {isBondLoading ? (
                 <Skeleton width="50px" />
-              ) : bond.bondPrice < maxBond ? (
+              ) : bond.available ? (
                 <>
                   <span className="currency-icon">{priceUnits(bond)}</span> {trim(bond.bondPrice, 2)}
                 </>
-              ) : bond.purchased > 1000 ? (
+              ) : !bond.available ? (
                 "Sold Out"
               ) : (
                 "Coming Soon"
@@ -156,21 +149,21 @@ export function BondTableData({ bond }: IBondProps) {
             )}
           </p>
         </TableCell>
-        {bond.purchased > 1000 ? (
-          <TableCell>
-            <Link component={NavLink} to={`/mints/${bond.name}`}>
-              {bond.bondPrice < maxBond ? (
-                <div className="bond-table-btn">
-                  <p>Mint</p>
-                </div>
-              ) : (
-                <div className="bond-table-btn">
-                  <p>Withdraw</p>
-                </div>
-              )}
-            </Link>
-          </TableCell>
-        ) : undefined}
+        {/* {bond.available ? ( */}
+        <TableCell>
+          <Link component={NavLink} to={`/mints/${bond.name}`}>
+            {bond.available ? (
+              <div className="bond-table-btn">
+                <p>Mint</p>
+              </div>
+            ) : (
+              <div className="bond-table-btn">
+                <p>Withdraw</p>
+              </div>
+            )}
+          </Link>
+        </TableCell>
+        {/* ) : undefined} */}
       </TableRow>
     </>
   );

@@ -34,7 +34,7 @@ export const mim = new StableBond({
       reserveAddress: "0x130966628846BFd36ff31a822705796e8cb8C18D",
     },
   },
-  available: true,
+  available: false,
 });
 
 export const usdc = new StableBond({
@@ -50,7 +50,7 @@ export const usdc = new StableBond({
       reserveAddress: "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
     },
   },
-  available: true,
+  available: false,
 });
 
 export const usdt = new StableBond({
@@ -131,7 +131,7 @@ export const mimRug = new LPBond({
   },
   lpUrl:
     "https://www.traderjoexyz.com/#/pool/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb8EF3a190b68175000B74B4160d325FD5024760e",
-	available: true,
+  available: true,
 });
 
 export const mimRugRlp = new LPBond({
@@ -149,7 +149,7 @@ export const mimRugRlp = new LPBond({
   },
   lpUrl:
     "https://swap.rug.farm/#/add/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb8EF3a190b68175000B74B4160d325FD5024760e",
-	available: true,
+  available: true,
 });
 
 export const usdcRugRlp = new LPBond({
@@ -167,7 +167,7 @@ export const usdcRugRlp = new LPBond({
   },
   lpUrl:
     "https://swap.rug.farm/#/add/0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664/0xb8EF3a190b68175000B74B4160d325FD5024760e",
-	available: true,
+  available: false,
 });
 
 export const avaxRug = new CustomLPBond({

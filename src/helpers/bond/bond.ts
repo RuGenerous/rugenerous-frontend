@@ -47,7 +47,7 @@ export abstract class Bond {
     this.bondContractABI = bondOpts.bondContractABI;
     this.networkAddrs = bondOpts.networkAddrs;
     this.bondToken = bondOpts.bondToken;
-	this.available = bondOpts.available;
+    this.available = bondOpts.available;
   }
 
   public getAddressForBond(networkID: Networks) {

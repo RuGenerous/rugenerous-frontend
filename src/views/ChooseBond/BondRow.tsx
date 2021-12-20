@@ -6,6 +6,7 @@ import "./choosebond.scss";
 import { Skeleton } from "@material-ui/lab";
 import { IAllBondData } from "../../hooks/Bonds";
 import TabPanel from "../../components/TabPanel";
+import classnames from "classnames";
 import { useState } from "react";
 
 interface IBondProps {
@@ -14,78 +15,70 @@ interface IBondProps {
 
 export function BondDataCard({ bond }: IBondProps) {
   const isBondLoading = !bond.bondPrice ?? true;
-  const maxBond = 100000;
+
   return (
-    <>
-      <Slide direction="up" in={true}>
-        <Paper className="bond-data-card">
-          <div className="bond-pair">
-            <BondLogo bond={bond} />
-            <div className="bond-name">
-              <p className="bond-name-title">{bond.displayName}</p>
-              {bond.isLP && (
-                <div>
-                  <Link href={bond.lpUrl} target="_blank">
-                    <p className="bond-name-title">View Contract</p>
-                  </Link>
-                </div>
-              )}
-            </div>
+    <Slide direction="up" in={true}>
+      <Paper className="bond-data-card">
+        <div className="bond-pair">
+          <BondLogo bond={bond} />
+          <div className="bond-name">
+            <p className="bond-name-title">{bond.displayName}</p>
+            {bond.isLP && (
+              <div>
+                <Link href={bond.lpUrl} target="_blank">
+                  <p className="bond-name-title">View Contract</p>
+                </Link>
+              </div>
+            )}
           </div>
+        </div>
 
-          <div className="data-row">
-            <p className="bond-name-title">Price</p>
-            <p className="bond-price bond-name-title">
-              <>
-                {isBondLoading ? (
-                  <Skeleton width="50px" />
-                ) : bond.bondPrice < maxBond ? (
-                  trim(bond.bondPrice, 2)
-                ) : bond.purchased > 1000 ? (
-                  "Sold Out"
-                ) : (
-                  "N/A"
-                )}{" "}
-              </>
-            </p>
-          </div>
-
-          <div className="data-row">
-            <p className="bond-name-title">ROI</p>
-            <p className="bond-name-title">
+        <div className="data-row">
+          <p className="bond-name-title">Price</p>
+          <p className="bond-price bond-name-title">
+            <>
               {isBondLoading ? (
                 <Skeleton width="50px" />
-              ) : bond.bondPrice < maxBond ? (
-                `${trim(bond.bondDiscount * 100, 2)}%`
+              ) : bond.available ? (
+                trim(bond.bondPrice, 2)
+              ) : bond.purchased > 1000 ? (
+                "Sold Out"
               ) : (
-                "-"
-              )}
-            </p>
-          </div>
+                "N/A"
+              )}{" "}
+            </>
+          </p>
+        </div>
 
-          <div className="data-row">
-            <p className="bond-name-title">Purchased</p>
-            <p className="bond-name-title">
-              {isBondLoading ? (
-                <Skeleton width="80px" />
-              ) : (
-                new Intl.NumberFormat("en-US", {
-                  style: "currency",
-                  currency: "USD",
-                  maximumFractionDigits: 0,
-                  minimumFractionDigits: 0,
-                }).format(bond.purchased)
-              )}
-            </p>
+        <div className="data-row">
+          <p className="bond-name-title">ROI</p>
+          <p className="bond-name-title">
+            {isBondLoading ? <Skeleton width="50px" /> : bond.available ? `${trim(bond.bondDiscount * 100, 2)}%` : "-"}
+          </p>
+        </div>
+
+        <div className="data-row">
+          <p className="bond-name-title">Purchased</p>
+          <p className="bond-name-title">
+            {isBondLoading ? (
+              <Skeleton width="80px" />
+            ) : (
+              new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+                maximumFractionDigits: 0,
+                minimumFractionDigits: 0,
+              }).format(bond.purchased)
+            )}
+          </p>
+        </div>
+        <Link component={NavLink} to={`/mints/${bond.name}`}>
+          <div className="bond-table-btn">
+            <p>Mint {bond.displayName}</p>
           </div>
-          <Link component={NavLink} to={`/mints/${bond.name}`}>
-            <div className="bond-table-btn">
-              <p>Mint {bond.displayName}</p>
-            </div>
-          </Link>
-        </Paper>
-      </Slide>
-    </>
+        </Link>
+      </Paper>
+    </Slide>
   );
 }
 
@@ -93,8 +86,15 @@ export function BondTableData({ bond }: IBondProps) {
   const isBondLoading = !bond.bondPrice ?? true;
   const maxBond = 10000000;
 
+  const [view, setView] = useState(0);
+
+  const changeView = (newView: number) => () => {
+    setView(newView);
+  };
+
   return (
     <>
+      <div className={classnames("bond-one-table-btn", { active: !view })} onClick={changeView(0)}></div>
       <TableRow>
         <TableCell align="left">
           <BondLogo bond={bond} />
@@ -112,11 +112,11 @@ export function BondTableData({ bond }: IBondProps) {
             <>
               {isBondLoading ? (
                 <Skeleton width="50px" />
-              ) : bond.bondPrice < maxBond ? (
+              ) : bond.available ? (
                 <>
                   <span className="currency-icon">{priceUnits(bond)}</span> {trim(bond.bondPrice, 2)}
                 </>
-              ) : bond.purchased > 1000 ? (
+              ) : !bond.available ? (
                 "Sold Out"
               ) : (
                 "Coming Soon"
@@ -149,21 +149,21 @@ export function BondTableData({ bond }: IBondProps) {
             )}
           </p>
         </TableCell>
-        {bond.purchased > 1000 ? (
-          <TableCell>
-            <Link component={NavLink} to={`/mints/${bond.name}`}>
-              {bond.bondPrice < maxBond ? (
-                <div className="bond-table-btn">
-                  <p>Mint</p>
-                </div>
-              ) : (
-                <div className="bond-table-btn">
-                  <p>Withdraw</p>
-                </div>
-              )}
-            </Link>
-          </TableCell>
-        ) : undefined}
+        {/* {bond.available ? ( */}
+        <TableCell>
+          <Link component={NavLink} to={`/mints/${bond.name}`}>
+            {bond.available ? (
+              <div className="bond-table-btn">
+                <p>Mint</p>
+              </div>
+            ) : (
+              <div className="bond-table-btn">
+                <p>Withdraw</p>
+              </div>
+            )}
+          </Link>
+        </TableCell>
+        {/* ) : undefined} */}
       </TableRow>
     </>
   );

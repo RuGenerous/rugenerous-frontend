@@ -6,6 +6,7 @@ import { JsonRpcSigner, StaticJsonRpcProvider } from "@ethersproject/providers";
 import { getTokenPrice } from "../token-price";
 import { getAddresses } from "src/constants";
 import { abi as TreasuryContract } from "src/abi/TreasuryContract.json";
+import { threadId } from "worker_threads";
 
 export interface BondOpts {
   readonly name: string; // Internal name used for references
@@ -14,6 +15,7 @@ export interface BondOpts {
   readonly bondContractABI: ContractInterface; // ABI for contract
   readonly networkAddrs: NetworkAddresses; // Mapping of network --> Addresses
   readonly bondToken: string; // Unused, but native token to buy the bond.
+  readonly available: boolean; //whether the bond contract is active or not
 }
 
 export abstract class Bond {
@@ -25,6 +27,7 @@ export abstract class Bond {
   public readonly networkAddrs: NetworkAddresses;
   public readonly bondToken: string;
   public readonly lpUrl?: string;
+  public readonly available: boolean;
 
   // The following two fields will differ on how they are set depending on bond type
   public abstract isLP: boolean;
@@ -44,6 +47,7 @@ export abstract class Bond {
     this.bondContractABI = bondOpts.bondContractABI;
     this.networkAddrs = bondOpts.networkAddrs;
     this.bondToken = bondOpts.bondToken;
+    this.available = bondOpts.available;
   }
 
   public getAddressForBond(networkID: Networks) {

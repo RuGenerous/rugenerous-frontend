@@ -143,7 +143,7 @@ export const mimRugRlp = new LPBond({
   reserveContractAbi: LpReserveContract,
   networkAddrs: {
     [Networks.AVAX]: {
-      bondAddress: "0x5791CB62D2e1611E4fe64e85e56d1Ba81b890726",
+      bondAddress: "0x6a94C5cFC9Cd43D2b43c4f2b0b82A786dF83D2Ea",
       reserveAddress: "0x5F953AC71A131cF877C5A9d040E67aedd6e37caf",
     },
   },
@@ -253,4 +253,4 @@ export const timeRugRlp = new CustomLPBond({
 //   lpUrl: "https://app.pangolin.exchange/add/AVAX/0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
 // });
 
-export default [mim, wavax, usdc, usdt, benqi, avaxRugRlp, usdcRugRlp];
+export default [mim, wavax, usdc, usdt, benqi, avaxRugRlp, usdcRugRlp, mimRugRlp];

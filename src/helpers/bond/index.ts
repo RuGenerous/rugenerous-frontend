@@ -167,11 +167,7 @@ export const usdcRugRlp = new LPBond({
   },
   lpUrl:
     "https://swap.rug.farm/#/add/0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664/0xb8EF3a190b68175000B74B4160d325FD5024760e",
-<<<<<<< HEAD
-  available: true,
-=======
   available: false,
->>>>>>> develop
 });
 
 export const avaxRug = new CustomLPBond({

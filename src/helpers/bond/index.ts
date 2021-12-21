@@ -161,7 +161,7 @@ export const usdcRugRlp = new LPBond({
   reserveContractAbi: LpReserveContract,
   networkAddrs: {
     [Networks.AVAX]: {
-      bondAddress: "0xDE664169D78c2FC3C14106095e21c6935C2027EE",
+      bondAddress: "0x845E9E30a5b6c1F3522D1489A2d8B6Cd9381bf19",
       reserveAddress: "0x24bD0F349Da6afE313A5AbffD45fC4D107700ADB",
     },
   },
@@ -169,6 +169,8 @@ export const usdcRugRlp = new LPBond({
     "https://swap.rug.farm/#/add/0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664/0xb8EF3a190b68175000B74B4160d325FD5024760e",
   available: false,
 });
+
+//0x845E9E30a5b6c1F3522D1489A2d8B6Cd9381bf19
 
 export const avaxRug = new CustomLPBond({
   name: "avax_rug_lp",
@@ -208,7 +210,7 @@ export const timeRugRlp = new CustomLPBond({
   name: "time_rug_rlp",
   displayName: "RUG-TIME RLP",
   bondToken: "TIME",
-  bondIconSvg: TimeRugIcon,
+  bondIconSvg: AvaxRugIcon,
   bondContractABI: LpBondContract,
   reserveContractAbi: LpReserveContract,
   networkAddrs: {

@@ -14,7 +14,6 @@ interface IBondProps {
 
 export function BondDataCard({ bond }: IBondProps) {
   const isBondLoading = !bond.bondPrice ?? true;
-  const maxBond = 100000;
   return (
     <>
       <Slide direction="up" in={true}>

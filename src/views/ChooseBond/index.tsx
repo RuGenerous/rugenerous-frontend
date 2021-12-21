@@ -20,6 +20,7 @@ import { Skeleton } from "@material-ui/lab";
 import { IReduxState } from "../../store/slices/state.interface";
 import classnames from "classnames";
 import { useState } from "react";
+import TabPanel from "../../components/TabPanel";
 
 function ChooseBond() {
   const { bonds } = useBonds();
@@ -79,40 +80,71 @@ function ChooseBond() {
 
           {!isSmallScreen && (
             <>
-              <div className={classnames("bond-one-table-btn", { active: !view })} onClick={changeView(0)}>
-                <p>Available Bonds</p>
+              <div className="bond-one-table">
+                <div className={classnames("bond-one-table-btn", { active: !view })} onClick={changeView(0)}>
+                  <p>Available Bonds</p>
+                </div>
+                <div className={classnames("bond-one-table-btn", { active: view })} onClick={changeView(1)}>
+                  <p>Sold Out / Upcoming Bonds</p>
+                </div>
               </div>
-              <div className={classnames("bond-one-table-btn", { active: !view })} onClick={changeView(0)}>
-                <p>Sold Out Bonds</p>
-              </div>
-              <Grid container item>
-                <TableContainer className="choose-bond-view-card-table">
-                  <Table>
-                    <TableHead>
-                      <TableRow>
-                        <TableCell align="center">
-                          <p className="choose-bond-view-card-table-title">Mint</p>
-                        </TableCell>
-                        <TableCell align="center">
-                          <p className="choose-bond-view-card-table-title">Price</p>
-                        </TableCell>
-                        <TableCell align="center">
-                          <p className="choose-bond-view-card-table-title">ROI</p>
-                        </TableCell>
-                        <TableCell align="right">
-                          <p className="choose-bond-view-card-table-title">Purchased</p>
-                        </TableCell>
-                        <TableCell align="right"></TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {bonds.map(bond => (
-                        <BondTableData key={bond.name} bond={bond} />
-                      ))}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              </Grid>
+              <TabPanel value={view} index={0}>
+                <Grid container item>
+                  <TableContainer className="choose-bond-view-card-table">
+                    <Table>
+                      <TableHead>
+                        <TableRow>
+                          <TableCell align="center">
+                            <p className="choose-bond-view-card-table-title">Mint</p>
+                          </TableCell>
+                          <TableCell align="center">
+                            <p className="choose-bond-view-card-table-title">Price</p>
+                          </TableCell>
+                          <TableCell align="center">
+                            <p className="choose-bond-view-card-table-title">ROI</p>
+                          </TableCell>
+                          <TableCell align="right">
+                            <p className="choose-bond-view-card-table-title">Purchased</p>
+                          </TableCell>
+                          <TableCell align="right"></TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {bonds.map(bond => bond.available && <BondTableData key={bond.name} bond={bond} />)}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </Grid>
+              </TabPanel>
+
+              <TabPanel value={view} index={1}>
+                <Grid container item>
+                  <TableContainer className="choose-bond-view-card-table">
+                    <Table>
+                      <TableHead>
+                        <TableRow>
+                          <TableCell align="center">
+                            <p className="choose-bond-view-card-table-title">Mint</p>
+                          </TableCell>
+                          <TableCell align="center">
+                            <p className="choose-bond-view-card-table-title">Price</p>
+                          </TableCell>
+                          <TableCell align="center">
+                            <p className="choose-bond-view-card-table-title">ROI</p>
+                          </TableCell>
+                          <TableCell align="right">
+                            <p className="choose-bond-view-card-table-title">Purchased</p>
+                          </TableCell>
+                          <TableCell align="right"></TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {bonds.map(bond => !bond.available && <BondTableData key={bond.name} bond={bond} />)}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </Grid>
+              </TabPanel>
             </>
           )}
         </div>

@@ -5,8 +5,6 @@ import { NavLink } from "react-router-dom";
 import "./choosebond.scss";
 import { Skeleton } from "@material-ui/lab";
 import { IAllBondData } from "../../hooks/Bonds";
-import TabPanel from "../../components/TabPanel";
-import { useState } from "react";
 
 interface IBondProps {
   bond: IAllBondData;
@@ -90,7 +88,6 @@ export function BondDataCard({ bond }: IBondProps) {
 
 export function BondTableData({ bond }: IBondProps) {
   const isBondLoading = !bond.bondPrice ?? true;
-  const maxBond = 10000000;
 
   return (
     <>

@@ -61,9 +61,9 @@ function TimeMenu() {
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={200}>
             <div className="tooltip">
-              <Link component={NavLink} className="tooltip-item" to="/buy/rugDexUSDC">
+              {/* <Link component={NavLink} className="tooltip-item" to="/buy/rugDexUSDC">
                 <p>Buy on RugSwap</p>
-              </Link>
+              </Link> */}
               <Link component={NavLink} to="/buy/tjDex" className="tooltip-item">
                 <p>Buy on TradeJoe</p>
               </Link>

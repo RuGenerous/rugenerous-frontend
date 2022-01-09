@@ -37,21 +37,21 @@ export const mim = new StableBond({
   available: false,
 });
 
-export const usdc = new StableBond({
-  name: "usdc",
-  displayName: "USDC",
-  bondToken: "USDC",
-  bondIconSvg: USDCIcon,
-  bondContractABI: StableBondContract,
-  reserveContractAbi: StableReserveContract,
-  networkAddrs: {
-    [Networks.AVAX]: {
-      bondAddress: "0x790463505821987709E4C661F9aB56DEf8A6B682",
-      reserveAddress: "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
-    },
-  },
-  available: false,
-});
+// export const usdc = new StableBond({
+//   name: "usdc",
+//   displayName: "USDC",
+//   bondToken: "USDC",
+//   bondIconSvg: USDCIcon,
+//   bondContractABI: StableBondContract,
+//   reserveContractAbi: StableReserveContract,
+//   networkAddrs: {
+//     [Networks.AVAX]: {
+//       bondAddress: "0x790463505821987709E4C661F9aB56DEf8A6B682",
+//       reserveAddress: "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+//     },
+//   },
+//   available: false,
+// });
 
 export const usdt = new StableBond({
   name: "usdt",
@@ -66,7 +66,7 @@ export const usdt = new StableBond({
       reserveAddress: "0xc7198437980c041c805a1edcba50c1ce5db95118",
     },
   },
-  available: true,
+  available: false,
 });
 
 export const benqi = new CustomBond({
@@ -82,7 +82,7 @@ export const benqi = new CustomBond({
       reserveAddress: "0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
     },
   },
-  available: true,
+  available: false,
 });
 
 // export const wmemo = new CustomBond({
@@ -113,7 +113,7 @@ export const wavax = new CustomBond({
       reserveAddress: "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
     },
   },
-  available: true,
+  available: false,
 });
 
 export const mimRug = new LPBond({
@@ -131,19 +131,19 @@ export const mimRug = new LPBond({
   },
   lpUrl:
     "https://www.traderjoexyz.com/#/pool/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb8EF3a190b68175000B74B4160d325FD5024760e",
-  available: true,
+  available: false,
 });
 
-export const mimRugRlp = new LPBond({
-  name: "mim_time_rlp",
-  displayName: "RUG-MIM RLP",
+export const mimRuglp = new LPBond({
+  name: "mim_rug_lp",
+  displayName: "RUG-MIM LP",
   bondToken: "MIM",
   bondIconSvg: MimRugIcon,
   bondContractABI: LpBondContract,
   reserveContractAbi: LpReserveContract,
   networkAddrs: {
     [Networks.AVAX]: {
-      bondAddress: "0x6a94C5cFC9Cd43D2b43c4f2b0b82A786dF83D2Ea",
+      bondAddress: "0xD93037e5230d9e6Fcd870CFCf4219891B73Db5d7",
       reserveAddress: "0x5F953AC71A131cF877C5A9d040E67aedd6e37caf",
     },
   },
@@ -152,23 +152,25 @@ export const mimRugRlp = new LPBond({
   available: true,
 });
 
-export const usdcRugRlp = new LPBond({
-  name: "usdc_rug_rlp",
-  displayName: "RUG-USDC RLP",
-  bondToken: "USDC",
-  bondIconSvg: USDCRUGIcon,
-  bondContractABI: LpBondContract,
-  reserveContractAbi: LpReserveContract,
-  networkAddrs: {
-    [Networks.AVAX]: {
-      bondAddress: "0x845E9E30a5b6c1F3522D1489A2d8B6Cd9381bf19",
-      reserveAddress: "0x24bD0F349Da6afE313A5AbffD45fC4D107700ADB",
-    },
-  },
-  lpUrl:
-    "https://swap.rug.farm/#/add/0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664/0xb8EF3a190b68175000B74B4160d325FD5024760e",
-  available: false,
-});
+// old mimRugRLP bondAddress: "0x6a94C5cFC9Cd43D2b43c4f2b0b82A786dF83D2Ea"
+
+// export const usdcRugRlp = new LPBond({
+//   name: "usdc_rug_rlp",
+//   displayName: "RUG-USDC RLP",
+//   bondToken: "USDC",
+//   bondIconSvg: USDCRUGIcon,
+//   bondContractABI: LpBondContract,
+//   reserveContractAbi: LpReserveContract,
+//   networkAddrs: {
+//     [Networks.AVAX]: {
+//       bondAddress: "0x845E9E30a5b6c1F3522D1489A2d8B6Cd9381bf19",
+//       reserveAddress: "0x24bD0F349Da6afE313A5AbffD45fC4D107700ADB",
+//     },
+//   },
+//   lpUrl:
+//     "https://swap.rug.farm/#/add/0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+//   available: false,
+// });
 
 //0x845E9E30a5b6c1F3522D1489A2d8B6Cd9381bf19
 
@@ -186,25 +188,25 @@ export const avaxRug = new CustomLPBond({
     },
   },
   lpUrl: "https://www.traderjoexyz.com/#/pool/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
-  available: true,
+  available: false,
 });
 
-export const avaxRugRlp = new CustomLPBond({
-  name: "avax_rug_rlp",
-  displayName: "RUG-AVAX RLP",
-  bondToken: "AVAX",
-  bondIconSvg: AvaxRugIcon,
-  bondContractABI: LpBondContract,
-  reserveContractAbi: LpReserveContract,
-  networkAddrs: {
-    [Networks.AVAX]: {
-      bondAddress: "0x881A8ECe1cD45A458eAcBA97f45b0fBc0752fCBF",
-      reserveAddress: "0xB6E73230B0a8D1cAa44F186Ab8146F10ab49314A",
-    },
-  },
-  lpUrl: "https://swap.rug.farm/#/add/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
-  available: true,
-});
+// export const avaxRugRlp = new CustomLPBond({
+//   name: "avax_rug_rlp",
+//   displayName: "RUG-AVAX RLP",
+//   bondToken: "AVAX",
+//   bondIconSvg: AvaxRugIcon,
+//   bondContractABI: LpBondContract,
+//   reserveContractAbi: LpReserveContract,
+//   networkAddrs: {
+//     [Networks.AVAX]: {
+//       bondAddress: "0x881A8ECe1cD45A458eAcBA97f45b0fBc0752fCBF",
+//       reserveAddress: "0xB6E73230B0a8D1cAa44F186Ab8146F10ab49314A",
+//     },
+//   },
+//   lpUrl: "https://swap.rug.farm/#/add/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+//   available: true,
+// });
 
 export const timeRugRlp = new CustomLPBond({
   name: "time_rug_rlp",
@@ -255,4 +257,4 @@ export const timeRugRlp = new CustomLPBond({
 //   lpUrl: "https://app.pangolin.exchange/add/AVAX/0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
 // });
 
-export default [mim, wavax, usdc, usdt, benqi, avaxRugRlp, usdcRugRlp, mimRugRlp];
+export default [mim, mimRuglp];

@@ -101,13 +101,10 @@ function NavContent() {
             <p>
               <strong>Mint discounts</strong>
             </p>
-            <div>
-              <p>Updating, Coming Soon...</p>
-            </div>
-            {/* {bonds.map((bond, i) => (
+            {bonds.map((bond, i) => (
               <Link component={NavLink} to={`/mints/${bond.name}`} key={i} className={"bond"}>
-                {!bond.bondDiscount ? (
-                  <Skeleton variant="text" width={"150px"} />
+                {bond.bondDiscount ? (
+                  <div></div>
                 ) : (
                   <p>
                     {bond.displayName}
@@ -121,7 +118,7 @@ function NavContent() {
                   </p>
                 )}
               </Link>
-            ))} */}
+            ))}
           </div>
 
           <Link

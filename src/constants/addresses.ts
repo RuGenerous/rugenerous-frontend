@@ -18,11 +18,8 @@ const AVAX_MAINNET = {
   ZERO_ADDRESS: "0x0000000000000000000000000000000000000000",
 };
 
-/**
- * Saving Old Addresses
- * TREASURY_ADDRESS: "0x2F87A9550f19666cEF5De29c5F613966cf164BE6" 
- */
-
+// Saving Old Addresses - KM 1/9/22
+// TREASURY_ADDRESS:"0x2F87A9550f19666cEF5De29c5F613966cf164BE6"
 
 export const getAddresses = (networkID: number) => {
   if (networkID === Networks.AVAX) return AVAX_MAINNET;

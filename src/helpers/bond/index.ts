@@ -144,7 +144,7 @@ export const mimRuglp = new LPBond({
   networkAddrs: {
     [Networks.AVAX]: {
       bondAddress: "0xD93037e5230d9e6Fcd870CFCf4219891B73Db5d7",
-      reserveAddress: "0x5F953AC71A131cF877C5A9d040E67aedd6e37caf",
+      reserveAddress: "0x8b667C1e422c08f9874709939Bc90E71c2BEA167",
     },
   },
   lpUrl:

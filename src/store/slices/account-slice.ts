@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { getAddresses } from "../../constants";
-import { RugTokenContract, SRugTokenContract, MimTokenContract, StakingContract } from "../../abi";
+import { RugTokenContract, SRugTokenContract, MimTokenContract, StakingContract, DuragTokenContract } from "../../abi";
 import { getBalanceForGons, setAll } from "../../helpers";
 
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
@@ -22,6 +22,7 @@ interface IAccountBalances {
   balances: {
     srug: string;
     rug: string;
+    durag: string;
   };
 }
 
@@ -34,11 +35,14 @@ export const getBalances = createAsyncThunk(
     const memoBalance = await memoContract.balanceOf(address);
     const timeContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
     const timeBalance = await timeContract.balanceOf(address);
+    const duragContract = new ethers.Contract(addresses.DURAG_ADDRESS, DuragTokenContract, provider);
+    const duragBalance = await duragContract.balanceOf(address);
 
     return {
       balances: {
         srug: ethers.utils.formatUnits(memoBalance, "gwei"),
         rug: ethers.utils.formatUnits(timeBalance, "gwei"),
+        durag: ethers.utils.formatUnits(duragBalance, "gwei"),
       },
     };
   },
@@ -91,6 +95,7 @@ interface IUserAccountDetails {
   balances: {
     rug: string;
     srug: string;
+    durag: string;
   };
   staking: {
     rug: number;
@@ -103,6 +108,7 @@ export const loadAccountDetails = createAsyncThunk(
   async ({ networkID, provider, address }: ILoadAccountDetails): Promise<IUserAccountDetails> => {
     let timeBalance = 0;
     let memoBalance = 0;
+    let duragBalance = 0;
     let stakeAllowance = 0;
     let unstakeAllowance = 0;
 
@@ -120,10 +126,17 @@ export const loadAccountDetails = createAsyncThunk(
       unstakeAllowance = await memoContract.allowance(address, addresses.STAKING_ADDRESS);
     }
 
+    if (addresses.DURAG_ADDRESS) {
+      const duragContract = new ethers.Contract(addresses.DURAG_ADDRESS, DuragTokenContract, provider);
+      duragBalance = await duragContract.balanceOf(address);
+      unstakeAllowance = await duragContract.allowance(address, addresses.STAKING_ADDRESS);
+    }
+
     return {
       balances: {
         srug: ethers.utils.formatUnits(memoBalance, "gwei"),
         rug: ethers.utils.formatUnits(timeBalance, "gwei"),
+        durag: ethers.utils.formatUnits(duragBalance, "gwei"),
       },
       staking: {
         rug: Number(stakeAllowance),
@@ -274,6 +287,7 @@ export interface IAccountSlice {
   balances: {
     srug: string;
     rug: string;
+    durag: string;
   };
   loading: boolean;
   staking: {
@@ -293,7 +307,7 @@ export interface IAccountSlice {
 const initialState: IAccountSlice = {
   loading: true,
   bonds: {},
-  balances: { srug: "", rug: "" },
+  balances: { srug: "", rug: "", durag: "" },
   staking: { rug: 0, srug: 0 },
   warmupInfo: { expiry: "", deposit: "", epoch: "", gons: "", gonsBalance: "" },
   tokens: {},

@@ -1,4 +1,5 @@
-import { ethers } from "ethers";
+import { BigNumberish, ethers } from "ethers";
+import { formatFixed, parseFixed } from "@ethersproject/bignumber";
 import { getAddresses } from "../../constants";
 import { RugTokenContract, SRugTokenContract, MimTokenContract, StakingContract, DuragTokenContract } from "../../abi";
 import { getBalanceForGons, setAll } from "../../helpers";
@@ -42,7 +43,7 @@ export const getBalances = createAsyncThunk(
       balances: {
         srug: ethers.utils.formatUnits(memoBalance, "gwei"),
         rug: ethers.utils.formatUnits(timeBalance, "gwei"),
-        durag: ethers.utils.formatUnits(duragBalance, "gwei"),
+        durag: ethers.utils.formatEther(duragBalance),
       },
     };
   },
@@ -129,14 +130,13 @@ export const loadAccountDetails = createAsyncThunk(
     if (addresses.DURAG_ADDRESS) {
       const duragContract = new ethers.Contract(addresses.DURAG_ADDRESS, DuragTokenContract, provider);
       duragBalance = await duragContract.balanceOf(address);
-      unstakeAllowance = await duragContract.allowance(address, addresses.STAKING_ADDRESS);
     }
 
     return {
       balances: {
         srug: ethers.utils.formatUnits(memoBalance, "gwei"),
         rug: ethers.utils.formatUnits(timeBalance, "gwei"),
-        durag: ethers.utils.formatUnits(duragBalance, "gwei"),
+        durag: ethers.utils.formatEther(duragBalance),
       },
       staking: {
         rug: Number(stakeAllowance),

@@ -78,7 +78,7 @@ function NavContent() {
           >
             <div className="dapp-menu-item">
               <img alt="" src={StakeIcon} />
-              <p>A Ponzi Yield</p>
+              <p>My Balances</p>
             </div>
           </Link>
 

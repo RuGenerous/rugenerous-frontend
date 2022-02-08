@@ -15,7 +15,6 @@ import { IReduxState } from "../../../store/slices/state.interface";
 import { changeApproval, calcZapinDetails, ITokenZapinResponse, zapinMint } from "../../../store/slices/zapin-thunk";
 import { IPendingTxn, isPendingTxn, txnButtonText } from "../../../store/slices/pending-txns-slice";
 import { useWeb3Context } from "../../../hooks";
-import { wavax } from "../../../helpers/bond";
 import AdvancedSettings from "../AdvancedSettings";
 import { ReactComponent as SettingsIcon } from "../../../assets/icons/settings.svg";
 import { warning } from "../../../store/slices/messages-slice";
@@ -41,9 +40,9 @@ function Zapin({ open, handleClose, bond }: IZapinProps) {
 
   let defaultToken = tokens.find(token => token.name === avax.name);
 
-  if (bond.name === wavax.name) {
-    defaultToken = tokens.find(token => token.name === mim.name);
-  }
+  // if (bond.name === wavax.name) {
+  //   defaultToken = tokens.find(token => token.name === mim.name);
+  // }
 
   const [quantity, setQuantity] = useState<string>("");
   //@ts-ignore

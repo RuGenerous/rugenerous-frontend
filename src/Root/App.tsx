@@ -130,10 +130,6 @@ function App() {
           <Calculator />
         </Route>
 
-        <Route path="/buy/rugDex">
-          <Buy dexUrl={exchanges.rugDexMIM} />
-        </Route>
-
         <Route path="/buy/rugDexUSDC">
           <Buy dexUrl={exchanges.rugDexUSDC} />
         </Route>

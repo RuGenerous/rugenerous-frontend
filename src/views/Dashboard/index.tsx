@@ -148,24 +148,6 @@ function Dashboard() {
 
             <Grid item lg={6} md={6} sm={6} xs={12}>
               <div className="dashboard-card">
-                <p className="card-title">Backing per $RUG</p>
-                <p className="card-value">
-                  {isAppLoading ? (
-                    <Skeleton width="250px" />
-                  ) : (
-                    new Intl.NumberFormat("en-US", {
-                      style: "currency",
-                      currency: "USD",
-                      maximumFractionDigits: 0,
-                      minimumFractionDigits: 0,
-                    }).format(app.rfv)
-                  )}
-                </p>
-              </div>
-            </Grid>
-
-            <Grid item lg={6} md={6} sm={6} xs={12}>
-              <div className="dashboard-card">
                 <p className="card-title">Runway</p>
                 <p className="card-value">
                   {isAppLoading ? <Skeleton width="250px" /> : `${trim(Number(app.runway), 1)} Days`}
@@ -176,6 +158,25 @@ function Dashboard() {
         </Zoom>
       </div>
     </div>
+    // RUG Backing Grid Element
+    // KM - Relocating to here so we can use in the future
+    /* <Grid item lg={6} md={6} sm={6} xs={12}>
+      <div className="dashboard-card">
+        <p className="card-title">Backing per $RUG</p>
+        <p className="card-value">
+          {isAppLoading ? (
+            <Skeleton width="250px" />
+          ) : (
+            new Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "USD",
+              maximumFractionDigits: 0,
+              minimumFractionDigits: 0,
+            }).format(app.rfv)
+          )}
+        </p>
+      </div>
+    </Grid>  */
   );
 }
 

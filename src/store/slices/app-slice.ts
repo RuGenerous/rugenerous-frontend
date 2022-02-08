@@ -7,6 +7,7 @@ import { JsonRpcProvider } from "@ethersproject/providers";
 import { getMarketPrice, getTokenPrice } from "../../helpers";
 import { RootState } from "../store";
 import allBonds from "../../helpers/bond";
+import { getTreasuryBalance } from "src/helpers/get-treasury";
 
 interface ILoadAppDetails {
   networkID: number;
@@ -19,9 +20,6 @@ export const loadAppDetails = createAsyncThunk(
   async ({ networkID, provider }: ILoadAppDetails) => {
     const mimPrice = getTokenPrice("MIM");
     const addresses = getAddresses(networkID);
-
-    const wbtcPrice = getTokenPrice("WBTC");
-    const wbtcAmount = 3.37 * wbtcPrice;
 
     const stakingContract = new ethers.Contract(addresses.STAKING_ADDRESS, StakingContract, provider);
     const currentBlock = await provider.getBlockNumber();
@@ -40,18 +38,14 @@ export const loadAppDetails = createAsyncThunk(
 
     const tokenBalPromises = allBonds.map(bond => bond.getTreasuryBalance(networkID, provider));
     const tokenBalances = await Promise.all(tokenBalPromises);
-    const treasuryBalance = tokenBalances.reduce((tokenBalance0, tokenBalance1) => tokenBalance0 + tokenBalance1);
-
-    const tokenAmountsPromises = allBonds.map(bond => bond.getTokenAmount(networkID, provider));
-    const tokenAmounts = await Promise.all(tokenAmountsPromises);
-    const rfvTreasury = tokenAmounts.reduce((tokenAmount0, tokenAmount1) => tokenAmount0 + tokenAmount1, wbtcAmount);
+    const treasuryBalance = await getTreasuryBalance();
 
     const timeBondsAmountsPromises = allBonds.map(bond => bond.getRugAmount(networkID, provider));
     const timeBondsAmounts = await Promise.all(timeBondsAmountsPromises);
     const timeAmount = timeBondsAmounts.reduce((timeAmount0, timeAmount1) => timeAmount0 + timeAmount1, 0);
     const timeSupply = totalSupply - timeAmount;
 
-    const rfv = rfvTreasury / timeSupply;
+    const rfv = treasuryBalance / timeSupply;
 
     const epoch = await stakingContract.epoch();
     const stakingReward = epoch.distribute;
@@ -63,7 +57,7 @@ export const loadAppDetails = createAsyncThunk(
     const currentIndex = await stakingContract.index();
     const nextRebase = epoch.endTime;
 
-    const treasuryRunway = rfvTreasury / circSupply;
+    const treasuryRunway = treasuryBalance / circSupply;
     const runway = Math.log(treasuryRunway) / Math.log(1 + stakingRebase) / 3;
 
     return {

@@ -54,6 +54,8 @@ export interface IToken {
   img: string;
   isAvax?: boolean;
   decimals: number;
+  cgName?: string;
+  balanceOf?(address: string): number;
 }
 
 export const avax: IToken = {
@@ -337,18 +339,20 @@ const tsd: IToken = {
   decimals: 18,
 };
 
-const usdc: IToken = {
+export const usdc: IToken = {
   name: "USDC.e",
   address: "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
   img: UsdcEIcon,
   decimals: 6,
+  cgName: "USDC",
 };
 
-const usdt: IToken = {
+export const usdt: IToken = {
   name: "USDT.e",
   address: "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
   img: UsdtEIcon,
   decimals: 6,
+  cgName: "USDT",
 };
 
 const vso: IToken = {

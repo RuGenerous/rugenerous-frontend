@@ -98,7 +98,6 @@ Once you submit a PR, our CI will generate a temporary testing URL where you can
 
 Only the following people have merge access for the master branch. 
 * [@Dreesus](https://github.com/dreesuschrist)
-* [@Camden](https://github.com/camdengrieh)
 * [@Keeano92](https://github.com/keeano92)
 
 

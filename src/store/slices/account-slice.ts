@@ -98,6 +98,9 @@ interface IUserAccountDetails {
     srug: string;
     durag: string;
   };
+  redeem: {
+    rug: number;
+  };
   staking: {
     rug: number;
     srug: number;
@@ -111,6 +114,7 @@ export const loadAccountDetails = createAsyncThunk(
     let memoBalance = 0;
     let duragBalance = 0;
     let stakeAllowance = 0;
+    let redeemAllowance = 0;
     let unstakeAllowance = 0;
 
     const addresses = getAddresses(networkID);
@@ -119,6 +123,7 @@ export const loadAccountDetails = createAsyncThunk(
       const timeContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
       timeBalance = await timeContract.balanceOf(address);
       stakeAllowance = await timeContract.allowance(address, addresses.STAKING_HELPER_ADDRESS);
+      redeemAllowance = await timeContract.allowance(address, addresses.REDEEMING_ADDRESS);
     }
 
     if (addresses.SRUG_ADDRESS) {
@@ -137,6 +142,9 @@ export const loadAccountDetails = createAsyncThunk(
         srug: ethers.utils.formatUnits(memoBalance, "gwei"),
         rug: ethers.utils.formatUnits(timeBalance, "gwei"),
         durag: ethers.utils.formatEther(duragBalance),
+      },
+      redeem: {
+        rug: Number(redeemAllowance),
       },
       staking: {
         rug: Number(stakeAllowance),
@@ -290,6 +298,9 @@ export interface IAccountSlice {
     durag: string;
   };
   loading: boolean;
+  redeem: {
+    rug: number;
+  };
   staking: {
     rug: number;
     srug: number;
@@ -308,6 +319,7 @@ const initialState: IAccountSlice = {
   loading: true,
   bonds: {},
   balances: { srug: "", rug: "", durag: "" },
+  redeem: { rug: 0 },
   staking: { rug: 0, srug: 0 },
   warmupInfo: { expiry: "", deposit: "", epoch: "", gons: "", gonsBalance: "" },
   tokens: {},

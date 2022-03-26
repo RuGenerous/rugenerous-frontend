@@ -74,8 +74,8 @@ _**TODO**: TheGraph implementation/how/why we use it._
 Commits to the follow branches are automatically deployed to their respective URLs.
 | Branch | URL |
 | --- | --- |
-| master | https://app.rug.farm - not LIVE|
-| deploy | https://staging.rug.farm - not LIVE |
+| master | https://app.rug.farm |
+
 
 **Pull Requests**:
 Each PR into master will get its own custom URL that is visible on the PR page. QA & validate changes on that URL before merging into the deploy branch. 
@@ -99,6 +99,7 @@ Once you submit a PR, our CI will generate a temporary testing URL where you can
 Only the following people have merge access for the master branch. 
 * [@Dreesus](https://github.com/dreesuschrist)
 * [@Camden](https://github.com/camdengrieh)
+* [@Keeano92](https://github.com/keeano92)
 
 
 

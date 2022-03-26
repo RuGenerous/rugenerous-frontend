@@ -1,12 +1,13 @@
 import { ethers } from "ethers";
 import { getAddresses } from "../../constants";
-import { StakingContract, SRugTokenContract, RugTokenContract } from "../../abi";
+import { StakingContract, SRugTokenContract, RugTokenContract, RedemptionContract } from "../../abi";
 import { setAll } from "../../helpers";
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
 import { JsonRpcProvider } from "@ethersproject/providers";
 import { getMarketPrice, getTokenPrice } from "../../helpers";
 import { RootState } from "../store";
 import allBonds from "../../helpers/bond";
+import { getTreasuryBalance } from "src/helpers/get-treasury";
 
 interface ILoadAppDetails {
   networkID: number;
@@ -20,15 +21,12 @@ export const loadAppDetails = createAsyncThunk(
     const mimPrice = getTokenPrice("MIM");
     const addresses = getAddresses(networkID);
 
-    const wbtcPrice = getTokenPrice("WBTC");
-    const wbtcAmount = 3.37 * wbtcPrice;
-
     const stakingContract = new ethers.Contract(addresses.STAKING_ADDRESS, StakingContract, provider);
     const currentBlock = await provider.getBlockNumber();
     const currentBlockTime = (await provider.getBlock(currentBlock)).timestamp;
     const srugContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, provider);
     const rugContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
-
+    const redeemContract = new ethers.Contract(addresses.REDEEMING_ADDRESS, RedemptionContract, provider);
     const marketPrice = ((await getMarketPrice(networkID, provider)) / Math.pow(10, 9)) * mimPrice;
 
     const burnedSupply = (await rugContract.balanceOf(addresses.BURN_ADDRESS)) / Math.pow(10, 9);
@@ -40,18 +38,15 @@ export const loadAppDetails = createAsyncThunk(
 
     const tokenBalPromises = allBonds.map(bond => bond.getTreasuryBalance(networkID, provider));
     const tokenBalances = await Promise.all(tokenBalPromises);
-    const treasuryBalance = tokenBalances.reduce((tokenBalance0, tokenBalance1) => tokenBalance0 + tokenBalance1);
-
-    const tokenAmountsPromises = allBonds.map(bond => bond.getTokenAmount(networkID, provider));
-    const tokenAmounts = await Promise.all(tokenAmountsPromises);
-    const rfvTreasury = tokenAmounts.reduce((tokenAmount0, tokenAmount1) => tokenAmount0 + tokenAmount1, wbtcAmount);
+    const treasuryBalance = await getTreasuryBalance();
 
     const timeBondsAmountsPromises = allBonds.map(bond => bond.getRugAmount(networkID, provider));
     const timeBondsAmounts = await Promise.all(timeBondsAmountsPromises);
     const timeAmount = timeBondsAmounts.reduce((timeAmount0, timeAmount1) => timeAmount0 + timeAmount1, 0);
     const timeSupply = totalSupply - timeAmount;
 
-    const rfv = rfvTreasury / timeSupply;
+    const rfv = treasuryBalance / timeSupply;
+    const setRFV = await redeemContract.RFV();
 
     const epoch = await stakingContract.epoch();
     const stakingReward = epoch.distribute;
@@ -63,7 +58,7 @@ export const loadAppDetails = createAsyncThunk(
     const currentIndex = await stakingContract.index();
     const nextRebase = epoch.endTime;
 
-    const treasuryRunway = rfvTreasury / circSupply;
+    const treasuryRunway = treasuryBalance / circSupply;
     const runway = Math.log(treasuryRunway) / Math.log(1 + stakingRebase) / 3;
 
     return {
@@ -81,6 +76,7 @@ export const loadAppDetails = createAsyncThunk(
       currentBlockTime,
       nextRebase,
       rfv,
+      setRFV,
       runway,
     };
   },
@@ -107,6 +103,7 @@ export interface IAppSlice {
   nextRebase: number;
   totalSupply: number;
   rfv: number;
+  setRFV: number;
   runway: number;
 }
 

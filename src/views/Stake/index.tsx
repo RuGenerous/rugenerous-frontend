@@ -55,6 +55,10 @@ function Stake() {
   const memoBalance = useSelector<IReduxState, string>(state => {
     return state.account.balances && state.account.balances.srug;
   });
+  //Adding Durag - KM
+  const duragBalance = useSelector<IReduxState, string>(state => {
+    return state.account.balances && state.account.balances.durag;
+  });
   const stakeAllowance = useSelector<IReduxState, number>(state => {
     return state.account.staking && state.account.staking.rug;
   });
@@ -332,6 +336,13 @@ function Stake() {
                       <p className="data-row-name">Your Balance</p>
                       <p className="data-row-value">
                         {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(timeBalance), 4)} RUG</>}
+                      </p>
+                    </div>
+
+                    <div className="data-row">
+                      <p className="data-row-name">Your Durag Balance</p>
+                      <p className="data-row-value">
+                        {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(duragBalance), 4)} DURAG</>}
                       </p>
                     </div>
 

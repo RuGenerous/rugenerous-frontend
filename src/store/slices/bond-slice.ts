@@ -10,7 +10,7 @@ import { Bond } from "../../helpers/bond/bond";
 import { Networks } from "../../constants/blockchain";
 import { getBondCalculator } from "../../helpers/bond-calculator";
 import { RootState } from "../store";
-import { avaxRug, wavax, benqi, avaxRugRlp, usdcRugRlp, timeRugRlp } from "../../helpers/bond";
+import { avaxRug, timeRugRlp } from "../../helpers/bond";
 import { error, warning, success, info } from "../slices/messages-slice";
 import { messages } from "../../constants/messages";
 import { getGasPrice } from "../../helpers/get-gas-price";
@@ -130,18 +130,6 @@ export const calcBondDetails = createAsyncThunk(
 
       switch (bond.name) {
         case avaxRug.name:
-        case avaxRugRlp.name:
-          const avaxPrice = getTokenPrice("AVAX");
-          bondPrice = bondPrice * avaxPrice;
-          break;
-        case benqi.name:
-          const benqiPrice = getTokenPrice("QI");
-          bondPrice = bondPrice * benqiPrice;
-          break;
-        case usdcRugRlp.name:
-          const usdcPrice = getTokenPrice("USDC");
-          bondPrice = bondPrice * usdcPrice;
-          break;
         case timeRugRlp.name:
           const timePrice = getTokenPrice("TIME");
           bondPrice = bondPrice * timePrice;
@@ -192,19 +180,6 @@ export const calcBondDetails = createAsyncThunk(
 
       purchased = await bondCalcContract.valuation(assetAddress, purchased);
       purchased = (markdown / Math.pow(10, 18)) * (purchased / Math.pow(10, 9));
-
-      if (bond.name === avaxRug.name || bond.name === avaxRugRlp.name) {
-        const avaxPrice = getTokenPrice("AVAX");
-        purchased = purchased * avaxPrice;
-      }
-    } else if (bond.name === wavax.name) {
-      purchased = purchased / Math.pow(10, 18);
-      const avaxPrice = getTokenPrice("AVAX");
-      purchased = purchased * avaxPrice;
-    } else if (bond.name === benqi.name) {
-      purchased = purchased / Math.pow(10, 18);
-      const benqiPrice = getTokenPrice("QI");
-      purchased = purchased * benqiPrice;
     } else {
       purchased = purchased / Math.pow(10, reserveDecimals);
     }

@@ -24,7 +24,7 @@ export const loadTokenPrices = async () => {
 
   cache["AVAX"] = data["avalanche-2"].usd;
   cache["MIM"] = data["magic-internet-money"].usd;
-  cache["USDC"] = data["usd-coin"].usd * Math.pow(10, 12);
+  cache["USDC"] = data["usd-coin"].usd;
   cache["USDT"] = data["tether"].usd;
   cache["OHM"] = data["olympus"].usd;
   cache["QI"] = data["benqi"].usd;

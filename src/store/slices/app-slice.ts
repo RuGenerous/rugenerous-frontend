@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { getAddresses } from "../../constants";
-import { StakingContract, SRugTokenContract, RugTokenContract } from "../../abi";
+import { StakingContract, SRugTokenContract, RugTokenContract, RedemptionContract } from "../../abi";
 import { setAll } from "../../helpers";
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
 import { JsonRpcProvider } from "@ethersproject/providers";
@@ -26,7 +26,7 @@ export const loadAppDetails = createAsyncThunk(
     const currentBlockTime = (await provider.getBlock(currentBlock)).timestamp;
     const srugContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, provider);
     const rugContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
-
+    const redeemContract = new ethers.Contract(addresses.REDEEMING_ADDRESS, RedemptionContract, provider);
     const marketPrice = ((await getMarketPrice(networkID, provider)) / Math.pow(10, 9)) * mimPrice;
 
     const burnedSupply = (await rugContract.balanceOf(addresses.BURN_ADDRESS)) / Math.pow(10, 9);
@@ -46,6 +46,7 @@ export const loadAppDetails = createAsyncThunk(
     const timeSupply = totalSupply - timeAmount;
 
     const rfv = treasuryBalance / timeSupply;
+    const setRFV = await redeemContract.RFV();
 
     const epoch = await stakingContract.epoch();
     const stakingReward = epoch.distribute;
@@ -75,6 +76,7 @@ export const loadAppDetails = createAsyncThunk(
       currentBlockTime,
       nextRebase,
       rfv,
+      setRFV,
       runway,
     };
   },
@@ -101,6 +103,7 @@ export interface IAppSlice {
   nextRebase: number;
   totalSupply: number;
   rfv: number;
+  setRFV: number;
   runway: number;
 }
 

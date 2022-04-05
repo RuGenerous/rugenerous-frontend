@@ -6,6 +6,7 @@ export const messages = {
   before_minting: "Before minting, enter a value.",
   existing_mint:
     "You have an existing mint. Minting will reset your vesting period and forfeit any pending claimable rewards. We recommend claiming rewards first or using a fresh wallet. Do you still wish to proceed?",
+  before_redeem: "Before Redeeming USDC, enter an amount of RUG to be swapped.",
   before_stake: "Before staking, enter a value.",
   before_unstake: "Before un staking, enter a value.",
   tx_successfully_send: "Your transaction was successfully executed",

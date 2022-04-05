@@ -126,7 +126,7 @@ function NavContent() {
             } */}
           </div>
 
-          <Link
+          {/* <Link
             component={NavLink}
             id="bond-nav"
             to="/calculator"
@@ -138,6 +138,21 @@ function NavContent() {
             <div className="dapp-menu-item">
               <img alt="" src={BrowserIcon} />
               <p>Calculator</p>
+            </div>
+          </Link> */}
+
+          <Link
+            component={NavLink}
+            id="bond-nav"
+            to="/redeem"
+            isActive={(match: any, location: any) => {
+              return checkPage(location, "redeem");
+            }}
+            className={classnames("button-dapp-menu", { active: isActive })}
+          >
+            <div className="dapp-menu-item">
+              <img alt="" src={BrowserIcon} />
+              <p>Redeem RUG to USDC</p>
             </div>
           </Link>
         </div>

@@ -6,6 +6,8 @@ import MimIcon from "../../assets/tokens/MIM.svg";
 import USDCIcon from "../../assets/tokens/USDC.e.png";
 import USDCRUGIcon from "../../assets/tokens/USDC-RUG.png";
 import USDTIcon from "../../assets/tokens/USDT.e.png";
+import JoeIcon from "../../assets/tokens/JOE.png";
+import FXSIcon from "../../assets/tokens/FXS.png";
 import AvaxIcon from "../../assets/tokens/AVAX.svg";
 import MimRugIcon from "../../assets/tokens/RUG-MIM.svg";
 import AvaxRugIcon from "../../assets/tokens/RUG-AVAX.svg";
@@ -83,6 +85,38 @@ export const benqi = new CustomBond({
     },
   },
   available: false,
+});
+
+export const fxs = new CustomBond({
+  name: "fxs",
+  displayName: "FXS",
+  bondToken: "FXS",
+  bondIconSvg: FXSIcon,
+  bondContractABI: WavaxBondContract,
+  reserveContractAbi: StableReserveContract,
+  networkAddrs: {
+    [Networks.AVAX]: {
+      bondAddress: "0x521d08bcDf82befEf0959949281dD48A78391005",
+      reserveAddress: "0x214DB107654fF987AD859F34125307783fC8e387",
+    },
+  },
+  available: true,
+});
+
+export const joe = new CustomBond({
+  name: "joe",
+  displayName: "JOE",
+  bondToken: "JOE",
+  bondIconSvg: JoeIcon,
+  bondContractABI: WavaxBondContract,
+  reserveContractAbi: StableReserveContract,
+  networkAddrs: {
+    [Networks.AVAX]: {
+      bondAddress: "0xeE657E53A5cF63057A2647BD30F936FfE6Ad8Eb0",
+      reserveAddress: "0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd",
+    },
+  },
+  available: true,
 });
 
 // export const wmemo = new CustomBond({
@@ -257,4 +291,4 @@ export const timeRugRlp = new CustomLPBond({
 //   lpUrl: "https://app.pangolin.exchange/add/AVAX/0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
 // });
 
-export default [mim, mimRuglp];
+export default [fxs, joe];

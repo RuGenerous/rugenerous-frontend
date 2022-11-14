@@ -141,7 +141,7 @@ function NavContent() {
             </div>
           </Link> */}
 
-          <Link
+          {/* <Link
             component={NavLink}
             id="bond-nav"
             to="/redeem"
@@ -154,7 +154,7 @@ function NavContent() {
               <img alt="" src={BrowserIcon} />
               <p>Redeem RUG to USDC</p>
             </div>
-          </Link>
+          </Link> */}
         </div>
       </div>
       <div className="dapp-menu-doc-link">

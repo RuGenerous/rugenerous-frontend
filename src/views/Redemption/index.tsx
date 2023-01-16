@@ -12,6 +12,7 @@ import { messages } from "../../constants/messages";
 import classnames from "classnames";
 import { warning } from "../../store/slices/messages-slice";
 import { IAppSlice } from "../../store/slices/app-slice";
+import { isParameterPropertyDeclaration } from "typescript";
 
 function Redemption() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -108,7 +109,7 @@ function Redemption() {
                     <div className="redeem-card-index">
                       <p className="redeem-card-metrics-title">Liquid Backing per RUG</p>
                       <p className="redeem-card-metrics-value">
-                        {currentIndex ? <>${trim(Number(setRFV / 100), 2)}</> : <Skeleton width="150px" />}
+                        {isAppLoading ? <Skeleton width="150px" /> : <>${trim(Number(setRFV / 100), 2)}</>}
                       </p>
                     </div>
                   </Grid>

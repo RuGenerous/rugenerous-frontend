@@ -97,7 +97,7 @@ function Redemption() {
           <Grid className="redeem-card-grid" container direction="column" spacing={2}>
             <Grid item>
               <div className="redeem-card-header">
-                <p className="redeem-card-header-title">The RUG Redemption (🚩, 🚩)</p>
+                <p className="redeem-card-header-title">Quarterly RUG Redemption (🚩, 🚩)</p>
               </div>
             </Grid>
 
@@ -106,15 +106,7 @@ function Redemption() {
                 <Grid container spacing={2}>
                   <Grid item xs={6} sm={4} md={4} lg={4}>
                     <div className="redeem-card-index">
-                      <p className="redeem-card-metrics-title">Approximate RFV</p>
-                      <p className="redeem-card-metrics-value">
-                        {currentIndex ? <>${trim(Number(currentIndex), 2)}</> : <Skeleton width="150px" />}
-                      </p>
-                    </div>
-                  </Grid>
-                  <Grid item xs={6} sm={4} md={4} lg={4}>
-                    <div className="redeem-card-index">
-                      <p className="redeem-card-metrics-title">Applied Risk Free Value</p>
+                      <p className="redeem-card-metrics-title">Liquid Backing per RUG</p>
                       <p className="redeem-card-metrics-value">
                         {currentIndex ? <>${trim(Number(setRFV / 100), 2)}</> : <Skeleton width="150px" />}
                       </p>

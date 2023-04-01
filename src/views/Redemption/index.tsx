@@ -1,4 +1,6 @@
-import { useState, useCallback, SetStateAction } from "react";
+import { useState, useCallback, SetStateAction, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { isUSUser } from "src/helpers/geolocation";
 import { useSelector, useDispatch } from "react-redux";
 import { Grid, InputAdornment, OutlinedInput, Zoom } from "@material-ui/core";
 import { trim } from "../../helpers";
@@ -90,6 +92,20 @@ function Redemption() {
   const handleClick = (event: any) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
+
+  const [showAlert, setShowAlert] = useState(false);
+  const history = useHistory();
+  useEffect(() => {
+    async function checkLocation() {
+      const userIsUS = await isUSUser();
+      if (userIsUS) {
+        setShowAlert(true);
+        alert("You are attempting to access the redeem function from a restricted jusrisdiction.");
+        history.push("/");
+      }
+    }
+    checkLocation();
+  }, [history]);
 
   return (
     <div className="redeem-view">

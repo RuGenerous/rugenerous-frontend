@@ -1,4 +1,6 @@
-import { useState, useCallback, SetStateAction } from "react";
+import { useState, useCallback, SetStateAction, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { isUSUser } from "src/helpers/geolocation";
 import { useSelector, useDispatch } from "react-redux";
 import { Grid, InputAdornment, OutlinedInput, Zoom } from "@material-ui/core";
 import { trim } from "../../helpers";
@@ -12,6 +14,7 @@ import { messages } from "../../constants/messages";
 import classnames from "classnames";
 import { warning } from "../../store/slices/messages-slice";
 import { IAppSlice } from "../../store/slices/app-slice";
+import { isParameterPropertyDeclaration } from "typescript";
 
 function Redemption() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -90,6 +93,20 @@ function Redemption() {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
 
+  const [showAlert, setShowAlert] = useState(false);
+  const history = useHistory();
+  useEffect(() => {
+    async function checkLocation() {
+      const userIsUS = await isUSUser();
+      if (userIsUS) {
+        setShowAlert(true);
+        alert("You are attempting to access the redeem function from a restricted jusrisdiction.");
+        history.push("/");
+      }
+    }
+    checkLocation();
+  }, [history]);
+
   return (
     <div className="redeem-view">
       <Zoom in={true}>
@@ -97,7 +114,7 @@ function Redemption() {
           <Grid className="redeem-card-grid" container direction="column" spacing={2}>
             <Grid item>
               <div className="redeem-card-header">
-                <p className="redeem-card-header-title">The RUG Redemption (🚩, 🚩)</p>
+                <p className="redeem-card-header-title">Quarterly RUG Redemption (🚩, 🚩)</p>
               </div>
             </Grid>
 
@@ -106,17 +123,9 @@ function Redemption() {
                 <Grid container spacing={2}>
                   <Grid item xs={6} sm={4} md={4} lg={4}>
                     <div className="redeem-card-index">
-                      <p className="redeem-card-metrics-title">Approximate RFV</p>
+                      <p className="redeem-card-metrics-title">Liquid Backing per RUG</p>
                       <p className="redeem-card-metrics-value">
-                        {currentIndex ? <>${trim(Number(currentIndex), 2)}</> : <Skeleton width="150px" />}
-                      </p>
-                    </div>
-                  </Grid>
-                  <Grid item xs={6} sm={4} md={4} lg={4}>
-                    <div className="redeem-card-index">
-                      <p className="redeem-card-metrics-title">Applied Risk Free Value</p>
-                      <p className="redeem-card-metrics-value">
-                        {currentIndex ? <>${trim(Number(setRFV / 100), 2)}</> : <Skeleton width="150px" />}
+                        {isAppLoading ? <Skeleton width="150px" /> : <>${trim(Number(setRFV / 100), 2)}</>}
                       </p>
                     </div>
                   </Grid>

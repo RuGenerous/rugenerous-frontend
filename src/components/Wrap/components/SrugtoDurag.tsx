@@ -187,7 +187,7 @@ interface SrugToDuragPriceProps {
 }
 
 export const SrugToDuragPrice = ({ isWrapPrice, setIsWrapPrice }: SrugToDuragPriceProps) => {
-  const memoDuragPrice = useSelector<IReduxState, number>(state => {
+  const srugDuragPrice = useSelector<IReduxState, number>(state => {
     return state.wrapping.prices && state.wrapping.prices.srugDurag;
   });
 
@@ -195,8 +195,8 @@ export const SrugToDuragPrice = ({ isWrapPrice, setIsWrapPrice }: SrugToDuragPri
     return state.wrapping.prices && state.wrapping.prices.duragSrug;
   });
 
-  const wrapPrice = useMemo(() => (isWrapPrice ? memoDuragPrice : duragSrugPrice), [isWrapPrice]);
-  console.log({ memoDuragPrice, duragSrugPrice, isWrapPrice, wrapPrice });
+  const wrapPrice = useMemo(() => (isWrapPrice ? srugDuragPrice : duragSrugPrice), [isWrapPrice]);
+  console.log({ memoDuragPrice: srugDuragPrice, duragSrugPrice, isWrapPrice, wrapPrice });
 
   return (
     <div className="wrap-price" onClick={() => setIsWrapPrice(!isWrapPrice)}>

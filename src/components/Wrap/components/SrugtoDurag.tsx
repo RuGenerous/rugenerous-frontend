@@ -4,7 +4,7 @@ import { IReduxState } from "../../../store/slices/state.interface";
 import { trim } from "../../../helpers/trim";
 import { ReactComponent as ArrowsIcon } from "../../../assets/icons/arrow-down.svg";
 import { useWeb3Context } from "../../../hooks";
-import { calcWrapDetails, changeApproval, changeWrap } from "src/store/slices/wrap-slice";
+import { calcWrapDetails, calcWrapPrice, changeApproval, changeWrap } from "src/store/slices/wrap-slice";
 import { warning } from "src/store/slices/messages-slice";
 import { messages } from "../../../constants/messages";
 import { Skeleton } from "@material-ui/lab";
@@ -66,6 +66,7 @@ export default function ({ isWrap, setValue, setIsWrap, setIsWrapPrice, value }:
 
   useEffect(() => {
     dispatch(calcWrapDetails({ isWrap, provider, value, networkID: chainID }));
+    dispatch(calcWrapPrice({ provider, networkID: chainID }));
   }, [value]);
 
   const hasAllowance = useCallback(() => memoAllowance > 0, [memoAllowance]);
@@ -196,12 +197,11 @@ export const SrugToDuragPrice = ({ isWrapPrice, setIsWrapPrice }: SrugToDuragPri
   });
 
   const wrapPrice = useMemo(() => (isWrapPrice ? srugDuragPrice : duragSrugPrice), [isWrapPrice]);
-  console.log({ memoDuragPrice: srugDuragPrice, duragSrugPrice, isWrapPrice, wrapPrice });
 
   return (
     <div className="wrap-price" onClick={() => setIsWrapPrice(!isWrapPrice)}>
       <p>
-        1 {isWrapPrice ? "SRUG" : "DURAG"} = {`${trim(wrapPrice, 5)} ${isWrapPrice ? "DURAG" : "SRUG"}`}
+        1 {isWrapPrice ? "SRUG" : "DURAG"} = {`${trim(wrapPrice, 8)} ${isWrapPrice ? "DURAG" : "SRUG"}`}
       </p>
     </div>
   );

@@ -134,6 +134,7 @@ const calcWrapValue = async ({ isWrap, value, provider, networkID }: IWrapDetail
 
   if (isWrap) {
     const duragValue = await duragContract.MEMOTowMEMO(amountInWei);
+
     wrapValue = duragValue / Math.pow(10, 18);
   } else {
     const srugValue = await duragContract.wMEMOToMEMO(amountInWei);

@@ -305,6 +305,9 @@ export interface IAccountSlice {
     rug: number;
     srug: number;
   };
+  wrapping: {
+    srug: number;
+  };
   warmupInfo: {
     expiry: string;
     deposit: string;
@@ -320,6 +323,7 @@ const initialState: IAccountSlice = {
   bonds: {},
   balances: { srug: "", rug: "", durag: "" },
   redeem: { rug: 0 },
+  wrapping: { srug: 0 },
   staking: { rug: 0, srug: 0 },
   warmupInfo: { expiry: "", deposit: "", epoch: "", gons: "", gonsBalance: "" },
   tokens: {},

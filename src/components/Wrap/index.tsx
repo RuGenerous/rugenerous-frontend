@@ -5,8 +5,8 @@ import "./wrap.scss";
 import { useDispatch } from "react-redux";
 import { calcWrapDetails } from "../../store/slices/wrap-slice";
 import { useWeb3Context } from "../../hooks";
-import MemoToWmemo, { MemoToWmemoPrice } from "./components/MemoToWmemo";
-import TimeToMemo, { TimeToMemoPrice } from "./components/TimeToMemo";
+import SrugToDurag, { MemoToWmemoPrice } from "./components/SrugtoDurag";
+import RugToSrug, { RugToSrugPrice } from "./components/RugtoSrug";
 import classnames from "classnames";
 
 interface IAdvancedSettingsProps {
@@ -46,9 +46,7 @@ function Wrap({ open, handleClose }: IAdvancedSettingsProps) {
           <IconButton onClick={onClose}>
             <SvgIcon color="primary" component={XIcon} />
           </IconButton>
-          {view === 0 && (
-            <TimeToMemoPrice isWrapPrice={isWrapPrice} setIsWrapPrice={status => setIsWrapPrice(status)} />
-          )}
+          {view === 0 && <RugToSrugPrice isWrapPrice={isWrapPrice} setIsWrapPrice={status => setIsWrapPrice(status)} />}
           {view === 1 && (
             <MemoToWmemoPrice isWrapPrice={isWrapPrice} setIsWrapPrice={status => setIsWrapPrice(status)} />
           )}
@@ -62,7 +60,7 @@ function Wrap({ open, handleClose }: IAdvancedSettingsProps) {
           </div>
         </div>
         {view === 0 && (
-          <TimeToMemo
+          <RugToSrug
             isWrap={isWrap}
             setValue={value => setValue(value)}
             setIsWrap={value => setIsWrap(value)}
@@ -71,7 +69,7 @@ function Wrap({ open, handleClose }: IAdvancedSettingsProps) {
           />
         )}
         {view === 1 && (
-          <MemoToWmemo
+          <SrugToDurag
             isWrap={isWrap}
             setValue={value => setValue(value)}
             setIsWrap={value => setIsWrap(value)}

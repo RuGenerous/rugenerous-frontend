@@ -28,13 +28,13 @@ export const changeApproval = createAsyncThunk(
 
     const addresses = getAddresses(networkID);
     const signer = provider.getSigner();
-    const memoContract = new ethers.Contract(addresses.SRUG_ADDRESS, DuragTokenContract, signer);
+    const srugContract = new ethers.Contract(addresses.SRUG_ADDRESS, DuragTokenContract, signer);
 
     let approveTx;
     try {
       const gasPrice = await getGasPrice(provider);
 
-      approveTx = await memoContract.approve(addresses.DURAG_ADDRESS, ethers.constants.MaxUint256, { gasPrice });
+      approveTx = await srugContract.approve(addresses.DURAG_ADDRESS, ethers.constants.MaxUint256, { gasPrice });
 
       const text = "Approve Wrapping";
       const pendingTxnType = "approve_wrapping";
@@ -52,12 +52,12 @@ export const changeApproval = createAsyncThunk(
 
     await sleep(2);
 
-    const memoAllowance = await memoContract.allowance(address, addresses.DURAG_ADDRESS);
+    const srugAllowance = await srugContract.allowance(address, addresses.DURAG_ADDRESS);
 
     return dispatch(
       fetchAccountSuccess({
         wrapping: {
-          memo: Number(memoAllowance),
+          srug: Number(srugAllowance),
         },
       }),
     );
@@ -83,7 +83,7 @@ export const changeWrap = createAsyncThunk(
     const addresses = getAddresses(networkID);
     const signer = provider.getSigner();
     const amountInWei = isWrap ? ethers.utils.parseUnits(value, "gwei") : ethers.utils.parseEther(value);
-    const wmemoContract = new ethers.Contract(addresses.DURAG_ADDRESS, DuragTokenContract, signer);
+    const duragContract = new ethers.Contract(addresses.DURAG_ADDRESS, DuragTokenContract, signer);
 
     let wrapTx;
 
@@ -91,9 +91,9 @@ export const changeWrap = createAsyncThunk(
       const gasPrice = await getGasPrice(provider);
 
       if (isWrap) {
-        wrapTx = await wmemoContract.wrap(amountInWei, { gasPrice });
+        wrapTx = await duragContract.wrap(amountInWei, { gasPrice });
       } else {
-        wrapTx = await wmemoContract.unwrap(amountInWei, { gasPrice });
+        wrapTx = await duragContract.unwrap(amountInWei, { gasPrice });
       }
 
       const pendingTxnType = isWrap ? "wrapping" : "unwrapping";
@@ -130,14 +130,14 @@ const calcWrapValue = async ({ isWrap, value, provider, networkID }: IWrapDetail
 
   let wrapValue = 0;
 
-  const wmemoContract = new ethers.Contract(addresses.DURAG_ADDRESS, DuragTokenContract, provider);
+  const duragContract = new ethers.Contract(addresses.DURAG_ADDRESS, DuragTokenContract, provider);
 
   if (isWrap) {
-    const wmemoValue = await wmemoContract.MEMOTowMEMO(amountInWei);
-    wrapValue = wmemoValue / Math.pow(10, 18);
+    const duragValue = await duragContract.MEMOTowMEMO(amountInWei);
+    wrapValue = duragValue / Math.pow(10, 18);
   } else {
-    const memoValue = await wmemoContract.wMEMOToMEMO(amountInWei);
-    wrapValue = memoValue / Math.pow(10, 9);
+    const srugValue = await duragContract.wMEMOToMEMO(amountInWei);
+    wrapValue = srugValue / Math.pow(10, 9);
   }
 
   return wrapValue;
@@ -180,13 +180,13 @@ export const calcWrapPrice = createAsyncThunk(
       return;
     }
 
-    const memoWmemo = await calcWrapValue({ isWrap: true, value: "1", provider, networkID });
-    const wmemoMemo = await calcWrapValue({ isWrap: false, value: "1", provider, networkID });
+    const srugDurag = await calcWrapValue({ isWrap: true, value: "1", provider, networkID });
+    const duragSrug = await calcWrapValue({ isWrap: false, value: "1", provider, networkID });
 
     return {
       prices: {
-        memoWmemo,
-        wmemoMemo,
+        srugDurag,
+        duragSrug,
       },
     };
   },
@@ -196,8 +196,8 @@ export interface IWrapSlice {
   loading: boolean;
   wrapValue: "";
   prices: {
-    memoWmemo: number;
-    wmemoMemo: number;
+    srugDurag: number;
+    duragSrug: number;
   };
 }
 
@@ -205,8 +205,8 @@ const initialState: IWrapSlice = {
   loading: true,
   wrapValue: "",
   prices: {
-    memoWmemo: 0,
-    wmemoMemo: 0,
+    srugDurag: 0,
+    duragSrug: 0,
   },
 };
 

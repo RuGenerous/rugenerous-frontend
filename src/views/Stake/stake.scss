@@ -3,8 +3,6 @@
   max-width: 833px;
   margin: auto;
 
-  
-
   .stake-card {
     position: relative;
     z-index: 2;
@@ -16,7 +14,7 @@
 
     /* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
     @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-      background: #3E3A71;
+      background: #3e3a71;
     }
 
     border-radius: 10px;
@@ -150,7 +148,7 @@
             width: 100%;
 
             background: rgba(103, 43, 138, 0.2);
-            border: 1px solid #2BA9AE;
+            border: 1px solid #2ba9ae;
             border-radius: 10px;
             outline: none;
 
@@ -184,7 +182,7 @@
             margin-left: 10px;
 
             .stake-card-tab-panel-btn {
-              background: #2BA9AE;
+              background: #2ba9ae;
               box-shadow: 0px 0px 10px rgba(44, 39, 109, 0.1);
               border-radius: 10px;
               padding: 14px 0px;
@@ -245,17 +243,16 @@
   display: flex;
   flex-direction: column;
   font-family: Montserrat SemiBold;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 20px;
-      color: #ffffff;
-      text-align: center;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  text-align: center;
 
   .tooltip-item {
     text-decoration: none;
     padding: 13px 20px;
-
   }
 }
 
@@ -276,7 +273,6 @@
     font-size: 14px;
     line-height: 17px;
     color: #ffffff;
-
 
     .claim-btn {
       background: #2bae3a;
@@ -302,7 +298,6 @@
       padding: 4px 4px;
       cursor: pointer;
       text-align: center;
-      
 
       p {
         font-family: Montserrat SemiBold;
@@ -357,5 +352,34 @@
 @media screen and (max-width: 1240px) {
   .stake-view {
     width: 100%;
+  }
+}
+
+.stake-card-action-stage-btns-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .stake-card-action-stage-btn {
+    margin: 0px 30px;
+    padding: 6px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+
+    p {
+      font-family: Montserrat SemiBold;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  .stake-card-action-stage-btn.active {
+    p {
+      color: #ffffff;
+    }
+
+    border-bottom: 1px solid #ffffff;
   }
 }

@@ -11,7 +11,7 @@ import { Skeleton } from "@material-ui/lab";
 import { Icon, IconButton, InputAdornment, OutlinedInput, SvgIcon } from "@material-ui/core";
 import { IPendingTxn, isPendingTxn, txnButtonText } from "../../../store/slices/pending-txns-slice";
 
-interface MemoToWmemoProps {
+interface SrugToDuragProps {
   isWrap: boolean;
   setValue: (value: string) => void;
   setIsWrap: (value: boolean) => void;
@@ -19,7 +19,7 @@ interface MemoToWmemoProps {
   value: string;
 }
 
-export default function ({ isWrap, setValue, setIsWrap, setIsWrapPrice, value }: MemoToWmemoProps) {
+export default function ({ isWrap, setValue, setIsWrap, setIsWrapPrice, value }: SrugToDuragProps) {
   const dispatch = useDispatch();
   const { provider, address, chainID, checkWrongNetwork } = useWeb3Context();
 
@@ -28,7 +28,7 @@ export default function ({ isWrap, setValue, setIsWrap, setIsWrapPrice, value }:
   const memoBalance = useSelector<IReduxState, string>(state => {
     return state.account.balances && state.account.balances.srug;
   });
-  const wmemoBalance = useSelector<IReduxState, string>(state => {
+  const duragBalance = useSelector<IReduxState, string>(state => {
     return state.account.balances && state.account.balances.durag;
   });
 
@@ -48,7 +48,7 @@ export default function ({ isWrap, setValue, setIsWrap, setIsWrapPrice, value }:
     if (isWrap) {
       setValue(memoBalance);
     } else {
-      setValue(wmemoBalance);
+      setValue(duragBalance);
     }
   };
 
@@ -70,10 +70,10 @@ export default function ({ isWrap, setValue, setIsWrap, setIsWrapPrice, value }:
 
   const hasAllowance = useCallback(() => memoAllowance > 0, [memoAllowance]);
 
-  const trimmedMemoBalance = trim(Number(memoBalance), 6);
-  const trimmedWmemoBalance = trim(Number(wmemoBalance), 6);
+  const trimmedSrugBalance = trim(Number(memoBalance), 6);
+  const trimmedDuragBalance = trim(Number(duragBalance), 6);
 
-  const getBalance = () => (isWrap ? `${trimmedMemoBalance} MEMO` : `${trimmedWmemoBalance} wMEMO`);
+  const getBalance = () => (isWrap ? `${trimmedSrugBalance} SRUG` : `${trimmedDuragBalance} DURAG`);
 
   const handleOnWrap = async () => {
     if (await checkWrongNetwork()) return;
@@ -110,7 +110,7 @@ export default function ({ isWrap, setValue, setIsWrap, setIsWrapPrice, value }:
           startAdornment={
             <InputAdornment position="start">
               <div className="wrap-action-input-text">
-                <p>{isWrap ? "MEMO" : "wMEMO"}</p>
+                <p>{isWrap ? "SRUG" : "DURAG"}</p>
               </div>
             </InputAdornment>
           }
@@ -137,7 +137,7 @@ export default function ({ isWrap, setValue, setIsWrap, setIsWrapPrice, value }:
           startAdornment={
             <InputAdornment position="start">
               <div className="wrap-action-input-text">
-                <p>{isWrap ? "wMEMO" : "MEMO"}</p>
+                <p>{isWrap ? "DURAG" : "SRUG"}</p>
               </div>
             </InputAdornment>
           }
@@ -181,25 +181,25 @@ export default function ({ isWrap, setValue, setIsWrap, setIsWrapPrice, value }:
   );
 }
 
-interface MemoToWmemoPriceProps {
+interface SrugToDuragPriceProps {
   isWrapPrice: boolean;
   setIsWrapPrice: (status: boolean) => void;
 }
 
-export const MemoToWmemoPrice = ({ isWrapPrice, setIsWrapPrice }: MemoToWmemoPriceProps) => {
-  const memoWmemoPrice = useSelector<IReduxState, number>(state => {
+export const SrugToDuragPrice = ({ isWrapPrice, setIsWrapPrice }: SrugToDuragPriceProps) => {
+  const memoDuragPrice = useSelector<IReduxState, number>(state => {
     return state.wrapping.prices && state.wrapping.prices.srugDurag;
   });
 
-  const wmemoMemoPrice = useSelector<IReduxState, number>(state => {
+  const duragSrugPrice = useSelector<IReduxState, number>(state => {
     return state.wrapping.prices && state.wrapping.prices.duragSrug;
   });
 
-  const wrapPrice = useCallback(() => (isWrapPrice ? memoWmemoPrice : wmemoMemoPrice), [isWrapPrice]);
+  const wrapPrice = useCallback(() => (isWrapPrice ? memoDuragPrice : duragSrugPrice), [isWrapPrice]);
   return (
     <div className="wrap-price" onClick={() => setIsWrapPrice(!isWrapPrice)}>
       <p>
-        1 {isWrapPrice ? "MEMO" : "wMEMO"} = {`${trim(wrapPrice(), 7)} ${isWrapPrice ? "wMEMO" : "MEMO"}`}
+        1 {isWrapPrice ? "SRUG" : "DURAG"} = {`${trim(wrapPrice(), 7)} ${isWrapPrice ? "DURAG" : "SRUG"}`}
       </p>
     </div>
   );

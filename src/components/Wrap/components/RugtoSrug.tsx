@@ -77,7 +77,7 @@ export default function ({ isWrap, setValue, setIsWrap, setIsWrapPrice, value }:
   const trimmedSrugBalance = trim(Number(srugBalance), 6);
   const trimmedRugBalance = trim(Number(rugBalance), 6);
 
-  const getBalance = () => (isWrap ? `${trimmedRugBalance} rug` : `${trimmedSrugBalance} srug`);
+  const getBalance = () => (isWrap ? `${trimmedRugBalance} RUG` : `${trimmedSrugBalance} SRUG`);
 
   const onChangeStake = async (action: string) => {
     if (await checkWrongNetwork()) return;
@@ -191,7 +191,7 @@ export default function ({ isWrap, setValue, setIsWrap, setIsWrapPrice, value }:
         {((!hasAllowance("rug") && isWrap) || (!hasAllowance("srug") && !isWrap)) && (
           <div className="wrap-help-text">
             <p>The "Approve" transaction is only needed</p>
-            <p>when wrapping for the first rug.</p>
+            <p>when wrapping for the first time.</p>
           </div>
         )}
       </div>

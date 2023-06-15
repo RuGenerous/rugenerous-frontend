@@ -5,7 +5,7 @@ import "./wrap.scss";
 import { useDispatch } from "react-redux";
 import { calcWrapDetails } from "../../store/slices/wrap-slice";
 import { useWeb3Context } from "../../hooks";
-import SrugToDurag, { MemoToWmemoPrice } from "./components/SrugtoDurag";
+import SrugToDurag, { SrugToDuragPrice } from "./components/SrugtoDurag";
 import RugToSrug, { RugToSrugPrice } from "./components/RugtoSrug";
 import classnames from "classnames";
 
@@ -48,15 +48,15 @@ function Wrap({ open, handleClose }: IAdvancedSettingsProps) {
           </IconButton>
           {view === 0 && <RugToSrugPrice isWrapPrice={isWrapPrice} setIsWrapPrice={status => setIsWrapPrice(status)} />}
           {view === 1 && (
-            <MemoToWmemoPrice isWrapPrice={isWrapPrice} setIsWrapPrice={status => setIsWrapPrice(status)} />
+            <SrugToDuragPrice isWrapPrice={isWrapPrice} setIsWrapPrice={status => setIsWrapPrice(status)} />
           )}
         </div>
         <div className="stake-card-action-stage-btns-wrap">
           <div onClick={changeView(0)} className={classnames("stake-card-action-stage-btn", { active: !view })}>
-            <p>TIME to MEMO</p>
+            <p>RUG to SRUG</p>
           </div>
           <div onClick={changeView(1)} className={classnames("stake-card-action-stage-btn", { active: view })}>
-            <p>MEMO to wMEMO</p>
+            <p>SRUG to DURAG</p>
           </div>
         </div>
         {view === 0 && (

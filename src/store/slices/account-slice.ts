@@ -32,17 +32,17 @@ export const getBalances = createAsyncThunk(
   async ({ address, networkID, provider }: IGetBalances): Promise<IAccountBalances> => {
     const addresses = getAddresses(networkID);
 
-    const memoContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, provider);
-    const memoBalance = await memoContract.balanceOf(address);
-    const timeContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
-    const timeBalance = await timeContract.balanceOf(address);
+    const rugContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
+    const rugBalance = await rugContract.balanceOf(address);
+    const srugContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, provider);
+    const srugBalance = await srugContract.balanceOf(address);
     const duragContract = new ethers.Contract(addresses.DURAG_ADDRESS, DuragTokenContract, provider);
     const duragBalance = await duragContract.balanceOf(address);
 
     return {
       balances: {
-        srug: ethers.utils.formatUnits(memoBalance, "gwei"),
-        rug: ethers.utils.formatUnits(timeBalance, "gwei"),
+        srug: ethers.utils.formatUnits(srugBalance, "gwei"),
+        rug: ethers.utils.formatUnits(rugBalance, "gwei"),
         durag: ethers.utils.formatEther(duragBalance),
       },
     };
@@ -110,8 +110,8 @@ interface IUserAccountDetails {
 export const loadAccountDetails = createAsyncThunk(
   "account/loadAccountDetails",
   async ({ networkID, provider, address }: ILoadAccountDetails): Promise<IUserAccountDetails> => {
-    let timeBalance = 0;
-    let memoBalance = 0;
+    let rugBalance = 0;
+    let srugBalance = 0;
     let duragBalance = 0;
     let stakeAllowance = 0;
     let redeemAllowance = 0;
@@ -120,16 +120,16 @@ export const loadAccountDetails = createAsyncThunk(
     const addresses = getAddresses(networkID);
 
     if (addresses.RUG_ADDRESS) {
-      const timeContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
-      timeBalance = await timeContract.balanceOf(address);
-      stakeAllowance = await timeContract.allowance(address, addresses.STAKING_HELPER_ADDRESS);
-      redeemAllowance = await timeContract.allowance(address, addresses.REDEEMING_ADDRESS);
+      const rugContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
+      rugBalance = await rugContract.balanceOf(address);
+      stakeAllowance = await rugContract.allowance(address, addresses.STAKING_HELPER_ADDRESS);
+      redeemAllowance = await rugContract.allowance(address, addresses.REDEEMING_ADDRESS);
     }
 
     if (addresses.SRUG_ADDRESS) {
-      const memoContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, provider);
-      memoBalance = await memoContract.balanceOf(address);
-      unstakeAllowance = await memoContract.allowance(address, addresses.STAKING_ADDRESS);
+      const srugContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, provider);
+      srugBalance = await srugContract.balanceOf(address);
+      unstakeAllowance = await srugContract.allowance(address, addresses.STAKING_ADDRESS);
     }
 
     if (addresses.DURAG_ADDRESS) {
@@ -139,8 +139,8 @@ export const loadAccountDetails = createAsyncThunk(
 
     return {
       balances: {
-        srug: ethers.utils.formatUnits(memoBalance, "gwei"),
-        rug: ethers.utils.formatUnits(timeBalance, "gwei"),
+        srug: ethers.utils.formatUnits(srugBalance, "gwei"),
+        rug: ethers.utils.formatUnits(rugBalance, "gwei"),
         durag: ethers.utils.formatEther(duragBalance),
       },
       redeem: {

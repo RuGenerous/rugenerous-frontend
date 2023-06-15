@@ -17,4 +17,6 @@ export const messages = {
   slippage_too_small: "Slippage too small",
   slippage_too_big: "Slippage too big",
   your_balance_update_soon: "Your balance will update soon",
+  before_wrap: "Before wrapping, enter a value.",
+  before_unwrap: "Before un wrapping, enter a value.",
 };

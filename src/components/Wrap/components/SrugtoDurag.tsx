@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IReduxState } from "../../../store/slices/state.interface";
 import { trim } from "../../../helpers/trim";
@@ -8,7 +8,7 @@ import { calcWrapDetails, calcWrapPrice, changeApproval, changeWrap } from "src/
 import { warning } from "src/store/slices/messages-slice";
 import { messages } from "../../../constants/messages";
 import { Skeleton } from "@material-ui/lab";
-import { Icon, IconButton, InputAdornment, OutlinedInput, SvgIcon } from "@material-ui/core";
+import { Icon, InputAdornment, OutlinedInput, SvgIcon } from "@material-ui/core";
 import { IPendingTxn, isPendingTxn, txnButtonText } from "../../../store/slices/pending-txns-slice";
 
 interface SrugToDuragProps {
@@ -66,7 +66,6 @@ export default function ({ isWrap, setValue, setIsWrap, setIsWrapPrice, value }:
 
   useEffect(() => {
     dispatch(calcWrapDetails({ isWrap, provider, value, networkID: chainID }));
-    dispatch(calcWrapPrice({ provider, networkID: chainID }));
   }, [value]);
 
   const hasAllowance = useCallback(() => memoAllowance > 0, [memoAllowance]);
@@ -188,6 +187,9 @@ interface SrugToDuragPriceProps {
 }
 
 export const SrugToDuragPrice = ({ isWrapPrice, setIsWrapPrice }: SrugToDuragPriceProps) => {
+  const dispatch = useDispatch();
+  const { provider, chainID } = useWeb3Context();
+
   const srugDuragPrice = useSelector<IReduxState, number>(state => {
     return state.wrapping.prices && state.wrapping.prices.srugDurag;
   });
@@ -196,7 +198,11 @@ export const SrugToDuragPrice = ({ isWrapPrice, setIsWrapPrice }: SrugToDuragPri
     return state.wrapping.prices && state.wrapping.prices.duragSrug;
   });
 
-  const wrapPrice = useMemo(() => (isWrapPrice ? srugDuragPrice : duragSrugPrice), [isWrapPrice]);
+  const wrapPrice = isWrapPrice ? srugDuragPrice : duragSrugPrice;
+
+  useEffect(() => {
+    dispatch(calcWrapPrice({ provider, networkID: chainID }));
+  }, []);
 
   return (
     <div className="wrap-price" onClick={() => setIsWrapPrice(!isWrapPrice)}>

@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IReduxState } from "../../../store/slices/state.interface";
 import { trim } from "../../../helpers/trim";
@@ -195,11 +195,13 @@ export const SrugToDuragPrice = ({ isWrapPrice, setIsWrapPrice }: SrugToDuragPri
     return state.wrapping.prices && state.wrapping.prices.duragSrug;
   });
 
-  const wrapPrice = useCallback(() => (isWrapPrice ? memoDuragPrice : duragSrugPrice), [isWrapPrice]);
+  const wrapPrice = useMemo(() => (isWrapPrice ? memoDuragPrice : duragSrugPrice), [isWrapPrice]);
+  console.log({ memoDuragPrice, duragSrugPrice, isWrapPrice, wrapPrice });
+
   return (
     <div className="wrap-price" onClick={() => setIsWrapPrice(!isWrapPrice)}>
       <p>
-        1 {isWrapPrice ? "SRUG" : "DURAG"} = {`${trim(wrapPrice(), 7)} ${isWrapPrice ? "DURAG" : "SRUG"}`}
+        1 {isWrapPrice ? "SRUG" : "DURAG"} = {`${trim(wrapPrice, 5)} ${isWrapPrice ? "DURAG" : "SRUG"}`}
       </p>
     </div>
   );

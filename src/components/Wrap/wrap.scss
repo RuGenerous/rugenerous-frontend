@@ -1,5 +1,6 @@
 .wrap-token-poper {
   width: 100%;
+  background: rgb(28, 27, 52) !important;
 
   .wrap-cros-wrap {
     align-items: center;
@@ -49,6 +50,8 @@
 
     .wrap-input {
       margin: 0 !important;
+      border: 1px solid #2ba9ae !important;
+      background: rgba(103, 43, 138, 0.2) !important;
 
       .wrap-action-input-btn {
         cursor: pointer;
@@ -78,7 +81,7 @@
     .wrap-btn {
       cursor: pointer;
       margin-top: 20px;
-      background: rgba(255, 255, 255, 0.2);
+      background: #2ba9ae;
       box-shadow: 0px 0px 10px rgba(44, 39, 109, 0.1);
       border-radius: 10px;
       padding: 14px 0;

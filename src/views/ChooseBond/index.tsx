@@ -84,9 +84,9 @@ function ChooseBond() {
                 <div className={classnames("bond-one-table-btn", { active: !view })} onClick={changeView(0)}>
                   <p>Available Bonds</p>
                 </div>
-                <div className={classnames("bond-one-table-btn", { active: view })} onClick={changeView(1)}>
+                {/* <div className={classnames("bond-one-table-btn", { active: view })} onClick={changeView(1)}>
                   <p>Sold Out / Upcoming Bonds</p>
-                </div>
+                </div> */}
               </div>
               <TabPanel value={view} index={0}>
                 <Grid container item>
@@ -138,9 +138,9 @@ function ChooseBond() {
                           <TableCell align="right"></TableCell>
                         </TableRow>
                       </TableHead>
-                      <TableBody>
+                      {/* <TableBody>
                         {bonds.map(bond => !bond.available && <BondTableData key={bond.name} bond={bond} />)}
-                      </TableBody>
+                      </TableBody> */}
                     </Table>
                   </TableContainer>
                 </Grid>

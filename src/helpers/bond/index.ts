@@ -1,17 +1,13 @@
 import { Networks } from "../../constants/blockchain";
 import { LPBond, CustomLPBond } from "./lp-bond";
 import { StableBond, CustomBond } from "./stable-bond";
-
+import { getAddresses } from "../../constants/addresses";
 import MimIcon from "../../assets/tokens/MIM.svg";
-import USDCIcon from "../../assets/tokens/USDC.e.png";
-import USDCRUGIcon from "../../assets/tokens/USDC-RUG.png";
+import DaiIcon from "../../assets/tokens/DAI.e.png";
+import BenQiIcon from "../../assets/tokens/QI.png";
 import USDTIcon from "../../assets/tokens/USDT.e.png";
-import AvaxIcon from "../../assets/tokens/AVAX.svg";
 import MimRugIcon from "../../assets/tokens/RUG-MIM.svg";
 import AvaxRugIcon from "../../assets/tokens/RUG-AVAX.svg";
-import BenQiIcon from "../../assets/tokens/QI.png";
-import MemoIcon from "../../assets/tokens/MEMO.png";
-import TimeRugIcon from "../../assets/tokens/TIMERUG.png";
 
 import {
   StableBondContract,
@@ -20,6 +16,24 @@ import {
   StableReserveContract,
   LpReserveContract,
 } from "../../abi";
+
+const { DAI_ADDRESS } = getAddresses(Networks.AVAX);
+
+export const dai = new StableBond({
+  name: "Dai",
+  displayName: "Dai",
+  bondToken: "Dai",
+  bondIconSvg: DaiIcon,
+  bondContractABI: StableBondContract,
+  reserveContractAbi: StableReserveContract,
+  networkAddrs: {
+    [Networks.AVAX]: {
+      bondAddress: "0xe20d45F22466eEF336CA679802728E0eE4Eb9afA",
+      reserveAddress: DAI_ADDRESS,
+    },
+  },
+  available: true,
+});
 
 export const mim = new StableBond({
   name: "mim",
@@ -100,21 +114,21 @@ export const benqi = new CustomBond({
 //   },
 // });
 
-export const wavax = new CustomBond({
-  name: "wavax",
-  displayName: "wAVAX",
-  bondToken: "AVAX",
-  bondIconSvg: AvaxIcon,
-  bondContractABI: WavaxBondContract,
-  reserveContractAbi: StableReserveContract,
-  networkAddrs: {
-    [Networks.AVAX]: {
-      bondAddress: "0x3a93493e2E486F818672991de6828a27346Ab0Cb",
-      reserveAddress: "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-    },
-  },
-  available: false,
-});
+// export const wavax = new CustomBond({
+//   name: "wavax",
+//   displayName: "wAVAX",
+//   bondToken: "AVAX",
+//   bondIconSvg: AvaxIcon,
+//   bondContractABI: WavaxBondContract,
+//   reserveContractAbi: StableReserveContract,
+//   networkAddrs: {
+//     [Networks.AVAX]: {
+//       bondAddress: "0x3a93493e2E486F818672991de6828a27346Ab0Cb",
+//       reserveAddress: "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+//     },
+//   },
+//   available: false,
+// });
 
 export const mimRug = new LPBond({
   name: "mim_time_lp",
@@ -257,4 +271,4 @@ export const timeRugRlp = new CustomLPBond({
 //   lpUrl: "https://app.pangolin.exchange/add/AVAX/0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
 // });
 
-export default [mim, mimRuglp];
+export default [dai, mim, mimRug, avaxRug];

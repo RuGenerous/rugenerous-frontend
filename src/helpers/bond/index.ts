@@ -24,7 +24,7 @@ export const dai = new StableBond({
   displayName: "Dai",
   bondToken: "Dai",
   bondIconSvg: DaiIcon,
-  bondContractABI: StableBondContract,
+  bondContractABI: WavaxBondContract,
   reserveContractAbi: StableReserveContract,
   networkAddrs: {
     [Networks.AVAX]: {
@@ -35,12 +35,12 @@ export const dai = new StableBond({
   available: true,
 });
 
-export const mim = new StableBond({
+export const mim = new CustomBond({
   name: "mim",
   displayName: "MIM",
   bondToken: "MIM",
   bondIconSvg: MimIcon,
-  bondContractABI: StableBondContract,
+  bondContractABI: WavaxBondContract,
   reserveContractAbi: StableReserveContract,
   networkAddrs: {
     [Networks.AVAX]: {

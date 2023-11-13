@@ -327,7 +327,7 @@ const teddy: IToken = {
 
 const rug: IToken = {
   name: "RUG",
-  address: "0xb8EF3a190b68175000B74B4160d325FD5024760e",
+  address: "0x942f53a16bf2D1aa650fd456BDbB352A22B7b356",
   img: RugIcon,
   decimals: 9,
 };

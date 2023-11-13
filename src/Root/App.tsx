@@ -130,13 +130,9 @@ function App() {
           <Calculator />
         </Route>
 
-        <Route path="/redeem">
+        {/* <Route path="/redeem">
           <Redemption />
-        </Route>
-
-        <Route path="/buy/rugDexUSDC">
-          <Buy dexUrl={exchanges.rugDexUSDC} />
-        </Route>
+        </Route> */}
 
         <Route path="/buy/tjDex">
           <Buy dexUrl={exchanges.tjDex} />

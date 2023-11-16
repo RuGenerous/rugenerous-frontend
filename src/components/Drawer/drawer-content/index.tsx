@@ -99,11 +99,7 @@ function NavContent() {
           </Link>
 
           <div className="bond-discounts">
-            <Link href="https://medium.com/@Dreesus/issa-story-15237f8552c6" target="_blank">
-              <p>
-                <strong>Future RoadMap Explanation</strong>
-              </p>
-            </Link>
+            <Link href="https://medium.com/@Dreesus/issa-story-15237f8552c6" target="_blank"></Link>
 
             {/* {bonds.map((bond, i) => (
                 {/* <Link component={NavLink} to={`/mints/${bond.name}`} key={i} className={"bond"}> */}
@@ -141,7 +137,7 @@ function NavContent() {
             </div>
           </Link> */}
 
-          <Link
+          {/* <Link
             component={NavLink}
             id="bond-nav"
             to="/redeem"
@@ -154,7 +150,7 @@ function NavContent() {
               <img alt="" src={BrowserIcon} />
               <p>Redeem RUG to USDC.e</p>
             </div>
-          </Link>
+          </Link> */}
         </div>
       </div>
       <div className="dapp-menu-doc-link">

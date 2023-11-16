@@ -27,8 +27,7 @@ export const loadAppDetails = createAsyncThunk(
     const srugContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, provider);
     const rugContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
     const redeemContract = new ethers.Contract(addresses.REDEEMING_ADDRESS, RedemptionContract, provider);
-    const marketPrice = ((await getMarketPrice(networkID, provider)) / Math.pow(10, 9)) * mimPrice;
-
+    const marketPrice = await getMarketPrice(networkID, provider);
     const burnedSupply = (await rugContract.balanceOf(addresses.BURN_ADDRESS)) / Math.pow(10, 9);
     const totalSupply = (await rugContract.totalSupply()) / Math.pow(10, 9) - burnedSupply;
     const circSupply = (await srugContract.circulatingSupply()) / Math.pow(10, 9);

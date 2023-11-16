@@ -48,6 +48,10 @@ export const txnButtonText = (pendingTransactions: IPendingTxn[], type: string, 
   return isPendingTxn(pendingTransactions, type) ? "Pending..." : defaultText;
 };
 
+export const getWrappingTypeText = (isWrap: boolean) => {
+  return isWrap ? "Wrap MEMO" : "Unwrap wMEMO";
+};
+
 export const { fetchPendingTxns, clearPendingTxn } = pendingTxnsSlice.actions;
 
 export default pendingTxnsSlice.reducer;

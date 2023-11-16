@@ -85,7 +85,7 @@ function NavContent() {
           <Link
             component={NavLink}
             id="bond-nav"
-            to="#"
+            to="/mints"
             isActive={(match: any, location: any) => {
               return checkPage(location, "mints");
             }}
@@ -94,7 +94,7 @@ function NavContent() {
             <div className="dapp-menu-item">
               <img alt="" src={BondIcon} />
               {/* <p>Some Ruggy Mints</p> */}
-              <p>Wen Bonds?</p>
+              <p>Bonds</p>
             </div>
           </Link>
 

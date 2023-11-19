@@ -28,7 +28,7 @@ export const dai = new StableBond({
   reserveContractAbi: StableReserveContract,
   networkAddrs: {
     [Networks.AVAX]: {
-      bondAddress: "0xf98A623D672273E86114e6cEe214b682c0e42fa6",
+      bondAddress: "0xB1eEfF7D72d6402f2DD73a3EF778D684c208ECcB",
       reserveAddress: DAI_ADDRESS,
     },
   },
@@ -130,6 +130,7 @@ export const benqi = new CustomBond({
 //   available: false,
 // });
 
+export default [dai, mimRug];
 export const mimRug = new LPBond({
   name: "mim_time_lp",
   displayName: "RUG-MIM JLP",
@@ -139,11 +140,12 @@ export const mimRug = new LPBond({
   reserveContractAbi: LpReserveContract,
   networkAddrs: {
     [Networks.AVAX]: {
-      bondAddress: "0xD17Ac52710F77249D39F72bcbc0c3Fa7eefceF84",
-      reserveAddress: "0x8b667C1e422c08f9874709939Bc90E71c2BEA167",
+      bondAddress: "0x047cBdFF1d73a1dd1610Bb31C45e2Ee6A9435FAE",
+      reserveAddress: "0x0c3462B62bD1DBbc54E07397cD7f3d771AeeaCdD",
     },
   },
   lpUrl:
+
     "https://www.traderjoexyz.com/#/pool/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb8EF3a190b68175000B74B4160d325FD5024760e",
   available: true,
 });

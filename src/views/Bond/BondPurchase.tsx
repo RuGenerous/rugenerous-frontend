@@ -34,12 +34,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
   });
 
   const vestingPeriod = () => {
-    if (bond.vestingTerm === 0) return "None";
-    else if (bond.vestingTerm < 86400) return prettifySeconds(bond.vestingTerm, "second");
-    else if (bond.vestingTerm < 604800) return prettifySeconds(bond.vestingTerm, "hour");
-    else if (bond.vestingTerm < 2629743) return prettifySeconds(bond.vestingTerm, "day");
-    else if (bond.vestingTerm < 31556926) return prettifySeconds(bond.vestingTerm, "month");
-    else return prettifySeconds(bond.vestingTerm, "day");
+    return prettifySeconds(bond.vestingTerm, "day");
   };
 
   async function onBond() {

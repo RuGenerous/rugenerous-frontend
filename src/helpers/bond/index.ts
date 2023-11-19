@@ -130,6 +130,7 @@ export const benqi = new CustomBond({
 //   available: false,
 // });
 
+export default [dai, mimRug];
 export const mimRug = new LPBond({
   name: "mim_time_lp",
   displayName: "RUG-MIM JLP",

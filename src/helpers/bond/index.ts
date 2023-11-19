@@ -145,7 +145,8 @@ export const mimRug = new LPBond({
     },
   },
   lpUrl:
-    "https://traderjoexyz.com/avalanche/pool/v1/0x130966628846bfd36ff31a822705796e8cb8c18d/0x942f53a16bf2d1aa650fd456bdbb352a22b7b356",
+
+    "https://www.traderjoexyz.com/#/pool/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb8EF3a190b68175000B74B4160d325FD5024760e",
   available: true,
 });
 
@@ -272,4 +273,4 @@ export const timeRugRlp = new CustomLPBond({
 //   lpUrl: "https://app.pangolin.exchange/add/AVAX/0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
 // });
 
-export default [dai];
+export default [dai, mimRug];

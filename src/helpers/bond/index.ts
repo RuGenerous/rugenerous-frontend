@@ -145,7 +145,7 @@ export const mimRug = new LPBond({
   },
   lpUrl:
     "https://www.traderjoexyz.com/#/pool/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb8EF3a190b68175000B74B4160d325FD5024760e",
-  available: false,
+  available: true,
 });
 
 export const mimRuglp = new LPBond({
